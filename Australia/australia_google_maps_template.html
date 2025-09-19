@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australia Adventure Itinerary - Clean Maps</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --tertiary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --quaternary-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --surface-gradient: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            --dark-gradient: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 200, 255, 0.3) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #f1f5f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px rgba(255,255,255,0.3)); }
+            to { filter: drop-shadow(0 0 30px rgba(255,255,255,0.5)); }
+        }
+        
+        .trip-overview {
+            background: var(--surface-gradient);
+            backdrop-filter: blur(20px);
+            color: var(--text-primary);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        .trip-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .trip-overview h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: subtract;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .sydney-card {
+            background: var(--primary-gradient);
+            color: white;
+        }
+        .melbourne-card {
+            background: var(--secondary-gradient);
+            color: white;
+        }
+        .tasmania-card {
+            background: var(--quaternary-gradient);
+            color: white;
+        }
+        
+        .city-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .city-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .city-duration {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .cities-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .city-section {
+            background: var(--surface-gradient);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            animation: cardFloat 8s ease-in-out infinite;
+        }
+
+        .city-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: subtract;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+        }
+
+        .city-header {
+            padding: 3rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .city-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .sydney-header {
+            background: var(--primary-gradient);
+        }
+        .melbourne-header {
+            background: var(--secondary-gradient);
+        }
+        .tasmania-header {
+            background: var(--quaternary-gradient);
+        }
+
+        .city-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .city-subtitle {
+            opacity: 0.95;
+            font-size: 1.2rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .city-content {
+            padding: 2rem;
+        }
+
+        .day-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            align-items: stretch;
+        }
+
+        .day-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .day-block:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .day-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .day-map-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .map-section {
+            background: linear-gradient(135deg, #F5F2ED, #E8E1D8);
+            border-left: 1px solid rgba(199, 181, 158, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+        
+        .static-map {
+            width: 100%;
+            height: 300px;
+            background: #E8E1D8;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(199, 181, 158, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .activity-map {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: var(--surface);
+            flex: 1;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+            color: white;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .map-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .map-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .route-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1rem;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .route-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 0.5rem;
+        }
+
+        .route-stat {
+            text-align: center;
+        }
+
+        .route-stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .route-stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .activity-timeline {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .timeline-activity {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .timeline-activity:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .map-title {
+            font-weight: 600;
+            color: #2C2A28;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* Sydney Map */
+        .sydney-map {
+            background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 40%, #F0F8FF 100%);
+        }
+        
+        .sydney-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #65746B;
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .opera-house { top: 35%; left: 70%; }
+        .harbour-bridge { top: 30%; left: 65%; }
+        .the-rocks { top: 32%; left: 68%; }
+        .bondi { top: 65%; left: 85%; }
+        .manly { top: 15%; left: 75%; }
+        
+        /* Melbourne Map */
+        .melbourne-map {
+            background: linear-gradient(to bottom, #F5F2ED 0%, #E8E1D8 100%);
+        }
+        
+        .melbourne-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #8B7355;
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .cbd { top: 50%; left: 50%; }
+        .degraves { top: 52%; left: 52%; }
+        .botanic { top: 60%; left: 55%; }
+        .dandenong { top: 40%; left: 80%; }
+        
+        /* Tasmania Map */
+        .tasmania-map {
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 50%, #A8D5BA 100%);
+        }
+        
+        .tasmania-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #4A5A4A;
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .hobart { top: 85%; left: 50%; }
+        .wellington { top: 78%; left: 45%; }
+        .tahune { top: 75%; left: 35%; }
+        .cradle { top: 25%; left: 40%; }
+        .bruny { top: 90%; left: 55%; }
+        
+        
+        .sydney-day { 
+            background: linear-gradient(135deg, rgba(101, 116, 107, 0.08), rgba(126, 140, 127, 0.12)); 
+            border-left-color: #65746B;
+        }
+        .melbourne-day { 
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.08), rgba(160, 147, 125, 0.12)); 
+            border-left-color: #8B7355;
+        }
+        .tasmania-day { 
+            background: linear-gradient(135deg, rgba(74, 90, 74, 0.08), rgba(95, 111, 95, 0.12)); 
+            border-left-color: #4A5A4A;
+        }
+        
+        .day-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .day-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        .activity {
+            margin-bottom: 1rem;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border-left: 4px solid;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        }
+
+        .activity:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .activity-time {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .activity-time::before {
+            content: '⏰';
+            font-size: 0.9rem;
+        }
+
+        .activity-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .flight-activity {
+            border-left-color: #f59e0b;
+        }
+        .harbour-activity {
+            border-left-color: #06b6d4;
+        }
+        .culture-activity {
+            border-left-color: #8b5cf6;
+        }
+        .nature-activity {
+            border-left-color: #10b981;
+        }
+        .food-activity {
+            border-left-color: #f97316;
+        }
+        .beach-activity {
+            border-left-color: #3b82f6;
+        }
+        .transport-activity {
+            border-left-color: #6b7280;
+        }
+
+        .sydney-day .day-title::after { background: var(--primary-gradient); }
+        .melbourne-day .day-title::after { background: var(--secondary-gradient); }
+        .tasmania-day .day-title::after { background: var(--quaternary-gradient); }
+
+        .sydney-day::before { background: var(--primary-gradient); }
+        .melbourne-day::before { background: var(--secondary-gradient); }
+        .tasmania-day::before { background: var(--quaternary-gradient); }
+        
+        .map-legend {
+            font-size: 0.85em;
+            color: #5A574F;
+            text-align: center;
+        }
+
+        /* Leaflet custom marker styles */
+        .custom-marker {
+            background: linear-gradient(135deg, #65746B, #7E8C7F);
+            color: white;
+            border: 3px solid white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            line-height: 19px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+
+        .melbourne-marker-style {
+            background: linear-gradient(135deg, #8B7355, #A0937D);
+            color: white;
+            border: 3px solid white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            line-height: 19px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+
+        .tasmania-marker-style {
+            background: linear-gradient(135deg, #4A5A4A, #5F6F5F);
+            color: white;
+            border: 3px solid white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            line-height: 19px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+
+        /* Enhanced marker animations */
+        @keyframes markerPulse {
+            0% { transform: scale(1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+            50% { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+            100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        }
+
+        .enhanced-marker {
+            animation: markerPulse 2s ease-in-out infinite;
+        }
+
+        .enhanced-popup .leaflet-popup-content-wrapper {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+        }
+
+        .enhanced-popup .leaflet-popup-tip {
+            background: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .day-block {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                min-height: 400px;
+            }
+
+            .activity-map {
+                min-height: 350px;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .route-stats {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .activity-timeline {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Simple marker styling */
+        .simple-marker {
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .simple-marker:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        /* Flight Section Styling */
+        .flight-section {
+            background: var(--surface-gradient);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .flight-confirmation {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .confirmation-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            display: inline-block;
+            box-shadow: var(--shadow-md);
+        }
+
+        .confirmation-label {
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .confirmation-number {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .flights-container {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+        }
+
+        .flight-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .flight-card.outbound {
+            border-left: 4px solid #43e97b;
+        }
+
+        .flight-card.return {
+            border-left: 4px solid #f5576c;
+        }
+
+        .flight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .flight-number {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .airline-code {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .flight-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .class-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .flight-details {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .departure, .arrival {
+            text-align: center;
+        }
+
+        .departure {
+            text-align: left;
+        }
+
+        .arrival {
+            text-align: right;
+        }
+
+        .time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .airport .city {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .airport .code {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .flight-path {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 1rem;
+        }
+
+        .plane-icon {
+            font-size: 1.5rem;
+            transform: rotate(90deg);
+        }
+
+        .duration {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .flight-details {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .departure, .arrival {
+                text-align: center;
+            }
+
+            .plane-icon {
+                transform: rotate(0deg);
+            }
+
+            .flight-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Departure Day Styling */
+        .departure-header {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+        }
+
+        .departure-day {
+            background: linear-gradient(145deg, rgba(245, 87, 108, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+            border-left: 4px solid #f5576c;
+        }
+
+        /* Flight Route Styling */
+        .flight-route-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .route-header {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .route-header h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .route-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .distance {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .duration {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .flight-route-map {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+
+        @media (max-width: 768px) {
+            .route-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇦🇺 Australia Adventure Itinerary 🦘</h1>
+
+        <div class="trip-overview">
+            <h2 style="color: #2C2A28; text-align: center; margin-bottom: 25px; font-weight: 600;">Australia Adventure • Dec 4-15, 2025</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-card sydney-card">
+                    <div class="city-icon">🏙️</div>
+                    <div class="city-name">Sydney</div>
+                    <div class="city-duration">2 days • Harbour & Beaches</div>
+                </div>
+                <div class="overview-card melbourne-card">
+                    <div class="city-icon">🌿</div>
+                    <div class="city-name">Melbourne</div>
+                    <div class="city-duration">2 days • Nature & Urban Gardens</div>
+                </div>
+                <div class="overview-card tasmania-card">
+                    <div class="city-icon">🌲</div>
+                    <div class="city-name">Tasmania</div>
+                    <div class="city-duration">4.5 days • Wilderness & Wildlife</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cities-container">
+            <!-- DEPARTURE DAY THURSDAY -->
+            <div class="city-section">
+                <div class="city-header departure-header">
+                    <div class="city-title">✈️ Thursday - Departure from Houston</div>
+                    <div class="city-subtitle">Journey Begins</div>
+                </div>
+                <div class="city-content">
+                    <div class="itinerary-section">
+                        <div class="day-block departure-day">
+                            <div class="day-content">
+                                <div class="day-title">Thursday, December 4, 2025 - Departure Day</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">6:00 PM</div>
+                                    <div class="activity-desc">Arrive at Houston Intercontinental Airport (IAH) for check-in</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">8:25 PM</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL101" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA101</a> departure Houston (IAH) → Sydney (SYD)</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div class="flight-route-container">
+                                    <div class="route-header">
+                                        <h4>Houston → Sydney Flight Path</h4>
+                                        <div class="route-stats">
+                                            <span class="distance">8,596 miles (13,834 km)</span>
+                                            <span class="duration">~15h 35m</span>
+                                        </div>
+                                    </div>
+                                    <div id="departure-houston-map" class="activity-map departure-map flight-route-map"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SYDNEY SECTION -->
+            <div class="city-section">
+                <div class="city-header sydney-header">
+                    <div class="city-title">🏙️ Sydney</div>
+                    <div class="city-subtitle">Harbour City & Coastal Adventures</div>
+                </div>
+                <div class="city-content">
+                    <div class="itinerary-section">
+                        <div class="day-block sydney-day">
+                            <div class="day-content">
+                                <div class="day-title">Saturday - Arrival Day</div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">7:00 AM</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL101" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA101</a> arrives at Sydney (SYD) from Houston (IAH)</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">8:00-9:00 AM</div>
+                                    <div class="activity-desc">Airport pickup, transfer to Shangri-La Sydney in The Rocks (30-40 minutes)</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">10:00 AM</div>
+                                    <div class="activity-desc">🏨 Check-in at <a href="https://www.shangrilasydney.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">Shangri-La Sydney</a> • 176 Cumberland Street, The Rocks • Harbor views of Opera House & Bridge</div>
+                                </div>
+                                <div class="activity food-activity">
+                                    <div class="activity-time">11:00 AM</div>
+                                    <div class="activity-desc">Breakfast at <a href="https://therockscafe.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">The Rocks Cafe</a>, harbour walk to beat jet lag</div>
+                                </div>
+                                <div class="activity adventure-activity">
+                                    <div class="activity-time">12:00 PM - 3:00 PM</div>
+                                    <div class="activity-desc">🌉 <a href="https://www.bridgeclimb.com/" target="_blank" style="color: #667eea; text-decoration: none;">BridgeClimb Sydney</a> - Climb the iconic Sydney Harbour Bridge for panoramic harbor views</div>
+                                </div>
+                                <div class="activity culture-activity">
+                                    <div class="activity-time">3:30-6:00 PM</div>
+                                    <div class="activity-desc">Explore The Rocks historic area, weekend markets (post-BridgeClimb celebration)</div>
+                                </div>
+                                <div class="activity food-activity">
+                                    <div class="activity-time">6:00-9:00 PM</div>
+                                    <div class="activity-desc">Dinner at <a href="https://6headsydney.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">6Head Sydney</a> - modern Australian dining with harbor views</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="sydney-day1-map" class="activity-map sydney-map">
+                                    <div class="map-overlay">
+                                        <h3 class="map-title">Saturday Routes</h3>
+                                        <div class="map-controls">
+                                            <button class="map-btn" onclick="toggleSatellite('sydney-day1-map')">📡 Satellite</button>
+                                            <button class="map-btn" onclick="showRoutes('sydney-day1-map')">🗺️ Show Route</button>
+                                        </div>
+                                    </div>
+                                    <div class="route-info">
+                                        <div class="route-stats">
+                                            <div class="route-stat">
+                                                <span class="route-stat-value">25km</span>
+                                                <span class="route-stat-label">Total Distance</span>
+                                            </div>
+                                            <div class="route-stat">
+                                                <span class="route-stat-value">45min</span>
+                                                <span class="route-stat-label">Travel Time</span>
+                                            </div>
+                                            <div class="route-stat">
+                                                <span class="route-stat-value">4</span>
+                                                <span class="route-stat-label">Locations</span>
+                                            </div>
+                                        </div>
+                                        <div class="activity-timeline">
+                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 0)">🏛️ The Rocks</div>
+                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 1)">🍽️ Circular Quay</div>
+                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 2)">🌉 Harbour Bridge</div>
+                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 3)">🎭 Opera House</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="day-block sydney-day">
+                            <div class="day-content">
+                                <div class="day-title">Sunday - Bondi to Coogee Coastal Walk</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">8:00 AM</div>
+                                    <div class="activity-desc">Train to Bondi Junction, then bus to Bondi Beach (45 minutes from The Rocks)</div>
+                                </div>
+                                <div class="activity beach-activity">
+                                    <div class="activity-time">9:00 AM - 1:00 PM</div>
+                                    <div class="activity-desc">🏖️ <a href="https://www.sydney.com/things-to-do/nature-and-parks/walks/bondi-to-coogee-coastal-walk" target="_blank" style="color: #667eea; text-decoration: none;">Bondi to Coogee Coastal Walk</a> - 6km scenic cliff-top walk via Tamarama, Bronte, Clovelly beaches</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">1:00-5:00 PM</div>
+                                    <div class="activity-desc"><a href="https://www.botanicgardens.org.au/sydney" target="_blank" style="color: #667eea; text-decoration: none;">Royal Botanic Gardens</a> walk, Sydney Opera House exterior tour</div>
+                                </div>
+                                <div class="activity beach-activity">
+                                    <div class="activity-time">5:00-7:00 PM</div>
+                                    <div class="activity-desc"><a href="https://www.myfastferry.com.au/manly-circular-quay/" target="_blank" style="color: #667eea; text-decoration: none;">Ferry to Manly Beach</a> - scenic harbour crossing</div>
+                                </div>
+                                <div class="activity harbour-activity">
+                                    <div class="activity-time">7:00-9:00 PM</div>
+                                    <div class="activity-desc">Sunset ferry return, dinner in Darling Harbour</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="sydney-day2-map" class="activity-map sydney-map"></div>
+                            </div>
+                        </div>
+
+                        <div class="day-block sydney-day">
+                            <div class="day-content">
+                                <div class="day-title">Monday - Departure to Melbourne</div>
+                                <div class="activity harbour-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">Final harbour walk, last Sydney photos, breakfast</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">Late Morning</div>
+                                    <div class="activity-desc">Fly Sydney to Melbourne</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="sydney-day3-map" class="activity-map sydney-map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MELBOURNE SECTION -->
+            <div class="city-section">
+                <div class="city-header melbourne-header">
+                    <div class="city-title">🌿 Melbourne</div>
+                    <div class="city-subtitle">Nature & Urban Gardens</div>
+                </div>
+                <div class="city-content">
+                    <div class="itinerary-section">
+                        <div class="day-block melbourne-day">
+                            <div class="day-content">
+                                <div class="day-title">Monday - Arrival Day</div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">Arrive from Sydney, check into CBD accommodation</div>
+                                </div>
+                                <div class="activity culture-activity">
+                                    <div class="activity-time">Evening</div>
+                                    <div class="activity-desc">Explore Degraves Street laneways, street art, dinner</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="melbourne-day1-map" class="activity-map melbourne-map"></div>
+                            </div>
+                        </div>
+
+                        <div class="day-block melbourne-day">
+                            <div class="day-content">
+                                <div class="day-title">Tuesday - Nature & Gardens</div>
+                                <div class="activity food-activity">
+                                    <div class="activity-time">Early Morning</div>
+                                    <div class="activity-desc">Quick Melbourne coffee experience at Block Arcade</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">Morning (9am)</div>
+                                    <div class="activity-desc">Drive to Dandenong Ranges (1 hour east) - mountain forests</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">Sherbrooke Forest walks - listen for lyrebirds, spot native wildlife</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Midday</div>
+                                    <div class="activity-desc">Dandenong Ranges National Park - mountain ash forests, fern gullies</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Late Afternoon</div>
+                                    <div class="activity-desc">Royal Botanic Gardens Melbourne - native plant collections</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Evening</div>
+                                    <div class="activity-desc">Yarra River walk at sunset, dinner with city skyline views</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="melbourne-day2-map" class="activity-map melbourne-map"></div>
+                            </div>
+                        </div>
+
+                        <div class="day-block melbourne-day">
+                            <div class="day-content">
+                                <div class="day-title">Wednesday - Departure to Tasmania</div>
+                                <div class="activity food-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">Final Melbourne coffee in the laneways</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">Fly Melbourne to Hobart</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="melbourne-day3-map" class="activity-map melbourne-map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TASMANIA SECTION -->
+            <div class="city-section">
+                <div class="city-header tasmania-header">
+                    <div class="city-title">🌲 Tasmania</div>
+                    <div class="city-subtitle">Wilderness & Ancient Forests</div>
+                </div>
+                <div class="city-content">
+                    <div class="itinerary-section">
+                        <div class="day-block tasmania-day">
+                            <div class="day-content">
+                                <div class="day-title">Wednesday - Arrival & Local Nature</div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">Fly Melbourne to Hobart, pick up rental car</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">Mount Wellington summit drive - panoramic views of Hobart and Derwent River</div>
+                                </div>
+                                <div class="activity food-activity">
+                                    <div class="activity-time">Evening</div>
+                                    <div class="activity-desc">Hobart waterfront dining with mountain views</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="tasmania-day1-map" class="activity-map tasmania-map"></div>
+                            </div>
+                        </div>
+
+                        <div class="day-block tasmania-day">
+                            <div class="day-content">
+                                <div class="day-title">Thursday - Tahune Forest Adventures</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">Morning (9am)</div>
+                                    <div class="activity-desc">Drive to Tahune Adventures (1.5 hours southwest)</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Mid-Morning</div>
+                                    <div class="activity-desc">Tahune AirWalk - 597m treetop canopy walk 20m above forest floor</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">Huon River forest walks among ancient trees</div>
+                                </div>
+                                <div class="activity culture-activity">
+                                    <div class="activity-time">Evening</div>
+                                    <div class="activity-desc">Return via Richmond historic village</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="tasmania-day2-map" class="activity-map tasmania-map"></div>
+                            </div>
+                        </div>
+
+                        <div class="day-block tasmania-day">
+                            <div class="day-content">
+                                <div class="day-title">Friday - Cradle Mountain</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">Early Morning (7am)</div>
+                                    <div class="activity-desc">Drive to Cradle Mountain-Lake St Clair (2.5 hours north)</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">Dove Lake Circuit Walk (6km) - iconic Cradle Mountain reflections</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">Enchanted Walk through ancient rainforest, wombat spotting</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">Late Afternoon</div>
+                                    <div class="activity-desc">Drive back to Hobart (arrive evening)</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="tasmania-day3-map" class="activity-map tasmania-map"></div>
+                            </div>
+                        </div>
+
+                        <div class="day-block tasmania-day">
+                            <div class="day-content">
+                                <div class="day-title">Saturday - Bruny Island</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">Morning (8am)</div>
+                                    <div class="activity-desc">Drive to Kettering + ferry to Bruny Island</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">South Bruny National Park - coastal walks, rugged cliffs</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">Wildlife spotting - echidnas, wallabies, The Neck lookout</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">Late Afternoon</div>
+                                    <div class="activity-desc">Return ferry + drive to Hobart</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="tasmania-day4-map" class="activity-map tasmania-map"></div>
+                            </div>
+                        </div>
+
+                        <div class="day-block tasmania-day">
+                            <div class="day-content">
+                                <div class="day-title">Sunday - Departure</div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">Royal Tasmanian Botanical Gardens - native plant collections</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">Fly Hobart to Sydney for Monday departure to Houston</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div id="tasmania-day5-map" class="activity-map tasmania-map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEPARTURE DAY -->
+            <div class="city-section">
+                <div class="city-header departure-header">
+                    <div class="city-title">✈️ Monday - Departure from Sydney</div>
+                    <div class="city-subtitle">Journey Home</div>
+                </div>
+                <div class="city-content">
+                    <div class="itinerary-section">
+                        <div class="day-block departure-day">
+                            <div class="day-content">
+                                <div class="day-title">Monday, December 15, 2025 - Travel Day</div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">Early Morning</div>
+                                    <div class="activity-desc">Check out from Shangri-La Sydney, final packing with harbor views</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-desc">Depart hotel for Sydney Kingsford Smith Airport (SYD)</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">11:50 AM</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL100" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA100</a> departure Sydney (SYD) → Houston (IAH)</div>
+                                </div>
+                                <div class="activity arrival-activity">
+                                    <div class="activity-time">10:25 AM (Same Day)</div>
+                                    <div class="activity-desc">Arrive Houston, TX - End of Australia Adventure!</div>
+                                </div>
+                            </div>
+                            <div class="day-map-container">
+                                <div class="flight-route-container">
+                                    <div class="route-header">
+                                        <h4>Sydney → Houston Flight Path</h4>
+                                        <div class="route-stats">
+                                            <span class="distance">8,596 miles (13,834 km)</span>
+                                            <span class="duration">~17h 35m</span>
+                                        </div>
+                                    </div>
+                                    <div id="departure-day-map" class="activity-map departure-map flight-route-map"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Clean, simple map implementation - POINTS OF INTEREST ONLY
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Flight route map with Pacific Ocean view
+            function createFlightRouteMap(mapId, origin, destination) {
+                // Center map on Pacific Ocean with proper orientation
+                const map = L.map(mapId, {
+                    scrollWheelZoom: true,
+                    dragging: true,
+                    zoomControl: true
+                }).setView([10, 180], 3); // Pacific-centered view
+
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap contributors © CARTO'
+                }).addTo(map);
+
+                // Add origin marker
+                const originIcon = L.divIcon({
+                    className: 'simple-marker',
+                    html: '🛫',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
+                L.marker([origin.lat, origin.lng], {icon: originIcon})
+                    .addTo(map)
+                    .bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">Departure</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${origin.name}</p>
+                        </div>
+                    `);
+
+                // Add destination marker
+                const destIcon = L.divIcon({
+                    className: 'simple-marker',
+                    html: '🛬',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
+                L.marker([destination.lat, destination.lng], {icon: destIcon})
+                    .addTo(map)
+                    .bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">Arrival</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${destination.name}</p>
+                        </div>
+                    `);
+
+                // Add simple straight flight path line
+                L.polyline([[origin.lat, origin.lng], [destination.lat, destination.lng]], {
+                    color: '#667eea',
+                    weight: 3,
+                    opacity: 0.9,
+                    dashArray: '8, 4'
+                }).addTo(map);
+
+                // Fit map to show entire route
+                const bounds = L.latLngBounds([
+                    [origin.lat, origin.lng],
+                    [destination.lat, destination.lng]
+                ]);
+                map.fitBounds(bounds, {padding: [20, 20]});
+
+                return map;
+            }
+
+            // Simple map creation function
+            function createSimpleMap(mapId, center, zoom, locations) {
+                const map = L.map(mapId, {
+                    scrollWheelZoom: true,
+                    dragging: true,
+                    zoomControl: true
+                }).setView(center, zoom);
+
+                // Clean tile layer
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap contributors © CARTO'
+                }).addTo(map);
+
+                // Add simple markers
+                locations.forEach(location => {
+                    const marker = L.marker([location.lat, location.lng], {
+                        icon: L.divIcon({
+                            className: 'simple-marker',
+                            html: location.label,
+                            iconSize: [30, 30],
+                            iconAnchor: [15, 15]
+                        })
+                    }).addTo(map);
+
+                    // Simple popup - JUST LOCATION INFO
+                    marker.bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${location.description}</p>
+                        </div>
+                    `);
+                });
+
+                return map;
+            }
+
+            // Initialize all maps
+            createFlightRouteMap('departure-houston-map',
+                {lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)'},
+                {lat: -33.9461, lng: 151.1772 - 360, name: 'Sydney (SYD)'});
+
+            createSimpleMap('sydney-day1-map', [-33.8580, 151.2120], 14, [
+                {lat: -33.8594, lng: 151.2070, label: '🏨', name: 'Shangri-La Sydney', description: 'Luxury hotel with harbor views of Opera House & Bridge.'},
+                {lat: -33.8596, lng: 151.2085, label: '☕', name: 'The Rocks Cafe', description: '11:00 AM breakfast - perfect pre-BridgeClimb meal.'},
+                {lat: -33.8599, lng: 151.2090, label: '🏛️', name: 'The Rocks', description: 'Historic cobblestone streets with weekend markets.'},
+                {lat: -33.8614, lng: 151.2104, label: '🍽️', name: 'Circular Quay', description: 'Main ferry terminal with waterfront dining.'},
+                {lat: -33.8516, lng: 151.2108, label: '🧗', name: 'BridgeClimb Sydney', description: '12:00-3:00 PM - Climb the harbor bridge for panoramic views.'},
+                {lat: -33.8523, lng: 151.2108, label: '🌉', name: 'Harbour Bridge', description: 'Iconic steel arch bridge with city views.'},
+                {lat: -33.8568, lng: 151.2153, label: '🎭', name: 'Opera House', description: 'World-famous performing arts venue.'},
+                {lat: -33.8605, lng: 151.2095, label: '🍽️', name: '6Head Sydney', description: '6:00-9:00 PM dinner - Campbell\'s Stores, Circular Quay West.'}
+            ]);
+
+            createSimpleMap('sydney-day2-map', [-33.9000, 151.2600], 12, [
+                {lat: -33.8915, lng: 151.2767, label: '🏃', name: 'Bondi Beach', description: 'Start of coastal walk - famous golden sand beach.'},
+                {lat: -33.8947, lng: 151.2703, label: '🏖️', name: 'Tamarama Beach', description: 'Small scenic beach along coastal walk.'},
+                {lat: -33.8947, lng: 151.2629, label: '🚶', name: 'Bronte Beach', description: 'Family-friendly beach with park and pool.'},
+                {lat: -33.9061, lng: 151.2594, label: '🐠', name: 'Clovelly Beach', description: 'Protected bay perfect for snorkeling.'},
+                {lat: -33.9195, lng: 151.2583, label: '🏁', name: 'Coogee Beach', description: 'End of coastal walk - relaxed beach town vibe.'},
+                {lat: -33.8568, lng: 151.2153, label: '🎭', name: 'Opera House', description: 'Afternoon visit after coastal walk.'},
+                {lat: -33.8646, lng: 151.2166, label: '🌿', name: 'Botanic Gardens', description: 'Beautiful waterfront gardens.'}
+            ]);
+
+            createSimpleMap('sydney-day3-map', [-33.8580, 151.2120], 16, [
+                {lat: -33.8614, lng: 151.2104, label: '🌊', name: 'Harbour Walk', description: 'Final scenic harbor walk.'},
+                {lat: -33.8568, lng: 151.2153, label: '📸', name: 'Opera House', description: 'Last photo opportunity.'}
+            ]);
+
+            createSimpleMap('melbourne-day1-map', [-37.8152, 144.9648], 17, [
+                {lat: -37.8136, lng: 144.9631, label: '🏨', name: 'CBD Hotel', description: 'Central accommodation.'},
+                {lat: -37.8152, lng: 144.9648, label: '🎨', name: 'Degraves Street', description: 'Famous laneway with street art.'},
+                {lat: -37.8157, lng: 144.9666, label: '🍽️', name: 'Laneway Dining', description: 'Hidden restaurant gems.'}
+            ]);
+
+            createSimpleMap('melbourne-day2-map', [-37.8136, 144.9631], 10, [
+                {lat: -37.8105, lng: 144.9632, label: '☕', name: 'Block Arcade', description: 'Historic coffee culture spot.'},
+                {lat: -37.8400, lng: 145.2347, label: '🌲', name: 'Dandenong Ranges', description: 'Mountain forests with eucalyptus.'},
+                {lat: -37.8304, lng: 145.2358, label: '🐦', name: 'Sherbrooke Forest', description: 'Pristine rainforest with lyrebirds.'},
+                {lat: -37.8076, lng: 144.9568, label: '🌿', name: 'Botanic Gardens', description: 'Botanical gardens with native plants.'},
+                {lat: -37.8220, lng: 144.9633, label: '🌅', name: 'Yarra River', description: 'Riverside walks with city views.'}
+            ]);
+
+            createSimpleMap('melbourne-day3-map', [-37.8152, 144.9648], 17, [
+                {lat: -37.8152, lng: 144.9648, label: '☕', name: 'Final Coffee', description: 'Last Melbourne coffee experience.'}
+            ]);
+
+            createSimpleMap('tasmania-day1-map', [-42.8890, 147.2820], 13, [
+                {lat: -42.8821, lng: 147.3272, label: '🏨', name: 'Hobart City', description: 'Tasmania\'s charming capital.'},
+                {lat: -42.8963, lng: 147.2380, label: '⛰️', name: 'Mt Wellington', description: 'Summit with panoramic views.'},
+                {lat: -42.8826, lng: 147.3257, label: '🍽️', name: 'Waterfront Dining', description: 'Fresh seafood with mountain views.'}
+            ]);
+
+            createSimpleMap('tasmania-day2-map', [-43.0642, 146.8836], 10, [
+                {lat: -43.0642, lng: 146.8836, label: '🌿', name: 'Tahune AirWalk', description: 'Treetop canopy walk through forests.'},
+                {lat: -43.0598, lng: 146.8934, label: '🌊', name: 'Huon River', description: 'Pristine river through old-growth forests.'},
+                {lat: -42.7310, lng: 147.2595, label: '🏛️', name: 'Richmond Village', description: 'Historic convict-era village.'}
+            ]);
+
+            createSimpleMap('tasmania-day3-map', [-41.6780, 145.9600], 12, [
+                {lat: -41.6848, lng: 145.9599, label: '🏔️', name: 'Cradle Mountain', description: 'Iconic jagged peak.'},
+                {lat: -41.6687, lng: 145.9645, label: '🦘', name: 'Dove Lake', description: 'Perfect mountain reflections.'},
+                {lat: -41.6921, lng: 145.9513, label: '🌲', name: 'Enchanted Walk', description: 'Magical rainforest walk.'}
+            ]);
+
+            createSimpleMap('tasmania-day4-map', [-43.2500, 147.2500], 12, [
+                {lat: -43.1187, lng: 147.2663, label: '⛴️', name: 'Kettering Ferry', description: 'Ferry to Bruny Island.'},
+                {lat: -43.3848, lng: 147.2643, label: '🏞️', name: 'South Bruny NP', description: 'Rugged coastal cliffs.'},
+                {lat: -43.2987, lng: 147.2654, label: '👀', name: 'The Neck Lookout', description: 'Panoramic island views.'},
+                {lat: -43.3200, lng: 147.2800, label: '🦘', name: 'Wildlife Spotting', description: 'Native wildlife watching.'}
+            ]);
+
+            createSimpleMap('tasmania-day5-map', [-42.8690, 147.3190], 15, [
+                {lat: -42.8563, lng: 147.3115, label: '🌿', name: 'Botanical Gardens', description: 'Native plant collections.'},
+                {lat: -42.8821, lng: 147.3272, label: '🏨', name: 'Hobart City', description: 'Final moments in Tasmania.'}
+            ]);
+
+            createSimpleMap('departure-day-map', [-33.9000, 151.1500], 11, [
+                {lat: -33.8594, lng: 151.2070, label: '🏨', name: 'Shangri-La Sydney', description: 'Final checkout with harbor views.'},
+                {lat: -33.9461, lng: 151.1772, label: '✈️', name: 'Sydney Airport (SYD)', description: 'Kingsford Smith Airport - UA100 departure gate.'},
+                {lat: 29.9844, lng: -95.3414, label: '🏠', name: 'Houston Airport (IAH)', description: 'Home! End of Australia adventure.'}
+            ]);
+
+        });
+    </script>
+</body>
+</html>
