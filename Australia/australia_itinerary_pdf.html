@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australia Adventure Itinerary - PDF Version</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            margin: 0.75in 1in;
+            size: letter;
+            @top-left {
+                content: "AUSTRALIA ADVENTURE";
+                font-family: 'Inter', sans-serif;
+                font-size: 8pt;
+                font-weight: 500;
+                color: #64748b;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            @top-right {
+                content: "DEC 4-15, 2025";
+                font-family: 'Inter', sans-serif;
+                font-size: 8pt;
+                font-weight: 500;
+                color: #64748b;
+            }
+            @bottom-center {
+                content: counter(page);
+                font-family: 'Inter', sans-serif;
+                font-size: 10pt;
+                font-weight: 500;
+                color: #94a3b8;
+                background: #f1f5f9;
+                padding: 0.15in 0.25in;
+                border-radius: 20px;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 10pt;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 0.5in;
+            padding: 0.4in 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.03"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.04"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            z-index: 0;
+        }
+
+        .document-header * {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28pt;
+            font-weight: 700;
+            margin-bottom: 0.1in;
+            letter-spacing: -0.01em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 14pt;
+            font-weight: 400;
+            margin-bottom: 0.05in;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .trip-duration {
+            font-family: 'Inter', sans-serif;
+            font-size: 11pt;
+            font-weight: 300;
+            opacity: 0.8;
+            margin-top: 0.05in;
+        }
+
+        .map-section {
+            margin: 0.4in 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .map-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 0.3in;
+            margin: 0.2in auto;
+            width: 100%;
+            max-width: 6.5in;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, #2563eb, #10b981, #f59e0b);
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .map-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16pt;
+            font-weight: 600;
+            margin-bottom: 0.15in;
+            color: #0f172a;
+            position: relative;
+        }
+
+        .route-visual {
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #475569;
+            margin: 0.15in 0;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.05in;
+        }
+
+        .route-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.05in;
+        }
+
+        .route-arrow {
+            color: #2563eb;
+            font-weight: 700;
+            margin: 0 0.08in;
+            font-size: 10pt;
+        }
+
+        .route-stats {
+            font-size: 9pt;
+            color: #64748b;
+            margin-top: 0.15in;
+            padding: 0.1in 0.15in;
+            background: rgba(37, 99, 235, 0.04);
+            border-radius: 6px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .overview {
+            margin-bottom: 0.5in;
+            page-break-after: avoid;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 0.3in;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .overview h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16pt;
+            font-weight: 600;
+            margin-bottom: 0.2in;
+            color: #0f172a;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.1in;
+        }
+
+        .overview h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2in;
+            height: 2px;
+            background: linear-gradient(90deg, #2563eb, #10b981);
+            border-radius: 1px;
+        }
+
+        .overview-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.15in;
+            margin-top: 0.15in;
+            align-items: stretch;
+        }
+
+        .overview-item {
+            flex: 1;
+            background: white;
+            padding: 0.15in;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 10pt;
+            font-weight: 500;
+            color: #475569;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overview-item .emoji {
+            font-size: 16pt;
+            display: block;
+            margin-bottom: 0.05in;
+        }
+
+        .overview-item .city {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 11pt;
+            margin-bottom: 0.03in;
+        }
+
+        .overview-item .details {
+            font-size: 9pt;
+            color: #64748b;
+        }
+
+        .city-section {
+            page-break-before: always;
+            margin-bottom: 0.4in;
+            position: relative;
+        }
+
+        .city-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20pt;
+            font-weight: 700;
+            margin-bottom: 0.25in;
+            padding: 0.15in 0.2in;
+            page-break-after: avoid;
+            color: white;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .city-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .city-title * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-block {
+            margin-bottom: 0.3in;
+            page-break-before: always;
+            page-break-inside: avoid;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 0.2in;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .day-block::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 4px;
+            height: calc(100% + 2px);
+            background: linear-gradient(180deg, #2563eb, #10b981);
+            border-radius: 8px 0 0 8px;
+        }
+
+        .day-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 12pt;
+            font-weight: 700;
+            margin-bottom: 0.15in;
+            page-break-after: avoid;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding-bottom: 0.08in;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .activity {
+            margin-bottom: 0.12in;
+            page-break-inside: avoid;
+            padding: 0.08in 0.15in;
+            background: rgba(255,255,255,0.6);
+            border-radius: 6px;
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.1in;
+        }
+
+
+        .activity-time {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 9pt;
+            color: #2563eb;
+            min-width: 1.1in;
+            width: 1.1in;
+            background: rgba(37, 99, 235, 0.08);
+            padding: 0.04in 0.06in;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .activity-desc {
+            font-size: 10pt;
+            color: #334155;
+            line-height: 1.5;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        .flight-info {
+            font-style: italic;
+            color: #64748b;
+            font-size: 9pt;
+            font-weight: 500;
+            background: rgba(100, 116, 139, 0.05);
+            padding: 0.02in 0.05in;
+            border-radius: 3px;
+            display: block;
+            margin-top: 0.03in;
+        }
+
+        /* Ensure good page breaking */
+        .city-section,
+        .day-block,
+        .activity {
+            orphans: 2;
+            widows: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-header">
+        <h1>🇦🇺 Australia Adventure Itinerary 🦘</h1>
+        <h2>December 4-15, 2025</h2>
+        <div class="trip-duration">9 Days • 3 Cities • Unforgettable Journey</div>
+    </div>
+
+    <div class="overview">
+        <h3>Trip Overview</h3>
+        <div class="overview-grid">
+            <div class="overview-item">
+                <span class="emoji">🏙️</span>
+                <div class="city">Sydney</div>
+                <div class="details">2 days • Harbour & Beaches</div>
+            </div>
+            <div class="overview-item">
+                <span class="emoji">🌿</span>
+                <div class="city">Melbourne</div>
+                <div class="details">2 days • Great Ocean Road</div>
+            </div>
+            <div class="overview-item">
+                <span class="emoji">🌲</span>
+                <div class="city">Tasmania</div>
+                <div class="details">5 days • Wilderness & Wildlife</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-section">
+        <div class="map-container">
+            <div class="map-title">🗺️ Travel Route Overview</div>
+            <div class="route-visual">
+                <div class="route-line">
+                    🏠 Houston, TX
+                    <span class="route-arrow">✈️ 15h 35m →</span>
+                    🏙️ Sydney
+                    <span class="route-arrow">✈️ 1h 35m →</span>
+                    🌿 Melbourne
+                    <span class="route-arrow">✈️ 1h 20m →</span>
+                    🌲 Tasmania
+                </div>
+                <div class="route-line">
+                    🌲 Tasmania
+                    <span class="route-arrow">✈️ 1h 55m →</span>
+                    🏙️ Sydney
+                    <span class="route-arrow">✈️ 17h 35m →</span>
+                    🏠 Houston, TX
+                </div>
+            </div>
+            <div class="route-stats">
+                <strong>Total Distance:</strong> ~18,000 miles • <strong>Total Flight Time:</strong> ~37 hours
+            </div>
+        </div>
+    </div>
+
+    <div class="city-section">
+        <div class="city-title">✈️ Thursday, December 4, 2025 - Departure Day</div>
+        <div class="day-block">
+            <div class="activity">
+                <span class="activity-time">8:25 PM</span>
+                <span class="activity-desc">United Airlines UA101 departure Houston (IAH) → Sydney (SYD). <span class="flight-info">Boeing 787-9, 15h 35min flight, 8,596 miles.</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="city-section">
+        <div class="city-title">🏙️ Sydney - Harbour City & Coastal Adventures</div>
+
+        <div class="day-block">
+            <div class="day-title">Saturday, December 7 - Arrival Day</div>
+            <div class="activity">
+                <span class="activity-time">7:00 AM</span>
+                <span class="activity-desc">United Airlines UA101 arrives at Sydney (SYD) from Houston (IAH). <span class="flight-info">Boeing 787-9, 15h 35min flight, 8,596 miles.</span></span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">8:00-11:00 AM</span>
+                <span class="activity-desc">Take Airport Link train from Terminal 1 to Circular Quay (13 mins), walk to hotel (5 mins). Use Apple Pay at Opal readers. Check-in at Shangri-La Sydney, The Rocks with harbor views.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">11:00 AM</span>
+                <span class="activity-desc">Breakfast at The Rocks cafe - perfect pre-BridgeClimb meal.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">12:00-3:00 PM</span>
+                <span class="activity-desc">BridgeClimb Sydney - climb the harbor bridge for panoramic views.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">6:00-9:00 PM</span>
+                <span class="activity-desc">Dinner at 6Head Sydney - modern Australian dining with harbor views, Campbell's Stores, Circular Quay West.</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Sunday, December 8 - Coastal Walk</div>
+            <div class="activity">
+                <span class="activity-time">8:00-11:00 AM</span>
+                <span class="activity-desc">Bondi to Coogee coastal walk (6km) - Start at Bondi Beach, walk via Tamarama, Bronte, Clovelly to Coogee Beach. Scenic coastal views and beach stops.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">Afternoon</span>
+                <span class="activity-desc">Visit Opera House and Royal Botanic Gardens - world-famous performing arts venue and beautiful waterfront gardens.</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Monday, December 9 - Departure to Melbourne</div>
+            <div class="activity">
+                <span class="activity-time">6:00 AM</span>
+                <span class="activity-desc">Check out from Shangri-La Sydney, final packing with harbor views.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">7:00 AM</span>
+                <span class="activity-desc">Take Airport Link train from Circular Quay to Sydney Airport Terminal 3 (15 minutes).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">8:00 AM</span>
+                <span class="activity-desc">Qantas QF419 departure Sydney (SYD) Terminal 3 → Melbourne (MEL) Terminal 1. <span class="flight-info">Boeing 737-800, 1h 35min flight, 439 miles.</span></span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">9:35 AM</span>
+                <span class="activity-desc">Arrive Melbourne Tullamarine Airport Terminal 1.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="city-section">
+        <div class="city-title">🌿 Melbourne - Great Ocean Road Adventure</div>
+
+        <div class="day-block">
+            <div class="day-title">Monday, December 9 - Arrival Day</div>
+            <div class="activity">
+                <span class="activity-time">10:00 AM</span>
+                <span class="activity-desc">Uber/Taxi from Melbourne Airport to DoubleTree Flinders Street (25-30 minutes, $50-70).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">10:30 AM</span>
+                <span class="activity-desc">Check-in at DoubleTree by Hilton Melbourne Flinders Street, 270 Flinders Street, Melbourne VIC 3000. 2 nights (Dec 8-10).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">Evening</span>
+                <span class="activity-desc">Explore Degraves Street laneways, street art, dinner.</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Tuesday, December 10 - Great Ocean Road</div>
+            <div class="activity">
+                <span class="activity-time">5:00 AM</span>
+                <span class="activity-desc">Uber/Taxi from DoubleTree Flinders Street to Melbourne Airport (25-30 minutes, $50-70).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">6:00 AM</span>
+                <span class="activity-desc">Pickup SIXT rental car at Melbourne Airport - Toyota Yaris Cross or similar.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">6:30 AM - 9:30 AM</span>
+                <span class="activity-desc">Drive to Port Campbell (3 hours southwest).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">10:00 AM - 11:00 AM</span>
+                <span class="activity-desc">Port Campbell National Park - Twelve Apostles, Loch Ard Gorge, The Arch & London Bridge, The Grotto.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">11:00 AM - 12:00 PM</span>
+                <span class="activity-desc">Lunch in Port Campbell town.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">12:00 PM - 1:00 PM</span>
+                <span class="activity-desc">Cape Otway Lighthouse - Australia's oldest mainland lighthouse.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">1:00 PM - 2:30 PM</span>
+                <span class="activity-desc">Johanna Beach, Apollo Bay - scenic coastal stops.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">2:30 PM - 3:30 PM</span>
+                <span class="activity-desc">Otway National Park Detour - rainforest walks, waterfalls.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">3:30 PM - 5:00 PM</span>
+                <span class="activity-desc">Scenic Coastal Drive: Lorne, Kennett River, Memorial Arch, Aireys Inlet, Point Addis Lookout.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">5:00 PM - 6:00 PM</span>
+                <span class="activity-desc">Bells Beach, Torquay - world-famous surf spots.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">6:30 PM - 8:30 PM</span>
+                <span class="activity-desc">Drive back to Melbourne Airport (2 hours from Torquay).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">9:00 PM</span>
+                <span class="activity-desc">Return SIXT rental car at Melbourne Airport - Toyota Yaris Cross.</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Wednesday, December 11 - Melbourne to Tasmania</div>
+            <div class="activity">
+                <span class="activity-time">9:00 AM</span>
+                <span class="activity-desc">Final Melbourne coffee in the laneways.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">10:00 AM</span>
+                <span class="activity-desc">Check out from DoubleTree by Hilton Melbourne Flinders Street.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">11:00 AM</span>
+                <span class="activity-desc">Uber/Taxi to Melbourne Airport Terminal 1 for check-in (check-in closes 30 minutes before departure).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">12:25 PM</span>
+                <span class="activity-desc">Qantas QF1293 departure Melbourne (MEL) Terminal 1 → Hobart (HBA) Domestic Terminal. <span class="flight-info">Airbus A220-300 operated by QantasLink, 1h 20min flight, 378 miles.</span></span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">1:45 PM</span>
+                <span class="activity-desc">Arrive Hobart Airport.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="city-section">
+        <div class="city-title">🌲 Tasmania - Wilderness & Ancient Forests</div>
+
+        <div class="day-block">
+            <div class="day-title">Wednesday, December 11 - Arrival Day</div>
+            <div class="activity">
+                <span class="activity-time">1:45 PM</span>
+                <span class="activity-desc">Arrive Hobart Airport from Melbourne.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">3:00 PM</span>
+                <span class="activity-desc">Pickup SIXT rental car at Hobart Airport - Mazda CX3 or similar.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">3:30 PM - 5:30 PM</span>
+                <span class="activity-desc">Drive to kunanyi/Mount Wellington (30-40 mins). Summit boardwalks (10-20 mins). Views of Hobart, Derwent River, Bruny Island & Tasman Peninsula. Return to city.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">6:00 PM</span>
+                <span class="activity-desc">Check-in at Salamanca Wharf Hotel, Studio Apartment, 1 night (Dec 10-11), Check-in 2:00 PM onwards.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">Evening</span>
+                <span class="activity-desc">Dinner at nearby Salamanca Place or Hobart Wharf - local seafood or farm-to-table restaurants.</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Thursday, December 12 - Hobart → Strahan (Waterfalls & Rainforest)</div>
+            <div class="activity">
+                <span class="activity-time">7:30 AM</span>
+                <span class="activity-desc">Depart early via Lyell Highway.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">9:00 AM</span>
+                <span class="activity-desc">Mount Field NP - Russell Falls (20 min), Tall Trees Walk (30 min).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">11:30 AM</span>
+                <span class="activity-desc">Lake St Clair - Cynthia Bay walk, optional Platypus Bay Track.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">1:00-2:00 PM</span>
+                <span class="activity-desc">Franklin-Gordon Wild Rivers NP - Nelson Falls, Donaghys Hill Lookout, Franklin River Trail.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">5:30 PM</span>
+                <span class="activity-desc">Check-in at Strahan Village, Premium Harbour View Room, 2 nights (Dec 11-13).</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Friday, December 13 - Gordon River Cruise</div>
+            <div class="activity">
+                <span class="activity-time">8:00 AM-2:30 PM</span>
+                <span class="activity-desc">Gordon River cruise - 6hr cruise, Huon pine rainforest boardwalk.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">During cruise</span>
+                <span class="activity-desc">Sarah Island - Convict history stop during cruise.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">Afternoon</span>
+                <span class="activity-desc">Ocean Beach - Wild West Coast surf beach.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">Afternoon</span>
+                <span class="activity-desc">Hogarth Falls - 40 min rainforest walk from People's Park.</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Saturday, December 14 - Strahan → Cradle Mountain</div>
+            <div class="activity">
+                <span class="activity-time">7:30 AM</span>
+                <span class="activity-desc">Check out, 8:00 AM depart for Cradle Mountain.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">11:00 AM</span>
+                <span class="activity-desc">Arrive at Cradle Mountain NP - iconic alpine wilderness.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">11:30 AM-1:30 PM</span>
+                <span class="activity-desc">Dove Lake Circuit - 2hr hike with iconic Cradle Mountain views.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">2:00 PM</span>
+                <span class="activity-desc">Check-in at Cradle Mountain Hotel, Standard Room, includes buffet breakfast.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">Afternoon</span>
+                <span class="activity-desc">Enchanted Walk - 20 min rainforest stroll, wombat spotting.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">Evening</span>
+                <span class="activity-desc">Devils@Cradle - Optional night tour, Tasmanian devils & quolls.</span>
+            </div>
+        </div>
+
+        <div class="day-block">
+            <div class="day-title">Sunday, December 15 - Cradle Mountain → Hobart → Sydney</div>
+            <div class="activity">
+                <span class="activity-time">Early morning</span>
+                <span class="activity-desc">Ronny Creek & Falls - Optional wombat spotting, Pencil Pine & Knyvet Falls.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">8:00 AM</span>
+                <span class="activity-desc">Buffet breakfast at Altitude Restaurant (included).</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">9:30 AM</span>
+                <span class="activity-desc">Check out from Cradle Mountain Hotel.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">10:00 AM</span>
+                <span class="activity-desc">Begin 4.5hr drive to Hobart via highlands.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">2:30-3:00 PM</span>
+                <span class="activity-desc">Return SIXT rental car.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">4:50 PM</span>
+                <span class="activity-desc">Qantas QF996 departure Hobart (HBA) Domestic Terminal → Sydney (SYD) Terminal 3. <span class="flight-info">Boeing 737-800, 1h 55min flight, 634 miles.</span></span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">6:45 PM</span>
+                <span class="activity-desc">Arrive Sydney Airport.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="city-section">
+        <div class="city-title">✈️ Monday, December 16, 2025 - Travel Day</div>
+        <div class="day-block">
+            <div class="activity">
+                <span class="activity-time">6:00 AM</span>
+                <span class="activity-desc">Check-in for departure.</span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">11:50 AM</span>
+                <span class="activity-desc">United Airlines UA100 departure Sydney (SYD) → Houston (IAH). <span class="flight-info">Boeing 787-9, 17h 35min flight, 8,596 miles.</span></span>
+            </div>
+            <div class="activity">
+                <span class="activity-time">10:25 AM (Same Day)</span>
+                <span class="activity-desc">Arrive Houston, TX - End of Australia Adventure!</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
