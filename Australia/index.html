@@ -1140,10 +1140,10 @@
             .overview-card {
                 display: block !important;
                 background: none !important;
-                border: 1px solid #ccc !important;
+                border: none !important;
                 border-radius: 0 !important;
-                margin: 0.1in 0 !important;
-                padding: 0.1in !important;
+                margin: 0.05in 0 !important;
+                padding: 0 !important;
                 box-shadow: none !important;
                 page-break-inside: avoid !important;
             }
@@ -1176,9 +1176,9 @@
 
             .city-header {
                 background: none !important;
-                border-bottom: 2pt solid black !important;
-                margin-bottom: 0.2in !important;
-                padding: 0.1in 0 !important;
+                border: none !important;
+                margin-bottom: 0.15in !important;
+                padding: 0 !important;
             }
 
             .city-title {
@@ -1198,11 +1198,11 @@
 
             /* Day blocks */
             .day-block {
-                background: white !important;
-                border: 1px solid #ddd !important;
+                background: none !important;
+                border: none !important;
                 border-radius: 0 !important;
-                margin: 0.15in 0 !important;
-                padding: 0.15in !important;
+                margin: 0.1in 0 !important;
+                padding: 0 !important;
                 box-shadow: none !important;
                 display: block !important;
                 page-break-inside: avoid !important;
@@ -1216,9 +1216,9 @@
                 font-size: 14pt !important;
                 font-weight: bold !important;
                 color: black !important;
-                margin: 0 0 0.1in 0 !important;
-                border-bottom: 1pt solid #ccc !important;
-                padding-bottom: 0.05in !important;
+                margin: 0 0 0.08in 0 !important;
+                border: none !important;
+                padding: 0 !important;
             }
 
             .day-title::after {
@@ -1232,10 +1232,9 @@
 
             /* Activities */
             .activity {
-                margin: 0.08in 0 !important;
-                padding: 0.05in 0 !important;
-                border-left: 2pt solid #ccc !important;
-                padding-left: 0.1in !important;
+                margin: 0.05in 0 !important;
+                padding: 0 !important;
+                border: none !important;
                 page-break-inside: avoid !important;
             }
 
@@ -1252,57 +1251,26 @@
                 line-height: 1.3 !important;
             }
 
-            /* Show URLs for links */
-            .activity-desc a::after {
-                content: " (" attr(href) ")" !important;
-                font-size: 8pt !important;
-                color: #666 !important;
-                font-weight: normal !important;
+            /* Remove all links - show only text content */
+            .activity-desc a {
+                color: inherit !important;
+                text-decoration: none !important;
             }
 
-            /* Hide maps completely and show placeholder */
+            .activity-desc a::after {
+                display: none !important;
+            }
+
+            /* Hide maps completely - no placeholder */
             .day-map-container {
-                display: block !important;
-                margin: 0.1in 0 !important;
+                display: none !important;
             }
 
             .activity-map {
                 display: none !important;
             }
 
-            .activity-map::before {
-                content: "📍 Interactive map available online" !important;
-                display: block !important;
-                font-size: 10pt !important;
-                color: #666 !important;
-                font-style: italic !important;
-                text-align: center !important;
-                padding: 0.1in !important;
-                border: 1px dashed #ccc !important;
-            }
-
-            /* Activity type colors for print */
-            .flight-activity {
-                border-left-color: #333 !important;
-            }
-
-            .transport-activity {
-                border-left-color: #666 !important;
-            }
-
-            .hotel-activity {
-                border-left-color: #999 !important;
-            }
-
-            .food-activity {
-                border-left-color: #555 !important;
-            }
-
-            .culture-activity,
-            .nature-activity,
-            .beach-activity {
-                border-left-color: #777 !important;
-            }
+            /* No activity type styling needed for clean text version */
 
             /* Page breaks */
             .cities-container > div:not(:first-child) {

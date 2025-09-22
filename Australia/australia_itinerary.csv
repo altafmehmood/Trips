@@ -1,0 +1,62 @@
+Date,Day,City,Time,Activity Type,Description,Location,Notes
+2025-12-04,Thursday,Houston,8:25 PM,Flight,United Airlines UA101 departure Houston (IAH) → Sydney (SYD),Houston Intercontinental Airport,Boeing 787-9; 15h 35min flight; 8596 miles
+2025-12-07,Saturday,Sydney,7:00 AM,Flight,United Airlines UA101 arrives at Sydney (SYD) from Houston (IAH),Sydney Kingsford Smith Airport,Boeing 787-9; 15h 35min flight; 8596 miles
+2025-12-07,Saturday,Sydney,8:00-11:00 AM,Transport,Take Airport Link train from Terminal 1 to Circular Quay (13 mins) and check-in at Shangri-La Sydney,Circular Quay,Use Apple Pay at Opal readers
+2025-12-07,Saturday,Sydney,11:00 AM,Food,Breakfast at The Rocks cafe,The Rocks,Pre-BridgeClimb meal
+2025-12-07,Saturday,Sydney,12:00-3:00 PM,Adventure,BridgeClimb Sydney - climb the harbor bridge,Sydney Harbour Bridge,Panoramic views
+2025-12-07,Saturday,Sydney,6:00-9:00 PM,Food,Dinner at 6Head Sydney,Campbell's Stores Circular Quay West,Modern Australian dining with harbor views
+2025-12-08,Sunday,Sydney,8:00-11:00 AM,Nature,Bondi to Coogee coastal walk,Bondi Beach to Coogee Beach,6km scenic coastal walk via Tamarama; Bronte; Clovelly
+2025-12-08,Sunday,Sydney,Afternoon,Culture,Visit Opera House and Royal Botanic Gardens,Sydney Opera House & Botanic Gardens,World-famous performing arts venue and waterfront gardens
+2025-12-09,Monday,Sydney,6:00 AM,Hotel,Check out from Shangri-La Sydney,Shangri-La Sydney,Final packing with harbor views
+2025-12-09,Monday,Sydney,7:00 AM,Transport,Take Airport Link train from Circular Quay to Sydney Airport Terminal 3,Sydney Airport,15 minutes
+2025-12-09,Monday,Sydney,8:00 AM,Flight,Qantas QF419 departure Sydney (SYD) Terminal 3 → Melbourne (MEL) Terminal 1,Sydney Airport,Boeing 737-800; 1h 35min flight; 439 miles
+2025-12-09,Monday,Melbourne,9:35 AM,Flight,Arrive Melbourne Tullamarine Airport Terminal 1,Melbourne Airport,
+2025-12-09,Monday,Melbourne,10:00 AM,Transport,Uber/Taxi from Melbourne Airport to DoubleTree Flinders Street,Melbourne CBD,25-30 minutes; $50-70
+2025-12-09,Monday,Melbourne,10:30 AM,Hotel,Check-in at DoubleTree by Hilton Melbourne Flinders Street,270 Flinders Street Melbourne,2 nights (Dec 8-10)
+2025-12-09,Monday,Melbourne,Evening,Culture,Explore Degraves Street laneways and street art,Degraves Street,Dinner in famous laneways
+2025-12-10,Tuesday,Melbourne,5:00 AM,Transport,Uber/Taxi from DoubleTree Flinders Street to Melbourne Airport,Melbourne Airport,25-30 minutes; $50-70
+2025-12-10,Tuesday,Melbourne,6:00 AM,Transport,Pickup SIXT rental car at Melbourne Airport,Melbourne Airport,Toyota Yaris Cross or similar
+2025-12-10,Tuesday,Melbourne,6:30 AM - 9:30 AM,Transport,Drive to Port Campbell,Great Ocean Road,3 hours southwest
+2025-12-10,Tuesday,Port Campbell,10:00 AM - 11:00 AM,Nature,Port Campbell National Park - Twelve Apostles and Loch Ard Gorge,Port Campbell National Park,Iconic limestone stacks; The Arch & London Bridge; The Grotto
+2025-12-10,Tuesday,Port Campbell,11:00 AM - 12:00 PM,Food,Lunch in Port Campbell town,Port Campbell,Seaside town
+2025-12-10,Tuesday,Cape Otway,12:00 PM - 1:00 PM,Culture,Cape Otway Lighthouse,Cape Otway,Australia's oldest mainland lighthouse
+2025-12-10,Tuesday,Apollo Bay,1:00 PM - 2:30 PM,Nature,Johanna Beach and Apollo Bay,Great Ocean Road,Wild surf beach and popular coastal resort town
+2025-12-10,Tuesday,Otway,2:30 PM - 3:30 PM,Nature,Otway National Park Detour,Great Otway National Park,Rainforest walks and waterfalls
+2025-12-10,Tuesday,Lorne,3:30 PM - 5:00 PM,Nature,Scenic Coastal Drive: Lorne; Kennett River; Memorial Arch; Aireys Inlet; Point Addis Lookout,Great Ocean Road,Scenic coastal towns
+2025-12-10,Tuesday,Torquay,5:00 PM - 6:00 PM,Adventure,Bells Beach and Torquay,Surf Coast,World-famous surf spots
+2025-12-10,Tuesday,Melbourne,6:30 PM - 8:30 PM,Transport,Drive back to Melbourne Airport,Melbourne Airport,2 hours from Torquay
+2025-12-10,Tuesday,Melbourne,9:00 PM,Transport,Return SIXT rental car at Melbourne Airport,Melbourne Airport,Toyota Yaris Cross
+2025-12-11,Wednesday,Melbourne,9:00 AM,Food,Final Melbourne coffee in the laneways,Melbourne CBD,Last Melbourne coffee experience
+2025-12-11,Wednesday,Melbourne,10:00 AM,Hotel,Check out from DoubleTree by Hilton Melbourne Flinders Street,DoubleTree Melbourne,
+2025-12-11,Wednesday,Melbourne,11:00 AM,Transport,Uber/Taxi to Melbourne Airport Terminal 1,Melbourne Airport,Check-in closes 30 minutes before departure
+2025-12-11,Wednesday,Melbourne,12:25 PM,Flight,Qantas QF1293 departure Melbourne (MEL) Terminal 1 → Hobart (HBA) Domestic Terminal,Melbourne Airport,Airbus A220-300 operated by QantasLink; 1h 20min flight; 378 miles
+2025-12-11,Wednesday,Hobart,1:45 PM,Flight,Arrive Hobart Airport,Hobart Airport,
+2025-12-11,Wednesday,Hobart,3:00 PM,Transport,Pickup SIXT rental car at Hobart Airport,Hobart Airport,Mazda CX3 or similar
+2025-12-11,Wednesday,Hobart,3:30 PM - 5:30 PM,Nature,Drive to kunanyi/Mount Wellington,kunanyi/Mount Wellington,Summit boardwalks; Views of Hobart; Derwent River; Bruny Island & Tasman Peninsula
+2025-12-11,Wednesday,Hobart,6:00 PM,Hotel,Check-in at Salamanca Wharf Hotel,Salamanca Wharf Hotel,Studio Apartment; 1 night (Dec 10-11)
+2025-12-11,Wednesday,Hobart,Evening,Food,Dinner at nearby Salamanca Place,Salamanca Place,Local seafood or farm-to-table restaurants
+2025-12-12,Thursday,Hobart,7:30 AM,Transport,Depart early via Lyell Highway,Hobart to Mount Field,
+2025-12-12,Thursday,Mount Field,9:00 AM,Nature,Mount Field NP - Russell Falls (20 min) and Tall Trees Walk (30 min),Mount Field National Park,
+2025-12-12,Thursday,Lake St Clair,11:30 AM,Nature,Lake St Clair - Cynthia Bay walk and optional Platypus Bay Track,Lake St Clair,
+2025-12-12,Thursday,Franklin-Gordon,1:00-2:00 PM,Nature,Franklin-Gordon Wild Rivers NP - Nelson Falls; Donaghys Hill Lookout; Franklin River Trail,Franklin-Gordon Wild Rivers National Park,
+2025-12-12,Thursday,Strahan,5:30 PM,Hotel,Check-in at Strahan Village,Strahan Village,Premium Harbour View Room; 2 nights (Dec 11-13)
+2025-12-13,Friday,Strahan,8:00 AM-2:30 PM,Adventure,Gordon River cruise,Gordon River,6hr cruise; Huon pine rainforest boardwalk; Sarah Island convict history stop
+2025-12-13,Friday,Strahan,Afternoon,Nature,Ocean Beach - wild West Coast surf beach,Ocean Beach,
+2025-12-13,Friday,Strahan,Afternoon,Nature,Hogarth Falls,Hogarth Falls,40 min rainforest walk from People's Park
+2025-12-14,Saturday,Strahan,7:30 AM,Hotel,Check out from Strahan Village,Strahan Village,
+2025-12-14,Saturday,Cradle Mountain,8:00 AM,Transport,Depart for Cradle Mountain,Cradle Mountain National Park,
+2025-12-14,Saturday,Cradle Mountain,11:00 AM,Nature,Arrive at Cradle Mountain NP,Cradle Mountain National Park,Iconic alpine wilderness
+2025-12-14,Saturday,Cradle Mountain,11:30 AM-1:30 PM,Adventure,Dove Lake Circuit,Dove Lake,2hr hike with iconic Cradle Mountain views
+2025-12-14,Saturday,Cradle Mountain,2:00 PM,Hotel,Check-in at Cradle Mountain Hotel,Cradle Mountain Hotel,Standard Room; includes buffet breakfast
+2025-12-14,Saturday,Cradle Mountain,Afternoon,Nature,Enchanted Walk,Cradle Mountain,20 min rainforest stroll; wombat spotting
+2025-12-14,Saturday,Cradle Mountain,Evening,Adventure,Devils@Cradle night tour (optional),Cradle Mountain,Tasmanian devils & quolls
+2025-12-15,Sunday,Cradle Mountain,Early morning,Nature,Ronny Creek & Falls (optional),Cradle Mountain,Wombat spotting; Pencil Pine & Knyvet Falls
+2025-12-15,Sunday,Cradle Mountain,8:00 AM,Food,Buffet breakfast at Altitude Restaurant,Cradle Mountain Hotel,Included with stay
+2025-12-15,Sunday,Cradle Mountain,9:30 AM,Hotel,Check out from Cradle Mountain Hotel,Cradle Mountain Hotel,
+2025-12-15,Sunday,Hobart,10:00 AM,Transport,Begin 4.5hr drive to Hobart via highlands,Cradle Mountain to Hobart,Scenic drive route
+2025-12-15,Sunday,Hobart,2:30-3:00 PM,Transport,Return SIXT rental car at Hobart Airport,Hobart Airport,
+2025-12-15,Sunday,Hobart,4:50 PM,Flight,Qantas QF996 departure Hobart (HBA) Domestic Terminal → Sydney (SYD) Terminal 3,Hobart Airport,Boeing 737-800; 1h 55min flight; 634 miles
+2025-12-15,Sunday,Sydney,6:45 PM,Flight,Arrive Sydney Airport,Sydney Airport,
+2025-12-16,Monday,Sydney,6:00 AM,Transport,Check-in for departure,Sydney Airport Terminal 3,
+2025-12-16,Monday,Sydney,11:50 AM,Flight,United Airlines UA100 departure Sydney (SYD) → Houston (IAH),Sydney Airport,Boeing 787-9; 17h 35min flight; 8596 miles
+2025-12-16,Monday,Houston,10:25 AM,Flight,Arrive Houston TX - End of Australia Adventure,Houston Intercontinental Airport,Same day arrival due to time zone change
