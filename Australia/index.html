@@ -1083,6 +1083,261 @@
             }
         }
 
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: white !important;
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            body::before {
+                display: none !important;
+            }
+
+            .container {
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0.5in !important;
+            }
+
+            h1 {
+                font-size: 24pt !important;
+                background: none !important;
+                color: black !important;
+                -webkit-background-clip: initial !important;
+                -webkit-text-fill-color: initial !important;
+                text-align: center !important;
+                margin: 0 0 0.25in 0 !important;
+                page-break-after: avoid !important;
+            }
+
+            h2 {
+                font-size: 14pt !important;
+                color: black !important;
+                margin: 0.2in 0 0.1in 0 !important;
+                page-break-after: avoid !important;
+            }
+
+            /* Overview cards - convert to simple text list */
+            .trip-overview {
+                margin-bottom: 0.25in !important;
+            }
+
+            .overview-grid {
+                display: block !important;
+                margin: 0.2in 0 !important;
+            }
+
+            .overview-card {
+                display: block !important;
+                background: none !important;
+                border: 1px solid #ccc !important;
+                border-radius: 0 !important;
+                margin: 0.1in 0 !important;
+                padding: 0.1in !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+            }
+
+            .city-icon {
+                display: inline !important;
+                font-size: 12pt !important;
+                margin-right: 0.1in !important;
+            }
+
+            .city-name {
+                display: inline !important;
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                color: black !important;
+            }
+
+            .city-duration {
+                display: inline !important;
+                font-size: 10pt !important;
+                color: #666 !important;
+                margin-left: 0.1in !important;
+            }
+
+            /* City sections */
+            .city-section {
+                page-break-before: always !important;
+                margin: 0 !important;
+            }
+
+            .city-header {
+                background: none !important;
+                border-bottom: 2pt solid black !important;
+                margin-bottom: 0.2in !important;
+                padding: 0.1in 0 !important;
+            }
+
+            .city-title {
+                font-size: 18pt !important;
+                color: black !important;
+                background: none !important;
+                -webkit-background-clip: initial !important;
+                -webkit-text-fill-color: initial !important;
+                margin: 0 !important;
+            }
+
+            .city-subtitle {
+                font-size: 11pt !important;
+                color: #666 !important;
+                margin: 0 !important;
+            }
+
+            /* Day blocks */
+            .day-block {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                border-radius: 0 !important;
+                margin: 0.15in 0 !important;
+                padding: 0.15in !important;
+                box-shadow: none !important;
+                display: block !important;
+                page-break-inside: avoid !important;
+            }
+
+            .day-block::before {
+                display: none !important;
+            }
+
+            .day-title {
+                font-size: 14pt !important;
+                font-weight: bold !important;
+                color: black !important;
+                margin: 0 0 0.1in 0 !important;
+                border-bottom: 1pt solid #ccc !important;
+                padding-bottom: 0.05in !important;
+            }
+
+            .day-title::after {
+                display: none !important;
+            }
+
+            .day-content {
+                display: block !important;
+                margin-bottom: 0.1in !important;
+            }
+
+            /* Activities */
+            .activity {
+                margin: 0.08in 0 !important;
+                padding: 0.05in 0 !important;
+                border-left: 2pt solid #ccc !important;
+                padding-left: 0.1in !important;
+                page-break-inside: avoid !important;
+            }
+
+            .activity-time {
+                font-weight: bold !important;
+                font-size: 10pt !important;
+                color: black !important;
+                margin-bottom: 0.02in !important;
+            }
+
+            .activity-desc {
+                font-size: 10pt !important;
+                color: black !important;
+                line-height: 1.3 !important;
+            }
+
+            /* Show URLs for links */
+            .activity-desc a::after {
+                content: " (" attr(href) ")" !important;
+                font-size: 8pt !important;
+                color: #666 !important;
+                font-weight: normal !important;
+            }
+
+            /* Hide maps completely and show placeholder */
+            .day-map-container {
+                display: block !important;
+                margin: 0.1in 0 !important;
+            }
+
+            .activity-map {
+                display: none !important;
+            }
+
+            .activity-map::before {
+                content: "📍 Interactive map available online" !important;
+                display: block !important;
+                font-size: 10pt !important;
+                color: #666 !important;
+                font-style: italic !important;
+                text-align: center !important;
+                padding: 0.1in !important;
+                border: 1px dashed #ccc !important;
+            }
+
+            /* Activity type colors for print */
+            .flight-activity {
+                border-left-color: #333 !important;
+            }
+
+            .transport-activity {
+                border-left-color: #666 !important;
+            }
+
+            .hotel-activity {
+                border-left-color: #999 !important;
+            }
+
+            .food-activity {
+                border-left-color: #555 !important;
+            }
+
+            .culture-activity,
+            .nature-activity,
+            .beach-activity {
+                border-left-color: #777 !important;
+            }
+
+            /* Page breaks */
+            .cities-container > div:not(:first-child) {
+                page-break-before: always !important;
+            }
+
+            /* Footer for each page */
+            @page {
+                margin: 0.75in 0.5in 0.75in 0.5in !important;
+                @bottom-center {
+                    content: "Australia Adventure Itinerary • Page " counter(page) !important;
+                    font-size: 9pt !important;
+                    color: #666 !important;
+                }
+            }
+
+            /* Ensure good printing behavior */
+            .overview-card,
+            .day-block,
+            .activity {
+                orphans: 2 !important;
+                widows: 2 !important;
+            }
+
+            /* Print table of contents style for overview */
+            .overview-grid::before {
+                content: "Trip Overview:" !important;
+                display: block !important;
+                font-weight: bold !important;
+                font-size: 12pt !important;
+                margin-bottom: 0.1in !important;
+                color: black !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1129,20 +1384,11 @@
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">8:25 PM</div>
-                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL101" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA101</a> departure Houston (IAH) → Sydney (SYD)</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL101" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA101</a> departure Houston (IAH) → Sydney (SYD). Boeing 787-9, 15h 35min flight, 8,596 miles.</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
-                                <div class="flight-route-container">
-                                    <div class="route-header">
-                                        <h4>Houston → Sydney Flight Path</h4>
-                                        <div class="route-stats">
-                                            <span class="distance">8,596 miles (13,834 km)</span>
-                                            <span class="duration">~15h 35m</span>
-                                        </div>
-                                    </div>
-                                    <div id="departure-houston-map" class="activity-map departure-map flight-route-map"></div>
-                                </div>
+                                <div id="departure-houston-map" class="activity-map departure-map flight-route-map"></div>
                             </div>
                         </div>
                     </div>
@@ -1162,7 +1408,7 @@
                                 <div class="day-title">Saturday - Arrival Day</div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">7:00 AM</div>
-                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL101" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA101</a> arrives at Sydney (SYD) from Houston (IAH)</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL101" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA101</a> arrives at Sydney (SYD) from Houston (IAH). Boeing 787-9, 15h 35min flight, 8,596 miles.</div>
                                 </div>
                                 <div class="activity transport-activity">
                                     <div class="activity-time">8:00-11:00 AM</div>
@@ -1186,37 +1432,7 @@
                                 </div>
                             </div>
                             <div class="day-map-container">
-                                <div id="sydney-day1-map" class="activity-map sydney-map">
-                                    <div class="map-overlay">
-                                        <h3 class="map-title">Saturday Routes</h3>
-                                        <div class="map-controls">
-                                            <button class="map-btn" onclick="toggleSatellite('sydney-day1-map')">📡 Satellite</button>
-                                            <button class="map-btn" onclick="showRoutes('sydney-day1-map')">🗺️ Show Route</button>
-                                        </div>
-                                    </div>
-                                    <div class="route-info">
-                                        <div class="route-stats">
-                                            <div class="route-stat">
-                                                <span class="route-stat-value">25km</span>
-                                                <span class="route-stat-label">Total Distance</span>
-                                            </div>
-                                            <div class="route-stat">
-                                                <span class="route-stat-value">45min</span>
-                                                <span class="route-stat-label">Travel Time</span>
-                                            </div>
-                                            <div class="route-stat">
-                                                <span class="route-stat-value">4</span>
-                                                <span class="route-stat-label">Locations</span>
-                                            </div>
-                                        </div>
-                                        <div class="activity-timeline">
-                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 0)">🏛️ The Rocks</div>
-                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 1)">🍽️ Circular Quay</div>
-                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 2)">🌉 Harbour Bridge</div>
-                                            <div class="timeline-activity" onclick="focusLocation('sydney-day1-map', 3)">🎭 Opera House</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div id="sydney-day1-map" class="activity-map sydney-map"></div>
                             </div>
                         </div>
 
@@ -1262,7 +1478,7 @@
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">8:00 AM</div>
-                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA419" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF419</a> departure Sydney (SYD) Terminal 3 → Melbourne (MEL) Terminal 1. Boeing 737-800, Economy Class, 1h 35min flight.</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA419" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF419</a> departure Sydney (SYD) Terminal 3 → Melbourne (MEL) Terminal 1. Boeing 737-800, 1h 35min flight, 439 miles.</div>
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">9:35 AM</div>
@@ -1380,7 +1596,7 @@
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">12:25 PM</div>
-                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA1293" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF1293</a> departure Melbourne (MEL) Terminal 1 → Hobart (HBA) Domestic Terminal. Airbus A220-300 operated by QantasLink, Economy Class, 1h 20min flight.</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA1293" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF1293</a> departure Melbourne (MEL) Terminal 1 → Hobart (HBA) Domestic Terminal. Airbus A220-300 operated by QantasLink, 1h 20min flight, 378 miles.</div>
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">1:45 PM</div>
@@ -1553,7 +1769,7 @@
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">4:50 PM</div>
-                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA996" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF996</a> departure Hobart (HBA) Domestic Terminal → Sydney (SYD) Terminal 3. Boeing 737-800, Economy Class, 1h 55min flight.</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA996" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF996</a> departure Hobart (HBA) Domestic Terminal → Sydney (SYD) Terminal 3. Boeing 737-800, 1h 55min flight, 634 miles.</div>
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">6:45 PM</div>
@@ -1593,7 +1809,7 @@
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">11:50 AM</div>
-                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL100" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA100</a> departure Sydney (SYD) → Houston (IAH)</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL100" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA100</a> departure Sydney (SYD) → Houston (IAH). Boeing 787-9, 17h 35min flight, 8,596 miles.</div>
                                 </div>
                                 <div class="activity arrival-activity">
                                     <div class="activity-time">10:25 AM (Same Day)</div>
@@ -1601,16 +1817,7 @@
                                 </div>
                             </div>
                             <div class="day-map-container">
-                                <div class="flight-route-container">
-                                    <div class="route-header">
-                                        <h4>Sydney → Houston Flight Path</h4>
-                                        <div class="route-stats">
-                                            <span class="distance">8,596 miles (13,834 km)</span>
-                                            <span class="duration">~17h 35m</span>
-                                        </div>
-                                    </div>
-                                    <div id="departure-day-map" class="activity-map departure-map flight-route-map"></div>
-                                </div>
+                                <div id="departure-day-map" class="activity-map departure-map flight-route-map"></div>
                             </div>
                         </div>
                     </div>
@@ -1747,7 +1954,7 @@
 
             // Initialize all maps
             createFlightRouteMap('departure-houston-map',
-                {lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)'},
+                {lat: 29.9844, lng: 264.6586, name: 'Houston (IAH)'},
                 {lat: -33.9461, lng: 151.1772, name: 'Sydney (SYD)'});
 
             createSimpleMap('sydney-day1-map', [-33.8580, 151.2120], 14, [
