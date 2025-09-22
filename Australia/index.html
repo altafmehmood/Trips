@@ -6,23 +6,48 @@
     <title>Australia Adventure Itinerary - Clean Maps</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --tertiary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --quaternary-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --surface-gradient: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            --dark-gradient: linear-gradient(145deg, #1e293b 0%, #334155 100%);
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --secondary-light: #22d3ee;
+            --secondary-dark: #0891b2;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
             --surface: #ffffff;
-            --border: #e2e8f0;
+            --surface-secondary: var(--gray-50);
+            --border: var(--gray-200);
+            --border-light: var(--gray-100);
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
         }
 
         * {
@@ -33,7 +58,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
             color: var(--text-primary);
             min-height: 100vh;
             line-height: 1.6;
@@ -48,9 +73,9 @@
             width: 100%;
             height: 100%;
             background:
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(120, 200, 255, 0.3) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
             z-index: -1;
             animation: backgroundShift 20s ease-in-out infinite;
         }
@@ -67,18 +92,17 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
             margin-bottom: 3rem;
             font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #ffffff, #f1f5f9);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
             position: relative;
-            animation: titleGlow 3s ease-in-out infinite alternate;
+            letter-spacing: -0.02em;
         }
 
         @keyframes titleGlow {
@@ -141,6 +165,8 @@
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            text-decoration: none;
+            display: block;
         }
 
         .overview-card::before {
@@ -162,15 +188,15 @@
         }
         
         .sydney-card {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
         }
         .melbourne-card {
-            background: var(--secondary-gradient);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             color: white;
         }
         .tasmania-card {
-            background: var(--quaternary-gradient);
+            background: linear-gradient(135deg, var(--success) 0%, var(--secondary) 100%);
             color: white;
         }
         
@@ -187,10 +213,11 @@
         }
 
         .city-name {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
         }
 
         .city-duration {
@@ -251,21 +278,22 @@
         }
 
         .sydney-header {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
         .melbourne-header {
-            background: var(--secondary-gradient);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
         }
         .tasmania-header {
-            background: var(--quaternary-gradient);
+            background: linear-gradient(135deg, var(--success) 0%, var(--secondary) 100%);
         }
 
         .city-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 0.5rem;
             position: relative;
+            letter-spacing: -0.02em;
             z-index: 2;
         }
 
@@ -287,10 +315,9 @@
             gap: 2rem;
             margin-bottom: 2rem;
             padding: 2rem;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-2xl);
+            background: var(--surface);
+            border: 1px solid var(--border-light);
             box-shadow: var(--shadow-lg);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -354,7 +381,7 @@
         .activity-map {
             width: 100%;
             height: 100%;
-            min-height: 500px;
+            min-height: 375px;
             border-radius: 16px;
             position: relative;
             overflow: hidden;
@@ -362,6 +389,7 @@
             background: var(--surface);
             flex: 1;
         }
+
 
         .map-overlay {
             position: absolute;
@@ -563,11 +591,12 @@
         }
         
         .day-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
+            letter-spacing: -0.01em;
             position: relative;
             padding-bottom: 0.5rem;
         }
@@ -653,14 +682,23 @@
         .transport-activity {
             border-left-color: #6b7280;
         }
+        .hotel-activity {
+            border-left-color: #ec4899;
+        }
+        .adventure-activity {
+            border-left-color: #f59e0b;
+        }
+        .arrival-activity {
+            border-left-color: #10b981;
+        }
 
-        .sydney-day .day-title::after { background: var(--primary-gradient); }
-        .melbourne-day .day-title::after { background: var(--secondary-gradient); }
-        .tasmania-day .day-title::after { background: var(--quaternary-gradient); }
+        .sydney-day .day-title::after { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .melbourne-day .day-title::after { background: linear-gradient(135deg, var(--secondary), var(--secondary-light)); }
+        .tasmania-day .day-title::after { background: linear-gradient(135deg, var(--success), var(--secondary)); }
 
-        .sydney-day::before { background: var(--primary-gradient); }
-        .melbourne-day::before { background: var(--secondary-gradient); }
-        .tasmania-day::before { background: var(--quaternary-gradient); }
+        .sydney-day::before { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .melbourne-day::before { background: linear-gradient(135deg, var(--secondary), var(--secondary-light)); }
+        .tasmania-day::before { background: linear-gradient(135deg, var(--success), var(--secondary)); }
         
         .map-legend {
             font-size: 0.85em;
@@ -970,6 +1008,7 @@
             }
         }
 
+
         /* Departure Day Styling */
         .departure-header {
             background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
@@ -1051,24 +1090,24 @@
         <h1>🇦🇺 Australia Adventure Itinerary 🦘</h1>
 
         <div class="trip-overview">
-            <h2 style="color: #2C2A28; text-align: center; margin-bottom: 25px; font-weight: 600;">Australia Adventure • Dec 4-15, 2025</h2>
+            <h2 style="color: var(--text-primary); text-align: center; margin-bottom: 25px; font-weight: 600; font-family: 'Inter', sans-serif;">Australia Adventure • Dec 4-15, 2025</h2>
             
             <div class="overview-grid">
-                <div class="overview-card sydney-card">
+                <a href="#sydney-section" class="overview-card sydney-card">
                     <div class="city-icon">🏙️</div>
                     <div class="city-name">Sydney</div>
                     <div class="city-duration">2 days • Harbour & Beaches</div>
-                </div>
-                <div class="overview-card melbourne-card">
+                </a>
+                <a href="#melbourne-section" class="overview-card melbourne-card">
                     <div class="city-icon">🌿</div>
                     <div class="city-name">Melbourne</div>
-                    <div class="city-duration">2 days • Nature & Urban Gardens</div>
-                </div>
-                <div class="overview-card tasmania-card">
+                    <div class="city-duration">2 days • Great Ocean Road</div>
+                </a>
+                <a href="#tasmania-section" class="overview-card tasmania-card">
                     <div class="city-icon">🌲</div>
                     <div class="city-name">Tasmania</div>
-                    <div class="city-duration">4.5 days • Wilderness & Wildlife</div>
-                </div>
+                    <div class="city-duration">5 days • Wilderness & Wildlife</div>
+                </a>
             </div>
         </div>
         
@@ -1111,7 +1150,7 @@
             </div>
 
             <!-- SYDNEY SECTION -->
-            <div class="city-section">
+            <div id="sydney-section" class="city-section">
                 <div class="city-header sydney-header">
                     <div class="city-title">🏙️ Sydney</div>
                     <div class="city-subtitle">Harbour City & Coastal Adventures</div>
@@ -1126,12 +1165,8 @@
                                     <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/UAL101" target="_blank" style="color: #667eea; text-decoration: none;">United Airlines UA101</a> arrives at Sydney (SYD) from Houston (IAH)</div>
                                 </div>
                                 <div class="activity transport-activity">
-                                    <div class="activity-time">8:00-9:00 AM</div>
-                                    <div class="activity-desc">Airport pickup, transfer to Shangri-La Sydney in The Rocks (30-40 minutes)</div>
-                                </div>
-                                <div class="activity hotel-activity">
-                                    <div class="activity-time">10:00 AM</div>
-                                    <div class="activity-desc">🏨 Check-in at <a href="https://www.shangrilasydney.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">Shangri-La Sydney</a> • 176 Cumberland Street, The Rocks • Harbor views of Opera House & Bridge</div>
+                                    <div class="activity-time">8:00-11:00 AM</div>
+                                    <div class="activity-desc">🚇 Take <a href="https://www.airportlink.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">Airport Link train</a> from Terminal 1 to Circular Quay (13 mins), walk to hotel (5 mins). Use Apple Pay at Opal readers. 🏨 Check-in at <a href="https://www.shangrilasydney.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">Shangri-La Sydney</a>, The Rocks with harbor views.</div>
                                 </div>
                                 <div class="activity food-activity">
                                     <div class="activity-time">11:00 AM</div>
@@ -1217,13 +1252,21 @@
                         <div class="day-block sydney-day">
                             <div class="day-content">
                                 <div class="day-title">Monday - Departure to Melbourne</div>
-                                <div class="activity harbour-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">Final harbour walk, last Sydney photos, breakfast</div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">6:00 AM</div>
+                                    <div class="activity-desc">🏨 Check out from Shangri-La Sydney, final packing with harbor views</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">7:00 AM</div>
+                                    <div class="activity-desc">🚇 Take Airport Link train from Circular Quay to Sydney Airport Terminal 3 (15 minutes)</div>
                                 </div>
                                 <div class="activity flight-activity">
-                                    <div class="activity-time">Late Morning</div>
-                                    <div class="activity-desc">Fly Sydney to Melbourne</div>
+                                    <div class="activity-time">8:00 AM</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA419" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF419</a> departure Sydney (SYD) Terminal 3 → Melbourne (MEL) Terminal 1. Boeing 737-800, Economy Class, 1h 35min flight.</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">9:35 AM</div>
+                                    <div class="activity-desc">✈️ Arrive Melbourne Tullamarine Airport Terminal 1</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
@@ -1235,19 +1278,23 @@
             </div>
             
             <!-- MELBOURNE SECTION -->
-            <div class="city-section">
+            <div id="melbourne-section" class="city-section">
                 <div class="city-header melbourne-header">
                     <div class="city-title">🌿 Melbourne</div>
-                    <div class="city-subtitle">Nature & Urban Gardens</div>
+                    <div class="city-subtitle">Great Ocean Road Adventure</div>
                 </div>
                 <div class="city-content">
                     <div class="itinerary-section">
                         <div class="day-block melbourne-day">
                             <div class="day-content">
                                 <div class="day-title">Monday - Arrival Day</div>
-                                <div class="activity flight-activity">
-                                    <div class="activity-time">Afternoon</div>
-                                    <div class="activity-desc">Arrive from Sydney, check into CBD accommodation</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">10:00 AM</div>
+                                    <div class="activity-desc">🚗 Uber/Taxi from Melbourne Airport to DoubleTree Flinders Street (25-30 minutes, $50-70)</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">10:30 AM</div>
+                                    <div class="activity-desc">🏨 Check-in at <a href="https://www.hilton.com/en/hotels/melfmdt-doubletree-melbourne-flinders-street/" target="_blank" style="color: #667eea; text-decoration: none;">DoubleTree by Hilton Melbourne Flinders Street</a> • 270 Flinders Street, Melbourne VIC 3000 • 2 nights (Dec 8-10)</div>
                                 </div>
                                 <div class="activity culture-activity">
                                     <div class="activity-time">Evening</div>
@@ -1261,30 +1308,54 @@
 
                         <div class="day-block melbourne-day">
                             <div class="day-content">
-                                <div class="day-title">Tuesday - Nature & Gardens</div>
-                                <div class="activity food-activity">
-                                    <div class="activity-time">Early Morning</div>
-                                    <div class="activity-desc">Quick Melbourne coffee experience at Block Arcade</div>
+                                <div class="day-title">Tuesday - Great Ocean Road</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">5:00 AM</div>
+                                    <div class="activity-desc">🚗 Uber/Taxi from DoubleTree Flinders Street to Melbourne Airport (25-30 minutes, $50-70)</div>
                                 </div>
                                 <div class="activity transport-activity">
-                                    <div class="activity-time">Morning (9am)</div>
-                                    <div class="activity-desc">Drive to Dandenong Ranges (1 hour east) - mountain forests</div>
+                                    <div class="activity-time">6:00 AM</div>
+                                    <div class="activity-desc">🚗 Pickup <a href="https://www.sixt.com/" target="_blank" style="color: #667eea; text-decoration: none;">SIXT</a> rental car at Melbourne Airport - Toyota Yaris Cross or similar</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">6:30 AM - 9:30 AM</div>
+                                    <div class="activity-desc">🛣️ Drive to Port Campbell (3 hours southwest)</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">Sherbrooke Forest walks - listen for lyrebirds, spot native wildlife</div>
+                                    <div class="activity-time">10:00 AM - 11:00 AM</div>
+                                    <div class="activity-desc">🌊 <a href="https://www.visitvictoria.com/regions/great-ocean-road/things-to-do/nature-and-wildlife/parks-and-gardens/port-campbell-national-park" target="_blank" style="color: #667eea; text-decoration: none;">Port Campbell National Park</a> - <a href="https://www.visitvictoria.com/regions/great-ocean-road/things-to-do/nature-and-wildlife/beaches-and-coastlines/twelve-apostles" target="_blank" style="color: #667eea; text-decoration: none;">Twelve Apostles</a>, <a href="https://www.visitvictoria.com/regions/great-ocean-road/things-to-do/nature-and-wildlife/beaches-and-coastlines/loch-ard-gorge" target="_blank" style="color: #667eea; text-decoration: none;">Loch Ard Gorge</a>, The Arch & London Bridge, The Grotto</div>
+                                </div>
+                                <div class="activity food-activity">
+                                    <div class="activity-time">11:00 AM - 12:00 PM</div>
+                                    <div class="activity-desc">🍽️ Lunch in <a href="https://www.visitvictoria.com/regions/great-ocean-road/destinations/port-campbell" target="_blank" style="color: #667eea; text-decoration: none;">Port Campbell</a> town</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Midday</div>
-                                    <div class="activity-desc">Dandenong Ranges National Park - mountain ash forests, fern gullies</div>
+                                    <div class="activity-time">12:00 PM - 1:00 PM</div>
+                                    <div class="activity-desc">🏮 <a href="https://www.visitvictoria.com/regions/great-ocean-road/things-to-do/arts-theatre-and-culture/museums-and-galleries/cape-otway-lightstation" target="_blank" style="color: #667eea; text-decoration: none;">Cape Otway Lighthouse</a> - Australia's oldest mainland lighthouse</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Late Afternoon</div>
-                                    <div class="activity-desc">Royal Botanic Gardens Melbourne - native plant collections</div>
+                                    <div class="activity-time">1:00 PM - 2:30 PM</div>
+                                    <div class="activity-desc">🏖️ <a href="https://www.visitvictoria.com/regions/great-ocean-road/things-to-do/nature-and-wildlife/beaches-and-coastlines/johanna-beach" target="_blank" style="color: #667eea; text-decoration: none;">Johanna Beach</a>, <a href="https://www.visitvictoria.com/regions/great-ocean-road/destinations/apollo-bay" target="_blank" style="color: #667eea; text-decoration: none;">Apollo Bay</a> - scenic coastal stops</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Evening</div>
-                                    <div class="activity-desc">Yarra River walk at sunset, dinner with city skyline views</div>
+                                    <div class="activity-time">2:30 PM - 3:30 PM</div>
+                                    <div class="activity-desc">🌿 <a href="https://www.visitvictoria.com/regions/great-ocean-road/things-to-do/nature-and-wildlife/parks-and-gardens/great-otway-national-park" target="_blank" style="color: #667eea; text-decoration: none;">Otway National Park</a> Detour - rainforest walks, waterfalls</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">3:30 PM - 5:00 PM</div>
+                                    <div class="activity-desc">🌊 Scenic Coastal Drive: <a href="https://www.visitvictoria.com/regions/great-ocean-road/destinations/lorne" target="_blank" style="color: #667eea; text-decoration: none;">Lorne</a>, Kennett River, Memorial Arch, <a href="https://www.visitvictoria.com/regions/great-ocean-road/destinations/aireys-inlet" target="_blank" style="color: #667eea; text-decoration: none;">Aireys Inlet</a>, Point Addis Lookout</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">5:00 PM - 6:00 PM</div>
+                                    <div class="activity-desc">🏄 <a href="https://www.visitvictoria.com/regions/great-ocean-road/things-to-do/sport-and-adventure/surfing/bells-beach" target="_blank" style="color: #667eea; text-decoration: none;">Bells Beach</a>, <a href="https://www.visitvictoria.com/regions/great-ocean-road/destinations/torquay" target="_blank" style="color: #667eea; text-decoration: none;">Torquay</a> - world-famous surf spots</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">6:30 PM - 8:30 PM</div>
+                                    <div class="activity-desc">🛣️ Drive back to Melbourne Airport (2 hours from Torquay)</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">9:00 PM</div>
+                                    <div class="activity-desc">🚗 Return <a href="https://www.sixt.com/" target="_blank" style="color: #667eea; text-decoration: none;">SIXT</a> rental car at Melbourne Airport - Toyota Yaris Cross</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
@@ -1294,26 +1365,39 @@
 
                         <div class="day-block melbourne-day">
                             <div class="day-content">
-                                <div class="day-title">Wednesday - Departure to Tasmania</div>
+                                <div class="day-title">Wednesday - Melbourne to Tasmania</div>
                                 <div class="activity food-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">Final Melbourne coffee in the laneways</div>
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-desc">☕ Final Melbourne coffee in the laneways</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">10:00 AM</div>
+                                    <div class="activity-desc">🏨 Check out from <a href="https://www.hilton.com/en/hotels/melfmdt-doubletree-melbourne-flinders-street/" target="_blank" style="color: #667eea; text-decoration: none;">DoubleTree by Hilton Melbourne Flinders Street</a></div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">11:00 AM</div>
+                                    <div class="activity-desc">🚗 Uber/Taxi to Melbourne Airport Terminal 1 for check-in (check-in closes 30 minutes before departure)</div>
                                 </div>
                                 <div class="activity flight-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">Fly Melbourne to Hobart</div>
+                                    <div class="activity-time">12:25 PM</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA1293" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF1293</a> departure Melbourne (MEL) Terminal 1 → Hobart (HBA) Domestic Terminal. Airbus A220-300 operated by QantasLink, Economy Class, 1h 20min flight.</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">1:45 PM</div>
+                                    <div class="activity-desc">✈️ Arrive Hobart Airport</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
                                 <div id="melbourne-day3-map" class="activity-map melbourne-map"></div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-            
+
             <!-- TASMANIA SECTION -->
-            <div class="city-section">
+            <div id="tasmania-section" class="city-section">
                 <div class="city-header tasmania-header">
                     <div class="city-title">🌲 Tasmania</div>
                     <div class="city-subtitle">Wilderness & Ancient Forests</div>
@@ -1322,18 +1406,26 @@
                     <div class="itinerary-section">
                         <div class="day-block tasmania-day">
                             <div class="day-content">
-                                <div class="day-title">Wednesday - Arrival & Local Nature</div>
+                                <div class="day-title">Wednesday - Arrival Day</div>
                                 <div class="activity flight-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">Fly Melbourne to Hobart, pick up rental car</div>
+                                    <div class="activity-time">1:45 PM</div>
+                                    <div class="activity-desc">✈️ Arrive Hobart Airport from Melbourne</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">3:00 PM</div>
+                                    <div class="activity-desc">🚗 Pickup <a href="https://www.sixt.com/" target="_blank" style="color: #667eea; text-decoration: none;">SIXT</a> rental car at Hobart Airport - Mazda CX3 or similar</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Afternoon</div>
-                                    <div class="activity-desc">Mount Wellington summit drive - panoramic views of Hobart and Derwent River</div>
+                                    <div class="activity-time">3:30 PM - 5:30 PM</div>
+                                    <div class="activity-desc">🏔️ Drive to <a href="https://www.wellingtonpark.org.au/" target="_blank" style="color: #667eea; text-decoration: none;">kunanyi/Mount Wellington</a> (30-40 mins). Summit boardwalks (10-20 mins). Views of Hobart, Derwent River, Bruny Island & Tasman Peninsula. Return to city.</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">6:00 PM</div>
+                                    <div class="activity-desc">🏨 Check-in at <a href="https://salamancawharfhotel.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">Salamanca Wharf Hotel</a> • Studio Apartment • 1 night (Dec 10-11) • Check-in 2:00 PM onwards</div>
                                 </div>
                                 <div class="activity food-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-desc">Hobart waterfront dining with mountain views</div>
+                                    <div class="activity-desc">🍽️ Dinner at nearby Salamanca Place or Hobart Wharf - local seafood or farm-to-table restaurants.</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
@@ -1343,22 +1435,34 @@
 
                         <div class="day-block tasmania-day">
                             <div class="day-content">
-                                <div class="day-title">Thursday - Tahune Forest Adventures</div>
+                                <div class="day-title">Thursday - Hobart → Strahan (Waterfalls & Rainforest)</div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">7:00 AM</div>
+                                    <div class="activity-desc">🏨 Check out from Salamanca Wharf Hotel (check-out by 10:00 AM)</div>
+                                </div>
                                 <div class="activity transport-activity">
-                                    <div class="activity-time">Morning (9am)</div>
-                                    <div class="activity-desc">Drive to Tahune Adventures (1.5 hours southwest)</div>
+                                    <div class="activity-time">7:30 AM</div>
+                                    <div class="activity-desc">🚗 Depart Hobart early, head west via Lyell Highway (~5 hrs drive + stops)</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Mid-Morning</div>
-                                    <div class="activity-desc">Tahune AirWalk - 597m treetop canopy walk 20m above forest floor</div>
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-desc">🌿 <a href="https://parks.tas.gov.au/explore-our-parks/mount-field-national-park" target="_blank" style="color: #667eea; text-decoration: none;">Mount Field National Park</a>: Russell Falls Track (20 min return), Tall Trees Walk (30 min loop)</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Afternoon</div>
-                                    <div class="activity-desc">Huon River forest walks among ancient trees</div>
+                                    <div class="activity-time">11:30 AM</div>
+                                    <div class="activity-desc">🏞️ <a href="https://parks.tas.gov.au/explore-our-parks/cradle-mountain-lake-st-clair-national-park" target="_blank" style="color: #667eea; text-decoration: none;">Lake St Clair</a>: Cynthia Bay foreshore walk (15-30 min), optional Platypus Bay Track (1 hr)</div>
                                 </div>
-                                <div class="activity culture-activity">
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">1:00 PM - 2:00 PM</div>
+                                    <div class="activity-desc">🌊 <a href="https://parks.tas.gov.au/explore-our-parks/franklin-gordon-wild-rivers-national-park" target="_blank" style="color: #667eea; text-decoration: none;">Franklin-Gordon Wild Rivers NP</a>: Nelson Falls (20 min), Donaghys Hill Lookout (40 min), Franklin River Nature Trail (25 min)</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">5:30 PM</div>
+                                    <div class="activity-desc">🏨 Arrive Strahan. Check-in at Strahan Village - Premium Harbour View Room • 2 nights (Dec 11-13)</div>
+                                </div>
+                                <div class="activity food-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-desc">Return via Richmond historic village</div>
+                                    <div class="activity-desc">🍽️ Dinner and stroll along Macquarie Harbour with harbor views from hotel</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
@@ -1368,22 +1472,18 @@
 
                         <div class="day-block tasmania-day">
                             <div class="day-content">
-                                <div class="day-title">Friday - Cradle Mountain</div>
-                                <div class="activity transport-activity">
-                                    <div class="activity-time">Early Morning (7am)</div>
-                                    <div class="activity-desc">Drive to Cradle Mountain-Lake St Clair (2.5 hours north)</div>
-                                </div>
+                                <div class="day-title">Friday - Gordon River Cruise (Strahan)</div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">Dove Lake Circuit Walk (6km) - iconic Cradle Mountain reflections</div>
+                                    <div class="activity-time">8:00 AM - 2:30 PM</div>
+                                    <div class="activity-desc">🛥️ <a href="https://www.gordonrivercruise.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">Gordon River Cruise</a> (~6 hrs): Macquarie Harbour, Hells Gates, Sarah Island (convict history), Gordon River rainforest boardwalk among Huon pines</div>
                                 </div>
                                 <div class="activity nature-activity">
                                     <div class="activity-time">Afternoon</div>
-                                    <div class="activity-desc">Enchanted Walk through ancient rainforest, wombat spotting</div>
+                                    <div class="activity-desc">🏖️ Explore Strahan: <a href="https://www.discovertasmania.com.au/about/articles/ocean-beach-strahan" target="_blank" style="color: #667eea; text-decoration: none;">Ocean Beach</a> (wild West Coast surf), Hogarth Falls (40 min rainforest walk from People's Park)</div>
                                 </div>
-                                <div class="activity transport-activity">
-                                    <div class="activity-time">Late Afternoon</div>
-                                    <div class="activity-desc">Drive back to Hobart (arrive evening)</div>
+                                <div class="activity culture-activity">
+                                    <div class="activity-time">Evening</div>
+                                    <div class="activity-desc">🎭 Optional: <a href="https://roundearthcompany.com/" target="_blank" style="color: #667eea; text-decoration: none;">"The Ship That Never Was"</a> outdoor play (local classic). Return to Strahan Village Premium Harbour View Room.</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
@@ -1393,22 +1493,34 @@
 
                         <div class="day-block tasmania-day">
                             <div class="day-content">
-                                <div class="day-title">Saturday - Bruny Island</div>
+                                <div class="day-title">Saturday - Strahan → Cradle Mountain</div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">7:30 AM</div>
+                                    <div class="activity-desc">🏨 Check out from Strahan Village Premium Harbour View Room</div>
+                                </div>
                                 <div class="activity transport-activity">
-                                    <div class="activity-time">Morning (8am)</div>
-                                    <div class="activity-desc">Drive to Kettering + ferry to Bruny Island</div>
+                                    <div class="activity-time">8:00 AM</div>
+                                    <div class="activity-desc">🚗 Depart Strahan (~3 hrs drive to Cradle Mountain)</div>
                                 </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">South Bruny National Park - coastal walks, rugged cliffs</div>
+                                    <div class="activity-time">11:00 AM</div>
+                                    <div class="activity-desc">🏔️ Arrive <a href="https://parks.tas.gov.au/explore-our-parks/cradle-mountain-lake-st-clair-national-park" target="_blank" style="color: #667eea; text-decoration: none;">Cradle Mountain-Lake St Clair National Park</a></div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">11:30 AM - 1:30 PM</div>
+                                    <div class="activity-desc">🥾 <a href="https://www.cradlemountain.com.au/walks/dove-lake-circuit/" target="_blank" style="color: #667eea; text-decoration: none;">Dove Lake Circuit</a> (2 hrs) - iconic Cradle Mountain views</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">2:00 PM</div>
+                                    <div class="activity-desc">🏨 Check-in at <a href="https://www.cradlemountainhotel.com.au/" target="_blank" style="color: #667eea; text-decoration: none;">Cradle Mountain Hotel</a> • Standard Room • 1 night (Dec 13-14) • Includes buffet breakfast</div>
                                 </div>
                                 <div class="activity nature-activity">
                                     <div class="activity-time">Afternoon</div>
-                                    <div class="activity-desc">Wildlife spotting - echidnas, wallabies, The Neck lookout</div>
+                                    <div class="activity-desc">🌲 <a href="https://www.cradlemountain.com.au/walks/enchanted-walk/" target="_blank" style="color: #667eea; text-decoration: none;">Enchanted Walk</a> (20 min) - rainforest stroll, good for dusk wombat spotting</div>
                                 </div>
-                                <div class="activity transport-activity">
-                                    <div class="activity-time">Late Afternoon</div>
-                                    <div class="activity-desc">Return ferry + drive to Hobart</div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">Evening</div>
+                                    <div class="activity-desc">🦘 Optional: <a href="https://www.devilsatcradle.com/" target="_blank" style="color: #667eea; text-decoration: none;">Devils@Cradle Night Tour</a> (Tasmanian devils & quolls) from hotel base</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
@@ -1418,14 +1530,38 @@
 
                         <div class="day-block tasmania-day">
                             <div class="day-content">
-                                <div class="day-title">Sunday - Departure</div>
+                                <div class="day-title">Sunday - Cradle Mountain → Hobart Departure</div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">Morning</div>
-                                    <div class="activity-desc">Royal Tasmanian Botanical Gardens - native plant collections</div>
+                                    <div class="activity-time">Early Morning (Optional)</div>
+                                    <div class="activity-desc">🦘 Ronny Creek boardwalk (30-40 min) - high chance of wombats. Pencil Pine Falls & Knyvet Falls Walk (30 min circuit)</div>
+                                </div>
+                                <div class="activity food-activity">
+                                    <div class="activity-time">8:00 AM</div>
+                                    <div class="activity-desc">🍳 Buffet breakfast at Altitude Restaurant (included in room rate)</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">9:30 AM</div>
+                                    <div class="activity-desc">🏨 Check out from Cradle Mountain Hotel (check-out by 10:00 AM)</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">10:00 AM</div>
+                                    <div class="activity-desc">🚗 Begin scenic drive to Hobart (~4.5-5 hrs)</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">2:30 PM - 3:00 PM</div>
+                                    <div class="activity-desc">🚗 Arrive Hobart Airport, return <a href="https://www.sixt.com/" target="_blank" style="color: #667eea; text-decoration: none;">SIXT</a> rental car - Mazda CX3</div>
                                 </div>
                                 <div class="activity flight-activity">
-                                    <div class="activity-time">Afternoon</div>
-                                    <div class="activity-desc">Fly Hobart to Sydney for Monday departure to Houston</div>
+                                    <div class="activity-time">4:50 PM</div>
+                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA996" target="_blank" style="color: #667eea; text-decoration: none;">Qantas QF996</a> departure Hobart (HBA) Domestic Terminal → Sydney (SYD) Terminal 3. Boeing 737-800, Economy Class, 1h 55min flight.</div>
+                                </div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">6:45 PM</div>
+                                    <div class="activity-desc">✈️ Arrive Sydney Airport Terminal 3</div>
+                                </div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">7:30 PM</div>
+                                    <div class="activity-desc">🏨 Check-in at airport hotel for early Monday departure to Houston</div>
                                 </div>
                             </div>
                             <div class="day-map-container">
@@ -1448,12 +1584,12 @@
                             <div class="day-content">
                                 <div class="day-title">Monday, December 15, 2025 - Travel Day</div>
                                 <div class="activity hotel-activity">
-                                    <div class="activity-time">Early Morning</div>
-                                    <div class="activity-desc">Check out from Shangri-La Sydney, final packing with harbor views</div>
+                                    <div class="activity-time">8:00 AM</div>
+                                    <div class="activity-desc">🏨 Check out from airport hotel</div>
                                 </div>
                                 <div class="activity transport-activity">
                                     <div class="activity-time">9:00 AM</div>
-                                    <div class="activity-desc">Depart hotel for Sydney Kingsford Smith Airport (SYD)</div>
+                                    <div class="activity-desc">🚌 Short transfer to Sydney Airport departure terminal</div>
                                 </div>
                                 <div class="activity flight-activity">
                                     <div class="activity-time">11:50 AM</div>
@@ -1490,12 +1626,19 @@
 
             // Flight route map with Pacific Ocean view
             function createFlightRouteMap(mapId, origin, destination) {
-                // Center map on Pacific Ocean with proper orientation
-                const map = L.map(mapId, {
-                    scrollWheelZoom: true,
-                    dragging: true,
-                    zoomControl: true
-                }).setView([10, 180], 3); // Pacific-centered view
+                try {
+                    const mapElement = document.getElementById(mapId);
+                    if (!mapElement) {
+                        console.error(`Flight map container with id "${mapId}" not found`);
+                        return;
+                    }
+
+                    // Center map on Pacific Ocean with proper orientation
+                    const map = L.map(mapId, {
+                        scrollWheelZoom: true,
+                        dragging: true,
+                        zoomControl: true
+                    }).setView([10, 180], 3); // Pacific-centered view
 
                 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                     attribution: '© OpenStreetMap contributors © CARTO'
@@ -1549,20 +1692,31 @@
                 map.fitBounds(bounds, {padding: [20, 20]});
 
                 return map;
+                } catch (error) {
+                    console.error(`Error creating flight map "${mapId}":`, error);
+                    return null;
+                }
             }
 
             // Simple map creation function
             function createSimpleMap(mapId, center, zoom, locations) {
-                const map = L.map(mapId, {
-                    scrollWheelZoom: true,
-                    dragging: true,
-                    zoomControl: true
-                }).setView(center, zoom);
+                try {
+                    const mapElement = document.getElementById(mapId);
+                    if (!mapElement) {
+                        console.error(`Map container with id "${mapId}" not found`);
+                        return;
+                    }
 
-                // Clean tile layer
-                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                    attribution: '© OpenStreetMap contributors © CARTO'
-                }).addTo(map);
+                    const map = L.map(mapId, {
+                        scrollWheelZoom: true,
+                        dragging: true,
+                        zoomControl: true
+                    }).setView(center, zoom);
+
+                    // Clean tile layer
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                        attribution: '© OpenStreetMap contributors © CARTO'
+                    }).addTo(map);
 
                 // Add simple markers
                 locations.forEach(location => {
@@ -1585,19 +1739,24 @@
                 });
 
                 return map;
+                } catch (error) {
+                    console.error(`Error creating map "${mapId}":`, error);
+                    return null;
+                }
             }
 
             // Initialize all maps
             createFlightRouteMap('departure-houston-map',
                 {lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)'},
-                {lat: -33.9461, lng: 151.1772 - 360, name: 'Sydney (SYD)'});
+                {lat: -33.9461, lng: 151.1772, name: 'Sydney (SYD)'});
 
             createSimpleMap('sydney-day1-map', [-33.8580, 151.2120], 14, [
                 {lat: -33.8594, lng: 151.2070, label: '🏨', name: 'Shangri-La Sydney', description: 'Luxury hotel with harbor views of Opera House & Bridge.'},
-                {lat: -33.8596, lng: 151.2085, label: '☕', name: 'The Rocks Cafe', description: '11:00 AM breakfast - perfect pre-BridgeClimb meal.'},
-                {lat: -33.8599, lng: 151.2090, label: '🏛️', name: 'The Rocks', description: 'Historic cobblestone streets with weekend markets.'},
-                {lat: -33.8614, lng: 151.2104, label: '🍽️', name: 'Circular Quay', description: 'Main ferry terminal with waterfront dining.'},
-                {lat: -33.8516, lng: 151.2108, label: '🧗', name: 'BridgeClimb Sydney', description: '12:00-3:00 PM - Climb the harbor bridge for panoramic views.'},
+                {lat: -33.8611, lng: 151.2103, label: '🚇', name: 'Circular Quay Station', description: 'Airport Link train arrival point - 13 minutes from Sydney Airport.'},
+                {lat: -33.8596, lng: 151.2088, label: '☕', name: 'The Rocks Cafe', description: '11:00 AM breakfast - perfect pre-BridgeClimb meal.'},
+                {lat: -33.8599, lng: 151.2087, label: '🏛️', name: 'The Rocks', description: 'Historic cobblestone streets with weekend markets.'},
+                {lat: -33.8614, lng: 151.2103, label: '🍽️', name: 'Circular Quay', description: 'Main ferry terminal with waterfront dining.'},
+                {lat: -33.8523, lng: 151.2108, label: '🧗', name: 'BridgeClimb Sydney', description: '12:00-3:00 PM - Climb the harbor bridge for panoramic views.'},
                 {lat: -33.8523, lng: 151.2108, label: '🌉', name: 'Harbour Bridge', description: 'Iconic steel arch bridge with city views.'},
                 {lat: -33.8568, lng: 151.2153, label: '🎭', name: 'Opera House', description: 'World-famous performing arts venue.'},
                 {lat: -33.8605, lng: 151.2095, label: '🍽️', name: '6Head Sydney', description: '6:00-9:00 PM dinner - Campbell\'s Stores, Circular Quay West.'}
@@ -1613,10 +1772,9 @@
                 {lat: -33.8646, lng: 151.2166, label: '🌿', name: 'Botanic Gardens', description: 'Beautiful waterfront gardens.'}
             ]);
 
-            createSimpleMap('sydney-day3-map', [-33.8580, 151.2120], 16, [
-                {lat: -33.8614, lng: 151.2104, label: '🌊', name: 'Harbour Walk', description: 'Final scenic harbor walk.'},
-                {lat: -33.8568, lng: 151.2153, label: '📸', name: 'Opera House', description: 'Last photo opportunity.'}
-            ]);
+            createFlightRouteMap('sydney-day3-map',
+                {lat: -33.9461, lng: 151.1772, name: 'Sydney (SYD)'},
+                {lat: -37.6690, lng: 144.8432, name: 'Melbourne (MEL)'});
 
             createSimpleMap('melbourne-day1-map', [-37.8152, 144.9648], 17, [
                 {lat: -37.8136, lng: 144.9631, label: '🏨', name: 'CBD Hotel', description: 'Central accommodation.'},
@@ -1624,53 +1782,73 @@
                 {lat: -37.8157, lng: 144.9666, label: '🍽️', name: 'Laneway Dining', description: 'Hidden restaurant gems.'}
             ]);
 
-            createSimpleMap('melbourne-day2-map', [-37.8136, 144.9631], 10, [
-                {lat: -37.8105, lng: 144.9632, label: '☕', name: 'Block Arcade', description: 'Historic coffee culture spot.'},
-                {lat: -37.8400, lng: 145.2347, label: '🌲', name: 'Dandenong Ranges', description: 'Mountain forests with eucalyptus.'},
-                {lat: -37.8304, lng: 145.2358, label: '🐦', name: 'Sherbrooke Forest', description: 'Pristine rainforest with lyrebirds.'},
-                {lat: -37.8076, lng: 144.9568, label: '🌿', name: 'Botanic Gardens', description: 'Botanical gardens with native plants.'},
-                {lat: -37.8220, lng: 144.9633, label: '🌅', name: 'Yarra River', description: 'Riverside walks with city views.'}
+            createSimpleMap('melbourne-day2-map', [-38.0, 143.5], 7, [
+                {lat: -37.6690, lng: 144.8432, label: '🚗', name: 'Melbourne Airport', description: '7:00 AM - Rent car, start Great Ocean Road trip.'},
+                {lat: -38.6660, lng: 143.1050, label: '🌊', name: 'Twelve Apostles', description: '10:00 AM - Iconic limestone stacks in the ocean.'},
+                {lat: -38.6180, lng: 143.1097, label: '⛵', name: 'Loch Ard Gorge', description: 'Historic shipwreck site with dramatic cliffs.'},
+                {lat: -38.6087, lng: 143.0996, label: '🏛️', name: 'London Bridge & The Grotto', description: 'Natural rock formations and cave.'},
+                {lat: -38.6259, lng: 143.1166, label: '🍽️', name: 'Port Campbell', description: '11:00 AM - Lunch in seaside town.'},
+                {lat: -38.8576, lng: 143.5167, label: '🏮', name: 'Cape Otway Lighthouse', description: '12:00 PM - Australia\'s oldest mainland lighthouse.'},
+                {lat: -38.7651, lng: 143.4682, label: '🏖️', name: 'Johanna Beach', description: '1:00 PM - Wild surf beach.'},
+                {lat: -38.7567, lng: 143.6700, label: '🌊', name: 'Apollo Bay', description: '1:30 PM - Popular coastal resort town.'},
+                {lat: -38.6885, lng: 143.6612, label: '🌿', name: 'Great Otway NP', description: '2:30 PM - Rainforest walks and waterfalls.'},
+                {lat: -38.5399, lng: 143.8781, label: '🏄', name: 'Lorne', description: '3:30 PM - Scenic coastal town.'},
+                {lat: -38.4633, lng: 143.9333, label: '🐨', name: 'Kennett River', description: 'Wild koalas in eucalyptus trees.'},
+                {lat: -38.4626, lng: 144.0931, label: '🗿', name: 'Memorial Arch', description: 'Great Ocean Road starting point.'},
+                {lat: -38.4508, lng: 144.1064, label: '🗼', name: 'Aireys Inlet', description: 'Split Point Lighthouse.'},
+                {lat: -38.3667, lng: 144.1833, label: '👁️', name: 'Point Addis Lookout', description: 'Panoramic coastal views.'},
+                {lat: -38.3717, lng: 144.2789, label: '🏄', name: 'Bells Beach', description: '5:00 PM - World-famous surf break.'},
+                {lat: -38.3277, lng: 144.3265, label: '🏄', name: 'Torquay', description: 'Surf capital of Australia.'}
             ]);
 
-            createSimpleMap('melbourne-day3-map', [-37.8152, 144.9648], 17, [
-                {lat: -37.8152, lng: 144.9648, label: '☕', name: 'Final Coffee', description: 'Last Melbourne coffee experience.'}
-            ]);
+            createFlightRouteMap('melbourne-day3-map',
+                {lat: -37.8152, lng: 144.9648, name: 'Melbourne (MEL)'},
+                {lat: -42.8394, lng: 147.5061, name: 'Hobart (HBA)'});
 
             createSimpleMap('tasmania-day1-map', [-42.8890, 147.2820], 13, [
-                {lat: -42.8821, lng: 147.3272, label: '🏨', name: 'Hobart City', description: 'Tasmania\'s charming capital.'},
-                {lat: -42.8963, lng: 147.2380, label: '⛰️', name: 'Mt Wellington', description: 'Summit with panoramic views.'},
-                {lat: -42.8826, lng: 147.3257, label: '🍽️', name: 'Waterfront Dining', description: 'Fresh seafood with mountain views.'}
+                {lat: -42.8394, lng: 147.5061, label: '✈️', name: 'Hobart Airport', description: '1:45 PM - Arrive from Melbourne, pickup SIXT rental car.'},
+                {lat: -42.8963, lng: 147.2380, label: '🏔️', name: 'kunanyi/Mt Wellington', description: '3:30-5:30 PM - Summit boardwalks, panoramic views of Hobart, Derwent River, Bruny Island.'},
+                {lat: -42.8821, lng: 147.3272, label: '🏨', name: 'Salamanca Wharf Hotel', description: '6:00 PM - Check-in Studio Apartment, 1 night (Dec 10-11).'},
+                {lat: -42.8840, lng: 147.3290, label: '🍽️', name: 'Salamanca Place', description: 'Evening dinner - local seafood, farm-to-table restaurants nearby.'}
             ]);
 
-            createSimpleMap('tasmania-day2-map', [-43.0642, 146.8836], 10, [
-                {lat: -43.0642, lng: 146.8836, label: '🌿', name: 'Tahune AirWalk', description: 'Treetop canopy walk through forests.'},
-                {lat: -43.0598, lng: 146.8934, label: '🌊', name: 'Huon River', description: 'Pristine river through old-growth forests.'},
-                {lat: -42.7310, lng: 147.2595, label: '🏛️', name: 'Richmond Village', description: 'Historic convict-era village.'}
+            createSimpleMap('tasmania-day2-map', [-42.5, 146.0], 8, [
+                {lat: -42.8821, lng: 147.3272, label: '🏨', name: 'Hobart', description: '7:30 AM - Depart early via Lyell Highway.'},
+                {lat: -42.6756, lng: 146.7086, label: '🌿', name: 'Mount Field NP', description: '9:00 AM - Russell Falls (20 min), Tall Trees Walk (30 min).'},
+                {lat: -42.0374, lng: 146.1547, label: '🏞️', name: 'Lake St Clair', description: '11:30 AM - Cynthia Bay walk, optional Platypus Bay Track.'},
+                {lat: -42.2089, lng: 145.6434, label: '🌊', name: 'Franklin-Gordon Wild Rivers NP', description: '1:00-2:00 PM - Nelson Falls, Donaghys Hill Lookout, Franklin River Trail.'},
+                {lat: -42.1547, lng: 145.3267, label: '🏨', name: 'Strahan Village', description: '5:30 PM - Check-in Premium Harbour View Room, 2 nights (Dec 11-13).'}
             ]);
 
-            createSimpleMap('tasmania-day3-map', [-41.6780, 145.9600], 12, [
-                {lat: -41.6848, lng: 145.9599, label: '🏔️', name: 'Cradle Mountain', description: 'Iconic jagged peak.'},
-                {lat: -41.6687, lng: 145.9645, label: '🦘', name: 'Dove Lake', description: 'Perfect mountain reflections.'},
-                {lat: -41.6921, lng: 145.9513, label: '🌲', name: 'Enchanted Walk', description: 'Magical rainforest walk.'}
+            createSimpleMap('tasmania-day3-map', [-42.2, 145.2], 11, [
+                {lat: -42.1547, lng: 145.3267, label: '🏨', name: 'Strahan Village', description: 'Base for Gordon River cruise - Premium Harbour View Room.'},
+                {lat: -42.2500, lng: 145.0000, label: '🛥️', name: 'Gordon River', description: '8:00 AM-2:30 PM - 6hr cruise, Huon pine rainforest boardwalk.'},
+                {lat: -42.2000, lng: 145.1000, label: '🏝️', name: 'Sarah Island', description: 'Convict history stop during cruise.'},
+                {lat: -42.1400, lng: 145.3100, label: '🏖️', name: 'Ocean Beach', description: 'Wild West Coast surf beach.'},
+                {lat: -42.1600, lng: 145.3200, label: '💧', name: 'Hogarth Falls', description: '40 min rainforest walk from People\'s Park.'}
             ]);
 
-            createSimpleMap('tasmania-day4-map', [-43.2500, 147.2500], 12, [
-                {lat: -43.1187, lng: 147.2663, label: '⛴️', name: 'Kettering Ferry', description: 'Ferry to Bruny Island.'},
-                {lat: -43.3848, lng: 147.2643, label: '🏞️', name: 'South Bruny NP', description: 'Rugged coastal cliffs.'},
-                {lat: -43.2987, lng: 147.2654, label: '👀', name: 'The Neck Lookout', description: 'Panoramic island views.'},
-                {lat: -43.3200, lng: 147.2800, label: '🦘', name: 'Wildlife Spotting', description: 'Native wildlife watching.'}
+            createSimpleMap('tasmania-day4-map', [-41.8, 145.6], 9, [
+                {lat: -42.1547, lng: 145.3267, label: '🏨', name: 'Strahan Village', description: '7:30 AM - Check out, 8:00 AM depart for Cradle Mountain.'},
+                {lat: -41.6848, lng: 145.9599, label: '🏔️', name: 'Cradle Mountain NP', description: '11:00 AM - Arrive at iconic alpine wilderness.'},
+                {lat: -41.6687, lng: 145.9645, label: '🥾', name: 'Dove Lake Circuit', description: '11:30 AM-1:30 PM - 2hr hike with iconic Cradle Mountain views.'},
+                {lat: -41.6823, lng: 145.9537, label: '🏨', name: 'Cradle Mountain Hotel', description: '2:00 PM - Check-in Standard Room, includes buffet breakfast.'},
+                {lat: -41.6904, lng: 145.9521, label: '🌲', name: 'Enchanted Walk', description: 'Afternoon - 20 min rainforest stroll, wombat spotting.'},
+                {lat: -41.6823, lng: 145.9537, label: '🦘', name: 'Devils@Cradle', description: 'Evening - Optional night tour, Tasmanian devils & quolls.'}
             ]);
 
-            createSimpleMap('tasmania-day5-map', [-42.8690, 147.3190], 15, [
-                {lat: -42.8563, lng: 147.3115, label: '🌿', name: 'Botanical Gardens', description: 'Native plant collections.'},
-                {lat: -42.8821, lng: 147.3272, label: '🏨', name: 'Hobart City', description: 'Final moments in Tasmania.'}
+            createSimpleMap('tasmania-day5-map', [-42.2, 146.2], 8, [
+                {lat: -41.6750, lng: 145.9500, label: '🦘', name: 'Ronny Creek & Falls', description: 'Early morning - Optional wombat spotting, Pencil Pine & Knyvet Falls.'},
+                {lat: -41.6800, lng: 145.9550, label: '🍳', name: 'Cradle Mountain Hotel', description: '8:00 AM - Buffet breakfast at Altitude Restaurant (included).'},
+                {lat: -41.6800, lng: 145.9550, label: '🏨', name: 'Hotel Checkout', description: '9:30 AM - Check out from Cradle Mountain Hotel.'},
+                {lat: -41.8000, lng: 146.5000, label: '🛣️', name: 'Scenic Drive Route', description: '10:00 AM - Begin 4.5hr drive to Hobart via highlands.'},
+                {lat: -42.8394, lng: 147.5061, label: '✈️', name: 'Hobart Airport', description: '2:30-3:00 PM - Return SIXT rental car.'},
+                {lat: -42.8394, lng: 147.5061, label: '🛫', name: 'QF996 Departure', description: '4:50 PM - Fly to Sydney, end Tasmania adventure.'}
             ]);
 
-            createSimpleMap('departure-day-map', [-33.9000, 151.1500], 11, [
-                {lat: -33.8594, lng: 151.2070, label: '🏨', name: 'Shangri-La Sydney', description: 'Final checkout with harbor views.'},
-                {lat: -33.9461, lng: 151.1772, label: '✈️', name: 'Sydney Airport (SYD)', description: 'Kingsford Smith Airport - UA100 departure gate.'},
-                {lat: 29.9844, lng: -95.3414, label: '🏠', name: 'Houston Airport (IAH)', description: 'Home! End of Australia adventure.'}
-            ]);
+            createFlightRouteMap('departure-day-map',
+                {lat: -33.9461, lng: 151.1772, name: 'Sydney (SYD)'},
+                {lat: 29.9844, lng: 264.6586, name: 'Houston (IAH)'});
 
         });
     </script>
