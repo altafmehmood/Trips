@@ -8,10 +8,10 @@ This repository contains a single-file HTML travel itinerary for a 9-day Austral
 
 ## File Structure
 
-- `australia_google_maps_template.html` - Main HTML file containing the complete travel itinerary application
-  - Embedded CSS with responsive design using CSS Grid and Flexbox
+- `index.html` - Main HTML file containing the complete travel itinerary application
+  - Embedded CSS with modern design system using CSS custom properties
   - JavaScript for interactive Leaflet.js maps (Sydney, Melbourne, Tasmania)
-  - Static map fallbacks with CSS-positioned markers
+  - Responsive design with print-friendly styling
   - Color-coded activity categories and location markers
 
 ## Architecture
@@ -23,16 +23,12 @@ This repository contains a single-file HTML travel itinerary for a 9-day Austral
 - Each city section contains itinerary details and interactive maps
 
 ### Styling System
-- Custom CSS with earth-tone color palette (browns, greens, tans)
-- Gradient backgrounds and backdrop blur effects
-- Activity categorization with color coding:
-  - Flight activities: Red (#B85450)
-  - Harbour activities: Teal (#5B8A8A)
-  - Culture activities: Brown (#8B7355)
-  - Nature activities: Green (#65746B)
-  - Food activities: Orange (#C4956C)
-  - Beach activities: Blue-green (#7BA098)
-  - Transport activities: Neutral brown (#9A8B7A)
+- Modern design system with CSS custom properties (CSS variables)
+- Clean color palette using primary (#6366f1), secondary (#06b6d4), and accent colors
+- Professional typography using Inter and Poppins font families
+- Comprehensive print-friendly styling with `@media print` rules
+- Activity categorization with semantic color coding
+- Responsive grid layout with mobile-first approach
 
 ### JavaScript Functionality
 - Leaflet.js map integration for three regions
@@ -44,12 +40,22 @@ This repository contains a single-file HTML travel itinerary for a 9-day Austral
 
 This is a static HTML file with no build process or dependencies beyond the Leaflet.js CDN. Changes can be made directly to the HTML file.
 
+### Development Commands
+- No build process required - simply open `index.html` in a browser
+- For local development, serve via any HTTP server (e.g., `python -m http.server` or Live Server extension)
+- Project is deployed via GitHub Pages (main file is `index.html`)
+
 ### Map Integration
-- The project includes both JavaScript maps (Leaflet.js) and CSS fallback markers
-- Google Maps API key placeholder exists but is not actively used
-- Interactive maps are centered on each city with custom markers
+- Interactive Leaflet.js maps for Sydney, Melbourne, and Tasmania regions
+- Maps are centered on each city with custom markers for activities
+- No API keys required - uses OpenStreetMap tiles via Leaflet.js
+
+### Print Functionality
+- Comprehensive print styling with `@media print` rules
+- Maps are hidden in print view to focus on itinerary content
+- Typography and layout optimized for printed documents
 
 ### Responsive Design
-- Grid layout adapts to different screen sizes
-- Mobile-first approach with media queries at 1024px breakpoint
-- Map sections stack vertically on smaller screens
+- Mobile-first responsive design using CSS Grid and Flexbox
+- Breakpoints accommodate various screen sizes
+- Clean, professional appearance across all devices
