@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Adventure Itinerary</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --secondary-light: #22d3ee;
+            --secondary-dark: #0891b2;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
+            --surface: #ffffff;
+            --surface-secondary: var(--gray-50);
+            --border: var(--gray-200);
+            --border-light: var(--gray-100);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .trip-dates {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .section {
+            background: var(--surface);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .flight-card {
+            background: var(--surface-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .flight-route {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .airport {
+            text-align: center;
+        }
+
+        .airport-code {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .airport-city {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .route-arrow {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .flight-segment {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .segment-header {
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .segment-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .flight-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .duration {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-100);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .connection-info {
+            text-align: center;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, var(--warning), var(--accent-dark));
+            color: white;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .connection-tight {
+            background: linear-gradient(135deg, var(--error), #dc2626);
+        }
+
+        .connection-good {
+            background: linear-gradient(135deg, var(--success), #059669);
+        }
+
+        .arrival-note {
+            display: inline-block;
+            background: var(--error);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-top: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        @media print {
+            body::before {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--border);
+            }
+
+            .flight-card {
+                break-inside: avoid;
+            }
+
+            .map-container {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .flight-route {
+                flex-direction: column;
+            }
+
+            .route-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇮🇳 India Adventure</h1>
+        <div class="trip-dates">Thursday, Nov 06 - Sunday, Nov 16, 2025</div>
+
+        <!-- Flight 1: IAH to DXB -->
+        <div class="section">
+            <h2>✈️ Flight 1: Houston to Dubai</h2>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Thursday, November 6, 2025</p>
+
+            <div class="flight-card">
+                <div class="flight-route">
+                    <div class="airport">
+                        <div class="airport-code">IAH</div>
+                        <div class="airport-city">Houston</div>
+                    </div>
+                    <div class="route-arrow">→</div>
+                    <div class="airport">
+                        <div class="airport-code">DXB</div>
+                        <div class="airport-city">Dubai</div>
+                    </div>
+                </div>
+
+                <div class="flight-segment">
+                    <div class="segment-header">
+                        Emirates EK 212 · Airbus A380-800
+                        <span class="arrival-note">Arrives Fri, Nov 07, 2025</span>
+                    </div>
+
+                    <div class="segment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Departure</span>
+                            <span class="flight-time">07:10 pm</span>
+                            <span class="detail-value">George Bush Intercontinental Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Arrival</span>
+                            <span class="flight-time">06:25 pm</span>
+                            <span class="detail-value">Dubai International Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Flight Duration</span>
+                            <span class="duration">13h 15m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" id="map1"></div>
+            </div>
+        </div>
+
+        <!-- Connection 1 -->
+        <div class="connection-info connection-tight">
+            ⏱️ Connection in Dubai: 1h 55m
+        </div>
+
+        <!-- Flight 2: DXB to BOM -->
+        <div class="section">
+            <h2>✈️ Flight 2: Dubai to Mumbai</h2>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Friday, November 7, 2025</p>
+
+            <div class="flight-card">
+                <div class="flight-route">
+                    <div class="airport">
+                        <div class="airport-code">DXB</div>
+                        <div class="airport-city">Dubai</div>
+                    </div>
+                    <div class="route-arrow">→</div>
+                    <div class="airport">
+                        <div class="airport-code">BOM</div>
+                        <div class="airport-city">Mumbai</div>
+                    </div>
+                </div>
+
+                <div class="flight-segment">
+                    <div class="segment-header">
+                        Emirates EK 500 · Airbus A380-800
+                        <span class="arrival-note">Arrives Sat, Nov 08, 2025</span>
+                    </div>
+
+                    <div class="segment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Departure</span>
+                            <span class="flight-time">08:20 pm</span>
+                            <span class="detail-value">Dubai International Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Arrival</span>
+                            <span class="flight-time">02:15 am</span>
+                            <span class="detail-value">Chhatrapati Shivaji Maharaj International Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Flight Duration</span>
+                            <span class="duration">4h 25m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" id="map2"></div>
+            </div>
+        </div>
+
+        <!-- Connection 2 -->
+        <div class="connection-info connection-tight">
+            ⏱️ Connection in Mumbai (Terminal 2): 3h 10m<br>
+            <span style="font-size: 0.875rem; opacity: 0.95;">International arrival → Domestic departure, same terminal, no checked bags</span>
+        </div>
+
+        <!-- Flight 3: BOM to NAG -->
+        <div class="section">
+            <h2>✈️ Flight 3: Mumbai to Nagpur</h2>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Saturday, November 8, 2025</p>
+
+            <div class="flight-card">
+                <div class="flight-route">
+                    <div class="airport">
+                        <div class="airport-code">BOM</div>
+                        <div class="airport-city">Mumbai</div>
+                    </div>
+                    <div class="route-arrow">→</div>
+                    <div class="airport">
+                        <div class="airport-code">NAG</div>
+                        <div class="airport-city">Nagpur</div>
+                    </div>
+                </div>
+
+                <div class="flight-segment">
+                    <div class="segment-header">
+                        Air India AI 2581
+                    </div>
+
+                    <div class="segment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Departure</span>
+                            <span class="flight-time">05:25 am</span>
+                            <span class="detail-value">Chhatrapati Shivaji Maharaj International Airport (Terminal 2)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Arrival</span>
+                            <span class="flight-time">06:50 am</span>
+                            <span class="detail-value">Dr. Babasaheb Ambedkar International Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Flight Duration</span>
+                            <span class="duration">1h 25m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" id="map3"></div>
+            </div>
+        </div>
+
+        <!-- Flight 4: BOM to DXB -->
+        <div class="section">
+            <h2>✈️ Flight 4: Mumbai to Dubai</h2>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Sunday, November 16, 2025</p>
+
+            <div class="flight-card">
+                <div class="flight-route">
+                    <div class="airport">
+                        <div class="airport-code">BOM</div>
+                        <div class="airport-city">Mumbai</div>
+                    </div>
+                    <div class="route-arrow">→</div>
+                    <div class="airport">
+                        <div class="airport-code">DXB</div>
+                        <div class="airport-city">Dubai</div>
+                    </div>
+                </div>
+
+                <div class="flight-segment">
+                    <div class="segment-header">
+                        Emirates EK 501 · Airbus A380-800
+                    </div>
+
+                    <div class="segment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Departure</span>
+                            <span class="flight-time">04:15 am</span>
+                            <span class="detail-value">Chhatrapati Shivaji Maharaj International Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Arrival</span>
+                            <span class="flight-time">06:40 am</span>
+                            <span class="detail-value">Dubai International Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Flight Duration</span>
+                            <span class="duration">3h 55m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" id="map4"></div>
+            </div>
+        </div>
+
+        <!-- Connection 3 -->
+        <div class="connection-info connection-good">
+            ⏱️ Connection in Dubai: 3h 40m
+        </div>
+
+        <!-- Flight 5: DXB to IAH -->
+        <div class="section">
+            <h2>✈️ Flight 5: Dubai to Houston</h2>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Sunday, November 16, 2025</p>
+
+            <div class="flight-card">
+                <div class="flight-route">
+                    <div class="airport">
+                        <div class="airport-code">DXB</div>
+                        <div class="airport-city">Dubai</div>
+                    </div>
+                    <div class="route-arrow">→</div>
+                    <div class="airport">
+                        <div class="airport-code">IAH</div>
+                        <div class="airport-city">Houston</div>
+                    </div>
+                </div>
+
+                <div class="flight-segment">
+                    <div class="segment-header">
+                        Emirates EK 211 · Airbus A380-800
+                    </div>
+
+                    <div class="segment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Departure</span>
+                            <span class="flight-time">10:20 am</span>
+                            <span class="detail-value">Dubai International Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Arrival</span>
+                            <span class="flight-time">04:20 pm</span>
+                            <span class="detail-value">George Bush Intercontinental Airport</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Flight Duration</span>
+                            <span class="duration">16h 00m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" id="map5"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Define city coordinates
+        const cities = {
+            houston: [29.9844, -95.3414],
+            dubai: [25.2532, 55.3657],
+            mumbai: [19.0760, 72.8777],
+            nagpur: [21.1466, 79.0882]
+        };
+
+        // Custom icon for airports
+        const airportIcon = L.divIcon({
+            className: 'custom-icon',
+            html: '<div style="background-color: #6366f1; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">✈️</div>',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+
+        // Flight 1: IAH to DXB
+        const map1 = L.map('map1', {
+            center: [40, 20],
+            zoom: 3,
+            scrollWheelZoom: false
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map1);
+        L.marker(cities.houston, {icon: airportIcon})
+            .bindPopup('<strong>Houston (IAH)</strong><br>Departure: Thu Nov 6, 7:10pm')
+            .addTo(map1);
+        L.marker(cities.dubai, {icon: airportIcon})
+            .bindPopup('<strong>Dubai (DXB)</strong><br>Arrival: Fri Nov 7, 6:25pm')
+            .addTo(map1);
+        L.polyline([cities.houston, cities.dubai], {
+            color: '#6366f1',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '10, 10'
+        }).addTo(map1);
+        map1.fitBounds([cities.houston, cities.dubai], {padding: [50, 50]});
+
+        // Flight 2: DXB to BOM
+        const map2 = L.map('map2', {
+            center: [22, 65],
+            zoom: 5,
+            scrollWheelZoom: false
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map2);
+        L.marker(cities.dubai, {icon: airportIcon})
+            .bindPopup('<strong>Dubai (DXB)</strong><br>Departure: Fri Nov 7, 8:20pm')
+            .addTo(map2);
+        L.marker(cities.mumbai, {icon: airportIcon})
+            .bindPopup('<strong>Mumbai (BOM)</strong><br>Arrival: Sat Nov 8, 2:15am')
+            .addTo(map2);
+        L.polyline([cities.dubai, cities.mumbai], {
+            color: '#6366f1',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '10, 10'
+        }).addTo(map2);
+        map2.fitBounds([cities.dubai, cities.mumbai], {padding: [50, 50]});
+
+        // Flight 3: BOM to NAG
+        const map3 = L.map('map3', {
+            center: [20.4, 76],
+            zoom: 6,
+            scrollWheelZoom: false
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map3);
+        L.marker(cities.mumbai, {icon: airportIcon})
+            .bindPopup('<strong>Mumbai (BOM)</strong><br>Departure: Sat Nov 8, 5:25am')
+            .addTo(map3);
+        L.marker(cities.nagpur, {icon: airportIcon})
+            .bindPopup('<strong>Nagpur (NAG)</strong><br>Arrival: Sat Nov 8, 6:50am')
+            .addTo(map3);
+        L.polyline([cities.mumbai, cities.nagpur], {
+            color: '#f59e0b',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '5, 10'
+        }).addTo(map3);
+        map3.fitBounds([cities.mumbai, cities.nagpur], {padding: [80, 80]});
+
+        // Flight 4: BOM to DXB
+        const map4 = L.map('map4', {
+            center: [22, 65],
+            zoom: 5,
+            scrollWheelZoom: false
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map4);
+        L.marker(cities.mumbai, {icon: airportIcon})
+            .bindPopup('<strong>Mumbai (BOM)</strong><br>Departure: Sun Nov 16, 4:15am')
+            .addTo(map4);
+        L.marker(cities.dubai, {icon: airportIcon})
+            .bindPopup('<strong>Dubai (DXB)</strong><br>Arrival: Sun Nov 16, 6:40am')
+            .addTo(map4);
+        L.polyline([cities.mumbai, cities.dubai], {
+            color: '#06b6d4',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '5, 10'
+        }).addTo(map4);
+        map4.fitBounds([cities.mumbai, cities.dubai], {padding: [50, 50]});
+
+        // Flight 5: DXB to IAH
+        const map5 = L.map('map5', {
+            center: [40, 20],
+            zoom: 3,
+            scrollWheelZoom: false
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map5);
+        L.marker(cities.dubai, {icon: airportIcon})
+            .bindPopup('<strong>Dubai (DXB)</strong><br>Departure: Sun Nov 16, 10:20am')
+            .addTo(map5);
+        L.marker(cities.houston, {icon: airportIcon})
+            .bindPopup('<strong>Houston (IAH)</strong><br>Arrival: Sun Nov 16, 4:20pm')
+            .addTo(map5);
+        L.polyline([cities.dubai, cities.houston], {
+            color: '#06b6d4',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '5, 10'
+        }).addTo(map5);
+        map5.fitBounds([cities.dubai, cities.houston], {padding: [50, 50]});
+    </script>
+</body>
+</html>
