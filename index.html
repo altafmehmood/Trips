@@ -28,7 +28,6 @@
             display: block;
             padding: 20px;
             margin: 15px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -37,6 +36,12 @@
         .trip-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .trip-india {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        .trip-australia {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         .trip-title {
             font-size: 1.5em;
@@ -53,12 +58,12 @@
     <div class="container">
         <h1>Travel Itineraries</h1>
 
-        <a href="India/" class="trip-link">
+        <a href="India/" class="trip-link trip-india">
             <div class="trip-title">India Trip</div>
             <div class="trip-description">November 6-16, 2025 • Mumbai and Nagpur</div>
         </a>
 
-        <a href="Australia/" class="trip-link">
+        <a href="Australia/" class="trip-link trip-australia">
             <div class="trip-title">Australia Trip</div>
             <div class="trip-description">November 24 - December 2, 2025 • Sydney, Melbourne, and Tasmania</div>
         </a>
