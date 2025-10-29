@@ -764,13 +764,13 @@
         });
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map4);
+        }).addTo(map5);
         L.marker(cities.mumbai, {icon: airportIcon})
             .bindPopup('<strong>Mumbai (BOM)</strong><br>Departure: Sun Nov 16, 4:15am')
-            .addTo(map4);
+            .addTo(map5);
         L.marker(cities.dubai, {icon: airportIcon})
             .bindPopup('<strong>Dubai (DXB)</strong><br>Arrival: Sun Nov 16, 6:40am')
-            .addTo(map4);
+            .addTo(map5);
         L.polyline([cities.mumbai, cities.dubai], {
             color: '#06b6d4',
             weight: 3,
