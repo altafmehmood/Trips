@@ -545,6 +545,107 @@
             flex: 1;
         }
 
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+            color: white;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .map-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .map-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .route-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1rem;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .route-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 0.5rem;
+        }
+
+        .route-stat {
+            text-align: center;
+        }
+
+        .route-stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .route-stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .activity-timeline {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .timeline-activity {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .timeline-activity:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
             .day-block {
                 grid-template-columns: 1fr;
@@ -582,7 +683,9 @@
                 display: none;
             }
 
-            .activity-map {
+            .activity-map,
+            .map-overlay,
+            .route-info {
                 display: none;
             }
 
@@ -1117,6 +1220,7 @@
         const days = [
             {
                 id: 'map-day1',
+                title: 'London Arrival & Gymkhana',
                 center: [51.4700, -0.4543],
                 zoom: 11,
                 locations: [
@@ -1127,6 +1231,7 @@
             },
             {
                 id: 'map-day2',
+                title: 'Drive to Lake District',
                 center: [54.4609, -3.0886],
                 zoom: 9,
                 locations: [
@@ -1137,6 +1242,7 @@
             },
             {
                 id: 'map-day3',
+                title: 'Catbells Hike',
                 center: [54.5277, -3.1538],
                 zoom: 12,
                 locations: [
@@ -1146,6 +1252,7 @@
             },
             {
                 id: 'map-day4',
+                title: 'Helvellyn or Easedale Tarn',
                 center: [54.5278, -3.0161],
                 zoom: 11,
                 locations: [
@@ -1156,6 +1263,7 @@
             },
             {
                 id: 'map-day5',
+                title: 'Drive to Glasgow',
                 center: [55.8642, -4.2518],
                 zoom: 12,
                 locations: [
@@ -1166,6 +1274,7 @@
             },
             {
                 id: 'map-day6',
+                title: 'Drive to Edinburgh',
                 center: [55.9533, -3.1883],
                 zoom: 13,
                 locations: [
@@ -1176,6 +1285,7 @@
             },
             {
                 id: 'map-day7',
+                title: "Arthur's Seat & Edinburgh",
                 center: [55.9445, -3.1619],
                 zoom: 13,
                 locations: [
@@ -1186,6 +1296,7 @@
             },
             {
                 id: 'map-day8',
+                title: 'Return to London & Jamavar',
                 center: [51.5074, -0.2776],
                 zoom: 11,
                 locations: [
@@ -1197,6 +1308,7 @@
             },
             {
                 id: 'map-day9',
+                title: 'Departure Day',
                 center: [51.4700, -0.4543],
                 zoom: 11,
                 locations: [
@@ -1207,6 +1319,10 @@
         ];
 
         days.forEach(day => {
+            // Get the map container
+            const mapContainer = document.getElementById(day.id);
+
+            // Create map
             const map = L.map(day.id, {
                 dragging: false,
                 zoomControl: false,
@@ -1219,6 +1335,7 @@
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
+            // Add markers
             day.locations.forEach(location => {
                 const customIcon = L.divIcon({
                     className: 'custom-marker',
@@ -1231,6 +1348,14 @@
                     .bindPopup(`<b>${location.name}</b>`)
                     .addTo(map);
             });
+
+            // Add map overlay with title
+            const overlay = document.createElement('div');
+            overlay.className = 'map-overlay';
+            overlay.innerHTML = `
+                <h3 class="map-title">${day.title}</h3>
+            `;
+            mapContainer.appendChild(overlay);
         });
     </script>
 </body>
