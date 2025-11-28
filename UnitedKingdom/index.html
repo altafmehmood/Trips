@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United Kingdom Adventure Itinerary</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --secondary-light: #22d3ee;
+            --secondary-dark: #0891b2;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
+            --surface: #ffffff;
+            --surface-secondary: var(--gray-50);
+            --border: var(--gray-200);
+            --border-light: var(--gray-100);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .trip-overview {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            color: var(--text-primary);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trip-overview h2 {
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .flight-section {
+            margin-top: 2rem;
+        }
+
+        .flight-card {
+            background: var(--surface-secondary);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+        }
+
+        .flight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .flight-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .flight-date {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .flight-details {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .flight-location {
+            text-align: center;
+        }
+
+        .flight-location.departure {
+            text-align: left;
+        }
+
+        .flight-location.arrival {
+            text-align: right;
+        }
+
+        .flight-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .flight-code {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .flight-city {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .flight-arrow {
+            text-align: center;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .flight-duration {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .flight-type {
+            font-size: 0.85rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .flight-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+        }
+
+        .flight-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flight-info-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .flight-info-value {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .cities-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .city-section {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .city-header {
+            padding: 3rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .london-header {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+
+        .city-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            letter-spacing: -0.02em;
+            z-index: 2;
+        }
+
+        .city-subtitle {
+            opacity: 0.95;
+            font-size: 1.2rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .city-content {
+            padding: 2rem;
+        }
+
+        .day-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: var(--radius-2xl);
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            align-items: stretch;
+        }
+
+        .day-block:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .day-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .day-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .day-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .day-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .activities {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity {
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: var(--surface-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .activity:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .activity-time {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .activity-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .type-sightseeing {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .type-food {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+        }
+
+        .type-culture {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .type-shopping {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--secondary);
+        }
+
+        .type-entertainment {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+
+        .day-map-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-map {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: var(--surface);
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .day-block {
+                grid-template-columns: 1fr;
+            }
+
+            .flight-details {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .flight-location.departure,
+            .flight-location.arrival {
+                text-align: center;
+            }
+
+            .flight-arrow {
+                order: -1;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            body::before {
+                display: none;
+            }
+
+            .activity-map {
+                display: none;
+            }
+
+            .day-block {
+                grid-template-columns: 1fr;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇬🇧 United Kingdom Adventure</h1>
+
+        <div class="trip-overview">
+            <h2>Trip Overview</h2>
+            <p style="text-align: center; color: var(--text-secondary); font-size: 1.1rem;">January 10-18, 2026 • 9 Days</p>
+
+            <div class="flight-section">
+                <div class="flight-card">
+                    <div class="flight-header">
+                        <span class="flight-title">✈️ Outbound Flight</span>
+                        <span class="flight-date">January 09, 2026</span>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-location departure">
+                            <div class="flight-time">7:05 PM</div>
+                            <div class="flight-code">IAH</div>
+                            <div class="flight-city">Houston, TX, US</div>
+                        </div>
+                        <div class="flight-arrow">
+                            <div class="flight-duration">9h 10m</div>
+                            <div class="flight-type">Nonstop</div>
+                            <div style="font-size: 1.5rem; margin: 0.5rem 0;">→</div>
+                            <div style="font-size: 0.75rem; color: var(--warning);">+1 day arrival</div>
+                        </div>
+                        <div class="flight-location arrival">
+                            <div class="flight-time">10:15 AM</div>
+                            <div class="flight-code">LHR</div>
+                            <div class="flight-city">London, GB</div>
+                        </div>
+                    </div>
+                    <div class="flight-info">
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Flight</span>
+                            <span class="flight-info-value">UA 5</span>
+                        </div>
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Aircraft</span>
+                            <span class="flight-info-value">Boeing 777-200</span>
+                        </div>
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Class</span>
+                            <span class="flight-info-value">United Premium Plus</span>
+                        </div>
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Meal Service</span>
+                            <span class="flight-info-value">Yes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flight-card">
+                    <div class="flight-header">
+                        <span class="flight-title">✈️ Return Flight</span>
+                        <span class="flight-date">January 18, 2026</span>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-location departure">
+                            <div class="flight-time">10:00 AM</div>
+                            <div class="flight-code">LHR</div>
+                            <div class="flight-city">London, GB</div>
+                        </div>
+                        <div class="flight-arrow">
+                            <div class="flight-duration">10h 45m</div>
+                            <div class="flight-type">Nonstop</div>
+                            <div style="font-size: 1.5rem; margin: 0.5rem 0;">→</div>
+                        </div>
+                        <div class="flight-location arrival">
+                            <div class="flight-time">2:45 PM</div>
+                            <div class="flight-code">IAH</div>
+                            <div class="flight-city">Houston, TX, US</div>
+                        </div>
+                    </div>
+                    <div class="flight-info">
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Flight</span>
+                            <span class="flight-info-value">UA 879</span>
+                        </div>
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Aircraft</span>
+                            <span class="flight-info-value">Boeing 777-200</span>
+                        </div>
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Class</span>
+                            <span class="flight-info-value">United Premium Plus</span>
+                        </div>
+                        <div class="flight-info-item">
+                            <span class="flight-info-label">Meal Service</span>
+                            <span class="flight-info-value">Yes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cities-container">
+            <div class="city-section">
+                <div class="city-header london-header">
+                    <h2 class="city-title">🏰 London</h2>
+                    <p class="city-subtitle">January 10-18, 2026 • 9 Days</p>
+                </div>
+
+                <div class="city-content">
+                    <!-- Day 1 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 1</h3>
+                                <p class="day-date">Friday, January 10, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">10:15 AM</div>
+                                    <div class="activity-name">Arrival at Heathrow Airport (LHR)</div>
+                                    <div class="activity-description">Clear customs and collect luggage</div>
+                                    <span class="activity-type type-sightseeing">Travel</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:00 PM</div>
+                                    <div class="activity-name">Hotel Check-in</div>
+                                    <div class="activity-description">Central London accommodation</div>
+                                    <span class="activity-type type-sightseeing">Hotel</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:00 PM</div>
+                                    <div class="activity-name">Lunch at Borough Market</div>
+                                    <div class="activity-description">Explore one of London's oldest food markets</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">4:00 PM</div>
+                                    <div class="activity-name">Thames River Walk</div>
+                                    <div class="activity-description">Walk from Tower Bridge to London Bridge, enjoying views of the Thames</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">Dinner in Covent Garden</div>
+                                    <div class="activity-description">Evening meal in the historic entertainment district</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day1-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 2</h3>
+                                <p class="day-date">Saturday, January 11, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-name">Tower of London</div>
+                                    <div class="activity-description">Historic castle and home to the Crown Jewels</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:00 PM</div>
+                                    <div class="activity-name">Lunch at Dishoom</div>
+                                    <div class="activity-description">Popular Indian restaurant near Tower Bridge</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:00 PM</div>
+                                    <div class="activity-name">Westminster Abbey</div>
+                                    <div class="activity-description">Stunning Gothic church with over 1,000 years of history</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">4:30 PM</div>
+                                    <div class="activity-name">Big Ben & Parliament</div>
+                                    <div class="activity-description">Iconic landmarks and photo opportunities</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">West End Theatre Show</div>
+                                    <div class="activity-description">Experience London's famous theatre district</div>
+                                    <span class="activity-type type-entertainment">Entertainment</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day2-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 3</h3>
+                                <p class="day-date">Sunday, January 12, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-name">British Museum</div>
+                                    <div class="activity-description">World-class museum with vast collections of art and antiquities</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:30 PM</div>
+                                    <div class="activity-name">Lunch in Bloomsbury</div>
+                                    <div class="activity-description">Explore cafes and restaurants near the British Museum</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:30 PM</div>
+                                    <div class="activity-name">Buckingham Palace</div>
+                                    <div class="activity-description">Official residence of the British monarch</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">4:00 PM</div>
+                                    <div class="activity-name">St. James's Park</div>
+                                    <div class="activity-description">Peaceful royal park with lake and wildlife</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">Dinner in Soho</div>
+                                    <div class="activity-description">Vibrant neighborhood with diverse dining options</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day3-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 4</h3>
+                                <p class="day-date">Monday, January 13, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-name">St. Paul's Cathedral</div>
+                                    <div class="activity-description">Iconic dome and stunning architecture</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:00 PM</div>
+                                    <div class="activity-name">Millennium Bridge Walk</div>
+                                    <div class="activity-description">Pedestrian bridge with views of St. Paul's and Tate Modern</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">1:00 PM</div>
+                                    <div class="activity-name">Tate Modern</div>
+                                    <div class="activity-description">Contemporary art museum in a former power station</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">4:00 PM</div>
+                                    <div class="activity-name">Shakespeare's Globe Theatre</div>
+                                    <div class="activity-description">Reconstruction of the original Globe Theatre</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">Dinner at Southbank</div>
+                                    <div class="activity-description">Riverside dining with city views</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day4-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 5</h3>
+                                <p class="day-date">Tuesday, January 14, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-name">Notting Hill & Portobello Road Market</div>
+                                    <div class="activity-description">Colorful neighborhood and famous antiques market</div>
+                                    <span class="activity-type type-shopping">Shopping</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:00 PM</div>
+                                    <div class="activity-name">Lunch in Notting Hill</div>
+                                    <div class="activity-description">Charming local cafes and restaurants</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:00 PM</div>
+                                    <div class="activity-name">Kensington Palace</div>
+                                    <div class="activity-description">Royal residence with beautiful gardens</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">4:30 PM</div>
+                                    <div class="activity-name">Hyde Park</div>
+                                    <div class="activity-description">London's largest park, perfect for a leisurely walk</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">Dinner in Knightsbridge</div>
+                                    <div class="activity-description">Upscale dining near Harrods</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day5-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 6 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 6</h3>
+                                <p class="day-date">Wednesday, January 15, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-name">Camden Market</div>
+                                    <div class="activity-description">Eclectic market with food, vintage items, and crafts</div>
+                                    <span class="activity-type type-shopping">Shopping</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:00 PM</div>
+                                    <div class="activity-name">Lunch at Camden Lock</div>
+                                    <div class="activity-description">International street food and canal views</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:00 PM</div>
+                                    <div class="activity-name">Regent's Park</div>
+                                    <div class="activity-description">Beautiful royal park with Queen Mary's Gardens</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">4:00 PM</div>
+                                    <div class="activity-name">London Zoo (Optional)</div>
+                                    <div class="activity-description">Historic zoo in Regent's Park</div>
+                                    <span class="activity-type type-entertainment">Entertainment</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">Dinner in King's Cross</div>
+                                    <div class="activity-description">Trendy dining in revitalized neighborhood</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day6-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 7 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 7</h3>
+                                <p class="day-date">Thursday, January 16, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-name">Natural History Museum</div>
+                                    <div class="activity-description">World-famous museum with dinosaur exhibits</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:30 PM</div>
+                                    <div class="activity-name">Lunch in South Kensington</div>
+                                    <div class="activity-description">Charming cafes near museum district</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:00 PM</div>
+                                    <div class="activity-name">Victoria and Albert Museum</div>
+                                    <div class="activity-description">World's largest museum of decorative arts and design</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">5:00 PM</div>
+                                    <div class="activity-name">Harrods Department Store</div>
+                                    <div class="activity-description">Iconic luxury shopping destination</div>
+                                    <span class="activity-type type-shopping">Shopping</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">Dinner in Chelsea</div>
+                                    <div class="activity-description">Upscale dining in fashionable neighborhood</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day7-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 8 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 8</h3>
+                                <p class="day-date">Friday, January 17, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">9:00 AM</div>
+                                    <div class="activity-name">Sky Garden</div>
+                                    <div class="activity-description">Free panoramic views from the "Walkie Talkie" building</div>
+                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">11:00 AM</div>
+                                    <div class="activity-name">Leadenhall Market</div>
+                                    <div class="activity-description">Beautiful covered Victorian market</div>
+                                    <span class="activity-type type-shopping">Shopping</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">12:30 PM</div>
+                                    <div class="activity-name">Lunch in Shoreditch</div>
+                                    <div class="activity-description">Trendy area with creative dining options</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:30 PM</div>
+                                    <div class="activity-name">Street Art Tour in Shoreditch</div>
+                                    <div class="activity-description">Explore famous street art and graffiti</div>
+                                    <span class="activity-type type-culture">Culture</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">5:00 PM</div>
+                                    <div class="activity-name">Last-minute Shopping</div>
+                                    <div class="activity-description">Oxford Street or Regent Street for souvenirs</div>
+                                    <span class="activity-type type-shopping">Shopping</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-name">Farewell Dinner</div>
+                                    <div class="activity-description">Celebrate the trip with a special meal</div>
+                                    <span class="activity-type type-food">Food</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day8-london" class="activity-map"></div>
+                        </div>
+                    </div>
+
+                    <!-- Day 9 -->
+                    <div class="day-block">
+                        <div class="day-content">
+                            <div class="day-header">
+                                <h3 class="day-title">Day 9</h3>
+                                <p class="day-date">Saturday, January 18, 2026</p>
+                            </div>
+                            <div class="activities">
+                                <div class="activity">
+                                    <div class="activity-time">7:00 AM</div>
+                                    <div class="activity-name">Hotel Check-out</div>
+                                    <div class="activity-description">Prepare for departure</div>
+                                    <span class="activity-type type-sightseeing">Hotel</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">8:00 AM</div>
+                                    <div class="activity-name">Transfer to Heathrow Airport</div>
+                                    <div class="activity-description">Allow 2 hours for check-in and security</div>
+                                    <span class="activity-type type-sightseeing">Travel</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">10:00 AM</div>
+                                    <div class="activity-name">Departure Flight UA 879</div>
+                                    <div class="activity-description">London Heathrow (LHR) to Houston (IAH)</div>
+                                    <span class="activity-type type-sightseeing">Travel</span>
+                                </div>
+                                <div class="activity">
+                                    <div class="activity-time">2:45 PM</div>
+                                    <div class="activity-name">Arrival in Houston</div>
+                                    <div class="activity-description">End of UK adventure</div>
+                                    <span class="activity-type type-sightseeing">Travel</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-map-container">
+                            <div id="map-day9-london" class="activity-map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // London center coordinates
+        const londonCenter = [51.5074, -0.1278];
+
+        // Initialize maps for each day
+        const days = [
+            {
+                id: 'map-day1-london',
+                center: [51.5045, -0.0865],
+                zoom: 13,
+                locations: [
+                    { coords: [51.5074, -0.0877], name: 'Borough Market', color: '#f59e0b' },
+                    { coords: [51.5055, -0.0754], name: 'Tower Bridge', color: '#6366f1' },
+                    { coords: [51.5101, -0.1225], name: 'Covent Garden', color: '#f59e0b' }
+                ]
+            },
+            {
+                id: 'map-day2-london',
+                center: [51.5014, -0.1195],
+                zoom: 13,
+                locations: [
+                    { coords: [51.5081, -0.0759], name: 'Tower of London', color: '#10b981' },
+                    { coords: [51.4993, -0.1273], name: 'Westminster Abbey', color: '#10b981' },
+                    { coords: [51.5007, -0.1246], name: 'Big Ben', color: '#6366f1' },
+                    { coords: [51.5101, -0.1225], name: 'West End', color: '#8b5cf6' }
+                ]
+            },
+            {
+                id: 'map-day3-london',
+                center: [51.5154, -0.1270],
+                zoom: 13,
+                locations: [
+                    { coords: [51.5194, -0.1270], name: 'British Museum', color: '#10b981' },
+                    { coords: [51.5014, -0.1419], name: 'Buckingham Palace', color: '#6366f1' },
+                    { coords: [51.5023, -0.1376], name: "St. James's Park", color: '#6366f1' },
+                    { coords: [51.5136, -0.1318], name: 'Soho', color: '#f59e0b' }
+                ]
+            },
+            {
+                id: 'map-day4-london',
+                center: [51.5081, -0.0987],
+                zoom: 14,
+                locations: [
+                    { coords: [51.5138, -0.0984], name: "St. Paul's Cathedral", color: '#10b981' },
+                    { coords: [51.5096, -0.0986], name: 'Millennium Bridge', color: '#6366f1' },
+                    { coords: [51.5076, -0.0994], name: 'Tate Modern', color: '#10b981' },
+                    { coords: [51.5081, -0.0972], name: "Shakespeare's Globe", color: '#10b981' }
+                ]
+            },
+            {
+                id: 'map-day5-london',
+                center: [51.5100, -0.1900],
+                zoom: 13,
+                locations: [
+                    { coords: [51.5155, -0.1957], name: 'Portobello Road', color: '#06b6d4' },
+                    { coords: [51.5055, -0.1878], name: 'Kensington Palace', color: '#10b981' },
+                    { coords: [51.5074, -0.1657], name: 'Hyde Park', color: '#6366f1' },
+                    { coords: [51.4994, -0.1633], name: 'Knightsbridge', color: '#f59e0b' }
+                ]
+            },
+            {
+                id: 'map-day6-london',
+                center: [51.5445, -0.1433],
+                zoom: 13,
+                locations: [
+                    { coords: [51.5415, -0.1460], name: 'Camden Market', color: '#06b6d4' },
+                    { coords: [51.5313, -0.1570], name: "Regent's Park", color: '#6366f1' },
+                    { coords: [51.5352, -0.1566], name: 'London Zoo', color: '#8b5cf6' },
+                    { coords: [51.5301, -0.1235], name: "King's Cross", color: '#f59e0b' }
+                ]
+            },
+            {
+                id: 'map-day7-london',
+                center: [51.4946, -0.1739],
+                zoom: 14,
+                locations: [
+                    { coords: [51.4967, -0.1764], name: 'Natural History Museum', color: '#10b981' },
+                    { coords: [51.4966, -0.1722], name: 'Victoria and Albert Museum', color: '#10b981' },
+                    { coords: [51.4994, -0.1633], name: 'Harrods', color: '#06b6d4' },
+                    { coords: [51.4851, -0.1682], name: 'Chelsea', color: '#f59e0b' }
+                ]
+            },
+            {
+                id: 'map-day8-london',
+                center: [51.5185, -0.0824],
+                zoom: 13,
+                locations: [
+                    { coords: [51.5112, -0.0837], name: 'Sky Garden', color: '#6366f1' },
+                    { coords: [51.5129, -0.0831], name: 'Leadenhall Market', color: '#06b6d4' },
+                    { coords: [51.5264, -0.0820], name: 'Shoreditch', color: '#f59e0b' },
+                    { coords: [51.5154, -0.1413], name: 'Oxford Street', color: '#06b6d4' }
+                ]
+            },
+            {
+                id: 'map-day9-london',
+                center: [51.4700, -0.4543],
+                zoom: 11,
+                locations: [
+                    { coords: [51.5074, -0.1278], name: 'Central London', color: '#6366f1' },
+                    { coords: [51.4700, -0.4543], name: 'Heathrow Airport', color: '#f59e0b' }
+                ]
+            }
+        ];
+
+        days.forEach(day => {
+            const map = L.map(day.id, {
+                dragging: false,
+                zoomControl: false,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                touchZoom: false
+            }).setView(day.center, day.zoom);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            day.locations.forEach(location => {
+                const customIcon = L.divIcon({
+                    className: 'custom-marker',
+                    html: `<div style="background-color: ${location.color}; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3);"></div>`,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+
+                L.marker(location.coords, { icon: customIcon })
+                    .bindPopup(`<b>${location.name}</b>`)
+                    .addTo(map);
+            });
+        });
+    </script>
+</body>
+</html>
