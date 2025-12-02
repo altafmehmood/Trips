@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,8 +82,44 @@
         }
 
         @keyframes backgroundShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .simple-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            transition: transform 0.2s ease;
+        }
+
+        .simple-marker:hover {
+            transform: scale(1.2);
+            z-index: 1000;
         }
 
         .container {
@@ -126,12 +163,19 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
         }
 
         @keyframes cardFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
         .trip-overview h2 {
@@ -170,7 +214,7 @@
             inset: 0;
             border-radius: 20px;
             padding: 1px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: subtract;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -190,13 +234,20 @@
         .city-icon {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
             animation: iconBounce 2s ease-in-out infinite;
         }
 
         @keyframes iconBounce {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
         .city-name {
@@ -351,7 +402,7 @@
             inset: 0;
             border-radius: 32px;
             padding: 2px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: subtract;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -370,13 +421,18 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
             animation: shimmer 3s ease-in-out infinite;
         }
 
         @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .london-header {
@@ -551,7 +607,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
             color: white;
             padding: 1rem;
             backdrop-filter: blur(10px);
@@ -596,7 +652,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
             color: white;
             padding: 1rem;
             border-radius: 0 0 16px 16px;
@@ -734,12 +790,16 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
         <h1>🇬🇧 United Kingdom Adventure</h1>
 
         <div class="trip-overview">
-            <h2 style="color: var(--text-primary); text-align: center; margin-bottom: 25px; font-weight: 600; font-family: 'Inter', sans-serif;">United Kingdom Adventure • Jan 10-18, 2026</h2>
+            <h2
+                style="color: var(--text-primary); text-align: center; margin-bottom: 25px; font-weight: 600; font-family: 'Inter', sans-serif;">
+                United Kingdom Adventure • Jan 10-18, 2026</h2>
 
             <div class="overview-grid">
                 <a href="#london-section" class="overview-card london-card">
@@ -747,17 +807,20 @@
                     <div class="city-name">London</div>
                     <div class="city-duration">2 days • Michelin Dining</div>
                 </a>
-                <a href="#lake-district-section" class="overview-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">
+                <a href="#lake-district-section" class="overview-card"
+                    style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">
                     <div class="city-icon">🏔️</div>
                     <div class="city-name">Lake District</div>
                     <div class="city-duration">3 days • Hiking & Nature</div>
                 </a>
-                <a href="#glasgow-section" class="overview-card" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white;">
+                <a href="#glasgow-section" class="overview-card"
+                    style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white;">
                     <div class="city-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
                     <div class="city-name">Glasgow</div>
                     <div class="city-duration">1 day • West End</div>
                 </a>
-                <a href="#edinburgh-section" class="overview-card" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">
+                <a href="#edinburgh-section" class="overview-card"
+                    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">
                     <div class="city-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
                     <div class="city-name">Edinburgh</div>
                     <div class="city-duration">2 days • Royal Mile & Hiking</div>
@@ -797,10 +860,7 @@
                             <span class="flight-info-label">Aircraft</span>
                             <span class="flight-info-value">Boeing 777-200</span>
                         </div>
-                        <div class="flight-info-item">
-                            <span class="flight-info-label">Class</span>
-                            <span class="flight-info-value">United Premium Plus</span>
-                        </div>
+
                         <div class="flight-info-item">
                             <span class="flight-info-label">Meal Service</span>
                             <span class="flight-info-value">Yes</span>
@@ -839,10 +899,7 @@
                             <span class="flight-info-label">Aircraft</span>
                             <span class="flight-info-value">Boeing 777-200</span>
                         </div>
-                        <div class="flight-info-item">
-                            <span class="flight-info-label">Class</span>
-                            <span class="flight-info-value">United Premium Plus</span>
-                        </div>
+
                         <div class="flight-info-item">
                             <span class="flight-info-label">Meal Service</span>
                             <span class="flight-info-value">Yes</span>
@@ -877,14 +934,18 @@
                                 </div>
                                 <div class="activity">
                                     <div class="activity-time">12:00 PM</div>
-                                    <div class="activity-name">Check in at Hilton Garden Inn London Heathrow Airport</div>
-                                    <div class="activity-description">Hatton Cross location - rest and refresh from journey</div>
+                                    <div class="activity-name">Check in at Hilton Garden Inn London Heathrow Airport
+                                    </div>
+                                    <div class="activity-description">Hatton Cross location - rest and refresh from
+                                        journey</div>
                                     <span class="activity-type type-sightseeing">Hotel</span>
                                 </div>
                                 <div class="activity">
                                     <div class="activity-time">Evening</div>
                                     <div class="activity-name">★★ Michelin Dinner at Gymkhana</div>
-                                    <div class="activity-description">42 Albemarle Street, Mayfair, London, W1S 4JH - Iconic Indian cuisine with tandoori lamb chops, wild muntjac biryani, and Goan prawn curry. Chic, club-style setting.</div>
+                                    <div class="activity-description">42 Albemarle Street, Mayfair, London, W1S 4JH -
+                                        Iconic Indian cuisine with tandoori lamb chops, wild muntjac biryani, and Goan
+                                        prawn curry. Chic, club-style setting.</div>
                                     <span class="activity-type type-food">Michelin 2-Star</span>
                                 </div>
                             </div>
@@ -915,7 +976,8 @@
                                 <div class="activity">
                                     <div class="activity-time">Morning</div>
                                     <div class="activity-name">🚗 Pick up rental car & Drive to Lake District</div>
-                                    <div class="activity-description">Scenic 5-hour drive through the English countryside</div>
+                                    <div class="activity-description">Scenic 5-hour drive through the English
+                                        countryside</div>
                                     <span class="activity-type type-sightseeing">Travel</span>
                                 </div>
                                 <div class="activity">
@@ -954,7 +1016,8 @@
                                 <div class="activity">
                                     <div class="activity-time">Morning</div>
                                     <div class="activity-name">🥾 Hike Catbells</div>
-                                    <div class="activity-description">Moderate 2.3-mile hike with panoramic Lake District views (2-3 hours)</div>
+                                    <div class="activity-description">Moderate 2.3-mile hike with panoramic Lake
+                                        District views (2-3 hours)</div>
                                     <span class="activity-type type-sightseeing">Hiking</span>
                                 </div>
                                 <div class="activity">
@@ -987,7 +1050,9 @@
                                 <div class="activity">
                                     <div class="activity-time">Morning</div>
                                     <div class="activity-name">🥾 Hike Helvellyn or Easedale Tarn</div>
-                                    <div class="activity-description">Choice: Helvellyn (challenging, iconic 8-mile trek with Striding Edge, 6-9 hours) OR Easedale Tarn (moderate, scenic with waterfalls and tarn)</div>
+                                    <div class="activity-description">Choice: Helvellyn (challenging, iconic 8-mile trek
+                                        with Striding Edge, 6-9 hours) OR Easedale Tarn (moderate, scenic with
+                                        waterfalls and tarn)</div>
                                     <span class="activity-type type-sightseeing">Hiking</span>
                                 </div>
                                 <div class="activity">
@@ -1030,7 +1095,8 @@
                                 <div class="activity">
                                     <div class="activity-time">Morning</div>
                                     <div class="activity-name">🚗 Drive to Glasgow</div>
-                                    <div class="activity-description">2.5-3 hour scenic drive through Scottish countryside</div>
+                                    <div class="activity-description">2.5-3 hour scenic drive through Scottish
+                                        countryside</div>
                                     <span class="activity-type type-sightseeing">Travel</span>
                                 </div>
                                 <div class="activity">
@@ -1048,7 +1114,8 @@
                                 <div class="activity">
                                     <div class="activity-time">Evening</div>
                                     <div class="activity-name">Explore Kelvingrove Park</div>
-                                    <div class="activity-description">Beautiful park in West End, or try a local restaurant</div>
+                                    <div class="activity-description">Beautiful park in West End, or try a local
+                                        restaurant</div>
                                     <span class="activity-type type-sightseeing">Sightseeing</span>
                                 </div>
                             </div>
@@ -1097,7 +1164,8 @@
                                 <div class="activity">
                                     <div class="activity-time">Evening</div>
                                     <div class="activity-name">Stroll the Royal Mile or Whisky Bar</div>
-                                    <div class="activity-description">Explore historic Edinburgh or sample Scottish whisky</div>
+                                    <div class="activity-description">Explore historic Edinburgh or sample Scottish
+                                        whisky</div>
                                     <span class="activity-type type-culture">Culture</span>
                                 </div>
                             </div>
@@ -1118,7 +1186,9 @@
                                 <div class="activity">
                                     <div class="activity-time">Morning</div>
                                     <div class="activity-name">🥾 Hike Arthur's Seat or Pentland Hills</div>
-                                    <div class="activity-description">Choice: Arthur's Seat (moderate, 1.5-2 hours, panoramic city views) OR Pentland Hills (more rugged, longer hill walking outside the city)</div>
+                                    <div class="activity-description">Choice: Arthur's Seat (moderate, 1.5-2 hours,
+                                        panoramic city views) OR Pentland Hills (more rugged, longer hill walking
+                                        outside the city)</div>
                                     <span class="activity-type type-sightseeing">Hiking</span>
                                 </div>
                                 <div class="activity">
@@ -1130,7 +1200,8 @@
                                 <div class="activity">
                                     <div class="activity-time">Evening</div>
                                     <div class="activity-name">Dinner at Number One at The Balmoral or Classic Pub</div>
-                                    <div class="activity-description">Fine dining at hotel restaurant or traditional Scottish pub</div>
+                                    <div class="activity-description">Fine dining at hotel restaurant or traditional
+                                        Scottish pub</div>
                                     <span class="activity-type type-food">Food</span>
                                 </div>
                             </div>
@@ -1161,37 +1232,44 @@
                                 <div class="activity">
                                     <div class="activity-time">7:00 AM</div>
                                     <div class="activity-name">🚗 Depart Edinburgh</div>
-                                    <div class="activity-description">Start scenic drive to London via historic cities and countryside</div>
+                                    <div class="activity-description">Start scenic drive to London via historic cities
+                                        and countryside</div>
                                     <span class="activity-type type-sightseeing">Travel</span>
                                 </div>
                                 <div class="activity">
                                     <div class="activity-time">10:00 AM - 11:30 AM</div>
                                     <div class="activity-name">Stop in York</div>
-                                    <div class="activity-description">Historic walled city - explore York Minster, medieval Shambles street, and city walls. Coffee and breakfast break.</div>
+                                    <div class="activity-description">Historic walled city - explore York Minster,
+                                        medieval Shambles street, and city walls. Coffee and breakfast break.</div>
                                     <span class="activity-type type-culture">Culture</span>
                                 </div>
                                 <div class="activity">
                                     <div class="activity-time">1:30 PM - 2:30 PM</div>
                                     <div class="activity-name">Lunch in Peak District National Park</div>
-                                    <div class="activity-description">Stop in Bakewell or Chatsworth - stunning countryside views, historic estates</div>
+                                    <div class="activity-description">Stop in Bakewell or Chatsworth - stunning
+                                        countryside views, historic estates</div>
                                     <span class="activity-type type-food">Food & Nature</span>
                                 </div>
                                 <div class="activity">
                                     <div class="activity-time">4:00 PM - 5:00 PM</div>
                                     <div class="activity-name">Drive through the Cotswolds</div>
-                                    <div class="activity-description">Scenic route through honey-stone villages like Bourton-on-the-Water or Stow-on-the-Wold. Photo stop.</div>
+                                    <div class="activity-description">Scenic route through honey-stone villages like
+                                        Bourton-on-the-Water or Stow-on-the-Wold. Photo stop.</div>
                                     <span class="activity-type type-sightseeing">Scenic Drive</span>
                                 </div>
                                 <div class="activity">
                                     <div class="activity-time">6:30 PM</div>
                                     <div class="activity-name">Arrive in London</div>
-                                    <div class="activity-description">Check in at Hilton Garden Inn London Heathrow Airport</div>
+                                    <div class="activity-description">Check in at Hilton Garden Inn London Heathrow
+                                        Airport</div>
                                     <span class="activity-type type-sightseeing">Hotel</span>
                                 </div>
                                 <div class="activity">
                                     <div class="activity-time">8:00 PM</div>
                                     <div class="activity-name">★ Michelin Dinner at Jamavar</div>
-                                    <div class="activity-description">8 Mount Street, Mayfair, London, W1K 3NF - Refined, beautifully presented Indian cuisine. Try the tandoori chicken, narangi prawns, or stone bass tikka.</div>
+                                    <div class="activity-description">8 Mount Street, Mayfair, London, W1K 3NF -
+                                        Refined, beautifully presented Indian cuisine. Try the tandoori chicken, narangi
+                                        prawns, or stone bass tikka.</div>
                                     <span class="activity-type type-food">Michelin 1-Star</span>
                                 </div>
                             </div>
@@ -1239,101 +1317,101 @@
             {
                 id: 'map-day1',
                 title: 'London Arrival & Gymkhana',
-                center: [51.4700, -0.4543],
+                center: [51.4900, -0.3000],
                 zoom: 11,
                 locations: [
-                    { coords: [51.4700, -0.4543], name: 'Heathrow Airport', color: '#6366f1' },
-                    { coords: [51.4587, -0.4520], name: 'Hilton Garden Inn Heathrow', color: '#10b981' },
-                    { coords: [51.5076, -0.1425], name: 'Gymkhana (Mayfair)', color: '#dc2626' }
+                    { coords: [51.4700, -0.4543], label: '✈️', name: 'Heathrow Airport', description: 'Arrival' },
+                    { coords: [51.4587, -0.4520], label: '🏨', name: 'Hilton Garden Inn Heathrow', description: 'Check-in' },
+                    { coords: [51.5076, -0.1425], label: '🍽️', name: 'Gymkhana (Mayfair)', description: 'Michelin Star Dinner' }
                 ]
             },
             {
                 id: 'map-day2',
                 title: 'Drive to Lake District',
-                center: [54.4609, -3.0886],
-                zoom: 9,
+                center: [53.0000, -2.0000],
+                zoom: 7,
                 locations: [
-                    { coords: [51.4700, -0.4543], name: 'Heathrow Airport', color: '#6366f1' },
-                    { coords: [54.4609, -3.0886], name: 'Grasmere, Lake District', color: '#10b981' },
-                    { coords: [54.4645, -3.0938], name: 'The Daffodil Hotel & Spa', color: '#dc2626' }
+                    { coords: [51.4700, -0.4543], label: '🚗', name: 'Heathrow Airport', description: 'Pick up rental car' },
+                    { coords: [54.4609, -3.0886], label: '🏞️', name: 'Grasmere, Lake District', description: 'Scenic drive destination' },
+                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel & Spa', description: 'Lakeside luxury stay' }
                 ]
             },
             {
                 id: 'map-day3',
                 title: 'Catbells Hike',
-                center: [54.5277, -3.1538],
+                center: [54.5000, -3.1200],
                 zoom: 12,
                 locations: [
-                    { coords: [54.5277, -3.1538], name: 'Catbells Summit', color: '#10b981' },
-                    { coords: [54.4645, -3.0938], name: 'The Daffodil Hotel & Spa', color: '#dc2626' }
+                    { coords: [54.5277, -3.1538], label: '🥾', name: 'Catbells Summit', description: 'Panoramic views' },
+                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel & Spa', description: 'Base for the day' }
                 ]
             },
             {
                 id: 'map-day4',
                 title: 'Helvellyn or Easedale Tarn',
-                center: [54.5278, -3.0161],
+                center: [54.5000, -3.0500],
                 zoom: 11,
                 locations: [
-                    { coords: [54.5278, -3.0161], name: 'Helvellyn', color: '#10b981' },
-                    { coords: [54.4662, -3.0294], name: 'Easedale Tarn', color: '#06b6d4' },
-                    { coords: [54.4645, -3.0938], name: 'The Daffodil Hotel & Spa', color: '#dc2626' }
+                    { coords: [54.5278, -3.0161], label: '🏔️', name: 'Helvellyn', description: 'Challenging hike option' },
+                    { coords: [54.4662, -3.0294], label: '💧', name: 'Easedale Tarn', description: 'Scenic tarn hike option' },
+                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel & Spa', description: 'Relaxation' }
                 ]
             },
             {
                 id: 'map-day5',
                 title: 'Drive to Glasgow',
-                center: [55.8642, -4.2518],
-                zoom: 12,
+                center: [55.1500, -3.6000],
+                zoom: 8,
                 locations: [
-                    { coords: [55.8642, -4.2518], name: 'Glasgow City Center', color: '#8b5cf6' },
-                    { coords: [55.8729, -4.2897], name: 'Kelvingrove Park', color: '#10b981' },
-                    { coords: [55.8606, -4.2490], name: 'Kimpton Blythswood Square', color: '#dc2626' }
+                    { coords: [55.8642, -4.2518], label: '🏙️', name: 'Glasgow City Center', description: 'Vibrant city life' },
+                    { coords: [55.8729, -4.2897], label: '🌳', name: 'Kelvingrove Park', description: 'Beautiful park walk' },
+                    { coords: [55.8606, -4.2490], label: '🏨', name: 'Kimpton Blythswood Square', description: 'Luxury stay' }
                 ]
             },
             {
                 id: 'map-day6',
                 title: 'Drive to Edinburgh',
-                center: [55.9533, -3.1883],
-                zoom: 13,
+                center: [55.9000, -3.7000],
+                zoom: 9,
                 locations: [
-                    { coords: [55.9533, -3.1883], name: 'Edinburgh City Center', color: '#f59e0b' },
-                    { coords: [55.9533, -3.1883], name: 'Royal Mile', color: '#10b981' },
-                    { coords: [55.9533, -3.1906], name: 'The Balmoral Hotel', color: '#dc2626' }
+                    { coords: [55.9533, -3.1883], label: '🏰', name: 'Edinburgh Castle', description: 'Historic fortress' },
+                    { coords: [55.9533, -3.1883], label: '🚶', name: 'Royal Mile', description: 'Famous street' },
+                    { coords: [55.9533, -3.1906], label: '🏨', name: 'The Balmoral Hotel', description: 'Iconic landmark hotel' }
                 ]
             },
             {
                 id: 'map-day7',
                 title: "Arthur's Seat & Edinburgh",
-                center: [55.9445, -3.1619],
-                zoom: 13,
+                center: [55.9200, -3.2000],
+                zoom: 12,
                 locations: [
-                    { coords: [55.9445, -3.1619], name: "Arthur's Seat", color: '#10b981' },
-                    { coords: [55.8862, -3.2667], name: 'Pentland Hills', color: '#06b6d4' },
-                    { coords: [55.9533, -3.1906], name: 'The Balmoral Hotel', color: '#dc2626' }
+                    { coords: [55.9445, -3.1619], label: '⛰️', name: "Arthur's Seat", description: 'Ancient volcano hike' },
+                    { coords: [55.8862, -3.2667], label: '🐑', name: 'Pentland Hills', description: 'Rolling hills nearby' },
+                    { coords: [55.9533, -3.1906], label: '🏨', name: 'The Balmoral Hotel', description: 'Central stay' }
                 ]
             },
             {
                 id: 'map-day8',
                 title: 'Scenic Drive: Edinburgh → London',
-                center: [53.5, -1.5],
+                center: [53.5000, -1.5000],
                 zoom: 6,
                 locations: [
-                    { coords: [55.9533, -3.1883], name: '1. Edinburgh (Start)', color: '#f59e0b' },
-                    { coords: [53.9600, -1.0873], name: '2. York - Historic City', color: '#8b5cf6' },
-                    { coords: [53.2141, -1.5911], name: '3. Peak District - Bakewell', color: '#10b981' },
-                    { coords: [51.8860, -1.7320], name: '4. Cotswolds - Bourton-on-the-Water', color: '#06b6d4' },
-                    { coords: [51.4587, -0.4520], name: '5. London Heathrow Hotel', color: '#dc2626' },
-                    { coords: [51.5101, -0.1410], name: '6. Jamavar (Mayfair)', color: '#f59e0b' }
+                    { coords: [55.9533, -3.1883], label: '🚗', name: 'Edinburgh', description: 'Start of drive' },
+                    { coords: [53.9600, -1.0873], label: '🏰', name: 'York', description: 'Historic stop' },
+                    { coords: [53.2141, -1.5911], label: '🥧', name: 'Bakewell', description: 'Peak District lunch' },
+                    { coords: [51.8860, -1.7320], label: '🏡', name: 'Cotswolds', description: 'Scenic villages' },
+                    { coords: [51.4587, -0.4520], label: '🏨', name: 'Heathrow Hotel', description: 'Overnight before flight' },
+                    { coords: [51.5101, -0.1410], label: '🍽️', name: 'Jamavar', description: 'Farewell dinner' }
                 ]
             },
             {
                 id: 'map-day9',
                 title: 'Departure Day',
-                center: [51.4700, -0.4543],
-                zoom: 11,
+                center: [51.4600, -0.4500],
+                zoom: 13,
                 locations: [
-                    { coords: [51.4587, -0.4520], name: 'Hilton Garden Inn Heathrow', color: '#10b981' },
-                    { coords: [51.4700, -0.4543], name: 'Heathrow Airport', color: '#6366f1' }
+                    { coords: [51.4587, -0.4520], label: '🏨', name: 'Hilton Garden Inn', description: 'Checkout' },
+                    { coords: [51.4700, -0.4543], label: '✈️', name: 'Heathrow Airport', description: 'Departure' }
                 ]
             }
         ];
@@ -1341,6 +1419,7 @@
         days.forEach(day => {
             // Get the map container
             const mapContainer = document.getElementById(day.id);
+            if (!mapContainer) return;
 
             // Create map
             const map = L.map(day.id, {
@@ -1351,21 +1430,27 @@
                 touchZoom: false
             }).setView(day.center, day.zoom);
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
+            // Use CartoDB Voyager tiles for cleaner look (matching Australia)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO'
             }).addTo(map);
 
-            // Add markers
+            // Add markers with emojis
             day.locations.forEach(location => {
                 const customIcon = L.divIcon({
-                    className: 'custom-marker',
-                    html: `<div style="background-color: ${location.color}; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3);"></div>`,
-                    iconSize: [24, 24],
-                    iconAnchor: [12, 12]
+                    className: 'simple-marker',
+                    html: location.label,
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
                 });
 
                 L.marker(location.coords, { icon: customIcon })
-                    .bindPopup(`<b>${location.name}</b>`)
+                    .bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${location.description}</p>
+                        </div>
+                    `)
                     .addTo(map);
             });
 
@@ -1379,4 +1464,5 @@
         });
     </script>
 </body>
+
 </html>

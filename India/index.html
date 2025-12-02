@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>India Adventure Itinerary</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
         :root {
             --primary: #6366f1;
@@ -81,8 +82,15 @@
         }
 
         @keyframes backgroundShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
         .container {
@@ -269,6 +277,20 @@
             border: 1px solid var(--border);
         }
 
+        .simple-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            transition: transform 0.2s ease;
+        }
+
+        .simple-marker:hover {
+            transform: scale(1.2);
+            z-index: 1000;
+        }
+
         @media print {
             body::before {
                 display: none;
@@ -314,17 +336,172 @@
                 transform: rotate(90deg);
             }
         }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .trip-overview {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            color: var(--text-primary);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        .trip-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+
+        @keyframes cardFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .trip-overview h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: subtract;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .city-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .city-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .city-duration {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
         <h1>🇮🇳 India Adventure</h1>
-        <div class="trip-dates">Thursday, Nov 06 - Sunday, Nov 16, 2025</div>
+
+        <div class="trip-overview">
+            <h2
+                style="color: var(--text-primary); text-align: center; margin-bottom: 25px; font-weight: 600; font-family: 'Inter', sans-serif;">
+                India Adventure • Nov 6-16, 2025</h2>
+
+            <div class="overview-grid">
+                <a href="#mumbai-section" class="overview-card"
+                    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">
+                    <div class="city-icon">🏙️</div>
+                    <div class="city-name">Mumbai</div>
+                    <div class="city-duration">4 Days • Food & Culture</div>
+                </a>
+                <a href="#nagpur-section" class="overview-card"
+                    style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">
+                    <div class="city-icon">🍊</div>
+                    <div class="city-name">Nagpur</div>
+                    <div class="city-duration">7 Days • Family & Nature</div>
+                </a>
+            </div>
+        </div>
 
         <!-- Flight 1: IAH to DXB -->
         <div class="section">
             <h2>✈️ Flight 1: Houston to Dubai</h2>
-            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Thursday, November 6, 2025</p>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Thursday, November 6,
+                2025</p>
 
             <div class="flight-card">
                 <div class="flight-route">
@@ -375,7 +552,8 @@
         <!-- Flight 2: DXB to BOM -->
         <div class="section">
             <h2>✈️ Flight 2: Dubai to Mumbai</h2>
-            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Friday, November 7, 2025</p>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Friday, November 7,
+                2025</p>
 
             <div class="flight-card">
                 <div class="flight-route">
@@ -421,13 +599,15 @@
         <!-- Connection 2 -->
         <div class="connection-info connection-tight">
             ⏱️ Connection in Mumbai (Terminal 2): 3h 10m<br>
-            <span style="font-size: 0.875rem; opacity: 0.95;">International arrival → Domestic departure, same terminal, no checked bags</span>
+            <span style="font-size: 0.875rem; opacity: 0.95;">International arrival → Domestic departure, same terminal,
+                no checked bags</span>
         </div>
 
         <!-- Flight 3: BOM to NAG -->
         <div class="section">
             <h2>✈️ Flight 3: Mumbai to Nagpur</h2>
-            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Saturday, November 8, 2025</p>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Saturday, November 8,
+                2025</p>
 
             <div class="flight-card">
                 <div class="flight-route">
@@ -451,7 +631,8 @@
                         <div class="detail-item">
                             <span class="detail-label">Departure</span>
                             <span class="flight-time">05:25 am</span>
-                            <span class="detail-value">Chhatrapati Shivaji Maharaj International Airport (Terminal 2)</span>
+                            <span class="detail-value">Chhatrapati Shivaji Maharaj International Airport (Terminal
+                                2)</span>
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">Arrival</span>
@@ -472,7 +653,8 @@
         <!-- Flight 4: NAG to BOM -->
         <div class="section">
             <h2>✈️ Flight 4: Nagpur to Mumbai</h2>
-            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Friday, November 15, 2025</p>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Friday, November 15,
+                2025</p>
 
             <div class="flight-card">
                 <div class="flight-route">
@@ -517,29 +699,43 @@
         <!-- Dining -->
         <div class="section">
             <h2>🍽️ Dinner in Mumbai</h2>
-            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Friday, November 15, 2025 - Evening</p>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Friday, November 15,
+                2025 - Evening</p>
 
             <div class="flight-card">
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
                     <div>
-                        <h3 style="margin: 0; font-size: 1.5rem; color: var(--text-primary);">Peshawri - ITC Maratha</h3>
-                        <p style="margin: 0.5rem 0; color: var(--text-secondary);">ITC Maratha, Sahar Road, Chakala, Mumbai</p>
+                        <h3 style="margin: 0; font-size: 1.5rem; color: var(--text-primary);">Peshawri - ITC Maratha
+                        </h3>
+                        <p style="margin: 0.5rem 0; color: var(--text-secondary);">ITC Maratha, Sahar Road, Chakala,
+                            Mumbai</p>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="background: var(--success); color: white; padding: 0.5rem 1rem; border-radius: var(--radius-md); font-weight: 700; font-size: 1.25rem;">4.5 ⭐</span>
+                        <span
+                            style="background: var(--success); color: white; padding: 0.5rem 1rem; border-radius: var(--radius-md); font-weight: 700; font-size: 1.25rem;">4.5
+                            ⭐</span>
                     </div>
                 </div>
 
                 <div style="margin-bottom: 1rem;">
-                    <span style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">North Indian</span>
-                    <span style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Mughlai</span>
-                    <span style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Kebab</span>
-                    <span style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Seafood</span>
-                    <span style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Desserts</span>
+                    <span
+                        style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">North
+                        Indian</span>
+                    <span
+                        style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Mughlai</span>
+                    <span
+                        style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Kebab</span>
+                    <span
+                        style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Seafood</span>
+                    <span
+                        style="display: inline-block; background: var(--gray-100); padding: 0.5rem 1rem; border-radius: var(--radius-md); margin-right: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">Desserts</span>
                 </div>
 
-                <div style="background: var(--primary-light); color: white; padding: 1rem; border-radius: var(--radius-md);">
-                    <strong>📍 Location:</strong> Near airport - convenient for evening arrival and early morning departure
+                <div
+                    style="background: var(--primary-light); color: white; padding: 1rem; border-radius: var(--radius-md);">
+                    <strong>📍 Location:</strong> Near airport - convenient for evening arrival and early morning
+                    departure
                 </div>
             </div>
         </div>
@@ -547,13 +743,15 @@
         <!-- Connection 4 -->
         <div class="connection-info connection-good">
             ⏱️ Overnight in Mumbai: Rest before 4:15am departure<br>
-            <span style="font-size: 0.875rem; opacity: 0.95;">After dinner, head to hotel or airport for early morning international flight</span>
+            <span style="font-size: 0.875rem; opacity: 0.95;">After dinner, head to hotel or airport for early morning
+                international flight</span>
         </div>
 
         <!-- Flight 5: BOM to DXB -->
         <div class="section">
             <h2>✈️ Flight 5: Mumbai to Dubai</h2>
-            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Sunday, November 16, 2025</p>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Sunday, November 16,
+                2025</p>
 
             <div class="flight-card">
                 <div class="flight-route">
@@ -603,7 +801,8 @@
         <!-- Flight 6: DXB to IAH -->
         <div class="section">
             <h2>✈️ Flight 6: Dubai to Houston</h2>
-            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Sunday, November 16, 2025</p>
+            <p style="color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Sunday, November 16,
+                2025</p>
 
             <div class="flight-card">
                 <div class="flight-route">
@@ -664,143 +863,124 @@
             iconAnchor: [15, 15]
         });
 
-        // Flight 1: IAH to DXB
-        const map1 = L.map('map1', {
-            center: [40, 20],
-            zoom: 3,
-            scrollWheelZoom: false
-        });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map1);
-        L.marker(cities.houston, {icon: airportIcon})
-            .bindPopup('<strong>Houston (IAH)</strong><br>Departure: Thu Nov 6, 7:10pm')
-            .addTo(map1);
-        L.marker(cities.dubai, {icon: airportIcon})
-            .bindPopup('<strong>Dubai (DXB)</strong><br>Arrival: Fri Nov 7, 6:25pm')
-            .addTo(map1);
-        L.polyline([cities.houston, cities.dubai], {
-            color: '#6366f1',
-            weight: 3,
-            opacity: 0.7,
-            dashArray: '10, 10'
-        }).addTo(map1);
-        map1.fitBounds([cities.houston, cities.dubai], {padding: [50, 50]});
+        // Map configurations
+        const maps = [
+            {
+                id: 'map1',
+                center: [40, 20],
+                zoom: 3,
+                locations: [
+                    { coords: cities.houston, label: '🛫', name: 'Houston (IAH)', description: 'Departure: Thu Nov 6, 7:10pm' },
+                    { coords: cities.dubai, label: '🛬', name: 'Dubai (DXB)', description: 'Arrival: Fri Nov 7, 6:25pm' }
+                ],
+                route: [cities.houston, cities.dubai],
+                color: '#6366f1'
+            },
+            {
+                id: 'map2',
+                center: [22, 65],
+                zoom: 5,
+                locations: [
+                    { coords: cities.dubai, label: '🛫', name: 'Dubai (DXB)', description: 'Departure: Fri Nov 7, 8:20pm' },
+                    { coords: cities.mumbai, label: '🛬', name: 'Mumbai (BOM)', description: 'Arrival: Sat Nov 8, 2:15am' }
+                ],
+                route: [cities.dubai, cities.mumbai],
+                color: '#6366f1'
+            },
+            {
+                id: 'map3',
+                center: [20.4, 76],
+                zoom: 6,
+                locations: [
+                    { coords: cities.mumbai, label: '🛫', name: 'Mumbai (BOM)', description: 'Departure: Sat Nov 8, 5:25am' },
+                    { coords: cities.nagpur, label: '🛬', name: 'Nagpur (NAG)', description: 'Arrival: Sat Nov 8, 6:50am' }
+                ],
+                route: [cities.mumbai, cities.nagpur],
+                color: '#f59e0b'
+            },
+            {
+                id: 'map4',
+                center: [20.4, 76],
+                zoom: 6,
+                locations: [
+                    { coords: cities.nagpur, label: '🛫', name: 'Nagpur (NAG)', description: 'Departure: Fri Nov 15, 6:40pm' },
+                    { coords: cities.mumbai, label: '🛬', name: 'Mumbai (BOM)', description: 'Arrival: Fri Nov 15, 8:15pm' }
+                ],
+                route: [cities.nagpur, cities.mumbai],
+                color: '#f59e0b'
+            },
+            {
+                id: 'map5',
+                center: [22, 65],
+                zoom: 5,
+                locations: [
+                    { coords: cities.mumbai, label: '🛫', name: 'Mumbai (BOM)', description: 'Departure: Sun Nov 16, 4:15am' },
+                    { coords: cities.dubai, label: '🛬', name: 'Dubai (DXB)', description: 'Arrival: Sun Nov 16, 6:40am' }
+                ],
+                route: [cities.mumbai, cities.dubai],
+                color: '#06b6d4'
+            },
+            {
+                id: 'map6',
+                center: [40, 20],
+                zoom: 3,
+                locations: [
+                    { coords: cities.dubai, label: '🛫', name: 'Dubai (DXB)', description: 'Departure: Sun Nov 16, 10:20am' },
+                    { coords: cities.houston, label: '🛬', name: 'Houston (IAH)', description: 'Arrival: Sun Nov 16, 4:20pm' }
+                ],
+                route: [cities.dubai, cities.houston],
+                color: '#06b6d4'
+            }
+        ];
 
-        // Flight 2: DXB to BOM
-        const map2 = L.map('map2', {
-            center: [22, 65],
-            zoom: 5,
-            scrollWheelZoom: false
-        });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map2);
-        L.marker(cities.dubai, {icon: airportIcon})
-            .bindPopup('<strong>Dubai (DXB)</strong><br>Departure: Fri Nov 7, 8:20pm')
-            .addTo(map2);
-        L.marker(cities.mumbai, {icon: airportIcon})
-            .bindPopup('<strong>Mumbai (BOM)</strong><br>Arrival: Sat Nov 8, 2:15am')
-            .addTo(map2);
-        L.polyline([cities.dubai, cities.mumbai], {
-            color: '#6366f1',
-            weight: 3,
-            opacity: 0.7,
-            dashArray: '10, 10'
-        }).addTo(map2);
-        map2.fitBounds([cities.dubai, cities.mumbai], {padding: [50, 50]});
+        maps.forEach(config => {
+            const map = L.map(config.id, {
+                center: config.center,
+                zoom: config.zoom,
+                scrollWheelZoom: false,
+                zoomControl: false,
+                dragging: false,
+                doubleClickZoom: false,
+                touchZoom: false
+            });
 
-        // Flight 3: BOM to NAG
-        const map3 = L.map('map3', {
-            center: [20.4, 76],
-            zoom: 6,
-            scrollWheelZoom: false
-        });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map3);
-        L.marker(cities.mumbai, {icon: airportIcon})
-            .bindPopup('<strong>Mumbai (BOM)</strong><br>Departure: Sat Nov 8, 5:25am')
-            .addTo(map3);
-        L.marker(cities.nagpur, {icon: airportIcon})
-            .bindPopup('<strong>Nagpur (NAG)</strong><br>Arrival: Sat Nov 8, 6:50am')
-            .addTo(map3);
-        L.polyline([cities.mumbai, cities.nagpur], {
-            color: '#f59e0b',
-            weight: 3,
-            opacity: 0.7,
-            dashArray: '5, 10'
-        }).addTo(map3);
-        map3.fitBounds([cities.mumbai, cities.nagpur], {padding: [80, 80]});
+            // Use CartoDB Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO'
+            }).addTo(map);
 
-        // Flight 4: NAG to BOM
-        const map4 = L.map('map4', {
-            center: [20.4, 76],
-            zoom: 6,
-            scrollWheelZoom: false
-        });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map4);
-        L.marker(cities.nagpur, {icon: airportIcon})
-            .bindPopup('<strong>Nagpur (NAG)</strong><br>Departure: Fri Nov 15, 6:40pm')
-            .addTo(map4);
-        L.marker(cities.mumbai, {icon: airportIcon})
-            .bindPopup('<strong>Mumbai (BOM)</strong><br>Arrival: Fri Nov 15, 8:15pm')
-            .addTo(map4);
-        L.polyline([cities.nagpur, cities.mumbai], {
-            color: '#f59e0b',
-            weight: 3,
-            opacity: 0.7,
-            dashArray: '5, 10'
-        }).addTo(map4);
-        map4.fitBounds([cities.nagpur, cities.mumbai], {padding: [80, 80]});
+            // Add markers
+            config.locations.forEach(loc => {
+                const customIcon = L.divIcon({
+                    className: 'simple-marker',
+                    html: loc.label,
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
 
-        // Flight 5: BOM to DXB
-        const map5 = L.map('map5', {
-            center: [22, 65],
-            zoom: 5,
-            scrollWheelZoom: false
-        });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map5);
-        L.marker(cities.mumbai, {icon: airportIcon})
-            .bindPopup('<strong>Mumbai (BOM)</strong><br>Departure: Sun Nov 16, 4:15am')
-            .addTo(map5);
-        L.marker(cities.dubai, {icon: airportIcon})
-            .bindPopup('<strong>Dubai (DXB)</strong><br>Arrival: Sun Nov 16, 6:40am')
-            .addTo(map5);
-        L.polyline([cities.mumbai, cities.dubai], {
-            color: '#06b6d4',
-            weight: 3,
-            opacity: 0.7,
-            dashArray: '5, 10'
-        }).addTo(map5);
-        map5.fitBounds([cities.mumbai, cities.dubai], {padding: [50, 50]});
+                L.marker(loc.coords, { icon: customIcon })
+                    .bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">${loc.name}</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${loc.description}</p>
+                        </div>
+                    `)
+                    .addTo(map);
+            });
 
-        // Flight 6: DXB to IAH
-        const map6 = L.map('map6', {
-            center: [40, 20],
-            zoom: 3,
-            scrollWheelZoom: false
+            // Add route line
+            if (config.route) {
+                L.polyline(config.route, {
+                    color: config.color,
+                    weight: 3,
+                    opacity: 0.7,
+                    dashArray: '10, 10'
+                }).addTo(map);
+
+                map.fitBounds(config.route, { padding: [50, 50] });
+            }
         });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map6);
-        L.marker(cities.dubai, {icon: airportIcon})
-            .bindPopup('<strong>Dubai (DXB)</strong><br>Departure: Sun Nov 16, 10:20am')
-            .addTo(map6);
-        L.marker(cities.houston, {icon: airportIcon})
-            .bindPopup('<strong>Houston (IAH)</strong><br>Arrival: Sun Nov 16, 4:20pm')
-            .addTo(map6);
-        L.polyline([cities.dubai, cities.houston], {
-            color: '#06b6d4',
-            weight: 3,
-            opacity: 0.7,
-            dashArray: '5, 10'
-        }).addTo(map6);
-        map6.fitBounds([cities.dubai, cities.houston], {padding: [50, 50]});
     </script>
 </body>
+
 </html>
