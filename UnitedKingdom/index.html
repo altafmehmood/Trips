@@ -730,28 +730,78 @@
             }
         }
 
+        /* Print Styles */
         @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact !important;
+            }
+
+            .print-only {
+                display: none;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .print-only {
+                display: block !important;
+            }
+
             body {
-                background: white;
+                background: white !important;
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
             body::before {
-                display: none;
+                display: none !important;
             }
 
-            .activity-map,
-            .map-overlay,
-            .route-info {
-                display: none;
+            .container {
+                width: 100%;
+                max-width: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
 
-            .day-block {
-                grid-template-columns: 1fr;
-                page-break-inside: avoid;
+            h1 {
+                font-size: 24pt !important;
+                background: none !important;
+                color: black !important;
+                -webkit-background-clip: initial !important;
+                -webkit-text-fill-color: black !important;
+                text-align: center !important;
+                margin: 0 0 0.25in 0 !important;
+                page-break-after: avoid !important;
+                text-shadow: none;
+                filter: none;
             }
 
+            h2 {
+                font-size: 14pt !important;
+                color: black !important;
+                margin: 0.2in 0 0.1in 0 !important;
+                page-break-after: avoid !important;
+            }
+
+            h3 {
+                font-size: 12pt !important;
+                color: black !important;
+                margin: 0.15in 0 0.08in 0 !important;
+                page-break-after: avoid !important;
+            }
+
+            /* Overview cards - convert to simple text list */
             .trip-overview {
                 margin-bottom: 0.25in !important;
+                box-shadow: none;
+                border: 1px solid #ddd;
+                background: white;
+                break-inside: avoid;
             }
 
             .trip-overview h2 {
@@ -759,15 +809,25 @@
                 margin: 0.2in 0 !important;
             }
 
+            .overview-grid {
+                display: block !important;
+                margin: 0.2in 0 !important;
+            }
+
             .overview-card {
                 display: block !important;
                 background: none !important;
                 border: 1px solid #ccc !important;
-                box-shadow: none !important;
+                border-radius: 0 !important;
                 margin: 0.1in 0 !important;
-                padding: 0.15in !important;
-                border-radius: 4px !important;
+                padding: 0.1in !important;
+                box-shadow: none !important;
                 page-break-inside: avoid !important;
+            }
+
+            .overview-card::before,
+            .overview-card::after {
+                display: none !important;
             }
 
             .city-icon {
@@ -777,15 +837,141 @@
                 animation: none !important;
             }
 
-            .overview-grid {
-                display: block !important;
+            .city-name {
+                display: inline !important;
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                color: black !important;
             }
 
+            .city-duration {
+                display: inline !important;
+                font-size: 10pt !important;
+                color: #666 !important;
+                margin-left: 0.1in !important;
+            }
+
+            /* Day blocks */
+            .day-block {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                border-radius: 0 !important;
+                margin: 0.15in 0 !important;
+                padding: 0.15in !important;
+                box-shadow: none !important;
+                display: block !important;
+                page-break-inside: avoid !important;
+                grid-template-columns: 1fr !important;
+            }
+
+            .day-block::before {
+                display: none !important;
+            }
+
+            .day-header {
+                border-bottom: 1pt solid #ccc !important;
+                padding-bottom: 0.05in !important;
+                margin-bottom: 0.1in !important;
+            }
+
+            .day-title {
+                font-size: 14pt !important;
+                font-weight: bold !important;
+                color: black !important;
+                margin: 0 !important;
+            }
+
+            .day-date {
+                font-size: 10pt !important;
+                color: #666 !important;
+            }
+
+            /* Activities */
+            .activity {
+                margin: 0.08in 0 !important;
+                padding: 0.05in 0 !important;
+                border-left: 2pt solid #ccc !important;
+                padding-left: 0.1in !important;
+                page-break-inside: avoid !important;
+            }
+
+            .activity-time {
+                font-weight: bold !important;
+                font-size: 10pt !important;
+                color: black !important;
+                margin-bottom: 0.02in !important;
+            }
+
+            .activity-desc {
+                font-size: 10pt !important;
+                color: black !important;
+                line-height: 1.3 !important;
+            }
+
+            .activity-icon {
+                display: inline !important;
+                font-size: 10pt !important;
+                margin-right: 0.05in !important;
+            }
+
+            /* Show URLs for links */
+            .activity-desc a::after {
+                content: " (" attr(href) ")" !important;
+                font-size: 8pt !important;
+                color: #666 !important;
+                font-weight: normal !important;
+            }
+
+            /* Hide maps completely */
+            .activity-map,
+            .map-overlay,
+            .route-info {
+                display: none !important;
+            }
+
+            /* Flight info */
+            .flight-info {
+                background: white !important;
+                border: 1px solid #ccc !important;
+                border-radius: 0 !important;
+                margin: 0.1in 0 !important;
+                padding: 0.1in !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+            }
+
+            /* Page breaks */
+            .back-link {
+                display: none !important;
+            }
+
+            /* Footer for each page */
+            @page {
+                margin: 0.75in 0.5in 0.75in 0.5in !important;
+
+                @bottom-center {
+                    content: "United Kingdom Adventure Itinerary • Page " counter(page) !important;
+                    font-size: 9pt !important;
+                    color: #666 !important;
+                }
+            }
+
+            /* Ensure good printing behavior */
             .overview-card,
             .day-block,
             .activity {
                 orphans: 2 !important;
                 widows: 2 !important;
+            }
+
+            /* Print table of contents style for overview */
+            .overview-grid::before {
+                content: "Trip Overview:" !important;
+                display: block !important;
+                font-weight: bold !important;
+                font-size: 12pt !important;
+                margin-bottom: 0.1in !important;
+                color: black !important;
             }
         }
     </style>

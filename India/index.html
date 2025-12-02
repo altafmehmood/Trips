@@ -102,7 +102,7 @@
         h1 {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -275,6 +275,30 @@
             overflow: hidden;
             margin-top: 1rem;
             border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+            color: white;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0;
         }
 
         .simple-marker {
@@ -291,23 +315,201 @@
             z-index: 1000;
         }
 
+        /* Print Styles */
         @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact !important;
+            }
+
+            .print-only {
+                display: none;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .print-only {
+                display: block !important;
+            }
+
+            body {
+                background: white !important;
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
             body::before {
-                display: none;
+                display: none !important;
             }
 
-            .section {
-                break-inside: avoid;
+            .container {
+                width: 100%;
+                max-width: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            h1 {
+                font-size: 24pt !important;
+                background: none !important;
+                color: black !important;
+                -webkit-background-clip: initial !important;
+                -webkit-text-fill-color: black !important;
+                text-align: center !important;
+                margin: 0 0 0.25in 0 !important;
+                page-break-after: avoid !important;
+                text-shadow: none;
+                filter: none;
+            }
+
+            h2 {
+                font-size: 14pt !important;
+                color: black !important;
+                margin: 0.2in 0 0.1in 0 !important;
+                page-break-after: avoid !important;
+            }
+
+            /* Overview cards - convert to simple text list */
+            .trip-overview {
+                margin-bottom: 0.25in !important;
                 box-shadow: none;
-                border: 1px solid var(--border);
-            }
-
-            .flight-card {
+                border: 1px solid #ddd;
+                background: white;
                 break-inside: avoid;
             }
 
-            .map-container {
-                display: none;
+            .overview-grid {
+                display: block !important;
+                margin: 0.2in 0 !important;
+            }
+
+            .overview-card {
+                display: block !important;
+                background: none !important;
+                border: 1px solid #ccc !important;
+                border-radius: 0 !important;
+                margin: 0.1in 0 !important;
+                padding: 0.1in !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+            }
+
+            .overview-card::before,
+            .overview-card::after {
+                display: none !important;
+            }
+
+            .city-icon {
+                display: inline !important;
+                font-size: 12pt !important;
+                margin-right: 0.1in !important;
+                animation: none !important;
+            }
+
+            .city-name {
+                display: inline !important;
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                color: black !important;
+            }
+
+            .city-duration {
+                display: inline !important;
+                font-size: 10pt !important;
+                color: #666 !important;
+                margin-left: 0.1in !important;
+            }
+
+            /* Sections */
+            .section {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                border-radius: 0 !important;
+                margin: 0.15in 0 !important;
+                padding: 0.15in !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+            }
+
+            /* Flight cards */
+            .flight-card {
+                background: white !important;
+                border: 1px solid #ccc !important;
+                border-radius: 0 !important;
+                margin: 0.1in 0 !important;
+                padding: 0.1in !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+            }
+
+            .flight-route {
+                display: flex !important;
+                justify-content: space-between !important;
+            }
+
+            .airport-code {
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                color: black !important;
+            }
+
+            .airport-city {
+                font-size: 10pt !important;
+                color: #666 !important;
+            }
+
+            .route-arrow {
+                font-size: 14pt !important;
+                color: black !important;
+            }
+
+            .flight-details {
+                font-size: 10pt !important;
+                color: black !important;
+            }
+
+            /* Hide maps completely */
+            .map-container,
+            .map-overlay {
+                display: none !important;
+            }
+
+            /* Page breaks */
+            .back-link {
+                display: none !important;
+            }
+
+            /* Footer for each page */
+            @page {
+                margin: 0.75in 0.5in 0.75in 0.5in !important;
+
+                @bottom-center {
+                    content: "India Adventure Itinerary • Page " counter(page) !important;
+                    font-size: 9pt !important;
+                    color: #666 !important;
+                }
+            }
+
+            /* Ensure good printing behavior */
+            .overview-card,
+            .section,
+            .flight-card {
+                orphans: 2 !important;
+                widows: 2 !important;
+            }
+
+            /* Print table of contents style for overview */
+            .overview-grid::before {
+                content: "Trip Overview:" !important;
+                display: block !important;
+                font-weight: bold !important;
+                font-size: 12pt !important;
+                margin-bottom: 0.1in !important;
+                color: black !important;
             }
         }
 
@@ -429,6 +631,24 @@
             -webkit-mask-composite: subtract;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask-composite: subtract;
+        }
+
+        .overview-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .overview-card:hover {
@@ -867,6 +1087,7 @@
         const maps = [
             {
                 id: 'map1',
+                title: 'Houston → Dubai',
                 center: [40, 20],
                 zoom: 3,
                 locations: [
@@ -878,6 +1099,7 @@
             },
             {
                 id: 'map2',
+                title: 'Dubai → Mumbai',
                 center: [22, 65],
                 zoom: 5,
                 locations: [
@@ -889,6 +1111,7 @@
             },
             {
                 id: 'map3',
+                title: 'Mumbai → Nagpur',
                 center: [20.4, 76],
                 zoom: 6,
                 locations: [
@@ -900,6 +1123,7 @@
             },
             {
                 id: 'map4',
+                title: 'Nagpur → Mumbai',
                 center: [20.4, 76],
                 zoom: 6,
                 locations: [
@@ -911,6 +1135,7 @@
             },
             {
                 id: 'map5',
+                title: 'Mumbai → Dubai',
                 center: [22, 65],
                 zoom: 5,
                 locations: [
@@ -922,6 +1147,7 @@
             },
             {
                 id: 'map6',
+                title: 'Dubai → Houston',
                 center: [40, 20],
                 zoom: 3,
                 locations: [
@@ -979,6 +1205,13 @@
 
                 map.fitBounds(config.route, { padding: [50, 50] });
             }
+
+            // Add map overlay with title
+            const mapContainer = document.getElementById(config.id);
+            const overlay = document.createElement('div');
+            overlay.className = 'map-overlay';
+            overlay.innerHTML = `<h3 class="map-title">${config.title}</h3>`;
+            mapContainer.appendChild(overlay);
         });
     </script>
 </body>
