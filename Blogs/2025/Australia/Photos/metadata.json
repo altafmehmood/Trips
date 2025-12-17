@@ -1,0 +1,2269 @@
+{
+  "photos": [
+    {
+      "original_filename": "00BF2F09-C45B-491D-91FC-CFE0A0DC6DF7_1_102_a.jpeg",
+      "optimized_filename": "00BF2F09-C45B-491D-91FC-CFE0A0DC6DF7_1_102_a.jpeg",
+      "date_taken": "2025-12-14T20:29:24",
+      "gps": {
+        "latitude": -33.87281388888889,
+        "longitude": 151.2016611111111
+      },
+      "location": null,
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.91
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.52
+      }
+    },
+    {
+      "original_filename": "03D352D5-BB20-418D-A6D5-655A042B4146_1_102_a.jpeg",
+      "optimized_filename": "03D352D5-BB20-418D-A6D5-655A042B4146_1_102_a.jpeg",
+      "date_taken": "2025-12-14T20:36:40",
+      "gps": {
+        "latitude": -33.87110833333333,
+        "longitude": 151.2011722222222
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Centennial Square, Centennial Park, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2021, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.96
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.48
+      }
+    },
+    {
+      "original_filename": "0A373DAC-399D-4145-866B-BC5BDD47DAD6_1_102_o.jpeg",
+      "optimized_filename": "0A373DAC-399D-4145-866B-BC5BDD47DAD6_1_102_o.jpeg",
+      "date_taken": "2025-12-09T11:11:31",
+      "gps": {
+        "latitude": -38.46766388888889,
+        "longitude": 144.1046611111111
+      },
+      "location": {
+        "city": "Aireys Inlet",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Aireys Inlet, Surf Coast Shire, Victoria, 3231, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.44
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.26
+      }
+    },
+    {
+      "original_filename": "14993094-29FD-4883-B0C3-02724FB57F77_1_102_a.jpeg",
+      "optimized_filename": "14993094-29FD-4883-B0C3-02724FB57F77_1_102_a.jpeg",
+      "date_taken": "2025-12-14T12:44:15",
+      "gps": {
+        "latitude": -41.99417777777778,
+        "longitude": 148.28552222222223
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Glamorgan-Spring Bay, Tasmania, 7190, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.77
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.41
+      }
+    },
+    {
+      "original_filename": "1D4386CB-2F51-44F4-A9ED-D5318B249F0B_1_102_o.jpeg",
+      "optimized_filename": "1D4386CB-2F51-44F4-A9ED-D5318B249F0B_1_102_o.jpeg",
+      "date_taken": "2025-12-12T14:30:30",
+      "gps": {
+        "latitude": -42.155991666666665,
+        "longitude": 145.32733055555556
+      },
+      "location": {
+        "city": "Strahan",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Regatta Point, Strahan, West Coast, Tasmania, 7468, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.23
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.65
+      }
+    },
+    {
+      "original_filename": "1F8C751A-E2A4-4A1C-BE45-59823C4A7409_1_102_a.jpeg",
+      "optimized_filename": "1F8C751A-E2A4-4A1C-BE45-59823C4A7409_1_102_a.jpeg",
+      "date_taken": "2025-12-14T12:50:33",
+      "gps": {
+        "latitude": -41.99268611111111,
+        "longitude": 148.285675
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Friendly Beaches, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.97
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.5
+      }
+    },
+    {
+      "original_filename": "21F9E399-3AE3-4CCA-B1B6-8D86DB5BEF66_1_102_o.jpeg",
+      "optimized_filename": "21F9E399-3AE3-4CCA-B1B6-8D86DB5BEF66_1_102_o.jpeg",
+      "date_taken": "2025-12-12T09:00:04",
+      "gps": {
+        "latitude": -42.21160555555556,
+        "longitude": 145.2152861111111
+      },
+      "location": null,
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.88
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.5
+      }
+    },
+    {
+      "original_filename": "241E8040-48FF-4073-8A29-B57BD52F92B0_1_102_a.jpeg",
+      "optimized_filename": "241E8040-48FF-4073-8A29-B57BD52F92B0_1_102_a.jpeg",
+      "date_taken": "2025-12-11T11:49:18",
+      "gps": {
+        "latitude": -42.677166666666665,
+        "longitude": 146.71276944444443
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Mount Field, Derwent Valley, Tasmania, 7140, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.98
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.13
+      }
+    },
+    {
+      "original_filename": "2635238A-1DC9-462A-9B4E-D7DE370F2CE0_1_102_a.jpeg",
+      "optimized_filename": "2635238A-1DC9-462A-9B4E-D7DE370F2CE0_1_102_a.jpeg",
+      "date_taken": "2025-12-14T10:59:51",
+      "gps": {
+        "latitude": -42.136177777777775,
+        "longitude": 148.31844999999998
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Freycinet, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.21
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.63
+      }
+    },
+    {
+      "original_filename": "2C2CFC03-788F-47AD-B1A3-945DE417D674_1_102_a.jpeg",
+      "optimized_filename": "2C2CFC03-788F-47AD-B1A3-945DE417D674_1_102_a.jpeg",
+      "date_taken": "2025-12-13T20:09:15",
+      "gps": {
+        "latitude": -42.12941111111111,
+        "longitude": 148.3006888888889
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Glamorgan-Spring Bay, Tasmania, 7190, Australia"
+      },
+      "original_size": {
+        "width": 1986,
+        "height": 1582,
+        "file_size_mb": 0.81
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1529,
+        "file_size_mb": 0.42
+      }
+    },
+    {
+      "original_filename": "3572AFEC-D049-4384-8F5B-8044704B496E_1_102_a.jpeg",
+      "optimized_filename": "3572AFEC-D049-4384-8F5B-8044704B496E_1_102_a.jpeg",
+      "date_taken": "2025-12-11T15:47:54",
+      "gps": {
+        "latitude": -42.11440277777778,
+        "longitude": 146.1692361111111
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Watersmeet, Lake St Clair, Central Highlands, Tasmania, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.18
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.61
+      }
+    },
+    {
+      "original_filename": "3A65F55C-47DA-4515-9886-36C083850BB4_1_105_c.jpeg",
+      "optimized_filename": "3A65F55C-47DA-4515-9886-36C083850BB4_1_105_c.jpeg",
+      "date_taken": "2025-12-14T11:41:10",
+      "gps": {
+        "latitude": -42.12317222222222,
+        "longitude": 148.34140000000002
+      },
+      "location": {
+        "city": "Coles Bay",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.37
+      },
+      "optimized_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.2
+      }
+    },
+    {
+      "original_filename": "4178855C-8B0A-41CF-A772-A6446D41A281_1_102_a.jpeg",
+      "optimized_filename": "4178855C-8B0A-41CF-A772-A6446D41A281_1_102_a.jpeg",
+      "date_taken": "2025-12-12T19:12:44",
+      "gps": {
+        "latitude": -41.64126666666667,
+        "longitude": 145.94491666666667
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Waldheim, Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.19
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.68
+      }
+    },
+    {
+      "original_filename": "4254448F-C97B-4791-819E-69A6DA83D816_1_102_a.jpeg",
+      "optimized_filename": "4254448F-C97B-4791-819E-69A6DA83D816_1_102_a.jpeg",
+      "date_taken": "2025-12-11T12:04:37",
+      "gps": {
+        "latitude": -42.67610833333333,
+        "longitude": 146.71134999999998
+      },
+      "location": null,
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.64
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.91
+      }
+    },
+    {
+      "original_filename": "4319ECBB-580F-4A39-8469-AE5523DCA605_1_102_o.jpeg",
+      "optimized_filename": "4319ECBB-580F-4A39-8469-AE5523DCA605_1_102_o.jpeg",
+      "date_taken": "2025-12-14T10:39:53",
+      "gps": {
+        "latitude": -42.13429722222222,
+        "longitude": 148.30232222222224
+      },
+      "location": {
+        "city": "Coles Bay",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "The Fisheries, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.04
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.53
+      }
+    },
+    {
+      "original_filename": "45325D78-2979-4BB4-8522-384874E16F1D_1_102_o.jpeg",
+      "optimized_filename": "45325D78-2979-4BB4-8522-384874E16F1D_1_102_o.jpeg",
+      "date_taken": "2025-12-12T08:30:19",
+      "gps": {
+        "latitude": -42.154758333333334,
+        "longitude": 145.32858333333334
+      },
+      "location": {
+        "city": "Strahan",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Regatta Point, Strahan, West Coast, Tasmania, 7468, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.65
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.33
+      }
+    },
+    {
+      "original_filename": "467BA86D-9183-44D5-8AB4-7D1FDEA7A03B_1_102_o.jpeg",
+      "optimized_filename": "467BA86D-9183-44D5-8AB4-7D1FDEA7A03B_1_102_o.jpeg",
+      "date_taken": "2025-12-09T11:14:34",
+      "gps": {
+        "latitude": -38.46886111111111,
+        "longitude": 144.10430833333334
+      },
+      "location": null,
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.04
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.54
+      }
+    },
+    {
+      "original_filename": "490CDDFB-090F-4EEB-8776-380850CF6EF0_1_102_o.jpeg",
+      "optimized_filename": "490CDDFB-090F-4EEB-8776-380850CF6EF0_1_102_o.jpeg",
+      "date_taken": "2025-12-10T16:03:45",
+      "gps": {
+        "latitude": -42.89601944444444,
+        "longitude": 147.23730555555554
+      },
+      "location": null,
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.09
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.58
+      }
+    },
+    {
+      "original_filename": "4F1B229F-3F67-47D1-B654-3F8961C531D2_1_105_c.jpeg",
+      "optimized_filename": "4F1B229F-3F67-47D1-B654-3F8961C531D2_1_105_c.jpeg",
+      "date_taken": "2025-12-13T20:20:29",
+      "gps": {
+        "latitude": -42.12636111111111,
+        "longitude": 148.2977611111111
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Freycinet, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.29
+      },
+      "optimized_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.15
+      }
+    },
+    {
+      "original_filename": "4FE92562-0B8B-463A-A622-FCB77A3ABD62_1_102_a.jpeg",
+      "optimized_filename": "4FE92562-0B8B-463A-A622-FCB77A3ABD62_1_102_a.jpeg",
+      "date_taken": "2025-12-12T10:24:55",
+      "gps": null,
+      "location": null,
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.5
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.29
+      }
+    },
+    {
+      "original_filename": "52AAE50F-662C-4538-954E-861E0E786955_1_102_a.jpeg",
+      "optimized_filename": "52AAE50F-662C-4538-954E-861E0E786955_1_102_a.jpeg",
+      "date_taken": "2025-12-13T19:52:20",
+      "gps": {
+        "latitude": -42.134369444444445,
+        "longitude": 148.3024138888889
+      },
+      "location": {
+        "city": "Coles Bay",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "The Fisheries, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.91
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.46
+      }
+    },
+    {
+      "original_filename": "5471FE62-2880-4ED8-BCE0-16DFF919E465_1_102_o.jpeg",
+      "optimized_filename": "5471FE62-2880-4ED8-BCE0-16DFF919E465_1_102_o.jpeg",
+      "date_taken": "2025-12-09T11:07:37",
+      "gps": {
+        "latitude": -38.46573611111111,
+        "longitude": 144.10633888888887
+      },
+      "location": null,
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.38
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.71
+      }
+    },
+    {
+      "original_filename": "54DFA024-4073-4B5F-946C-094BAB7FD106_1_102_a.jpeg",
+      "optimized_filename": "54DFA024-4073-4B5F-946C-094BAB7FD106_1_102_a.jpeg",
+      "date_taken": "2025-12-09T16:35:04",
+      "gps": {
+        "latitude": -38.64683055555555,
+        "longitude": 143.07095277777776
+      },
+      "location": {
+        "city": "Port Campbell",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Port Campbell, Shire of Corangamite, Victoria, 3269, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.25
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.64
+      }
+    },
+    {
+      "original_filename": "5CD865E7-0A34-48D2-80CE-DA3C6960088A_1_102_a.jpeg",
+      "optimized_filename": "5CD865E7-0A34-48D2-80CE-DA3C6960088A_1_102_a.jpeg",
+      "date_taken": "2025-12-11T13:44:42",
+      "gps": {
+        "latitude": -42.53601388888889,
+        "longitude": 146.74113333333332
+      },
+      "location": {
+        "city": "Ouse",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Lawrenny, Ouse, Central Highlands, Tasmania, 7140, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.88
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.45
+      }
+    },
+    {
+      "original_filename": "62181BD4-03FC-447F-AF82-A2BA5BFDDD9E_1_102_a.jpeg",
+      "optimized_filename": "62181BD4-03FC-447F-AF82-A2BA5BFDDD9E_1_102_a.jpeg",
+      "date_taken": "2025-12-09T16:20:48",
+      "gps": {
+        "latitude": -38.6479,
+        "longitude": 143.07267777777778
+      },
+      "location": {
+        "city": "Port Campbell",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Port Campbell, Shire of Corangamite, Victoria, 3269, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.14
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.66
+      }
+    },
+    {
+      "original_filename": "684DBDDA-C8FF-48D6-8069-D0BEE30B94D4_1_201_a.heic",
+      "optimized_filename": "684DBDDA-C8FF-48D6-8069-D0BEE30B94D4_1_201_a.jpeg",
+      "date_taken": null,
+      "gps": null,
+      "location": null,
+      "original_size": {
+        "width": 2359,
+        "height": 2176,
+        "file_size_mb": 1.82
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1771,
+        "file_size_mb": 1.14
+      }
+    },
+    {
+      "original_filename": "6A5675FB-9879-405E-986D-3DD467BAC629_1_105_c.jpeg",
+      "optimized_filename": "6A5675FB-9879-405E-986D-3DD467BAC629_1_105_c.jpeg",
+      "date_taken": "2025-12-15T12:23:28",
+      "gps": {
+        "latitude": -33.85809444444445,
+        "longitude": 151.2124472222222
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Centennial Square, Centennial Park, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2021, Australia"
+      },
+      "original_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.22
+      },
+      "optimized_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.12
+      }
+    },
+    {
+      "original_filename": "72A7C753-EE3B-4903-B4CE-E7C3410AF19C_1_102_a.jpeg",
+      "optimized_filename": "72A7C753-EE3B-4903-B4CE-E7C3410AF19C_1_102_a.jpeg",
+      "date_taken": "2025-12-09T10:28:57",
+      "gps": {
+        "latitude": -38.36768055555556,
+        "longitude": 144.28500277777778
+      },
+      "location": {
+        "city": null,
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Bells Beach, Surf Coast Shire, Victoria, 3228, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.12
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.59
+      }
+    },
+    {
+      "original_filename": "74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg",
+      "optimized_filename": "74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg",
+      "date_taken": "2025-12-09T10:53:34",
+      "gps": {
+        "latitude": -38.41661388888889,
+        "longitude": 144.18228055555554
+      },
+      "location": {
+        "city": "Anglesea",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Anglesea, Surf Coast Shire, Victoria, 3230, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.11
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.59
+      }
+    },
+    {
+      "original_filename": "7612A321-FACD-45CE-B825-7A56CC0263E2_1_102_a.jpeg",
+      "optimized_filename": "7612A321-FACD-45CE-B825-7A56CC0263E2_1_102_a.jpeg",
+      "date_taken": "2025-12-09T15:53:42",
+      "gps": {
+        "latitude": -38.66594722222222,
+        "longitude": 143.1046
+      },
+      "location": {
+        "city": null,
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Princetown, Shire of Corangamite, Victoria, 3269, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.08
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.56
+      }
+    },
+    {
+      "original_filename": "77C70AAC-93D5-4FC3-A1B3-F16BC67F6087_1_102_a.jpeg",
+      "optimized_filename": "77C70AAC-93D5-4FC3-A1B3-F16BC67F6087_1_102_a.jpeg",
+      "date_taken": "2025-12-14T10:52:51",
+      "gps": {
+        "latitude": -42.13428888888889,
+        "longitude": 148.31884722222222
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Freycinet, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.45
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.84
+      }
+    },
+    {
+      "original_filename": "785A3165-E446-40BB-BF36-3468C5CA155A_1_105_c.jpeg",
+      "optimized_filename": "785A3165-E446-40BB-BF36-3468C5CA155A_1_105_c.jpeg",
+      "date_taken": "2025-12-14T20:51:47",
+      "gps": {
+        "latitude": -33.87327222222222,
+        "longitude": 151.2071222222222
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Sydney, Sydney CBD, Council of the City of Sydney, New South Wales, 2000, Australia"
+      },
+      "original_size": {
+        "width": 768,
+        "height": 1024,
+        "file_size_mb": 0.27
+      },
+      "optimized_size": {
+        "width": 768,
+        "height": 1024,
+        "file_size_mb": 0.13
+      }
+    },
+    {
+      "original_filename": "7B84A2B4-DFA6-419B-8E57-5CF40B913311_1_102_o.jpeg",
+      "optimized_filename": "7B84A2B4-DFA6-419B-8E57-5CF40B913311_1_102_o.jpeg",
+      "date_taken": "2025-12-12T08:56:19",
+      "gps": {
+        "latitude": -42.22393888888889,
+        "longitude": 145.22338888888888
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "West Coast, Tasmania, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.97
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.48
+      }
+    },
+    {
+      "original_filename": "7CA319D7-C387-4059-8AE2-CE0780EC70CA_1_102_a.jpeg",
+      "optimized_filename": "7CA319D7-C387-4059-8AE2-CE0780EC70CA_1_102_a.jpeg",
+      "date_taken": "2025-12-09T16:26:26",
+      "gps": {
+        "latitude": -38.64937222222222,
+        "longitude": 143.07229722222223
+      },
+      "location": {
+        "city": null,
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Victoria, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.23
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.72
+      }
+    },
+    {
+      "original_filename": "8343AC65-52DB-49FF-8A1F-E3C23DCCC0A3_1_102_a.jpeg",
+      "optimized_filename": "8343AC65-52DB-49FF-8A1F-E3C23DCCC0A3_1_102_a.jpeg",
+      "date_taken": "2025-12-14T08:11:21",
+      "gps": {
+        "latitude": -42.134747222222224,
+        "longitude": 148.30126944444444
+      },
+      "location": {
+        "city": "Coles Bay",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "The Fisheries, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.98
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.5
+      }
+    },
+    {
+      "original_filename": "861BD08A-0BB1-43D1-87C0-3C145D1C2E51_1_102_o.jpeg",
+      "optimized_filename": "861BD08A-0BB1-43D1-87C0-3C145D1C2E51_1_102_o.jpeg",
+      "date_taken": "2025-12-09T11:15:16",
+      "gps": {
+        "latitude": -38.46886111111111,
+        "longitude": 144.10426388888888
+      },
+      "location": {
+        "city": "Aireys Inlet",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Aireys Inlet, Surf Coast Shire, Victoria, 3231, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.32
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.69
+      }
+    },
+    {
+      "original_filename": "89349A06-0B3F-4089-ACD9-30F6599A590F_1_102_o.jpeg",
+      "optimized_filename": "89349A06-0B3F-4089-ACD9-30F6599A590F_1_102_o.jpeg",
+      "date_taken": "2025-12-12T12:07:35",
+      "gps": {
+        "latitude": -42.43944166666666,
+        "longitude": 145.5484611111111
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Southwest, Derwent Valley, Tasmania, 7116, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.17
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.62
+      }
+    },
+    {
+      "original_filename": "8C5E25B7-1B9D-454A-A62A-6B0762C88585_1_102_o.jpeg",
+      "optimized_filename": "8C5E25B7-1B9D-454A-A62A-6B0762C88585_1_102_o.jpeg",
+      "date_taken": "2025-12-12T08:31:17",
+      "gps": {
+        "latitude": -42.154975,
+        "longitude": 145.32829166666667
+      },
+      "location": {
+        "city": "Strahan",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Regatta Point, Strahan, West Coast, Tasmania, 7468, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.1
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.57
+      }
+    },
+    {
+      "original_filename": "8CA527DC-CF13-4566-91B8-8CF75A06E37D_1_102_a.jpeg",
+      "optimized_filename": "8CA527DC-CF13-4566-91B8-8CF75A06E37D_1_102_a.jpeg",
+      "date_taken": "2025-12-13T09:45:57",
+      "gps": {
+        "latitude": -41.65341111111111,
+        "longitude": 145.95959444444443
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.2
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.62
+      }
+    },
+    {
+      "original_filename": "8E7A5453-3C3F-4435-8CFA-05540646AA4E_1_102_a.jpeg",
+      "optimized_filename": "8E7A5453-3C3F-4435-8CFA-05540646AA4E_1_102_a.jpeg",
+      "date_taken": "2025-12-13T09:44:28",
+      "gps": {
+        "latitude": -41.65351111111111,
+        "longitude": 145.95944166666666
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.59
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.95
+      }
+    },
+    {
+      "original_filename": "93787DA1-036E-46E3-A4BB-1DC1D2779824_1_102_a.jpeg",
+      "optimized_filename": "93787DA1-036E-46E3-A4BB-1DC1D2779824_1_102_a.jpeg",
+      "date_taken": "2025-12-12T18:55:19",
+      "gps": {
+        "latitude": -41.63738333333333,
+        "longitude": 145.94801388888888
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Ronny Creek, Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 2.4
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 1.26
+      }
+    },
+    {
+      "original_filename": "938A6EAF-9A08-472C-91E2-D420CB0884C0_1_102_a.jpeg",
+      "optimized_filename": "938A6EAF-9A08-472C-91E2-D420CB0884C0_1_102_a.jpeg",
+      "date_taken": "2025-12-12T12:55:40",
+      "gps": {
+        "latitude": -42.38928333333333,
+        "longitude": 145.44776944444445
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Southwest, Derwent Valley, Tasmania, 7116, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.04
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.55
+      }
+    },
+    {
+      "original_filename": "93BDB01D-4FE8-4B5B-8541-D997DCC4A28C_1_102_a.jpeg",
+      "optimized_filename": "93BDB01D-4FE8-4B5B-8541-D997DCC4A28C_1_102_a.jpeg",
+      "date_taken": "2025-12-09T16:26:36",
+      "gps": {
+        "latitude": -38.6494,
+        "longitude": 143.07229722222223
+      },
+      "location": null,
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.82
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.42
+      }
+    },
+    {
+      "original_filename": "9BD5B04B-01A6-491F-8D2F-0EA56BF0A68D_1_105_c.jpeg",
+      "optimized_filename": "9BD5B04B-01A6-491F-8D2F-0EA56BF0A68D_1_105_c.jpeg",
+      "date_taken": "2025-12-15T13:05:08",
+      "gps": {
+        "latitude": -33.843025000000004,
+        "longitude": 151.243775
+      },
+      "location": null,
+      "original_size": {
+        "width": 768,
+        "height": 1024,
+        "file_size_mb": 0.42
+      },
+      "optimized_size": {
+        "width": 768,
+        "height": 1024,
+        "file_size_mb": 0.22
+      }
+    },
+    {
+      "original_filename": "9E0EC43A-764E-49DB-99CD-C0A15209E939_1_102_a.jpeg",
+      "optimized_filename": "9E0EC43A-764E-49DB-99CD-C0A15209E939_1_102_a.jpeg",
+      "date_taken": "2025-12-10T19:17:22",
+      "gps": {
+        "latitude": -42.88155,
+        "longitude": 147.3335277777778
+      },
+      "location": {
+        "city": "Hobart",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Hobart, City of Hobart, Tasmania, 7000, Australia"
+      },
+      "original_size": {
+        "width": 2218,
+        "height": 1418,
+        "file_size_mb": 0.84
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1227,
+        "file_size_mb": 0.38
+      }
+    },
+    {
+      "original_filename": "9F183F8F-4ED6-4174-B134-F7FEB14017DF_1_102_a.jpeg",
+      "optimized_filename": "9F183F8F-4ED6-4174-B134-F7FEB14017DF_1_102_a.jpeg",
+      "date_taken": "2025-12-10T18:09:19",
+      "gps": {
+        "latitude": -42.99279444444444,
+        "longitude": 147.40220555555555
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "City of Clarence, Tasmania, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.78
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.4
+      }
+    },
+    {
+      "original_filename": "9F1DF859-5FCA-4494-9122-F983AF427C8D_1_102_a.jpeg",
+      "optimized_filename": "9F1DF859-5FCA-4494-9122-F983AF427C8D_1_102_a.jpeg",
+      "date_taken": "2025-12-11T13:50:13",
+      "gps": {
+        "latitude": -42.538108333333334,
+        "longitude": 146.73645
+      },
+      "location": {
+        "city": "Ouse",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Lawrenny, Ouse, Central Highlands, Tasmania, 7140, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.63
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.31
+      }
+    },
+    {
+      "original_filename": "ADE54A26-FEF4-49BE-BDD0-902DB6CE38A2_1_102_a.jpeg",
+      "optimized_filename": "ADE54A26-FEF4-49BE-BDD0-902DB6CE38A2_1_102_a.jpeg",
+      "date_taken": "2025-12-14T11:47:07",
+      "gps": {
+        "latitude": -42.122925,
+        "longitude": 148.34289444444445
+      },
+      "location": {
+        "city": "Coles Bay",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.21
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.63
+      }
+    },
+    {
+      "original_filename": "B0FFEFBE-50DB-4D3B-8CDD-D4B219F48572_1_102_a.jpeg",
+      "optimized_filename": "B0FFEFBE-50DB-4D3B-8CDD-D4B219F48572_1_102_a.jpeg",
+      "date_taken": "2025-12-14T10:50:05",
+      "gps": {
+        "latitude": -42.13368333333333,
+        "longitude": 148.3190611111111
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Freycinet, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.55
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.8
+      }
+    },
+    {
+      "original_filename": "B66181D4-1821-4583-A226-EC82BBA2B870_1_105_c.jpeg",
+      "optimized_filename": "B66181D4-1821-4583-A226-EC82BBA2B870_1_105_c.jpeg",
+      "date_taken": "2025-12-15T12:46:08",
+      "gps": {
+        "latitude": -33.843472222222225,
+        "longitude": 151.2420972222222
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Lower North Shore, Sydney, Willoughby City Council, New South Wales, Australia"
+      },
+      "original_size": {
+        "width": 920,
+        "height": 854,
+        "file_size_mb": 0.56
+      },
+      "optimized_size": {
+        "width": 920,
+        "height": 854,
+        "file_size_mb": 0.31
+      }
+    },
+    {
+      "original_filename": "B7230349-9285-4683-986E-E74EC68330A0_1_102_a.jpeg",
+      "optimized_filename": "B7230349-9285-4683-986E-E74EC68330A0_1_102_a.jpeg",
+      "date_taken": "2025-12-09T15:52:36",
+      "gps": {
+        "latitude": -38.66580833333333,
+        "longitude": 143.10478333333333
+      },
+      "location": {
+        "city": null,
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Princetown, Shire of Corangamite, Victoria, 3269, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.13
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.59
+      }
+    },
+    {
+      "original_filename": "BA4136B2-EFE2-447F-B232-0C131C7A7668_1_102_a.jpeg",
+      "optimized_filename": "BA4136B2-EFE2-447F-B232-0C131C7A7668_1_102_a.jpeg",
+      "date_taken": "2025-12-09T15:42:49",
+      "gps": {
+        "latitude": -38.66403888888889,
+        "longitude": 143.1041111111111
+      },
+      "location": {
+        "city": null,
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Princetown, Shire of Corangamite, Victoria, 3269, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.0
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.51
+      }
+    },
+    {
+      "original_filename": "BCC86C97-8939-49A7-A80E-2C0E02BB5E73_1_105_c.jpeg",
+      "optimized_filename": "BCC86C97-8939-49A7-A80E-2C0E02BB5E73_1_105_c.jpeg",
+      "date_taken": "2025-12-15T16:14:21",
+      "gps": {
+        "latitude": -33.85413333333334,
+        "longitude": 151.20954999999998
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, Australia"
+      },
+      "original_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.25
+      },
+      "optimized_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.12
+      }
+    },
+    {
+      "original_filename": "BE48F3AA-7F0C-4982-9A28-F625ABF90179_1_102_o.jpeg",
+      "optimized_filename": "BE48F3AA-7F0C-4982-9A28-F625ABF90179_1_102_o.jpeg",
+      "date_taken": "2025-12-13T07:55:13",
+      "gps": {
+        "latitude": -41.65051388888889,
+        "longitude": 145.96090833333332
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Ronny Creek, Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.21
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.62
+      }
+    },
+    {
+      "original_filename": "BE6E6B9D-28A8-4483-9F5E-43503DAD634E_1_201_a.heic",
+      "optimized_filename": "BE6E6B9D-28A8-4483-9F5E-43503DAD634E_1_201_a.jpeg",
+      "date_taken": null,
+      "gps": null,
+      "location": null,
+      "original_size": {
+        "width": 3276,
+        "height": 2486,
+        "file_size_mb": 1.41
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1456,
+        "file_size_mb": 0.81
+      }
+    },
+    {
+      "original_filename": "C11D24B7-7708-4A82-AAC9-7AE04F0D9D64_1_102_a.jpeg",
+      "optimized_filename": "C11D24B7-7708-4A82-AAC9-7AE04F0D9D64_1_102_a.jpeg",
+      "date_taken": "2025-12-14T11:01:26",
+      "gps": {
+        "latitude": -42.13594722222222,
+        "longitude": 148.31854166666668
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Freycinet, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.47
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.77
+      }
+    },
+    {
+      "original_filename": "C77ECA55-EA78-442B-896D-0C867F1CEBCB_1_105_c.jpeg",
+      "optimized_filename": "C77ECA55-EA78-442B-896D-0C867F1CEBCB_1_105_c.jpeg",
+      "date_taken": "2025-12-12T10:53:26",
+      "gps": {
+        "latitude": -42.44264722222222,
+        "longitude": 145.61425833333334
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Southwest, Derwent Valley, Tasmania, 7116, Australia"
+      },
+      "original_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.33
+      },
+      "optimized_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.17
+      }
+    },
+    {
+      "original_filename": "C7D94128-63D9-4C9E-8E5C-1D95CA8224E3_1_105_c.jpeg",
+      "optimized_filename": "C7D94128-63D9-4C9E-8E5C-1D95CA8224E3_1_105_c.jpeg",
+      "date_taken": "2025-12-13T13:01:56",
+      "gps": {
+        "latitude": -41.590002777777784,
+        "longitude": 145.93270833333332
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Pencil Pine, Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.7
+      },
+      "optimized_size": {
+        "width": 1024,
+        "height": 768,
+        "file_size_mb": 0.4
+      }
+    },
+    {
+      "original_filename": "CAF7EA79-174A-4381-9CED-0533FB9EAE35_1_102_a.jpeg",
+      "optimized_filename": "CAF7EA79-174A-4381-9CED-0533FB9EAE35_1_102_a.jpeg",
+      "date_taken": "2025-12-12T13:22:16",
+      "gps": {
+        "latitude": -42.390502777777776,
+        "longitude": 145.44665555555557
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Southwest, Derwent Valley, Tasmania, 7116, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.71
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.35
+      }
+    },
+    {
+      "original_filename": "D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg",
+      "optimized_filename": "D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg",
+      "date_taken": "2025-12-11T18:35:55",
+      "gps": null,
+      "location": null,
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 2.04
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.19
+      }
+    },
+    {
+      "original_filename": "DA2886CF-92E4-44EA-8C0B-E9A6B8EF764F_1_102_a.jpeg",
+      "optimized_filename": "DA2886CF-92E4-44EA-8C0B-E9A6B8EF764F_1_102_a.jpeg",
+      "date_taken": "2025-12-14T11:27:28",
+      "gps": {
+        "latitude": -42.13376944444445,
+        "longitude": 148.3191388888889
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Freycinet, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 2.01
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 1.03
+      }
+    },
+    {
+      "original_filename": "E43E2311-2CC6-483E-9AD0-497E84D74A39_1_102_a.jpeg",
+      "optimized_filename": "E43E2311-2CC6-483E-9AD0-497E84D74A39_1_102_a.jpeg",
+      "date_taken": "2025-12-12T09:55:20",
+      "gps": {
+        "latitude": -42.39686666666667,
+        "longitude": 145.46829166666666
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Southwest, Derwent Valley, Tasmania, 7116, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.35
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.19
+      }
+    },
+    {
+      "original_filename": "EB32D757-6515-4296-B076-B5977159DC07_1_102_a.jpeg",
+      "optimized_filename": "EB32D757-6515-4296-B076-B5977159DC07_1_102_a.jpeg",
+      "date_taken": "2025-12-14T08:10:26",
+      "gps": {
+        "latitude": -42.134905555555555,
+        "longitude": 148.3011638888889
+      },
+      "location": {
+        "city": "Coles Bay",
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "The Fisheries, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.02
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.52
+      }
+    },
+    {
+      "original_filename": "ECA97E7A-EE85-4EFD-922D-B19E9C0F76B4_1_102_a.jpeg",
+      "optimized_filename": "ECA97E7A-EE85-4EFD-922D-B19E9C0F76B4_1_102_a.jpeg",
+      "date_taken": "2025-12-11T13:50:35",
+      "gps": {
+        "latitude": -42.53805555555555,
+        "longitude": 146.73640555555554
+      },
+      "location": null,
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.47
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.23
+      }
+    },
+    {
+      "original_filename": "F10B3258-9AB8-4E02-A25F-B9B9379C7014_1_102_a.jpeg",
+      "optimized_filename": "F10B3258-9AB8-4E02-A25F-B9B9379C7014_1_102_a.jpeg",
+      "date_taken": "2025-12-13T08:14:45",
+      "gps": {
+        "latitude": -41.654583333333335,
+        "longitude": 145.96421944444444
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 1.49
+      },
+      "optimized_size": {
+        "width": 1536,
+        "height": 2048,
+        "file_size_mb": 0.88
+      }
+    },
+    {
+      "original_filename": "F2C15737-7BAE-42D4-941D-882720220021_1_102_a.jpeg",
+      "optimized_filename": "F2C15737-7BAE-42D4-941D-882720220021_1_102_a.jpeg",
+      "date_taken": "2025-12-13T18:42:40",
+      "gps": {
+        "latitude": -42.13487222222222,
+        "longitude": 148.30081111111113
+      },
+      "location": null,
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.37
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.73
+      }
+    },
+    {
+      "original_filename": "F67B3325-55C4-458D-A8FF-BBEF6A1B6D29_1_102_a.jpeg",
+      "optimized_filename": "F67B3325-55C4-458D-A8FF-BBEF6A1B6D29_1_102_a.jpeg",
+      "date_taken": "2025-12-10T19:37:47",
+      "gps": {
+        "latitude": -42.88175555555556,
+        "longitude": 147.33343611111113
+      },
+      "location": null,
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.89
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.46
+      }
+    },
+    {
+      "original_filename": "F701C1C3-9BC6-45FD-B13C-0BC2CB5B4873_1_102_a.jpeg",
+      "optimized_filename": "F701C1C3-9BC6-45FD-B13C-0BC2CB5B4873_1_102_a.jpeg",
+      "date_taken": "2025-12-09T11:12:47",
+      "gps": {
+        "latitude": -38.468180555555556,
+        "longitude": 144.10484444444444
+      },
+      "location": {
+        "city": "Aireys Inlet",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Aireys Inlet, Surf Coast Shire, Victoria, 3231, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.16
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.61
+      }
+    },
+    {
+      "original_filename": "F9F7CEDA-98BB-4488-AB88-A22CDEC30BAF_1_102_a.jpeg",
+      "optimized_filename": "F9F7CEDA-98BB-4488-AB88-A22CDEC30BAF_1_102_a.jpeg",
+      "date_taken": "2025-12-14T09:38:42",
+      "gps": {
+        "latitude": -42.15501666666667,
+        "longitude": 148.29373055555556
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Freycinet, Glamorgan-Spring Bay, Tasmania, 7215, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.8
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.98
+      }
+    },
+    {
+      "original_filename": "FB70EBBD-8D83-4BBD-91B3-7691E4AB7B0D_1_102_o.jpeg",
+      "optimized_filename": "FB70EBBD-8D83-4BBD-91B3-7691E4AB7B0D_1_102_o.jpeg",
+      "date_taken": "2025-12-12T09:51:14",
+      "gps": {
+        "latitude": -42.3755,
+        "longitude": 145.44265833333333
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Southwest, Derwent Valley, Tasmania, 7116, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 0.53
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.26
+      }
+    },
+    {
+      "original_filename": "FE4E9B1D-EEF5-4161-9A99-5EE65EAAD5A7_1_102_a.jpeg",
+      "optimized_filename": "FE4E9B1D-EEF5-4161-9A99-5EE65EAAD5A7_1_102_a.jpeg",
+      "date_taken": "2025-12-13T09:06:19",
+      "gps": {
+        "latitude": -41.66643888888889,
+        "longitude": 145.95741388888888
+      },
+      "location": {
+        "city": null,
+        "state": "Tasmania",
+        "country": "Australia",
+        "display_name": "Cradle Mountain, Kentish, Tasmania, 7306, Australia"
+      },
+      "original_size": {
+        "width": 2048,
+        "height": 1536,
+        "file_size_mb": 1.39
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.72
+      }
+    },
+    {
+      "original_filename": "IMG_2581.jpeg",
+      "optimized_filename": "IMG_2581.jpeg",
+      "date_taken": "2025-12-06T09:56:02",
+      "gps": {
+        "latitude": -33.86136666666667,
+        "longitude": 151.2063611111111
+      },
+      "location": {
+        "city": "The Rocks",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "The Rocks, Sydney CBD, Council of the City of Sydney, New South Wales, 2000, Australia"
+      },
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 2.98
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.6
+      }
+    },
+    {
+      "original_filename": "IMG_2586.jpeg",
+      "optimized_filename": "IMG_2586.jpeg",
+      "date_taken": "2025-12-06T15:49:21",
+      "gps": {
+        "latitude": -33.856944444444444,
+        "longitude": 151.21444722222222
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 5.24
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.55
+      }
+    },
+    {
+      "original_filename": "IMG_2599.jpeg",
+      "optimized_filename": "IMG_2599.jpeg",
+      "date_taken": "2025-12-07T09:28:52",
+      "gps": {
+        "latitude": -33.89420833333333,
+        "longitude": 151.2738027777778
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Centennial Square, Centennial Park, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2021, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 4.68
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.45
+      }
+    },
+    {
+      "original_filename": "IMG_2603.jpeg",
+      "optimized_filename": "IMG_2603.jpeg",
+      "date_taken": "2025-12-07T09:34:52",
+      "gps": {
+        "latitude": -33.8946,
+        "longitude": 151.27412500000003
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Centennial Square, Centennial Park, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2021, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 4.8
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.46
+      }
+    },
+    {
+      "original_filename": "IMG_2604.jpeg",
+      "optimized_filename": "IMG_2604.jpeg",
+      "date_taken": "2025-12-07T09:35:00",
+      "gps": {
+        "latitude": -33.89458888888889,
+        "longitude": 151.27412500000003
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Centennial Square, Centennial Park, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2021, Australia"
+      },
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 2.99
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.46
+      }
+    },
+    {
+      "original_filename": "IMG_2607.jpeg",
+      "optimized_filename": "IMG_2607.jpeg",
+      "date_taken": "2025-12-07T10:08:59",
+      "gps": {
+        "latitude": -33.90053888888889,
+        "longitude": 151.2699888888889
+      },
+      "location": null,
+      "original_size": {
+        "width": 3024,
+        "height": 4032,
+        "file_size_mb": 3.43
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 2560,
+        "file_size_mb": 0.98
+      }
+    },
+    {
+      "original_filename": "IMG_2608.jpeg",
+      "optimized_filename": "IMG_2608.jpeg",
+      "date_taken": "2025-12-07T10:12:37",
+      "gps": {
+        "latitude": -33.902375,
+        "longitude": 151.2689527777778
+      },
+      "location": {
+        "city": "Bronte",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Bronte, Eastern Suburbs, Waverley Council, New South Wales, 2024, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 5.3
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.52
+      }
+    },
+    {
+      "original_filename": "IMG_2610.jpeg",
+      "optimized_filename": "IMG_2610.jpeg",
+      "date_taken": "2025-12-07T10:25:37",
+      "gps": {
+        "latitude": -33.902855555555554,
+        "longitude": 151.26818888888891
+      },
+      "location": {
+        "city": "Bronte",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Bronte, Eastern Suburbs, Waverley Council, New South Wales, 2024, Australia"
+      },
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 4.01
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.68
+      }
+    },
+    {
+      "original_filename": "IMG_2612.jpeg",
+      "optimized_filename": "IMG_2612.jpeg",
+      "date_taken": "2025-12-07T10:33:41",
+      "gps": {
+        "latitude": -33.90537777777778,
+        "longitude": 151.26921111111113
+      },
+      "location": {
+        "city": "Bronte",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Bronte, Eastern Suburbs, Waverley Council, New South Wales, 2024, Australia"
+      },
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 3.84
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.63
+      }
+    },
+    {
+      "original_filename": "IMG_2614.jpeg",
+      "optimized_filename": "IMG_2614.jpeg",
+      "date_taken": "2025-12-07T10:46:52",
+      "gps": {
+        "latitude": -33.90752777777777,
+        "longitude": 151.26968333333335
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Centennial Square, Centennial Park, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2021, Australia"
+      },
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 4.65
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.8
+      }
+    },
+    {
+      "original_filename": "IMG_2615.jpeg",
+      "optimized_filename": "IMG_2615.jpeg",
+      "date_taken": "2025-12-07T11:53:05",
+      "gps": {
+        "latitude": -33.92041666666666,
+        "longitude": 151.25764444444445
+      },
+      "location": null,
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 4.42
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.41
+      }
+    },
+    {
+      "original_filename": "IMG_2617.jpeg",
+      "optimized_filename": "IMG_2617.jpeg",
+      "date_taken": "2025-12-07T14:55:03",
+      "gps": {
+        "latitude": -33.797019444444445,
+        "longitude": 151.28840555555556
+      },
+      "location": {
+        "city": "Manly",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Manly, Northern Beaches Council, New South Wales, 2095, Australia"
+      },
+      "original_size": {
+        "width": 3097,
+        "height": 2373,
+        "file_size_mb": 1.34
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1471,
+        "file_size_mb": 0.43
+      }
+    },
+    {
+      "original_filename": "IMG_2621.jpeg",
+      "optimized_filename": "IMG_2621.jpeg",
+      "date_taken": "2025-12-07T15:22:22",
+      "gps": {
+        "latitude": -33.80084722222222,
+        "longitude": 151.29684444444445
+      },
+      "location": {
+        "city": "Manly",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Manly, Northern Beaches Council, New South Wales, 2095, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 7.72
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.74
+      }
+    },
+    {
+      "original_filename": "IMG_2624.jpeg",
+      "optimized_filename": "IMG_2624.jpeg",
+      "date_taken": "2025-12-07T20:27:29",
+      "gps": {
+        "latitude": -33.85611388888889,
+        "longitude": 151.2085111111111
+      },
+      "location": null,
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 2.02
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.38
+      }
+    },
+    {
+      "original_filename": "IMG_2625.jpeg",
+      "optimized_filename": "IMG_2625.jpeg",
+      "date_taken": "2025-12-07T20:30:13",
+      "gps": {
+        "latitude": -33.85482777777778,
+        "longitude": 151.20935
+      },
+      "location": {
+        "city": "Sydney",
+        "state": "New South Wales",
+        "country": "Australia",
+        "display_name": "Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, Australia"
+      },
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 1.98
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.34
+      }
+    },
+    {
+      "original_filename": "IMG_2628.jpeg",
+      "optimized_filename": "IMG_2628.jpeg",
+      "date_taken": "2025-12-08T16:02:09",
+      "gps": {
+        "latitude": -38.324825000000004,
+        "longitude": 144.73890555555553
+      },
+      "location": {
+        "city": "Melbourne",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Sorrento, Melbourne, Shire of Mornington Peninsula, Victoria, 3943, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 6.98
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.7
+      }
+    },
+    {
+      "original_filename": "IMG_2634.jpeg",
+      "optimized_filename": "IMG_2634.jpeg",
+      "date_taken": "2025-12-08T16:19:55",
+      "gps": {
+        "latitude": -38.327488888888894,
+        "longitude": 144.73945555555554
+      },
+      "location": {
+        "city": "Melbourne",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Sorrento, Melbourne, Shire of Mornington Peninsula, Victoria, 3943, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 6.58
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.69
+      }
+    },
+    {
+      "original_filename": "IMG_2637.jpeg",
+      "optimized_filename": "IMG_2637.jpeg",
+      "date_taken": "2025-12-08T16:50:34",
+      "gps": {
+        "latitude": -38.34571944444445,
+        "longitude": 144.72737222222221
+      },
+      "location": {
+        "city": "Melbourne",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Sorrento, Melbourne, Shire of Mornington Peninsula, Victoria, 3943, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 3.9
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.38
+      }
+    },
+    {
+      "original_filename": "IMG_2659.jpeg",
+      "optimized_filename": "IMG_2659.jpeg",
+      "date_taken": "2025-12-09T11:49:27",
+      "gps": {
+        "latitude": -38.521325,
+        "longitude": 143.98811388888888
+      },
+      "location": null,
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 5.66
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.56
+      }
+    },
+    {
+      "original_filename": "IMG_2663.jpeg",
+      "optimized_filename": "IMG_2663.jpeg",
+      "date_taken": "2025-12-09T12:12:56",
+      "gps": {
+        "latitude": -38.541425,
+        "longitude": 143.97689722222222
+      },
+      "location": null,
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 2.63
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.44
+      }
+    },
+    {
+      "original_filename": "IMG_2667.jpeg",
+      "optimized_filename": "IMG_2667.jpeg",
+      "date_taken": "2025-12-09T12:15:18",
+      "gps": {
+        "latitude": -38.54038333333333,
+        "longitude": 143.97705
+      },
+      "location": {
+        "city": "Lorne",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Lorne, Surf Coast Shire, Victoria, 3232, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 5.31
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.51
+      }
+    },
+    {
+      "original_filename": "IMG_2672.jpeg",
+      "optimized_filename": "IMG_2672.jpeg",
+      "date_taken": "2025-12-09T12:28:16",
+      "gps": {
+        "latitude": -38.54085833333333,
+        "longitude": 143.97660833333333
+      },
+      "location": {
+        "city": "Lorne",
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Lorne, Surf Coast Shire, Victoria, 3232, Australia"
+      },
+      "original_size": {
+        "width": 4032,
+        "height": 3024,
+        "file_size_mb": 2.69
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.44
+      }
+    },
+    {
+      "original_filename": "IMG_2673.jpeg",
+      "optimized_filename": "IMG_2673.jpeg",
+      "date_taken": "2025-12-09T12:49:43",
+      "gps": {
+        "latitude": -38.58720277777778,
+        "longitude": 143.9339611111111
+      },
+      "location": {
+        "city": null,
+        "state": "Victoria",
+        "country": "Australia",
+        "display_name": "Separation Creek, Shire of Colac Otway, Victoria, 3234, Australia"
+      },
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 7.85
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.78
+      }
+    },
+    {
+      "original_filename": "IMG_6189.jpeg",
+      "optimized_filename": "IMG_6189.jpeg",
+      "date_taken": "2025-12-06T17:48:30",
+      "gps": {
+        "latitude": -33.86120277777778,
+        "longitude": 151.20665
+      },
+      "location": null,
+      "original_size": {
+        "width": 5712,
+        "height": 4284,
+        "file_size_mb": 4.9
+      },
+      "optimized_size": {
+        "width": 1920,
+        "height": 1440,
+        "file_size_mb": 0.51
+      }
+    }
+  ],
+  "summary": {
+    "total_photos": 95,
+    "processing_date": "2025-12-16",
+    "total_original_size_mb": 180.23,
+    "total_optimized_size_mb": 53.19,
+    "total_size_saved_mb": 127.03
+  }
+}
