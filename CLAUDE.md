@@ -51,17 +51,44 @@ All trip itineraries should follow this consistent design pattern:
 - Clamp() functions for fluid typography
 
 #### Interactive Maps
-- Leaflet.js integration via CDN (https://unpkg.com/leaflet@1.9.4/dist/leaflet.css)
-- OpenStreetMap tiles (no API keys required)
-- Custom markers with city-specific styling
-- Maps centered on each location with appropriate zoom levels
-- Interactivity can be disabled for presentation purposes
+
+**Map Library & Implementation**
+- Leaflet.js v1.9.4 loaded via CDN
+  - CSS: `https://unpkg.com/leaflet@1.9.4/dist/leaflet.css`
+  - JS: `https://unpkg.com/leaflet@1.9.4/dist/leaflet.js`
+- CARTO Voyager basemap tiles (no API keys required)
+  - `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`
+- Maps initialized on `DOMContentLoaded` event
+
+**Two Map Types**
+1. **Flight Route Maps** - Display flight paths between cities
+   - Pacific-centered view for intercontinental routes
+   - Curved polylines showing flight paths
+   - Custom emoji markers: 🛫 origin, 🛬 destination
+   - Styled popups with flight information
+
+2. **Simple Location Maps** - Display daily points of interest
+   - Emoji-based markers for different location types
+   - Examples: 🏨 hotels, 🍽️ restaurants, 🏖️ beaches, 🥾 hiking, 🎭 attractions
+   - Custom popups with location name and description
+   - Centered on relevant city/region with appropriate zoom
+
+**Map Features**
+- Custom markers using `L.divIcon()` with emoji icons instead of default pins
+- Interactive controls enabled (zoom, drag, scroll)
+- Responsive sizing with minimum heights (375px for activity maps)
+- Each map instance created with `createSimpleMap()` or `createFlightRouteMap()` helper functions
+
+**Print Optimization**
+- Maps hidden in print view with placeholder text
+- Shows: "📍 Interactive map available online"
+- Focuses on itinerary content for printed documents
 
 #### Print Functionality
 - Comprehensive `@media print` rules
-- Maps hidden in print view to focus on itinerary content
 - Typography and layout optimized for printed documents
 - Page break controls for better printouts
+- Maps replaced with placeholder text (see Interactive Maps section)
 
 ## Development Commands
 
