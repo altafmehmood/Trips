@@ -1502,6 +1502,77 @@
                 margin-bottom: 0.1in !important;
                 color: black !important;
             }
+
+            /* Hide photo galleries in print */
+            .day-photos-section {
+                display: none !important;
+            }
+        }
+
+        /* Photo Gallery Styles */
+        .day-photos-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+        }
+
+        .day-photos-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .photo-icon {
+            font-size: 1.5rem;
+        }
+
+        .photo-count {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 400;
+        }
+
+        .day-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .day-photo-grid img,
+        .day-photo {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .day-photo-grid img:hover,
+        .day-photo:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .day-photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 0.75rem;
+            }
+
+            .day-photos-section {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -1533,6 +1604,11 @@
                     <div class="city-icon">🌲</div>
                     <div class="city-name">Tasmania</div>
                     <div class="city-duration">4 nights • Wilderness & Coast</div>
+                </a>
+                <a href="#sydney-return-section" class="overview-card sydney-card">
+                    <div class="city-icon">🦘</div>
+                    <div class="city-name">Sydney Return</div>
+                    <div class="city-duration">2 days • Harbor & Zoo</div>
                 </a>
             </div>
         </div>
@@ -1622,7 +1698,41 @@
                                             target="_blank" style="color: #667eea; text-decoration: none;">6Head
                                             Sydney</a> - modern Australian dining with harbor views</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(3)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/IMG_2581.jpeg"
+                                            alt="The Rocks, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2586.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_6189.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="sydney-day1-map" class="activity-map sydney-map"></div>
                             </div>
@@ -1663,7 +1773,121 @@
                                     <div class="activity-time">7:00-9:00 PM</div>
                                     <div class="activity-desc">Sunset ferry return, dinner in Darling Harbour</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(13)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/IMG_2599.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2603.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2604.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2607.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="2560"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2608.jpeg"
+                                            alt="Bronte, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2610.jpeg"
+                                            alt="Bronte, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2612.jpeg"
+                                            alt="Bronte, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2614.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2615.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2617.jpeg"
+                                            alt="Manly, Australia"
+                                            width="1920"
+                                            height="1471"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2621.jpeg"
+                                            alt="Manly, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2624.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2625.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="sydney-day2-map" class="activity-map sydney-map"></div>
                             </div>
@@ -1693,7 +1917,41 @@
                                     <div class="activity-time">9:35 AM</div>
                                     <div class="activity-desc">✈️ Arrive Melbourne Tullamarine Airport Terminal 1</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(3)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/IMG_2628.jpeg"
+                                            alt="Melbourne, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2634.jpeg"
+                                            alt="Melbourne, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2637.jpeg"
+                                            alt="Melbourne, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="sydney-day3-map" class="activity-map sydney-map"></div>
                             </div>
@@ -1830,7 +2088,169 @@
                                             style="color: #667eea; text-decoration: none;">SIXT</a> rental car at
                                         Melbourne Airport - Toyota Yaris Cross</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(19)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/0A373DAC-399D-4145-866B-BC5BDD47DAD6_1_102_o.jpeg"
+                                            alt="Aireys Inlet, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/467BA86D-9183-44D5-8AB4-7D1FDEA7A03B_1_102_o.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/5471FE62-2880-4ED8-BCE0-16DFF919E465_1_102_o.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/54DFA024-4073-4B5F-946C-094BAB7FD106_1_102_a.jpeg"
+                                            alt="Port Campbell, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/62181BD4-03FC-447F-AF82-A2BA5BFDDD9E_1_102_a.jpeg"
+                                            alt="Port Campbell, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/72A7C753-EE3B-4903-B4CE-E7C3410AF19C_1_102_a.jpeg"
+                                            alt="Victoria, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg"
+                                            alt="Anglesea, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/7612A321-FACD-45CE-B825-7A56CC0263E2_1_102_a.jpeg"
+                                            alt="Victoria, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/7CA319D7-C387-4059-8AE2-CE0780EC70CA_1_102_a.jpeg"
+                                            alt="Victoria, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/861BD08A-0BB1-43D1-87C0-3C145D1C2E51_1_102_o.jpeg"
+                                            alt="Aireys Inlet, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/93BDB01D-4FE8-4B5B-8541-D997DCC4A28C_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/B7230349-9285-4683-986E-E74EC68330A0_1_102_a.jpeg"
+                                            alt="Victoria, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/BA4136B2-EFE2-447F-B232-0C131C7A7668_1_102_a.jpeg"
+                                            alt="Victoria, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/F701C1C3-9BC6-45FD-B13C-0BC2CB5B4873_1_102_a.jpeg"
+                                            alt="Aireys Inlet, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2659.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2663.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2667.jpeg"
+                                            alt="Lorne, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2672.jpeg"
+                                            alt="Lorne, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/IMG_2673.jpeg"
+                                            alt="Victoria, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="melbourne-day2-map" class="activity-map melbourne-map"></div>
                             </div>
@@ -1867,7 +2287,49 @@
                                     <div class="activity-time">1:45 PM</div>
                                     <div class="activity-desc">✈️ Arrive Hobart Airport</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(4)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/490CDDFB-090F-4EEB-8776-380850CF6EF0_1_102_o.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/9E0EC43A-764E-49DB-99CD-C0A15209E939_1_102_a.jpeg"
+                                            alt="Hobart, Australia"
+                                            width="1920"
+                                            height="1227"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/9F183F8F-4ED6-4174-B134-F7FEB14017DF_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/F67B3325-55C4-458D-A8FF-BBEF6A1B6D29_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="melbourne-day3-map" class="activity-map melbourne-map"></div>
                             </div>
@@ -1918,7 +2380,73 @@
                                     <div class="activity-desc">🍽️ Dinner at nearby Salamanca Place or Hobart Wharf -
                                         local seafood or farm-to-table restaurants.</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(7)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/241E8040-48FF-4073-8A29-B57BD52F92B0_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/3572AFEC-D049-4384-8F5B-8044704B496E_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/4254448F-C97B-4791-819E-69A6DA83D816_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/5CD865E7-0A34-48D2-80CE-DA3C6960088A_1_102_a.jpeg"
+                                            alt="Ouse, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/9F1DF859-5FCA-4494-9122-F983AF427C8D_1_102_a.jpeg"
+                                            alt="Ouse, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/ECA97E7A-EE85-4EFD-922D-B19E9C0F76B4_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="tasmania-day1-map" class="activity-map tasmania-map"></div>
                             </div>
@@ -1974,7 +2502,129 @@
                                     <div class="activity-desc">🍽️ Dinner and stroll along Macquarie Harbour with harbor
                                         views from hotel</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(14)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/1D4386CB-2F51-44F4-A9ED-D5318B249F0B_1_102_o.jpeg"
+                                            alt="Strahan, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/21F9E399-3AE3-4CCA-B1B6-8D86DB5BEF66_1_102_o.jpeg"
+                                            alt="Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/4178855C-8B0A-41CF-A772-A6446D41A281_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/45325D78-2979-4BB4-8522-384874E16F1D_1_102_o.jpeg"
+                                            alt="Strahan, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/4FE92562-0B8B-463A-A622-FCB77A3ABD62_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/7B84A2B4-DFA6-419B-8E57-5CF40B913311_1_102_o.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/89349A06-0B3F-4089-ACD9-30F6599A590F_1_102_o.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/8C5E25B7-1B9D-454A-A62A-6B0762C88585_1_102_o.jpeg"
+                                            alt="Strahan, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/93787DA1-036E-46E3-A4BB-1DC1D2779824_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/938A6EAF-9A08-472C-91E2-D420CB0884C0_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/C77ECA55-EA78-442B-896D-0C867F1CEBCB_1_105_c.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1024"
+                                            height="768"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/CAF7EA79-174A-4381-9CED-0533FB9EAE35_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/E43E2311-2CC6-483E-9AD0-497E84D74A39_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/FB70EBBD-8D83-4BBD-91B3-7691E4AB7B0D_1_102_o.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="tasmania-day2-map" class="activity-map tasmania-map"></div>
                             </div>
@@ -2021,123 +2671,371 @@
                                     <div class="activity-desc">🍽️ Dinner at Altitude Restaurant (hotel) with mountain
                                         views</div>
                                 </div>
-                            </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(10)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/2C2CFC03-788F-47AD-B1A3-945DE417D674_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1529"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/4F1B229F-3F67-47D1-B654-3F8961C531D2_1_105_c.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1024"
+                                            height="768"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/52AAE50F-662C-4538-954E-861E0E786955_1_102_a.jpeg"
+                                            alt="Coles Bay, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/8CA527DC-CF13-4566-91B8-8CF75A06E37D_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/8E7A5453-3C3F-4435-8CFA-05540646AA4E_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/BE48F3AA-7F0C-4982-9A28-F625ABF90179_1_102_o.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/C7D94128-63D9-4C9E-8E5C-1D95CA8224E3_1_105_c.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1024"
+                                            height="768"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/F10B3258-9AB8-4E02-A25F-B9B9379C7014_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/F2C15737-7BAE-42D4-941D-882720220021_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/FE4E9B1D-EEF5-4161-9A99-5EE65EAAD5A7_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
+                                </div>
+</div>
                             <div class="day-map-container">
                                 <div id="tasmania-day3-map" class="activity-map tasmania-map"></div>
                             </div>
                         </div>
 
-                        <div class="day-block tasmania-day">
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SYDNEY RETURN -->
+            <div id="sydney-return-section" class="city-section">
+                <div class="city-header sydney-header">
+                    <div class="city-title">🦘 Return to Sydney</div>
+                    <div class="city-subtitle">December 14-15, 2025 • 2 Days</div>
+                </div>
+                <div class="city-content">
+                    <div class="itinerary-section">
+                        <div class="day-block sydney-day">
                             <div class="day-content">
-                                <div class="day-title">Saturday - Cradle Mountain → Freycinet National Park</div>
-                                <div class="activity nature-activity">
-                                    <div class="activity-time">Early Morning</div>
-                                    <div class="activity-desc">🦘 Ronny Creek boardwalk (30-40 min) - high chance of
-                                        wombats</div>
-                                </div>
-                                <div class="activity food-activity">
-                                    <div class="activity-time">8:00 AM</div>
-                                    <div class="activity-desc">🍳 Buffet breakfast at Altitude Restaurant (included in
-                                        stay)</div>
-                                </div>
-                                <div class="activity nature-activity">
-                                    <div class="activity-time">9:00 AM - 11:00 AM</div>
-                                    <div class="activity-desc">🥾 <a
-                                            href="https://www.cradlemountain.com.au/walks/dove-lake-circuit/"
-                                            target="_blank" style="color: #667eea; text-decoration: none;">Dove Lake
-                                            Circuit</a> (2 hrs) • Iconic Cradle Mountain reflections • Glacial Lake
-                                        views</div>
-                                </div>
-                                <div class="activity hotel-activity">
-                                    <div class="activity-time">11:30 AM</div>
-                                    <div class="activity-desc">🏨 Check out from Cradle Mountain Hotel</div>
+                                <div class="day-title">Saturday - Tasmania → Sydney</div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">🚗 Check out and drive to Hobart Airport</div>
                                 </div>
                                 <div class="activity transport-activity">
-                                    <div class="activity-time">12:00 PM</div>
-                                    <div class="activity-desc">🚗 Depart for Freycinet via Launceston (~4 hrs drive)
-                                    </div>
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">🚗 Return rental car at Hobart Airport</div>
                                 </div>
-                                <div class="activity food-activity">
-                                    <div class="activity-time">2:00 PM</div>
-                                    <div class="activity-desc">🍽️ Lunch stop in Launceston</div>
+                                <div class="activity flight-activity">
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">✈️ Flight from Hobart (HBA) to Sydney (SYD)</div>
                                 </div>
                                 <div class="activity hotel-activity">
-                                    <div class="activity-time">4:00 PM</div>
-                                    <div class="activity-desc">🏨 Check-in at <a
-                                            href="https://www.freycinetlodge.com.au/" target="_blank"
-                                            style="color: #667eea; text-decoration: none;">Freycinet Lodge</a> • Coles
-                                        Bay Road, Freycinet National Park • 1 night (Dec 13-14)</div>
-                                </div>
-                                <div class="activity nature-activity">
-                                    <div class="activity-time">5:00 PM - 6:30 PM</div>
-                                    <div class="activity-desc">🥾 <a
-                                            href="https://www.parks.tas.gov.au/explore-our-parks/freycinet-national-park/wineglass-bay-lookout"
-                                            target="_blank" style="color: #667eea; text-decoration: none;">Wineglass Bay
-                                            Lookout Track</a> (1.5 hrs return) • Tasmania's most iconic view • Perfect
-                                        granite curve • Hazards mountain backdrop</div>
-                                </div>
-                                <div class="activity food-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-desc">🍽️ Dinner at local seafood restaurant - fresh abalone,
-                                        scallops, and crayfish</div>
+                                    <div class="activity-desc">🏨 Check-in at <a
+                                            href="https://www.ihg.com/kimptonhotels/hotels/us/en/sydney/sydkc/hoteldetail"
+                                            target="_blank" style="color: #667eea; text-decoration: none;">Kimpton Sydney</a> • George Street, Sydney CBD • 1 night (Dec 14-15)</div>
+                                </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(16)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/00BF2F09-C45B-491D-91FC-CFE0A0DC6DF7_1_102_a.jpeg"
+                                            alt="Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/03D352D5-BB20-418D-A6D5-655A042B4146_1_102_a.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/14993094-29FD-4883-B0C3-02724FB57F77_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/1F8C751A-E2A4-4A1C-BE45-59823C4A7409_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/2635238A-1DC9-462A-9B4E-D7DE370F2CE0_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/3A65F55C-47DA-4515-9886-36C083850BB4_1_105_c.jpeg"
+                                            alt="Coles Bay, Australia"
+                                            width="1024"
+                                            height="768"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/4319ECBB-580F-4A39-8469-AE5523DCA605_1_102_o.jpeg"
+                                            alt="Coles Bay, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/77C70AAC-93D5-4FC3-A1B3-F16BC67F6087_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1536"
+                                            height="2048"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/785A3165-E446-40BB-BF36-3468C5CA155A_1_105_c.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="768"
+                                            height="1024"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/8343AC65-52DB-49FF-8A1F-E3C23DCCC0A3_1_102_a.jpeg"
+                                            alt="Coles Bay, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/ADE54A26-FEF4-49BE-BDD0-902DB6CE38A2_1_102_a.jpeg"
+                                            alt="Coles Bay, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/B0FFEFBE-50DB-4D3B-8CDD-D4B219F48572_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/C11D24B7-7708-4A82-AAC9-7AE04F0D9D64_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/DA2886CF-92E4-44EA-8C0B-E9A6B8EF764F_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/EB32D757-6515-4296-B076-B5977159DC07_1_102_a.jpeg"
+                                            alt="Coles Bay, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/F9F7CEDA-98BB-4488-AB88-A22CDEC30BAF_1_102_a.jpeg"
+                                            alt="Tasmania, Australia"
+                                            width="1920"
+                                            height="1440"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div class="day-map-container">
-                                <div id="tasmania-day4-map" class="activity-map tasmania-map"></div>
+                                <div id="sydney-return-day1-map" class="activity-map sydney-map"></div>
                             </div>
                         </div>
 
-                        <div class="day-block tasmania-day">
+                        <div class="day-block sydney-day">
                             <div class="day-content">
-                                <div class="day-title">Sunday - Freycinet → Hobart Departure</div>
+                                <div class="day-title">Sunday - Sydney Harbor Exploration</div>
+                                <div class="activity hotel-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">🏨 Check out from <a
+                                            href="https://www.ihg.com/kimptonhotels/hotels/us/en/sydney/sydkc/hoteldetail"
+                                            target="_blank" style="color: #667eea; text-decoration: none;">Kimpton Sydney</a></div>
+                                </div>
+                                <div class="activity harbour-activity">
+                                    <div class="activity-time">Morning</div>
+                                    <div class="activity-desc">⛴️ Cruise from <a
+                                            href="https://www.darlingharbour.com/" target="_blank"
+                                            style="color: #667eea; text-decoration: none;">Darling Harbour</a> to Circular Quay</div>
+                                </div>
+                                <div class="activity harbour-activity">
+                                    <div class="activity-time">Midday</div>
+                                    <div class="activity-desc">⛴️ Cruise from Circular Quay to <a
+                                            href="https://taronga.org.au/taronga-zoo" target="_blank"
+                                            style="color: #667eea; text-decoration: none;">Taronga Zoo</a></div>
+                                </div>
                                 <div class="activity nature-activity">
-                                    <div class="activity-time">7:00 AM - 9:00 AM</div>
-                                    <div class="activity-desc">🥾 <a
-                                            href="https://www.parks.tas.gov.au/explore-our-parks/freycinet-national-park/wineglass-bay-beach"
-                                            target="_blank" style="color: #667eea; text-decoration: none;">Wineglass Bay
-                                            Beach Walk</a> (2 hrs return) • Descend to the famous beach • Crystal clear
-                                        waters • White sand perfection</div>
+                                    <div class="activity-time">Afternoon</div>
+                                    <div class="activity-desc">🦘 Visit Taronga Zoo - Sydney's premier wildlife park with harbor views</div>
                                 </div>
-                                <div class="activity food-activity">
-                                    <div class="activity-time">9:30 AM</div>
-                                    <div class="activity-desc">🍳 Breakfast at Freycinet Lodge or Coles Bay</div>
+                                <div class="activity harbour-activity">
+                                    <div class="activity-time">Late Afternoon</div>
+                                    <div class="activity-desc">⛴️ Cruise from Taronga Zoo back to Circular Quay</div>
                                 </div>
-                                <div class="activity hotel-activity">
-                                    <div class="activity-time">10:30 AM</div>
-                                    <div class="activity-desc">🏨 Check out from Freycinet Lodge</div>
+                                <div class="activity culture-activity">
+                                    <div class="activity-time">Late Afternoon</div>
+                                    <div class="activity-desc">🚶 Scenic walk from Circular Quay to Darling Harbour</div>
                                 </div>
-                                <div class="activity transport-activity">
-                                    <div class="activity-time">11:00 AM</div>
-                                    <div class="activity-desc">🚗 Drive to Hobart Airport (~2.5 hrs)</div>
-                                </div>
-                                <div class="activity transport-activity">
-                                    <div class="activity-time">2:30 PM - 3:00 PM</div>
-                                    <div class="activity-desc">🚗 Arrive Hobart Airport, return <a
-                                            href="https://www.sixt.com/" target="_blank"
-                                            style="color: #667eea; text-decoration: none;">SIXT</a> rental car - Mazda
-                                        CX3</div>
-                                </div>
-                                <div class="activity flight-activity">
-                                    <div class="activity-time">4:50 PM</div>
-                                    <div class="activity-desc">✈️ <a href="https://flightaware.com/live/flight/QFA996"
-                                            target="_blank" style="color: #667eea; text-decoration: none;">Qantas
-                                            QF996</a> departure Hobart (HBA) Domestic Terminal → Sydney (SYD) Terminal
-                                        3. Boeing 737-800, 1h 55min flight, 634 miles.</div>
-                                </div>
-                                <div class="activity flight-activity">
-                                    <div class="activity-time">6:45 PM</div>
-                                    <div class="activity-desc">✈️ Arrive Sydney Airport Terminal 3</div>
+                                <div class="activity culture-activity">
+                                    <div class="activity-time">Evening</div>
+                                    <div class="activity-desc">🚶 Walk from Darling Harbour to <a
+                                            href="https://www.sydney.com/destinations/sydney/sydney-city/chinatown"
+                                            target="_blank" style="color: #667eea; text-decoration: none;">Chinatown</a></div>
                                 </div>
                                 <div class="activity hotel-activity">
-                                    <div class="activity-time">7:30 PM</div>
+                                    <div class="activity-time">Evening</div>
                                     <div class="activity-desc">🏨 Check-in at <a
-                                            href="https://www.marriott.com/en-us/hotels/sydox-moxy-sydney-airport/overview/"
-                                            target="_blank" style="color: #667eea; text-decoration: none;">Moxy Sydney
-                                            Airport</a> • Near terminal • 1 night (Dec 14-15)</div>
+                                            href="https://sofitel.accor.com/gb/hotel-8423-sofitel-sydney-darling-harbour/index.shtml"
+                                            target="_blank" style="color: #667eea; text-decoration: none;">Sofitel Sydney Darling Harbour</a> • Luxury room with harbor views • 1 night (Dec 15-16)</div>
+                                </div>
+                            
+                                <div class="day-photos-section">
+                                    <h3 class="day-photos-title">
+                                        <span class="photo-icon">📸</span>
+                                        Photos from this day
+                                        <span class="photo-count">(4)</span>
+                                    </h3>
+                                    <div class="day-photo-grid">
+                                        <img
+                                            src="Photos/optimized/6A5675FB-9879-405E-986D-3DD467BAC629_1_105_c.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1024"
+                                            height="768"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/9BD5B04B-01A6-491F-8D2F-0EA56BF0A68D_1_105_c.jpeg"
+                                            alt="Australia"
+                                            width="768"
+                                            height="1024"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/B66181D4-1821-4583-A226-EC82BBA2B870_1_105_c.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="920"
+                                            height="854"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                        <img
+                                            src="Photos/optimized/BCC86C97-8939-49A7-A80E-2C0E02BB5E73_1_105_c.jpeg"
+                                            alt="Sydney, Australia"
+                                            width="1024"
+                                            height="768"
+                                            loading="lazy"
+                                            class="day-photo"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div class="day-map-container">
-                                <div id="tasmania-day5-map" class="activity-map tasmania-map"></div>
+                                <div id="sydney-return-day2-map" class="activity-map sydney-map"></div>
                             </div>
                         </div>
                     </div>
@@ -2154,7 +3052,7 @@
                     <div class="itinerary-section">
                         <div class="day-block departure-day">
                             <div class="day-content">
-                                <div class="day-title">Monday, December 15, 2025 - Travel Day</div>
+                                <div class="day-title">Monday, December 16, 2025 - Travel Day</div>
                                 <div class="activity hotel-activity">
                                     <div class="activity-time">8:00 AM</div>
                                     <div class="activity-desc">🏨 Check out from <a
@@ -2396,23 +3294,21 @@
                 { lat: -41.6823, lng: 145.9537, label: '🏨', name: 'Cradle Mountain Hotel', description: '7:00 PM - Check-in Standard Room, 1 night (Dec 12-13).' }
             ]);
 
-            createSimpleMap('tasmania-day4-map', [-41.8, 147.8], 8, [
-                { lat: -41.6750, lng: 145.9500, label: '🦘', name: 'Ronny Creek', description: 'Early morning - Wombat spotting boardwalk (30-40 min).' },
-                { lat: -41.6687, lng: 145.9645, label: '🥾', name: 'Dove Lake Circuit', description: '9:00-11:00 AM - 2hr hike with iconic Cradle Mountain views.' },
-                { lat: -41.6823, lng: 145.9537, label: '🏨', name: 'Cradle Mountain Hotel', description: '11:30 AM - Check out.' },
-                { lat: -41.4332, lng: 147.1441, label: '🍽️', name: 'Launceston', description: '2:00 PM - Lunch stop.' },
-                { lat: -42.1603, lng: 148.2947, label: '🏨', name: 'Freycinet Lodge', description: '4:00 PM - Check-in eco-cabins, Coles Bay, 1 night (Dec 13-14).' },
-                { lat: -42.1629, lng: 148.2947, label: '🥾', name: 'Wineglass Bay Lookout', description: '5:00-6:30 PM - Tasmania\'s most iconic view, perfect granite curve.' }
+            createSimpleMap('sydney-return-day1-map', [-33.8688, 151.2093], 13, [
+                { lat: -42.8394, lng: 147.5061, label: '✈️', name: 'Hobart Airport', description: 'Morning - Return rental car and depart.' },
+                { lat: -33.9461, lng: 151.1772, label: '✈️', name: 'Sydney Airport', description: 'Afternoon - Arrive from Hobart.' },
+                { lat: -33.8688, lng: 151.2073, label: '🏨', name: 'Kimpton Sydney', description: 'Evening - Check-in at George Street, Sydney CBD, 1 night (Dec 14-15).' }
             ]);
 
-            createSimpleMap('tasmania-day5-map', [-42.3, 148.0], 8, [
-                { lat: -42.1629, lng: 148.2947, label: '🏖️', name: 'Wineglass Bay Beach', description: '7:00-9:00 AM - Descend to the famous beach, crystal clear waters, white sand.' },
-                { lat: -42.1603, lng: 148.2947, label: '🍳', name: 'Freycinet Lodge', description: '9:30 AM - Breakfast at lodge or Coles Bay.' },
-                { lat: -42.1603, lng: 148.2947, label: '🏨', name: 'Freycinet Lodge', description: '10:30 AM - Check out from eco-cabins.' },
-                { lat: -42.8394, lng: 147.5061, label: '✈️', name: 'Hobart Airport', description: '2:30-3:00 PM - Return SIXT rental car.' },
-                { lat: -42.8394, lng: 147.5061, label: '🛫', name: 'QF996 Departure', description: '4:50 PM - Fly to Sydney, end Tasmania adventure.' },
-                { lat: -33.9461, lng: 151.1772, label: '🛬', name: 'Sydney Airport', description: '6:45 PM - Arrive Sydney Terminal 3.' },
-                { lat: -33.9333, lng: 151.1833, label: '🏨', name: 'Moxy Sydney Airport', description: '7:30 PM - Check-in near terminal, 1 night.' }
+            createSimpleMap('sydney-return-day2-map', [-33.8688, 151.2093], 13, [
+                { lat: -33.8688, lng: 151.2073, label: '🏨', name: 'Kimpton Sydney', description: 'Morning - Check out.' },
+                { lat: -33.8688, lng: 151.2033, label: '⛴️', name: 'Darling Harbour', description: 'Morning - Cruise to Circular Quay.' },
+                { lat: -33.8614, lng: 151.2119, label: '⛴️', name: 'Circular Quay', description: 'Morning - Transfer point for Taronga Zoo ferry.' },
+                { lat: -33.8434, lng: 151.2410, label: '🦘', name: 'Taronga Zoo', description: 'Afternoon - Visit Sydney\'s premier wildlife park with harbor views.' },
+                { lat: -33.8614, lng: 151.2119, label: '🚶', name: 'Circular Quay', description: 'Late afternoon - Scenic walk to Darling Harbour.' },
+                { lat: -33.8688, lng: 151.2033, label: '🚶', name: 'Darling Harbour', description: 'Evening - Walk to Chinatown.' },
+                { lat: -33.8799, lng: 151.2042, label: '🍜', name: 'Chinatown', description: 'Evening - Explore and dinner.' },
+                { lat: -33.8675, lng: 151.2033, label: '🏨', name: 'Sofitel Sydney Darling Harbour', description: 'Evening - Check-in, luxury room with harbor views, 1 night (Dec 15-16).' }
             ]);
 
             createFlightRouteMap('departure-day-map',
