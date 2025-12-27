@@ -68,7 +68,10 @@ public sealed class GeocodingService(
                     photoData.State,
                     photoData.Country,
                     photoData.CountryCode,
-                    photoData.DisplayName);
+                    photoData.DisplayName,
+                    photoData.NationalPark,
+                    photoData.ProtectedArea,
+                    photoData.Region);
                 _geocodeCache.TryAdd(cacheKey, cached);
 
                 if (!string.IsNullOrEmpty(photoData.City))
@@ -107,6 +110,9 @@ public sealed class GeocodingService(
         photoData.Country = cached.Country;
         photoData.CountryCode = cached.CountryCode;
         photoData.DisplayName = cached.DisplayName;
+        photoData.NationalPark = cached.NationalPark;
+        photoData.ProtectedArea = cached.ProtectedArea;
+        photoData.Region = cached.Region;
     }
 
     private static void PopulateLocationData(PhotoData photoData, NominatimResponse? geocodeResult)
@@ -119,6 +125,11 @@ public sealed class GeocodingService(
         photoData.Country = geocodeResult.address.country;
         photoData.CountryCode = geocodeResult.address.country_code?.ToUpper();
         photoData.DisplayName = geocodeResult.display_name;
+
+        // Populate special locations (national parks, protected areas, etc.)
+        photoData.NationalPark = geocodeResult.address.national_park;
+        photoData.ProtectedArea = geocodeResult.address.protected_area ?? geocodeResult.address.nature_reserve;
+        photoData.Region = geocodeResult.address.BestRegionalLocation;
     }
 }
 
@@ -130,4 +141,7 @@ internal record CachedLocation(
     string? State,
     string? Country,
     string? CountryCode,
-    string? DisplayName);
+    string? DisplayName,
+    string? NationalPark,
+    string? ProtectedArea,
+    string? Region);

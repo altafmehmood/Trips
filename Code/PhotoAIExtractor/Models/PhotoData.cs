@@ -21,6 +21,11 @@ public record PhotoData
     public string? CountryCode { get; set; }
     public string? DisplayName { get; set; }
 
+    // Special locations (national parks, protected areas, etc.)
+    public string? NationalPark { get; set; }
+    public string? ProtectedArea { get; set; }
+    public string? Region { get; set; }
+
     // Camera Settings
     public string? CameraMake { get; set; }
     public string? CameraModel { get; set; }

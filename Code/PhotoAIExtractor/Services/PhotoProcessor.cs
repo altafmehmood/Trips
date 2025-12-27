@@ -22,6 +22,7 @@ public sealed class PhotoProcessor(
         ProcessPhotosAsync(
             string folderPath,
             bool shouldOptimize = false,
+            bool skipGeocoding = false,
             CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(folderPath);
@@ -49,6 +50,8 @@ public sealed class PhotoProcessor(
         string? optimizedBaseFolder = null;
         // Track photo counters per folder for sequential naming (thread-safe)
         var folderPhotoCounters = new System.Collections.Concurrent.ConcurrentDictionary<string, int>();
+        // Track photos per location folder for batched JSON writes
+        var folderPhotoGroups = new System.Collections.Concurrent.ConcurrentDictionary<string, System.Collections.Concurrent.ConcurrentBag<PhotoData>>();
 
         if (shouldOptimize)
         {
@@ -71,28 +74,26 @@ public sealed class PhotoProcessor(
             try
             {
                 // Extract metadata
-                var photoData = await metadataExtractor.ExtractPhotoDataAsync(filePath, ct);
+                var photoData = await metadataExtractor.ExtractPhotoDataAsync(filePath, skipGeocoding, ct);
                 photoDataList.Add(photoData);
 
-                // Convert file path to relative before writing
+                // Convert file path to relative
                 photoData.FilePath = MakeRelativePath(folderPath, filePath);
-
-                // Write metadata after each photo
-                await outputWriter.AppendAsync(photoData, outputPath, ct);
 
                 logger.LogInformation("Processed metadata: {FileName}", Path.GetFileName(filePath));
 
                 // Optimize immediately if requested
                 if (shouldOptimize && optimizedBaseFolder != null)
                 {
-                    // Determine folder name based on date and location
-                    var (folderName, photoDate) = DetermineFolderName(photoData);
-                    var targetFolder = Path.Combine(optimizedBaseFolder, folderName);
+                    // Determine date and location separately
+                    var (dateFolder, locationFolder, photoDate) = DetermineFolderStructure(photoData);
+                    var targetFolder = Path.Combine(optimizedBaseFolder, dateFolder, locationFolder);
                     Directory.CreateDirectory(targetFolder);
 
-                    // Get sequential counter for this folder (thread-safe)
+                    // Get sequential counter for this location folder (thread-safe)
+                    var folderKey = $"{dateFolder}/{locationFolder}";
                     var photoNumber = folderPhotoCounters.AddOrUpdate(
-                        folderName,
+                        folderKey,
                         1,
                         (key, oldValue) => oldValue + 1);
 
@@ -127,9 +128,6 @@ public sealed class PhotoProcessor(
                             CompressionRatio = optimizationResult.CompressionRatio
                         };
 
-                        // Update the main JSON file with optimization info
-                        await outputWriter.UpdateAsync(photoData, outputPath, ct);
-
                         // Create a copy of photoData with paths relative to the target folder for folder-specific JSON
                         var folderPhotoData = photoData with
                         {
@@ -143,14 +141,21 @@ public sealed class PhotoProcessor(
                             }
                         };
 
-                        // Write to the folder-specific JSON file
-                        var folderJsonPath = Path.Combine(targetFolder, outputSettings.OutputFileName);
-                        await outputWriter.AppendAsync(folderPhotoData, folderJsonPath, ct);
+                        // Add to folder group for batched writing later
+                        folderPhotoGroups.AddOrUpdate(
+                            folderKey,
+                            new System.Collections.Concurrent.ConcurrentBag<PhotoData> { folderPhotoData },
+                            (key, existingBag) =>
+                            {
+                                existingBag.Add(folderPhotoData);
+                                return existingBag;
+                            });
 
                         logger.LogInformation(
-                            "Optimized: {FileName} → {NewFolder}/{NewFileName} ({OriginalSize} → {OptimizedSize}, {CompressionRatio:F1}% saved)",
+                            "Optimized: {FileName} → {DateFolder}/{LocationFolder}/{NewFileName} ({OriginalSize} → {OptimizedSize}, {CompressionRatio:F1}% saved)",
                             Path.GetFileName(filePath),
-                            folderName,
+                            dateFolder,
+                            locationFolder,
                             newFileName,
                             FormatBytes(optimizationResult.OriginalSize),
                             FormatBytes(optimizationResult.OptimizedSize),
@@ -181,17 +186,46 @@ public sealed class PhotoProcessor(
             }
         });
 
+        // Batch write all metadata at once (much faster than per-photo writes)
+        logger.LogInformation("Writing metadata files...");
+
+        // Write main metadata file
+        await outputWriter.WriteAsync(photoDataList.ToList().AsReadOnly(), outputPath, cancellationToken);
+
+        // Write folder-specific metadata files
+        if (shouldOptimize && folderPhotoGroups.Count > 0)
+        {
+            foreach (var folderGroup in folderPhotoGroups)
+            {
+                var folderKey = folderGroup.Key;
+                var photos = folderGroup.Value.ToList();
+
+                // Parse folder key to get the actual folder path
+                var folderParts = folderKey.Split('/');
+                if (folderParts.Length == 2)
+                {
+                    var targetFolder = Path.Combine(optimizedBaseFolder!, folderParts[0], folderParts[1]);
+                    var folderJsonPath = Path.Combine(targetFolder, outputSettings.OutputFileName);
+
+                    await outputWriter.WriteAsync(photos.AsReadOnly(), folderJsonPath, cancellationToken);
+                    logger.LogDebug("Wrote {Count} photos to {FolderJsonPath}", photos.Count, folderJsonPath);
+                }
+            }
+
+            logger.LogInformation("Wrote metadata for {FolderCount} location folders", folderPhotoGroups.Count);
+        }
+
         return (photoDataList.ToList().AsReadOnly(), optimizationResults.ToList().AsReadOnly());
     }
 
     /// <summary>
-    /// Determines the folder name based on photo date and location
+    /// Determines the folder structure based on photo date and location
     /// </summary>
-    private static (string folderName, DateTime? photoDate) DetermineFolderName(PhotoData photoData)
+    private static (string dateFolder, string locationFolder, DateTime? photoDate) DetermineFolderStructure(PhotoData photoData)
     {
         // Try to parse the date
         DateTime? photoDate = null;
-        string datePrefix = "Unknown_Date";
+        string dateFolder = "Unknown_Date";
 
         if (!string.IsNullOrWhiteSpace(photoData.DateTaken))
         {
@@ -211,7 +245,7 @@ public sealed class PhotoProcessor(
                     CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate))
                 {
                     photoDate = parsedDate;
-                    datePrefix = parsedDate.ToString("yyyy-MM-dd");
+                    dateFolder = parsedDate.ToString("yyyy-MM-dd");
                     break;
                 }
             }
@@ -220,26 +254,38 @@ public sealed class PhotoProcessor(
             if (!photoDate.HasValue && DateTime.TryParse(photoData.DateTaken, out var generalDate))
             {
                 photoDate = generalDate;
-                datePrefix = generalDate.ToString("yyyy-MM-dd");
+                dateFolder = generalDate.ToString("yyyy-MM-dd");
             }
         }
 
-        // Determine location (City > State > Country)
-        var location = "Unknown_Location";
+        // Determine location (priority: City > National Park > Protected Area > Region > State > Country)
+        var locationFolder = "Unknown_Location";
         if (!string.IsNullOrWhiteSpace(photoData.City))
         {
-            location = SanitizeFolderName(photoData.City);
+            locationFolder = SanitizeFolderName(photoData.City);
+        }
+        else if (!string.IsNullOrWhiteSpace(photoData.NationalPark))
+        {
+            locationFolder = SanitizeFolderName(photoData.NationalPark);
+        }
+        else if (!string.IsNullOrWhiteSpace(photoData.ProtectedArea))
+        {
+            locationFolder = SanitizeFolderName(photoData.ProtectedArea);
+        }
+        else if (!string.IsNullOrWhiteSpace(photoData.Region))
+        {
+            locationFolder = SanitizeFolderName(photoData.Region);
         }
         else if (!string.IsNullOrWhiteSpace(photoData.State))
         {
-            location = SanitizeFolderName(photoData.State);
+            locationFolder = SanitizeFolderName(photoData.State);
         }
         else if (!string.IsNullOrWhiteSpace(photoData.Country))
         {
-            location = SanitizeFolderName(photoData.Country);
+            locationFolder = SanitizeFolderName(photoData.Country);
         }
 
-        return ($"{datePrefix}_{location}", photoDate);
+        return (dateFolder, locationFolder, photoDate);
     }
 
     /// <summary>

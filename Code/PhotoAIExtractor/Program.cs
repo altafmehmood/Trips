@@ -25,6 +25,7 @@ if (args.Length == 0)
 var folderPath = args[0];
 var shouldOptimize = args.Contains("--optimize") || args.Contains("-o");
 var metadataOnly = args.Contains("--metadata-only") || args.Contains("-m");
+var skipGeocoding = args.Contains("--skip-geocoding") || args.Contains("-sg");
 
 try
 {
@@ -39,7 +40,8 @@ try
         // Process photos (writes metadata and optimizes after each photo if requested)
         var (photoDataList, optimizationResults) = await photoProcessor.ProcessPhotosAsync(
             folderPath,
-            shouldOptimize);
+            shouldOptimize,
+            skipGeocoding);
 
         var outputPath = Path.Combine(folderPath, outputSettings.OutputFileName);
         logger.LogInformation("Metadata extracted successfully! Output: {OutputPath}, Photos: {Count}",
@@ -97,11 +99,12 @@ static void ShowUsage()
         Options:
           --optimize, -o         Optimize images for web rendering
           --metadata-only, -m    Extract metadata only (skip optimization)
+          --skip-geocoding, -sg  Skip geocoding GPS coordinates (faster processing)
 
         Examples:
           PhotoAIExtractor C:\Photos
           PhotoAIExtractor C:\Photos --optimize
-          PhotoAIExtractor C:\Photos -o
+          PhotoAIExtractor C:\Photos -o --skip-geocoding
 
         Output:
           - photo_metadata.json: Extracted metadata (unless --metadata-only)

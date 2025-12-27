@@ -11,7 +11,8 @@ public interface IPhotoMetadataExtractor
     /// Extracts metadata from a photo file
     /// </summary>
     /// <param name="filePath">Path to the photo file</param>
+    /// <param name="skipGeocoding">Whether to skip geocoding GPS coordinates</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>Extracted photo data</returns>
-    Task<PhotoData> ExtractPhotoDataAsync(string filePath, CancellationToken cancellationToken = default);
+    Task<PhotoData> ExtractPhotoDataAsync(string filePath, bool skipGeocoding = false, CancellationToken cancellationToken = default);
 }

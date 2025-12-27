@@ -11,7 +11,7 @@ namespace PhotoAIExtractor.Services;
 /// </summary>
 public sealed class PhotoMetadataExtractor(IGeocodingService geocodingService) : IPhotoMetadataExtractor
 {
-    public async Task<PhotoData> ExtractPhotoDataAsync(string filePath, CancellationToken cancellationToken = default)
+    public async Task<PhotoData> ExtractPhotoDataAsync(string filePath, bool skipGeocoding = false, CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
 
@@ -31,8 +31,8 @@ public sealed class PhotoMetadataExtractor(IGeocodingService geocodingService) :
             ExtractCameraInfo(directories, photoData);
             ExtractImageDimensions(directories, photoData);
 
-            // Reverse geocode if GPS data is available
-            if (photoData.HasGpsData)
+            // Reverse geocode if GPS data is available and not skipped
+            if (!skipGeocoding && photoData.HasGpsData)
             {
                 await geocodingService.ReverseGeocodeAsync(photoData, cancellationToken);
             }

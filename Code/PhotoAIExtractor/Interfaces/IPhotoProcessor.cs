@@ -12,10 +12,11 @@ public interface IPhotoProcessor
     /// </summary>
     /// <param name="folderPath">Path to folder containing photos</param>
     /// <param name="shouldOptimize">Whether to optimize each photo for web rendering</param>
+    /// <param name="skipGeocoding">Whether to skip geocoding (faster when location data not needed)</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>Tuple containing photo data and optimization results</returns>
     Task<(IReadOnlyCollection<PhotoData> PhotoData, IReadOnlyCollection<OptimizationResult> OptimizationResults)>
-        ProcessPhotosAsync(string folderPath, bool shouldOptimize = false, CancellationToken cancellationToken = default);
+        ProcessPhotosAsync(string folderPath, bool shouldOptimize = false, bool skipGeocoding = false, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Optimizes images for web rendering (batch mode for already-processed photos)
