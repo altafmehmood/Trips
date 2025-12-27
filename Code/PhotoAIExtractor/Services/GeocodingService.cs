@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
 using PhotoAIExtractor.Interfaces;
 using PhotoAIExtractor.Models;
+using System.Collections.Concurrent;
 
 namespace PhotoAIExtractor.Services;
 
@@ -15,6 +16,11 @@ public sealed class GeocodingService(
     GeocodingSettings settings,
     ILogger<GeocodingService> logger) : IGeocodingService
 {
+    // Cache for geocoding results to avoid redundant API calls
+    // Key: rounded coordinates (to ~100m precision), Value: cached location data
+    private readonly ConcurrentDictionary<string, CachedLocation> _geocodeCache = new();
+    private readonly SemaphoreSlim _rateLimiter = new(1, 1);
+
     public async Task ReverseGeocodeAsync(PhotoData photoData, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(photoData);
@@ -22,33 +28,62 @@ public sealed class GeocodingService(
         if (!photoData.HasGpsData)
             return;
 
+        // Create cache key by rounding coordinates to ~100m precision (3 decimal places)
+        var cacheKey = $"{photoData.Latitude!.Value:F3},{photoData.Longitude!.Value:F3}";
+
+        // Check cache first
+        if (_geocodeCache.TryGetValue(cacheKey, out var cachedLocation))
+        {
+            logger.LogDebug("Using cached geocoding result for: {Lat}, {Lon}", photoData.Latitude, photoData.Longitude);
+            ApplyCachedLocation(photoData, cachedLocation);
+            return;
+        }
+
         try
         {
             logger.LogDebug("Reverse geocoding coordinates: {Lat}, {Lon}", photoData.Latitude, photoData.Longitude);
 
-            var geocodeResult = await settings.BaseUrl
-                .AppendPathSegment("reverse")
-                .SetQueryParams(new
-                {
-                    lat = photoData.Latitude!.Value,
-                    lon = photoData.Longitude!.Value,
-                    format = "json",
-                    zoom = settings.ZoomLevel,
-                    addressdetails = 1
-                })
-                .WithHeader("User-Agent", settings.UserAgent)
-                .GetJsonAsync<NominatimResponse>(cancellationToken: cancellationToken);
-
-            PopulateLocationData(photoData, geocodeResult);
-
-            if (!string.IsNullOrEmpty(photoData.City))
+            // Use semaphore to ensure rate limiting across parallel requests
+            await _rateLimiter.WaitAsync(cancellationToken);
+            try
             {
-                logger.LogDebug("Geocoded location: {City}, {State}, {Country}",
-                    photoData.City, photoData.State, photoData.Country);
-            }
+                var geocodeResult = await settings.BaseUrl
+                    .AppendPathSegment("reverse")
+                    .SetQueryParams(new
+                    {
+                        lat = photoData.Latitude.Value,
+                        lon = photoData.Longitude.Value,
+                        format = "json",
+                        zoom = settings.ZoomLevel,
+                        addressdetails = 1
+                    })
+                    .WithHeader("User-Agent", settings.UserAgent)
+                    .GetJsonAsync<NominatimResponse>(cancellationToken: cancellationToken);
 
-            // Rate limiting: Nominatim requires max 1 request per second
-            await Task.Delay(settings.RateLimitDelayMs, cancellationToken);
+                PopulateLocationData(photoData, geocodeResult);
+
+                // Cache the result
+                var cached = new CachedLocation(
+                    photoData.City,
+                    photoData.State,
+                    photoData.Country,
+                    photoData.CountryCode,
+                    photoData.DisplayName);
+                _geocodeCache.TryAdd(cacheKey, cached);
+
+                if (!string.IsNullOrEmpty(photoData.City))
+                {
+                    logger.LogDebug("Geocoded location: {City}, {State}, {Country}",
+                        photoData.City, photoData.State, photoData.Country);
+                }
+
+                // Rate limiting: Nominatim requires max 1 request per second
+                await Task.Delay(settings.RateLimitDelayMs, cancellationToken);
+            }
+            finally
+            {
+                _rateLimiter.Release();
+            }
         }
         catch (FlurlHttpException ex)
         {
@@ -65,6 +100,15 @@ public sealed class GeocodingService(
         }
     }
 
+    private static void ApplyCachedLocation(PhotoData photoData, CachedLocation cached)
+    {
+        photoData.City = cached.City;
+        photoData.State = cached.State;
+        photoData.Country = cached.Country;
+        photoData.CountryCode = cached.CountryCode;
+        photoData.DisplayName = cached.DisplayName;
+    }
+
     private static void PopulateLocationData(PhotoData photoData, NominatimResponse? geocodeResult)
     {
         if (geocodeResult?.address is null)
@@ -77,3 +121,13 @@ public sealed class GeocodingService(
         photoData.DisplayName = geocodeResult.display_name;
     }
 }
+
+/// <summary>
+/// Cached geocoding location data
+/// </summary>
+internal record CachedLocation(
+    string? City,
+    string? State,
+    string? Country,
+    string? CountryCode,
+    string? DisplayName);

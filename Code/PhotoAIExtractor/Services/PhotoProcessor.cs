@@ -34,8 +34,8 @@ public sealed class PhotoProcessor(
         var imageFiles = GetImageFiles(folderPath);
         logger.LogInformation("Found {Count} image files", imageFiles.Count);
 
-        var photoDataList = new List<PhotoData>(imageFiles.Count);
-        var optimizationResults = new List<OptimizationResult>();
+        var photoDataList = new System.Collections.Concurrent.ConcurrentBag<PhotoData>();
+        var optimizationResults = new System.Collections.Concurrent.ConcurrentBag<OptimizationResult>();
         var outputPath = Path.Combine(folderPath, outputSettings.OutputFileName);
 
         // Delete existing metadata file to start fresh
@@ -47,8 +47,8 @@ public sealed class PhotoProcessor(
 
         // Setup optimization output directory if needed
         string? optimizedBaseFolder = null;
-        // Track photo counters per folder for sequential naming
-        var folderPhotoCounters = new Dictionary<string, int>();
+        // Track photo counters per folder for sequential naming (thread-safe)
+        var folderPhotoCounters = new System.Collections.Concurrent.ConcurrentDictionary<string, int>();
 
         if (shouldOptimize)
         {
@@ -57,21 +57,28 @@ public sealed class PhotoProcessor(
             logger.LogInformation("Image optimization enabled - output directory: {OptimizedFolder}", optimizedBaseFolder);
         }
 
-        foreach (var filePath in imageFiles)
+        // Process photos in parallel for better performance
+        var parallelOptions = new ParallelOptions
         {
-            cancellationToken.ThrowIfCancellationRequested();
+            MaxDegreeOfParallelism = Environment.ProcessorCount,
+            CancellationToken = cancellationToken
+        };
+
+        await Parallel.ForEachAsync(imageFiles, parallelOptions, async (filePath, ct) =>
+        {
+            ct.ThrowIfCancellationRequested();
 
             try
             {
                 // Extract metadata
-                var photoData = await metadataExtractor.ExtractPhotoDataAsync(filePath, cancellationToken);
+                var photoData = await metadataExtractor.ExtractPhotoDataAsync(filePath, ct);
                 photoDataList.Add(photoData);
 
                 // Convert file path to relative before writing
                 photoData.FilePath = MakeRelativePath(folderPath, filePath);
 
                 // Write metadata after each photo
-                await outputWriter.AppendAsync(photoData, outputPath, cancellationToken);
+                await outputWriter.AppendAsync(photoData, outputPath, ct);
 
                 logger.LogInformation("Processed metadata: {FileName}", Path.GetFileName(filePath));
 
@@ -83,13 +90,11 @@ public sealed class PhotoProcessor(
                     var targetFolder = Path.Combine(optimizedBaseFolder, folderName);
                     Directory.CreateDirectory(targetFolder);
 
-                    // Get sequential counter for this folder
-                    if (!folderPhotoCounters.ContainsKey(folderName))
-                    {
-                        folderPhotoCounters[folderName] = 1;
-                    }
-                    var photoNumber = folderPhotoCounters[folderName];
-                    folderPhotoCounters[folderName]++;
+                    // Get sequential counter for this folder (thread-safe)
+                    var photoNumber = folderPhotoCounters.AddOrUpdate(
+                        folderName,
+                        1,
+                        (key, oldValue) => oldValue + 1);
 
                     // Generate new filename
                     var newFileName = GeneratePhotoFileName(photoNumber, photoDate);
@@ -97,7 +102,7 @@ public sealed class PhotoProcessor(
                     var optimizationResult = await imageOptimizer.OptimizeAsync(
                         filePath,
                         targetFolder,
-                        cancellationToken);
+                        ct);
 
                     optimizationResults.Add(optimizationResult);
 
@@ -113,7 +118,7 @@ public sealed class PhotoProcessor(
                             optimizationResult = optimizationResult with { OptimizedPath = newOptimizedPath };
                         }
 
-                        // Populate optimized image info in PhotoData with relative path
+                        // Populate optimized image info in PhotoData with relative path (for main JSON)
                         photoData.OptimizedImages = new OptimizedImageInfo
                         {
                             WebPImage = MakeRelativePath(folderPath, newOptimizedPath),
@@ -123,11 +128,24 @@ public sealed class PhotoProcessor(
                         };
 
                         // Update the main JSON file with optimization info
-                        await outputWriter.UpdateAsync(photoData, outputPath, cancellationToken);
+                        await outputWriter.UpdateAsync(photoData, outputPath, ct);
 
-                        // Also write to the folder-specific JSON file
+                        // Create a copy of photoData with paths relative to the target folder for folder-specific JSON
+                        var folderPhotoData = photoData with
+                        {
+                            FilePath = MakeRelativePath(folderPath, filePath),
+                            OptimizedImages = new OptimizedImageInfo
+                            {
+                                WebPImage = newFileName,
+                                OriginalSize = optimizationResult.OriginalSize,
+                                OptimizedSize = optimizationResult.OptimizedSize,
+                                CompressionRatio = optimizationResult.CompressionRatio
+                            }
+                        };
+
+                        // Write to the folder-specific JSON file
                         var folderJsonPath = Path.Combine(targetFolder, outputSettings.OutputFileName);
-                        await outputWriter.AppendAsync(photoData, folderJsonPath, cancellationToken);
+                        await outputWriter.AppendAsync(folderPhotoData, folderJsonPath, ct);
 
                         logger.LogInformation(
                             "Optimized: {FileName} → {NewFolder}/{NewFileName} ({OriginalSize} → {OptimizedSize}, {CompressionRatio:F1}% saved)",
@@ -161,9 +179,9 @@ public sealed class PhotoProcessor(
             {
                 logger.LogError(ex, "Error processing {FileName}", Path.GetFileName(filePath));
             }
-        }
+        });
 
-        return (photoDataList.AsReadOnly(), optimizationResults.AsReadOnly());
+        return (photoDataList.ToList().AsReadOnly(), optimizationResults.ToList().AsReadOnly());
     }
 
     /// <summary>
