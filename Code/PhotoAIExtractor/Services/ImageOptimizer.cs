@@ -1,3 +1,4 @@
+using ImageMagick;
 using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
 using PhotoAIExtractor.Interfaces;
@@ -27,8 +28,49 @@ public sealed class ImageOptimizer(
             throw new FileNotFoundException($"Image file not found: {imagePath}");
         }
 
+        // Check if format is supported for optimization
+        var extension = Path.GetExtension(imagePath).ToLowerInvariant();
+        var isHeic = extension is ".heic" or ".heif";
+
+        if (!settings.SupportedFormats.Contains(extension, StringComparer.OrdinalIgnoreCase))
+        {
+            var skippedReason = $"Format '{extension}' is not supported for optimization";
+            logger.LogInformation("Skipped optimization for {FileName}: {Reason}",
+                Path.GetFileName(imagePath), skippedReason);
+
+            return CreateSkippedResult(imagePath, skippedReason);
+        }
+
         Directory.CreateDirectory(outputDirectory);
 
+        try
+        {
+            var fileInfo = new FileInfo(imagePath);
+            var fileName = Path.GetFileNameWithoutExtension(imagePath);
+
+            // Use Magick.NET for HEIC files, SkiaSharp for others
+            if (isHeic)
+            {
+                return await OptimizeHeicAsync(imagePath, outputDirectory, fileInfo, fileName, cancellationToken);
+            }
+            else
+            {
+                return await OptimizeWithSkiaSharpAsync(imagePath, outputDirectory, fileInfo, fileName, cancellationToken);
+            }
+        }
+        catch (Exception ex)
+        {
+            return CreateErrorResult(imagePath, ex.Message);
+        }
+    }
+
+    private async Task<OptimizationResult> OptimizeWithSkiaSharpAsync(
+        string imagePath,
+        string outputDirectory,
+        FileInfo fileInfo,
+        string fileName,
+        CancellationToken cancellationToken)
+    {
         try
         {
             using var originalBitmap = SKBitmap.Decode(imagePath);
@@ -37,44 +79,23 @@ public sealed class ImageOptimizer(
                 return CreateErrorResult(imagePath, "Failed to decode image");
             }
 
-            var fileInfo = new FileInfo(imagePath);
-            var fileName = Path.GetFileNameWithoutExtension(imagePath);
             var format = GetSkiaFormat(settings.OutputFormat);
 
-            // Optimize main image
+            // Optimize image without resizing - preserve original dimensions
             var optimizedPath = Path.Combine(
                 outputDirectory,
                 $"{fileName}{settings.OutputSuffix}.{settings.OutputFormat}");
 
-            var (optimizedWidth, optimizedHeight) = CalculateOptimizedDimensions(
-                originalBitmap.Width,
-                originalBitmap.Height,
-                settings.MaxWidth,
-                settings.MaxHeight);
-
             await SaveOptimizedImageAsync(
                 originalBitmap,
                 optimizedPath,
-                optimizedWidth,
-                optimizedHeight,
+                originalBitmap.Width,
+                originalBitmap.Height,
                 settings.Quality,
                 format,
                 cancellationToken);
 
             var optimizedFileInfo = new FileInfo(optimizedPath);
-
-            // Create responsive variants
-            var variants = new List<VariantResult>();
-            if (settings.CreateResponsiveVariants)
-            {
-                variants = await CreateResponsiveVariantsAsync(
-                    originalBitmap,
-                    outputDirectory,
-                    fileName,
-                    format,
-                    fileInfo.Length,
-                    cancellationToken);
-            }
 
             return new OptimizationResult
             {
@@ -84,10 +105,10 @@ public sealed class ImageOptimizer(
                 OptimizedSize = optimizedFileInfo.Length,
                 OriginalWidth = originalBitmap.Width,
                 OriginalHeight = originalBitmap.Height,
-                OptimizedWidth = optimizedWidth,
-                OptimizedHeight = optimizedHeight,
+                OptimizedWidth = originalBitmap.Width,
+                OptimizedHeight = originalBitmap.Height,
                 Format = settings.OutputFormat,
-                Variants = variants
+                Variants = Array.Empty<VariantResult>()
             };
         }
         catch (Exception ex)
@@ -95,6 +116,55 @@ public sealed class ImageOptimizer(
             return CreateErrorResult(imagePath, ex.Message);
         }
     }
+
+    private async Task<OptimizationResult> OptimizeHeicAsync(
+        string imagePath,
+        string outputDirectory,
+        FileInfo fileInfo,
+        string fileName,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            using var magickImage = new MagickImage(imagePath);
+
+            var originalWidth = (int)magickImage.Width;
+            var originalHeight = (int)magickImage.Height;
+
+            // Set output format and quality without resizing
+            magickImage.Format = MagickFormat.WebP;
+            magickImage.Quality = (uint)settings.Quality;
+
+            // Save optimized image
+            var optimizedPath = Path.Combine(
+                outputDirectory,
+                $"{fileName}{settings.OutputSuffix}.{settings.OutputFormat}");
+
+            await Task.Run(() => magickImage.Write(optimizedPath), cancellationToken);
+
+            var optimizedFileInfo = new FileInfo(optimizedPath);
+
+            return new OptimizationResult
+            {
+                OriginalPath = imagePath,
+                OptimizedPath = optimizedPath,
+                OriginalSize = fileInfo.Length,
+                OptimizedSize = optimizedFileInfo.Length,
+                OriginalWidth = originalWidth,
+                OriginalHeight = originalHeight,
+                OptimizedWidth = originalWidth,
+                OptimizedHeight = originalHeight,
+                Format = settings.OutputFormat,
+                Variants = Array.Empty<VariantResult>()
+            };
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Failed to optimize HEIC file: {FileName}", Path.GetFileName(imagePath));
+            return CreateErrorResult(imagePath, ex.Message);
+        }
+    }
+
 
     public async Task<IReadOnlyCollection<OptimizationResult>> OptimizeBatchAsync(
         IEnumerable<string> imagePaths,
@@ -166,75 +236,6 @@ public sealed class ImageOptimizer(
         data.SaveTo(stream);
     }
 
-    private async Task<List<VariantResult>> CreateResponsiveVariantsAsync(
-        SKBitmap originalBitmap,
-        string outputDirectory,
-        string baseFileName,
-        SKEncodedImageFormat format,
-        long originalFileSize,
-        CancellationToken cancellationToken)
-    {
-        var variants = new List<VariantResult>();
-
-        foreach (var variant in settings.ResponsiveVariants)
-        {
-            cancellationToken.ThrowIfCancellationRequested();
-
-            var variantPath = Path.Combine(
-                outputDirectory,
-                $"{baseFileName}_{variant.Name}.{settings.OutputFormat}");
-
-            var (width, height) = CalculateOptimizedDimensions(
-                originalBitmap.Width,
-                originalBitmap.Height,
-                variant.MaxWidth,
-                variant.MaxHeight);
-
-            await SaveOptimizedImageAsync(
-                originalBitmap,
-                variantPath,
-                width,
-                height,
-                variant.Quality,
-                format,
-                cancellationToken);
-
-            var variantFileInfo = new FileInfo(variantPath);
-
-            variants.Add(new VariantResult
-            {
-                Name = variant.Name,
-                Path = variantPath,
-                OriginalSize = originalFileSize,
-                OptimizedSize = variantFileInfo.Length,
-                Width = width,
-                Height = height
-            });
-        }
-
-        return variants;
-    }
-
-    private static (int width, int height) CalculateOptimizedDimensions(
-        int originalWidth,
-        int originalHeight,
-        int maxWidth,
-        int maxHeight)
-    {
-        if (originalWidth <= maxWidth && originalHeight <= maxHeight)
-        {
-            return (originalWidth, originalHeight);
-        }
-
-        var widthRatio = (double)maxWidth / originalWidth;
-        var heightRatio = (double)maxHeight / originalHeight;
-        var ratio = Math.Min(widthRatio, heightRatio);
-
-        return (
-            width: (int)(originalWidth * ratio),
-            height: (int)(originalHeight * ratio)
-        );
-    }
 
     private static SKEncodedImageFormat GetSkiaFormat(string format) => format.ToLowerInvariant() switch
     {
@@ -259,6 +260,25 @@ public sealed class ImageOptimizer(
             Format = string.Empty,
             Variants = Array.Empty<VariantResult>(),
             Error = error
+        };
+    }
+
+    private static OptimizationResult CreateSkippedResult(string imagePath, string reason)
+    {
+        var fileInfo = new FileInfo(imagePath);
+        return new OptimizationResult
+        {
+            OriginalPath = imagePath,
+            OptimizedPath = imagePath, // Keep original
+            OriginalSize = fileInfo.Length,
+            OptimizedSize = fileInfo.Length, // No size change
+            OriginalWidth = 0,
+            OriginalHeight = 0,
+            OptimizedWidth = 0,
+            OptimizedHeight = 0,
+            Format = Path.GetExtension(imagePath),
+            Variants = Array.Empty<VariantResult>(),
+            Error = $"Skipped: {reason}"
         };
     }
 

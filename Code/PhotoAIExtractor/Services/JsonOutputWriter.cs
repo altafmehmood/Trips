@@ -83,6 +83,51 @@ public sealed class JsonOutputWriter(
         }
     }
 
+    public async Task UpdateAsync(
+        PhotoData photoData,
+        string outputPath,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(photoData);
+        ArgumentException.ThrowIfNullOrWhiteSpace(outputPath);
+
+        await _fileLock.WaitAsync(cancellationToken);
+        try
+        {
+            if (!File.Exists(outputPath))
+            {
+                logger.LogWarning("Cannot update - file does not exist: {Path}", outputPath);
+                return;
+            }
+
+            // Read existing data
+            var existingJson = await File.ReadAllTextAsync(outputPath, cancellationToken);
+            var existingData = JsonSerializer.Deserialize<List<PhotoData>>(existingJson) ?? [];
+
+            // Find and update the matching entry (by FileName)
+            var index = existingData.FindIndex(p => p.FileName == photoData.FileName);
+            if (index >= 0)
+            {
+                existingData[index] = photoData;
+
+                // Write back to file
+                var options = GetJsonSerializerOptions();
+                var json = JsonSerializer.Serialize(existingData, options);
+                await File.WriteAllTextAsync(outputPath, json, cancellationToken);
+
+                logger.LogDebug("Updated photo data for {FileName}", photoData.FileName);
+            }
+            else
+            {
+                logger.LogWarning("Photo {FileName} not found in output file for update", photoData.FileName);
+            }
+        }
+        finally
+        {
+            _fileLock.Release();
+        }
+    }
+
     private JsonSerializerOptions GetJsonSerializerOptions() => new()
     {
         WriteIndented = outputSettings.WriteIndented,

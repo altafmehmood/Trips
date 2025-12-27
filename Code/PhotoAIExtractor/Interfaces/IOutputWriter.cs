@@ -22,4 +22,12 @@ public interface IOutputWriter
     /// <param name="outputPath">Path to output file</param>
     /// <param name="cancellationToken">Cancellation token</param>
     Task AppendAsync(PhotoData photoData, string outputPath, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Updates an existing photo data entry in the output file
+    /// </summary>
+    /// <param name="photoData">Updated photo data</param>
+    /// <param name="outputPath">Path to output file</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    Task UpdateAsync(PhotoData photoData, string outputPath, CancellationToken cancellationToken = default);
 }

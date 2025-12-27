@@ -36,31 +36,34 @@ try
 
     if (!metadataOnly)
     {
-        // Process photos (writes metadata after each photo)
-        var photoDataList = await photoProcessor.ProcessPhotosAsync(folderPath);
+        // Process photos (writes metadata and optimizes after each photo if requested)
+        var (photoDataList, optimizationResults) = await photoProcessor.ProcessPhotosAsync(
+            folderPath,
+            shouldOptimize);
 
         var outputPath = Path.Combine(folderPath, outputSettings.OutputFileName);
         logger.LogInformation("Metadata extracted successfully! Output: {OutputPath}, Photos: {Count}",
             outputPath, photoDataList.Count);
-    }
 
-    // Optimize images if requested
-    if (shouldOptimize)
-    {
-        var optimizationResults = await photoProcessor.OptimizePhotosAsync(folderPath);
+        // Log optimization summary if optimization was performed
+        if (shouldOptimize && optimizationResults.Count > 0)
+        {
+            var successCount = optimizationResults.Count(r => r.Success);
+            var skippedCount = optimizationResults.Count(r => r.Error?.StartsWith("Skipped:") == true);
+            var failedCount = optimizationResults.Count(r => !r.Success && r.Error?.StartsWith("Skipped:") != true);
+            var totalSaved = optimizationResults.Where(r => r.Success).Sum(r => r.TotalSizeSaved);
+            var totalOriginal = optimizationResults.Where(r => r.Success).Sum(r => r.OriginalSize);
+            var overallSavings = totalOriginal > 0 ? (double)totalSaved / totalOriginal * 100 : 0;
 
-        var successCount = optimizationResults.Count(r => r.Success);
-        var totalSaved = optimizationResults.Sum(r => r.TotalSizeSaved);
-        var totalOriginal = optimizationResults.Sum(r => r.OriginalSize);
-        var overallSavings = totalOriginal > 0 ? (double)totalSaved / totalOriginal * 100 : 0;
-
-        logger.LogInformation(
-            "Image optimization complete! Images: {Success}/{Total}, Saved: {SavedSize} ({Savings:F1}%), Output: {OutputDir}",
-            successCount,
-            optimizationResults.Count,
-            FormatBytes(totalSaved),
-            overallSavings,
-            Path.Combine(folderPath, "optimized"));
+            logger.LogInformation(
+                "Image optimization complete! Optimized: {Success}, Skipped: {Skipped}, Failed: {Failed}, Saved: {SavedSize} ({Savings:F1}%), Output: {OutputDir}",
+                successCount,
+                skippedCount,
+                failedCount,
+                FormatBytes(totalSaved),
+                overallSavings,
+                Path.Combine(folderPath, "optimized"));
+        }
     }
 
     return 0;

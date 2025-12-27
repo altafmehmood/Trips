@@ -6,7 +6,7 @@ namespace PhotoAIExtractor.Models;
 public record PhotoData
 {
     public required string FileName { get; init; }
-    public required string FilePath { get; init; }
+    public required string FilePath { get; set; }  // Changed to set for relative path conversion
     public required long FileSize { get; init; }
 
     // GPS Data
@@ -39,6 +39,10 @@ public record PhotoData
     public string? Orientation { get; set; }
     public string? Software { get; set; }
 
+    // Optimized Images (relative paths)
+    public string? OptimizedPath { get; set; }
+    public OptimizedImageInfo? OptimizedImages { get; set; }
+
     // Error handling
     public string? Error { get; set; }
 
@@ -46,4 +50,15 @@ public record PhotoData
     /// Indicates whether the photo has valid GPS coordinates
     /// </summary>
     public bool HasGpsData => Latitude.HasValue && Longitude.HasValue;
+}
+
+/// <summary>
+/// Information about optimized images
+/// </summary>
+public sealed record OptimizedImageInfo
+{
+    public string? WebPImage { get; init; }
+    public long? OriginalSize { get; init; }
+    public long? OptimizedSize { get; init; }
+    public double? CompressionRatio { get; init; }
 }
