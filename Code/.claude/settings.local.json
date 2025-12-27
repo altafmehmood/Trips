@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet new:*)",
+      "Bash(dotnet add package:*)",
+      "Bash(dotnet run:*)",
+      "Bash(tree:*)",
+      "Bash(dotnet --version:*)",
+      "Bash(dotnet build:*)",
+      "WebSearch",
+      "Bash(dotnet remove:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

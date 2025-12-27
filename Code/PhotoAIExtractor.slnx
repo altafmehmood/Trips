@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/PhotoAIExtractor/">
+    <Project Path="PhotoAIExtractor\PhotoAIExtractor.csproj" Type="C#" />
+  </Folder>
+</Solution>
