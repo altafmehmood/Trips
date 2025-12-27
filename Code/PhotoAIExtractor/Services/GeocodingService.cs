@@ -1,5 +1,6 @@
 using Flurl;
 using Flurl.Http;
+using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
 using PhotoAIExtractor.Interfaces;
 using PhotoAIExtractor.Models;
@@ -10,7 +11,9 @@ namespace PhotoAIExtractor.Services;
 /// Service for reverse geocoding GPS coordinates using Nominatim API
 /// Uses primary constructor (C# 12)
 /// </summary>
-public sealed class GeocodingService(GeocodingSettings settings) : IGeocodingService
+public sealed class GeocodingService(
+    GeocodingSettings settings,
+    ILogger<GeocodingService> logger) : IGeocodingService
 {
     public async Task ReverseGeocodeAsync(PhotoData photoData, CancellationToken cancellationToken = default)
     {
@@ -21,6 +24,8 @@ public sealed class GeocodingService(GeocodingSettings settings) : IGeocodingSer
 
         try
         {
+            logger.LogDebug("Reverse geocoding coordinates: {Lat}, {Lon}", photoData.Latitude, photoData.Longitude);
+
             var geocodeResult = await settings.BaseUrl
                 .AppendPathSegment("reverse")
                 .SetQueryParams(new
@@ -36,21 +41,27 @@ public sealed class GeocodingService(GeocodingSettings settings) : IGeocodingSer
 
             PopulateLocationData(photoData, geocodeResult);
 
+            if (!string.IsNullOrEmpty(photoData.City))
+            {
+                logger.LogDebug("Geocoded location: {City}, {State}, {Country}",
+                    photoData.City, photoData.State, photoData.Country);
+            }
+
             // Rate limiting: Nominatim requires max 1 request per second
             await Task.Delay(settings.RateLimitDelayMs, cancellationToken);
         }
         catch (FlurlHttpException ex)
         {
-            Console.WriteLine($"  ⚠ Geocoding failed (HTTP): {ex.Message}");
+            logger.LogWarning(ex, "Geocoding failed (HTTP error)");
         }
         catch (OperationCanceledException)
         {
-            Console.WriteLine("  ⚠ Geocoding cancelled");
+            logger.LogWarning("Geocoding cancelled");
             throw;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"  ⚠ Geocoding failed: {ex.Message}");
+            logger.LogWarning(ex, "Geocoding failed");
         }
     }
 

@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
 using PhotoAIExtractor.Interfaces;
 using PhotoAIExtractor.Models;
@@ -9,7 +10,9 @@ namespace PhotoAIExtractor.Services;
 /// Service for optimizing images for web rendering using SkiaSharp
 /// Uses primary constructor (C# 12)
 /// </summary>
-public sealed class ImageOptimizer(ImageOptimizationSettings settings) : IImageOptimizer
+public sealed class ImageOptimizer(
+    ImageOptimizationSettings settings,
+    ILogger<ImageOptimizer> logger) : IImageOptimizer
 {
     public async Task<OptimizationResult> OptimizeAsync(
         string imagePath,
@@ -113,18 +116,22 @@ public sealed class ImageOptimizer(ImageOptimizationSettings settings) : IImageO
 
                 if (result.Success)
                 {
-                    Console.WriteLine($"  ✓ Optimized: {Path.GetFileName(imagePath)} " +
-                        $"({FormatBytes(result.OriginalSize)} → {FormatBytes(result.OptimizedSize)}, " +
-                        $"{result.CompressionRatio:F1}% saved)");
+                    logger.LogInformation(
+                        "Optimized: {FileName} ({OriginalSize} → {OptimizedSize}, {CompressionRatio:F1}% saved)",
+                        Path.GetFileName(imagePath),
+                        FormatBytes(result.OriginalSize),
+                        FormatBytes(result.OptimizedSize),
+                        result.CompressionRatio);
                 }
                 else
                 {
-                    Console.WriteLine($"  ✗ Failed: {Path.GetFileName(imagePath)} - {result.Error}");
+                    logger.LogWarning("Failed to optimize {FileName}: {Error}",
+                        Path.GetFileName(imagePath), result.Error);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"  ✗ Error optimizing {Path.GetFileName(imagePath)}: {ex.Message}");
+                logger.LogError(ex, "Error optimizing {FileName}", Path.GetFileName(imagePath));
                 results.Add(CreateErrorResult(imagePath, ex.Message));
             }
         }

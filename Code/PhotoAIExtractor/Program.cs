@@ -1,11 +1,19 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
 using PhotoAIExtractor.Interfaces;
 
-// Configure dependency injection container
+// Configure dependency injection container with logging
 var services = new ServiceCollection();
+services.AddLogging(builder =>
+{
+    builder.AddConsole();
+    builder.SetMinimumLevel(LogLevel.Information);
+});
 services.AddPhotoAIExtractorServices();
 await using var serviceProvider = services.BuildServiceProvider();
+
+var logger = serviceProvider.GetRequiredService<ILogger<Program>>();
 
 // Parse command-line arguments
 if (args.Length == 0)
@@ -20,28 +28,20 @@ var metadataOnly = args.Contains("--metadata-only") || args.Contains("-m");
 
 try
 {
-    Console.WriteLine($"Processing photos in: {folderPath}");
+    logger.LogInformation("Processing photos in: {FolderPath}", folderPath);
 
     // Resolve services from DI container
     var photoProcessor = serviceProvider.GetRequiredService<IPhotoProcessor>();
-    var outputWriter = serviceProvider.GetRequiredService<IOutputWriter>();
     var outputSettings = serviceProvider.GetRequiredService<OutputSettings>();
 
     if (!metadataOnly)
     {
-        // Process photos
+        // Process photos (writes metadata after each photo)
         var photoDataList = await photoProcessor.ProcessPhotosAsync(folderPath);
 
-        // Write metadata output
         var outputPath = Path.Combine(folderPath, outputSettings.OutputFileName);
-        await outputWriter.WriteAsync(photoDataList, outputPath);
-
-        Console.WriteLine($"""
-
-            ✓ Metadata extracted successfully!
-              Output file: {outputPath}
-              Photos processed: {photoDataList.Count}
-            """);
+        logger.LogInformation("Metadata extracted successfully! Output: {OutputPath}, Photos: {Count}",
+            outputPath, photoDataList.Count);
     }
 
     // Optimize images if requested
@@ -54,30 +54,30 @@ try
         var totalOriginal = optimizationResults.Sum(r => r.OriginalSize);
         var overallSavings = totalOriginal > 0 ? (double)totalSaved / totalOriginal * 100 : 0;
 
-        Console.WriteLine($"""
-
-            ✓ Image optimization complete!
-              Images optimized: {successCount}/{optimizationResults.Count}
-              Total size saved: {FormatBytes(totalSaved)} ({overallSavings:F1}%)
-              Output directory: {Path.Combine(folderPath, "optimized")}
-            """);
+        logger.LogInformation(
+            "Image optimization complete! Images: {Success}/{Total}, Saved: {SavedSize} ({Savings:F1}%), Output: {OutputDir}",
+            successCount,
+            optimizationResults.Count,
+            FormatBytes(totalSaved),
+            overallSavings,
+            Path.Combine(folderPath, "optimized"));
     }
 
     return 0;
 }
 catch (DirectoryNotFoundException ex)
 {
-    Console.WriteLine($"Error: {ex.Message}");
+    logger.LogError(ex, "Directory not found");
     return 1;
 }
 catch (OperationCanceledException)
 {
-    Console.WriteLine("\nOperation cancelled by user.");
+    logger.LogWarning("Operation cancelled by user");
     return 1;
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Fatal error: {ex.Message}");
+    logger.LogCritical(ex, "Fatal error occurred");
     return 1;
 }
 

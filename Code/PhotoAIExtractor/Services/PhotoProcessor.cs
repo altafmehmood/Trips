@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
 using PhotoAIExtractor.Interfaces;
 using PhotoAIExtractor.Models;
@@ -11,7 +12,10 @@ namespace PhotoAIExtractor.Services;
 public sealed class PhotoProcessor(
     IPhotoMetadataExtractor metadataExtractor,
     IImageOptimizer imageOptimizer,
-    FileSettings fileSettings) : IPhotoProcessor
+    IOutputWriter outputWriter,
+    FileSettings fileSettings,
+    OutputSettings outputSettings,
+    ILogger<PhotoProcessor> logger) : IPhotoProcessor
 {
     public async Task<IReadOnlyCollection<PhotoData>> ProcessPhotosAsync(
         string folderPath,
@@ -25,9 +29,17 @@ public sealed class PhotoProcessor(
         }
 
         var imageFiles = GetImageFiles(folderPath);
-        Console.WriteLine($"Found {imageFiles.Count} image files.");
+        logger.LogInformation("Found {Count} image files", imageFiles.Count);
 
         var photoDataList = new List<PhotoData>(imageFiles.Count);
+        var outputPath = Path.Combine(folderPath, outputSettings.OutputFileName);
+
+        // Delete existing file to start fresh
+        if (File.Exists(outputPath))
+        {
+            File.Delete(outputPath);
+            logger.LogDebug("Deleted existing output file: {Path}", outputPath);
+        }
 
         foreach (var filePath in imageFiles)
         {
@@ -37,16 +49,20 @@ public sealed class PhotoProcessor(
             {
                 var photoData = await metadataExtractor.ExtractPhotoDataAsync(filePath, cancellationToken);
                 photoDataList.Add(photoData);
-                Console.WriteLine($"✓ Processed: {Path.GetFileName(filePath)}");
+
+                // Write metadata after each photo
+                await outputWriter.AppendAsync(photoData, outputPath, cancellationToken);
+
+                logger.LogInformation("Processed: {FileName}", Path.GetFileName(filePath));
             }
             catch (OperationCanceledException)
             {
-                Console.WriteLine($"⚠ Processing cancelled");
+                logger.LogWarning("Processing cancelled");
                 throw;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"✗ Error processing {Path.GetFileName(filePath)}: {ex.Message}");
+                logger.LogError(ex, "Error processing {FileName}", Path.GetFileName(filePath));
             }
         }
 
@@ -68,7 +84,7 @@ public sealed class PhotoProcessor(
         }
 
         var imageFiles = GetImageFiles(folderPath);
-        Console.WriteLine($"\nOptimizing {imageFiles.Count} images for web...");
+        logger.LogInformation("Optimizing {Count} images for web", imageFiles.Count);
 
         var optimizedFolder = Path.Combine(folderPath, "optimized");
         Directory.CreateDirectory(optimizedFolder);
