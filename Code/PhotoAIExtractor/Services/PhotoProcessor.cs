@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
 using PhotoAIExtractor.Interfaces;
 using PhotoAIExtractor.Models;
+using System.Globalization;
 
 namespace PhotoAIExtractor.Services;
 
@@ -45,12 +46,15 @@ public sealed class PhotoProcessor(
         }
 
         // Setup optimization output directory if needed
-        string? optimizedFolder = null;
+        string? optimizedBaseFolder = null;
+        // Track photo counters per folder for sequential naming
+        var folderPhotoCounters = new Dictionary<string, int>();
+
         if (shouldOptimize)
         {
-            optimizedFolder = Path.Combine(folderPath, "optimized");
-            Directory.CreateDirectory(optimizedFolder);
-            logger.LogInformation("Image optimization enabled - output directory: {OptimizedFolder}", optimizedFolder);
+            optimizedBaseFolder = Path.Combine(folderPath, "optimized");
+            Directory.CreateDirectory(optimizedBaseFolder);
+            logger.LogInformation("Image optimization enabled - output directory: {OptimizedFolder}", optimizedBaseFolder);
         }
 
         foreach (var filePath in imageFiles)
@@ -72,32 +76,64 @@ public sealed class PhotoProcessor(
                 logger.LogInformation("Processed metadata: {FileName}", Path.GetFileName(filePath));
 
                 // Optimize immediately if requested
-                if (shouldOptimize && optimizedFolder != null)
+                if (shouldOptimize && optimizedBaseFolder != null)
                 {
+                    // Determine folder name based on date and location
+                    var (folderName, photoDate) = DetermineFolderName(photoData);
+                    var targetFolder = Path.Combine(optimizedBaseFolder, folderName);
+                    Directory.CreateDirectory(targetFolder);
+
+                    // Get sequential counter for this folder
+                    if (!folderPhotoCounters.ContainsKey(folderName))
+                    {
+                        folderPhotoCounters[folderName] = 1;
+                    }
+                    var photoNumber = folderPhotoCounters[folderName];
+                    folderPhotoCounters[folderName]++;
+
+                    // Generate new filename
+                    var newFileName = GeneratePhotoFileName(photoNumber, photoDate);
+
                     var optimizationResult = await imageOptimizer.OptimizeAsync(
                         filePath,
-                        optimizedFolder,
+                        targetFolder,
                         cancellationToken);
 
                     optimizationResults.Add(optimizationResult);
 
                     if (optimizationResult.Success)
                     {
+                        // Rename the optimized file
+                        var oldOptimizedPath = optimizationResult.OptimizedPath;
+                        var newOptimizedPath = Path.Combine(targetFolder, newFileName);
+
+                        if (File.Exists(oldOptimizedPath))
+                        {
+                            File.Move(oldOptimizedPath, newOptimizedPath, overwrite: true);
+                            optimizationResult = optimizationResult with { OptimizedPath = newOptimizedPath };
+                        }
+
                         // Populate optimized image info in PhotoData with relative path
                         photoData.OptimizedImages = new OptimizedImageInfo
                         {
-                            WebPImage = MakeRelativePath(folderPath, optimizationResult.OptimizedPath),
+                            WebPImage = MakeRelativePath(folderPath, newOptimizedPath),
                             OriginalSize = optimizationResult.OriginalSize,
                             OptimizedSize = optimizationResult.OptimizedSize,
                             CompressionRatio = optimizationResult.CompressionRatio
                         };
 
-                        // Update the JSON file with optimization info
+                        // Update the main JSON file with optimization info
                         await outputWriter.UpdateAsync(photoData, outputPath, cancellationToken);
 
+                        // Also write to the folder-specific JSON file
+                        var folderJsonPath = Path.Combine(targetFolder, outputSettings.OutputFileName);
+                        await outputWriter.AppendAsync(photoData, folderJsonPath, cancellationToken);
+
                         logger.LogInformation(
-                            "Optimized: {FileName} ({OriginalSize} → {OptimizedSize}, {CompressionRatio:F1}% saved)",
+                            "Optimized: {FileName} → {NewFolder}/{NewFileName} ({OriginalSize} → {OptimizedSize}, {CompressionRatio:F1}% saved)",
                             Path.GetFileName(filePath),
+                            folderName,
+                            newFileName,
                             FormatBytes(optimizationResult.OriginalSize),
                             FormatBytes(optimizationResult.OptimizedSize),
                             optimizationResult.CompressionRatio);
@@ -128,6 +164,106 @@ public sealed class PhotoProcessor(
         }
 
         return (photoDataList.AsReadOnly(), optimizationResults.AsReadOnly());
+    }
+
+    /// <summary>
+    /// Determines the folder name based on photo date and location
+    /// </summary>
+    private static (string folderName, DateTime? photoDate) DetermineFolderName(PhotoData photoData)
+    {
+        // Try to parse the date
+        DateTime? photoDate = null;
+        string datePrefix = "Unknown_Date";
+
+        if (!string.IsNullOrWhiteSpace(photoData.DateTaken))
+        {
+            // Try common date formats
+            var formats = new[]
+            {
+                "yyyy:MM:dd HH:mm:ss",
+                "yyyy-MM-dd HH:mm:ss",
+                "yyyy-MM-ddTHH:mm:ss",
+                "yyyy:MM:dd",
+                "yyyy-MM-dd"
+            };
+
+            foreach (var format in formats)
+            {
+                if (DateTime.TryParseExact(photoData.DateTaken, format,
+                    CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate))
+                {
+                    photoDate = parsedDate;
+                    datePrefix = parsedDate.ToString("yyyy-MM-dd");
+                    break;
+                }
+            }
+
+            // Fallback to general parsing
+            if (!photoDate.HasValue && DateTime.TryParse(photoData.DateTaken, out var generalDate))
+            {
+                photoDate = generalDate;
+                datePrefix = generalDate.ToString("yyyy-MM-dd");
+            }
+        }
+
+        // Determine location (City > State > Country)
+        var location = "Unknown_Location";
+        if (!string.IsNullOrWhiteSpace(photoData.City))
+        {
+            location = SanitizeFolderName(photoData.City);
+        }
+        else if (!string.IsNullOrWhiteSpace(photoData.State))
+        {
+            location = SanitizeFolderName(photoData.State);
+        }
+        else if (!string.IsNullOrWhiteSpace(photoData.Country))
+        {
+            location = SanitizeFolderName(photoData.Country);
+        }
+
+        return ($"{datePrefix}_{location}", photoDate);
+    }
+
+    /// <summary>
+    /// Generates a filename for the optimized photo
+    /// </summary>
+    private static string GeneratePhotoFileName(int photoNumber, DateTime? photoDate)
+    {
+        // If we have a date with time, use it in the filename for uniqueness
+        if (photoDate.HasValue)
+        {
+            var timeStamp = photoDate.Value.ToString("HHmmss");
+            return $"{photoNumber:D3}_{timeStamp}.webp";
+        }
+
+        // Otherwise just use sequential numbering
+        return $"{photoNumber:D3}.webp";
+    }
+
+    /// <summary>
+    /// Sanitizes a string to be used as a folder name
+    /// </summary>
+    private static string SanitizeFolderName(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            return "Unknown";
+        }
+
+        // Remove or replace invalid filename characters
+        var invalidChars = Path.GetInvalidFileNameChars();
+        var sanitized = string.Join("_", name.Split(invalidChars, StringSplitOptions.RemoveEmptyEntries));
+
+        // Replace spaces with underscores
+        sanitized = sanitized.Replace(' ', '_');
+
+        // Limit length
+        if (sanitized.Length > 50)
+        {
+            sanitized = sanitized.Substring(0, 50);
+        }
+
+        return sanitized;
     }
 
     private static string MakeRelativePath(string basePath, string fullPath)
