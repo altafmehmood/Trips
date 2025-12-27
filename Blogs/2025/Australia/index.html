@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australia Adventure - December 2025 Travel Blog</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --secondary-light: #22d3ee;
+            --secondary-dark: #0891b2;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
+            --surface: #ffffff;
+            --surface-secondary: var(--gray-50);
+            --border: var(--gray-200);
+            --border-light: var(--gray-100);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .trip-overview {
+            background: white;
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .trip-overview h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1.75rem;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--gray-50), white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .blog-content {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .day-section {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .day-header {
+            padding: 2.5rem;
+            color: white;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .sydney-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+
+        .melbourne-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+        }
+
+        .tasmania-header {
+            background: linear-gradient(135deg, var(--success) 0%, var(--secondary) 100%);
+        }
+
+        .day-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .day-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .day-content {
+            padding: 2.5rem;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .story-text p {
+            margin-bottom: 1rem;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .photo-card {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--surface);
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95vw;
+            max-height: 95vh;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .lightbox-image-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-height: 90vh;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .lightbox-info {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            width: 350px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .lightbox-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            margin: 0 0 1rem 0;
+            color: var(--primary);
+        }
+
+        .lightbox-info-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .lightbox-info-section h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 0.05em;
+        }
+
+        .lightbox-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.9rem;
+        }
+
+        .lightbox-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .lightbox-info-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .lightbox-info-value {
+            color: var(--text-primary);
+            text-align: right;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.2s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-close:hover {
+            background: var(--gray-100);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.2s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--gray-100);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-nav.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .lightbox-nav.disabled:hover {
+            transform: translateY(-50%) scale(1);
+            background: white;
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-xl);
+            z-index: 10001;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-xl);
+            margin: 2rem 0;
+            font-weight: 500;
+        }
+
+        .highlight-box strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .day-content {
+                padding: 1.5rem;
+            }
+
+            .lightbox-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .lightbox-info {
+                width: 100%;
+                max-width: 500px;
+                max-height: 40vh;
+            }
+
+            .lightbox-image {
+                max-height: 50vh;
+            }
+
+            .lightbox-nav {
+                top: auto;
+                bottom: 1rem;
+                transform: none;
+            }
+
+            .lightbox-nav:hover {
+                transform: scale(1.1);
+            }
+
+            .lightbox-nav.disabled:hover {
+                transform: scale(1);
+            }
+
+            .lightbox-prev {
+                left: 1rem;
+            }
+
+            .lightbox-next {
+                right: 1rem;
+            }
+        }
+
+        @media print {
+            body::before {
+                display: none;
+            }
+
+            .back-link {
+                display: none;
+            }
+
+            .day-section {
+                page-break-inside: avoid;
+                margin-bottom: 1in;
+            }
+
+            .photo-gallery {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="back-link">← Back to Trips</a>
+
+        <h1><span class="gradient-text">Australia Adventure</span></h1>
+        <p class="subtitle">A Journey Through Sydney, Great Ocean Road & Tasmania • December 2025</p>
+
+        <div class="trip-overview">
+            <h2>Trip at a Glance</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                From the iconic Sydney Harbour to the ancient forests of Tasmania, this 11-day adventure (including an unexpected bonus day!) showcased the incredible diversity of Australia's landscapes and wildlife.
+            </p>
+            <div class="overview-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-value">11</div>
+                    <div class="stat-label">Days</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏙️</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Cities Visited</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✈️</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Flights</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌏</div>
+                    <div class="stat-value">19,875</div>
+                    <div class="stat-label">Miles Flown</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value">37.5</div>
+                    <div class="stat-label">Hours in the Air</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📸</div>
+                    <div class="stat-value">95+</div>
+                    <div class="stat-label">Photos Captured</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- By the Numbers -->
+        <div class="trip-overview" style="margin-top: 3rem;">
+            <h2>By the Numbers: Our Australian Walking Tour</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; font-style: italic;">
+                Who needs a gym membership when you've got Australia?
+            </p>
+
+            <div style="background: linear-gradient(135deg, var(--primary-light), var(--secondary-light)); padding: 2rem; border-radius: var(--radius-xl); color: white; margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 800; font-family: 'Poppins', sans-serif;">179,670</div>
+                        <div style="font-size: 1.1rem; opacity: 0.95;">Total Steps</div>
+                        <div style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem;">That's roughly 80 miles!</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 800; font-family: 'Poppins', sans-serif;">85</div>
+                        <div style="font-size: 1.1rem; opacity: 0.95;">Miles Walked</div>
+                        <div style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem;">Houston to San Antonio distance</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 800; font-family: 'Poppins', sans-serif;">408</div>
+                        <div style="font-size: 1.1rem; opacity: 0.95;">Floors Climbed</div>
+                        <div style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem;">Taller than the Empire State Building!</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0; text-align: center;">Daily Step Champions</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: linear-gradient(135deg, #ffd700, #ffed4e); padding: 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                    <div style="font-size: 2.5rem; text-align: center;">🥇</div>
+                    <div style="font-weight: 700; font-size: 1.1rem; text-align: center; margin-bottom: 0.5rem;">Dec 6 - BridgeClimb Day</div>
+                    <div style="text-align: center; font-size: 1.5rem; font-weight: 800; color: var(--primary);">27,190 steps</div>
+                    <div style="text-align: center; color: var(--text-secondary);">12.8 miles • 81 floors</div>
+                    <div style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem; font-style: italic;">Climbing the Bridge AND exploring Sydney</div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #c0c0c0, #e8e8e8); padding: 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                    <div style="font-size: 2.5rem; text-align: center;">🥈</div>
+                    <div style="font-weight: 700; font-size: 1.1rem; text-align: center; margin-bottom: 0.5rem;">Dec 12 - Strahan Adventures</div>
+                    <div style="text-align: center; font-size: 1.5rem; font-weight: 800; color: var(--primary);">24,419 steps</div>
+                    <div style="text-align: center; color: var(--text-secondary);">11.5 miles • 102 floors</div>
+                    <div style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem; font-style: italic;">Gordon River cruise and wilderness walks</div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #cd7f32, #daa520); padding: 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                    <div style="font-size: 2.5rem; text-align: center;">🥉</div>
+                    <div style="font-weight: 700; font-size: 1.1rem; text-align: center; margin-bottom: 0.5rem;">Dec 14 - Wineglass Bay</div>
+                    <div style="text-align: center; font-size: 1.5rem; font-weight: 800; color: var(--primary);">21,456 steps</div>
+                    <div style="text-align: center; color: var(--text-secondary);">10.1 miles • 23 floors</div>
+                    <div style="text-align: center; font-size: 0.9rem; margin-top: 0.5rem; font-style: italic;">Hiking to one of the world's best beaches</div>
+                </div>
+            </div>
+
+            <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem;">
+                <h4 style="font-weight: 600; color: var(--text-secondary); margin: 0 0 1rem 0;">Special Mention: The Vertical Challenge 🧗</h4>
+                <p style="margin: 0; color: var(--text-secondary);">
+                    <strong style="color: var(--primary);">Dec 13 at Cradle Mountain:</strong> 144 floors climbed! That's the equivalent of climbing a 50-story building nearly three times. The Dove Lake Circuit's alpine terrain definitely earned its reputation. Our legs still remember this one.
+                </p>
+            </div>
+
+            <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 1.5rem; border-left: 4px solid var(--accent);">
+                <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;">
+                    <strong>Fun Fact:</strong> Our 179,670 total steps would take you from Sydney Opera House to Uluru (Ayers Rock) in the Australian Outback... well, almost halfway there! Or you could walk the entire Bondi to Coogee coastal walk 26 times. We chose variety. 🚶‍♂️🚶‍♀️
+                </p>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <!-- Flight Experience -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="day-title">Flying Across the Pacific</div>
+                    <div class="day-subtitle">The Journey to the Land Down Under</div>
+                </div>
+                <div class="day-content">
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 0 0 1.5rem 0;">International Flights</h3>
+
+                    <div class="story-text">
+                        <p>Our Australian adventure began with United Airlines flight UA101 from Houston to Sydney - a massive 8,999-mile journey across the Pacific. At 17 hours and 51 minutes, this was the longest flight either of us had ever taken. Departing Houston at 8:29 PM on December 4th, we wouldn't touch down in Sydney until 7:20 AM on December 6th - crossing the International Date Line and skipping December 5th entirely.</p>
+
+                        <p>The <a href="https://www.boeing.com/commercial/787" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Boeing 787-9 Dreamliner</a> proved to be an excellent choice for this ultra-long-haul flight. United's service was exceptional - the food was surprisingly good for airline fare, and the crew was attentive throughout the journey. Most importantly, we managed to sleep for over 8 hours on the flight, which made all the difference in fighting jet lag when we arrived.</p>
+
+                        <p>Before boarding, we relaxed in the AMEX Centurion Lounge at Houston IAH, which offered a quiet refuge and quality refreshments before the long journey ahead. Security at IAH was remarkably efficient, getting us through in no time.</p>
+
+                        <p>The return journey on UA100 was even slightly shorter at 15 hours 39 minutes, flying 9,114 miles back to Houston on the same <a href="https://www.boeing.com/commercial/787" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">787-9 Dreamliner</a>. Departing Sydney at 11:46 AM, we arrived in Houston at 10:25 AM the same day - the magic of time zones working in our favor. Both United flights arrived on time, bookending our trip perfectly.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Flight Stats:</strong> The IAH-SYD route covered 8,999 miles - roughly the distance from New York to Bangkok, making it one of the longest non-stop flights in the world.
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1.5rem 0;">Domestic Flights</h3>
+
+                    <div class="story-text">
+                        <p>Our internal Australian flights on Qantas were excellent. All four domestic segments operated smoothly and offered complimentary snacks and drinks - a pleasant surprise compared to U.S. domestic carriers.</p>
+
+                        <p><strong>Sydney to Melbourne (QF419):</strong> Our first domestic leg on a <a href="https://www.boeing.com/commercial/737max/737-800" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Boeing 737-800</a> was smooth and efficient. The 90-minute flight gave us a quick transition from harbour city to Victoria's capital.</p>
+
+                        <p><strong>Melbourne to Hobart (QF1293):</strong> The modern <a href="https://aircraft.airbus.com/en/aircraft/a220" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Airbus A220-200</a> was a highlight - this relatively new aircraft is spacious, quiet, and features large windows. The 54-minute hop over Bass Strait offered stunning aerial views of Tasmania's rugged coastline.</p>
+
+                        <p><strong>Hobart to Sydney (QF996):</strong> Our final domestic segment back to Sydney on another <a href="https://www.boeing.com/commercial/737max/737-800" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Boeing 737-800</a> arrived 13 minutes early, giving us extra time to enjoy our final evening in the harbour city.</p>
+
+                        <p>Airport security in Sydney, Melbourne, and Hobart was refreshingly efficient. No long lines, professional staff, and smooth processes made our connections stress-free. In Sydney, we enjoyed the Priority Pass lounge before our domestic flights, which provided a comfortable space to relax and grab a bite.</p>
+                    </div>
+
+                    <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem;">
+                        <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif; color: var(--primary);">Flight Summary</h3>
+
+                        <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">International</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; font-size: 0.9rem; margin-bottom: 2rem;">
+                            <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                                <strong style="color: var(--primary); font-size: 1rem;">UA101 IAH→SYD</strong><br>
+                                <a href="https://www.boeing.com/commercial/787" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Boeing 787-9 Dreamliner</a><br>
+                                <span style="color: var(--text-primary);">17h 51m • 8,999 miles</span><br>
+                                <span style="color: var(--text-muted);">Dec 4-6, 2025</span>
+                            </div>
+                            <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                                <strong style="color: var(--primary); font-size: 1rem;">UA100 SYD→IAH</strong><br>
+                                <a href="https://www.boeing.com/commercial/787" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Boeing 787-9 Dreamliner</a><br>
+                                <span style="color: var(--text-primary);">15h 39m • 9,114 miles</span><br>
+                                <span style="color: var(--text-muted);">Dec 16, 2025</span>
+                            </div>
+                        </div>
+
+                        <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Domestic</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; font-size: 0.9rem;">
+                            <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                                <strong style="color: var(--primary); font-size: 1rem;">QF419 SYD→MEL</strong><br>
+                                <a href="https://www.boeing.com/commercial/737max/737-800" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Boeing 737-800</a><br>
+                                <span style="color: var(--text-primary);">1h 31m • 476 miles</span><br>
+                                <span style="color: var(--text-muted);">Dec 8, 2025</span>
+                            </div>
+                            <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                                <strong style="color: var(--primary); font-size: 1rem;">QF1293 MEL→HBA</strong><br>
+                                <a href="https://aircraft.airbus.com/en/aircraft/a220" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Airbus A220-200</a><br>
+                                <span style="color: var(--text-primary);">54m • 384 miles</span><br>
+                                <span style="color: var(--text-muted);">Dec 10, 2025</span>
+                            </div>
+                            <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                                <strong style="color: var(--primary); font-size: 1rem;">QF996 HBA→SYD</strong><br>
+                                <a href="https://www.boeing.com/commercial/737max/737-800" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Boeing 737-800</a><br>
+                                <span style="color: var(--text-primary);">1h 39m • 724 miles</span><br>
+                                <span style="color: var(--text-muted);">Dec 14, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sydney Days -->
+            <div class="day-section">
+                <div class="day-header sydney-header">
+                    <div class="day-title">Day 1-2: Sydney</div>
+                    <div class="day-subtitle">December 6-7 • Harbour City & Coastal Walks</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>After an overnight flight from Houston, we landed in Sydney to perfect summer weather. The Shangri-La Sydney offered stunning views across the harbour, with the iconic Sydney Harbour Bridge right in our sightline.</p>
+
+                        <p>Our first day included the exhilarating BridgeClimb experience, offering panoramic 360-degree views of the harbour, Opera House, and the sprawling city below. The climb was worth every step for those breathtaking vistas.</p>
+
+                        <p>Day two took us on the famous Bondi to Coogee coastal walk - a 6km clifftop journey passing pristine beaches with turquoise waters lapping against golden sands. Each cove revealed a new perspective of Sydney's stunning coastline.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>BridgeClimb Sydney:</strong> Scaling the iconic Sydney Harbour Bridge arch to 134 meters above sea level - one of the most thrilling experiences in Sydney with unmatched 360° views of the harbour, Opera House, and cityscape.
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Sydney Harbour Bridge Climb</h3>
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/020.webp" alt="Bridge Climb with Opera House">
+                            <div class="photo-caption">At the summit with the Sydney Opera House and cruise ships below - the iconic view that makes this climb unforgettable</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/015.webp" alt="Solo on the Bridge">
+                            <div class="photo-caption">Taking in the spectacular harbour views from 134 meters above sea level</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/025.webp" alt="City skyline view">
+                            <div class="photo-caption">The Sydney CBD skyline from the Bridge - a completely different perspective of the city</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/030.webp" alt="Climbers on the arch">
+                            <div class="photo-caption">Our climb group ascending the iconic arch - safely harnessed as we make our way to the top</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/005.webp" alt="Group photo at the summit">
+                            <div class="photo-caption">Our climbing group at the summit with the Opera House behind us</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/010.webp" alt="Team photo">
+                            <div class="photo-caption">The full team including our wonderful guide - what an adventure!</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/035.webp" alt="Climbing the arch">
+                            <div class="photo-caption">Victory sign as we climb - the steel arch structure is an engineering marvel up close</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/040.webp" alt="Couple on the bridge">
+                            <div class="photo-caption">A moment on the arch with the harbour stretching out behind us</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney_Harbor_Bridge/045.webp" alt="Thumbs up on the bridge">
+                            <div class="photo-caption">Thumbs up from the Bridge - an absolute bucket list experience!</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Exploring Sydney</h3>
+
+                    <div class="highlight-box">
+                        <strong>Highlight:</strong> Watching the sunset ferry ride from Manly Beach back to Circular Quay, with the harbour sparkling in the evening light.
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney/001_095602.webp" alt="Sydney Harbour view">
+                            <div class="photo-caption">Panoramic view of Sydney Harbour from Observatory Hill, showcasing the harbour's intricate waterways and the city skyline</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney/002_154921.webp" alt="Sydney Harbour">
+                            <div class="photo-caption">The iconic Sydney Harbour with ferries crossing the sparkling waters</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-06/Sydney/003_174830.webp" alt="Sydney evening">
+                            <div class="photo-caption">Golden hour over the harbour, painting the water in warm hues</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-07/Sydney/001_092852.webp" alt="Bondi Beach">
+                            <div class="photo-caption">Bondi Beach with its famous golden sands and rolling waves - perfect for a morning walk</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-07/Sydney/002_093452.webp" alt="Coastal walk">
+                            <div class="photo-caption">Dramatic cliffs along the Bondi to Coogee coastal walk</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-07/Sydney/003_093500.webp" alt="Sydney coast">
+                            <div class="photo-caption">Crystal clear waters revealing the rocky coastline below</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-07/Sydney/004_100859.webp" alt="Beach scene">
+                            <div class="photo-caption">One of the hidden gems along the coastal walk</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-07/Sydney/005_101237.webp" alt="Tamarama Beach">
+                            <div class="photo-caption">Tamarama Beach, known locally as "Glamarama"</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-07/Sydney/006_102537.webp" alt="Bronte Beach">
+                            <div class="photo-caption">Bronte Beach with its popular ocean pool</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Great Ocean Road -->
+            <div class="day-section">
+                <div class="day-header melbourne-header">
+                    <div class="day-title">Day 3-4: Great Ocean Road</div>
+                    <div class="day-subtitle">December 8-9 • Australia's Coastal Masterpiece</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>After a smooth 90-minute Qantas flight from Sydney to Melbourne (QF419), complete with complimentary snacks and drinks, we picked up our rental car at Melbourne Airport and immediately headed south. Our first stop was the scenic Millionaire Walk, a beautiful coastal path that gave us our first taste of Victoria's stunning shoreline.</p>
+
+                        <p>The next day, we embarked on the iconic Great Ocean Road drive. The Twelve Apostles and Loch Ard Gorge were simply breathtaking - massive limestone stacks rising from the Southern Ocean, sculpted by millions of years of wind and waves. The hidden beach at Loch Ard Gorge, accessible through a natural archway in the cliffs, was a highlight with its turquoise waters and golden sand.</p>
+
+                        <p>We continued through charming coastal towns like Lorne and Aireys Inlet, each offering their own slice of coastal paradise. The Split Point Lighthouse at Aireys Inlet stood sentinel over dramatic clifftops, while the beaches at Anglesea and Lorne beckoned with their pristine beauty.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Must-See:</strong> Loch Ard Gorge's secluded beach - a stunning natural amphitheater carved into the limestone cliffs with crystal-clear water.
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-08/Melbourne/001_160209.webp" alt="Melbourne coast">
+                            <div class="photo-caption">Our first glimpse of Victoria's dramatic coastline near Melbourne</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Port_Campbell/001_163504.webp" alt="Loch Ard Gorge">
+                            <div class="photo-caption">The stunning Loch Ard Gorge - a hidden beach surrounded by towering limestone cliffs</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Port_Campbell/002_162048.webp" alt="Natural arch">
+                            <div class="photo-caption">Natural limestone formations creating dramatic coastal scenery</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Anglesea/001_105334.webp" alt="Anglesea Beach">
+                            <div class="photo-caption">The beautiful beach at Anglesea, perfect for a morning stroll</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Aireys_Inlet/001_111131.webp" alt="Split Point Lighthouse">
+                            <div class="photo-caption">The iconic Split Point Lighthouse at Aireys Inlet</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Aireys_Inlet/004_110737.webp" alt="Aireys Inlet coast">
+                            <div class="photo-caption">Dramatic clifftop views at Aireys Inlet</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Lorne/001_114927.webp" alt="Lorne Beach">
+                            <div class="photo-caption">Lorne's pristine beach framed by native vegetation</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Lorne/003_121518.webp" alt="Lorne coast">
+                            <div class="photo-caption">The turquoise waters of Lorne</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-09/Victoria/001_102857.webp" alt="Great Ocean Road">
+                            <div class="photo-caption">Driving along the Great Ocean Road</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasmania Days -->
+            <div class="day-section">
+                <div class="day-header tasmania-header">
+                    <div class="day-title">Day 5-6: Hobart to Strahan</div>
+                    <div class="day-subtitle">December 10-11 • Waterfalls, Rainforests & Gordon River</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Flying into Tasmania from Melbourne on Qantas flight QF1293 felt like entering another world. The quick 54-minute flight on the modern Airbus A220-200 offered stunning aerial views as we descended into Hobart. Security at Melbourne Airport was efficient as always, and we landed in Hobart ready for adventure. We immediately drove to Mount Wellington for our first taste of Tasmania's wilderness - the views from the summit were spectacular.</p>
+
+                        <p>The drive from Hobart to Strahan took us through Mount Field National Park, where we encountered our first platypus in the wild! This shy creature was foraging in a crystal-clear stream, occasionally surfacing for air. Russell Falls thundered nearby, cascading through ancient rainforest.</p>
+
+                        <p>Strahan, a quaint fishing village on Macquarie Harbour, served as our base for the Gordon River Cruise. The half-day journey took us through pristine wilderness, past ancient Huon pines over 2,000 years old, and to Sarah Island's haunting convict settlement. The seabirds gliding alongside our boat and the rugged lighthouse standing guard at the harbour entrance made for magical moments.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Wildlife Encounter:</strong> Spotting a platypus in Mount Field National Park - one of nature's most elusive and extraordinary creatures!
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-10/Hobart/001_191722.webp" alt="Hobart sunset">
+                            <div class="photo-caption">Sunset over Hobart from our hotel</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-10/Tasmania/001_160345.webp" alt="Mount Wellington">
+                            <div class="photo-caption">Panoramic views from Mount Wellington's summit</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/001_120437.webp" alt="Platypus">
+                            <div class="photo-caption">An incredible sighting - a wild platypus in Mount Field National Park!</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/002_114918.webp" alt="Tasmania rainforest">
+                            <div class="photo-caption">Ancient rainforest with tree ferns creating a prehistoric atmosphere</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Ouse/001_134442.webp" alt="Tasmania landscape">
+                            <div class="photo-caption">Rolling hills near Ouse on the drive to Strahan</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Strahan/001_090004.webp" alt="Entrance Island Lighthouse">
+                            <div class="photo-caption">Entrance Island Lighthouse standing guard at Macquarie Harbour</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Strahan/003_083019.webp" alt="Macquarie Harbour bird">
+                            <div class="photo-caption">A seabird floating peacefully on Macquarie Harbour</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/001_191244.webp" alt="Tasmania sunset">
+                            <div class="photo-caption">Stunning Tasmanian sunset over the wilderness</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cradle Mountain -->
+            <div class="day-section">
+                <div class="day-header tasmania-header">
+                    <div class="day-title">Day 7: Cradle Mountain</div>
+                    <div class="day-subtitle">December 12-13 • Ancient Peaks & Alpine Lakes</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Cradle Mountain lived up to its reputation as one of Tasmania's crown jewels. The iconic jagged peak reflected perfectly in Dove Lake, creating one of those postcard-perfect scenes that no camera can truly capture.</p>
+
+                        <p>The Dove Lake Circuit took us through diverse terrain - from beach pebbles along the shoreline to boardwalks through button grass plains, and finally through ancient myrtle forests. Wildlife was abundant: we spotted wombats, wallabies, and countless bird species.</p>
+
+                        <p>Early morning at Ronny Creek rewarded us with close encounters with wombats grazing peacefully, seemingly unbothered by our presence. The alpine landscape, with its dramatic peaks and glacial valleys, felt untouched and timeless.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Don't Miss:</strong> The Dove Lake Circuit at sunrise when the mountain's reflection is crystal clear and wildlife is most active.
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-13/Tasmania/001_094557.webp" alt="Cradle Mountain">
+                            <div class="photo-caption">The iconic Cradle Mountain rising above Dove Lake</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-13/Tasmania/002_094428.webp" alt="Dove Lake">
+                            <div class="photo-caption">Perfect reflections on Dove Lake's glassy surface</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/005_105326.webp" alt="Tasmania wildlife">
+                            <div class="photo-caption">A wombat spotted along the trail</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/007_095520.webp" alt="Alpine landscape">
+                            <div class="photo-caption">The rugged alpine terrain of Cradle Mountain</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-13/Tasmania/003_075513.webp" alt="Morning mist">
+                            <div class="photo-caption">Misty morning atmosphere in the mountains</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Freycinet -->
+            <div class="day-section">
+                <div class="day-header tasmania-header">
+                    <div class="day-title">Day 8-9: Freycinet Peninsula</div>
+                    <div class="day-subtitle">December 13-14 • Wineglass Bay & Coastal Paradise</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Freycinet National Park saved the best for last. The drive to Coles Bay offered glimpses of the stunning coastline to come, with the pink granite peaks of the Hazards mountains dominating the landscape.</p>
+
+                        <p>The hike to Wineglass Bay Lookout is deservedly famous. After a steady climb through native forest, the viewpoint revealed one of the world's most beautiful beaches - a perfect crescent of white sand embraced by turquoise waters and framed by pink granite mountains. The color of the water seemed almost unreal in its intensity.</p>
+
+                        <p>We descended to the beach itself early the next morning, having it almost entirely to ourselves. The silence was broken only by gentle waves and bird calls. Walking along Wineglass Bay's pristine shores, with the Hazards towering above and crystal-clear water lapping at our feet, felt like stepping into paradise.</p>
+
+                        <p>The coastal scenery around Coles Bay offered endless photo opportunities - from serene sunset views over the bay to the dramatic blue waters contrasting with the orange-red granite rocks.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Tasmania's Treasure:</strong> Wineglass Bay truly deserves its reputation as one of the world's top 10 beaches. The combination of the perfect curve, pristine white sand, and impossibly blue water is unforgettable.
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-13/Coles_Bay/001_200915.webp" alt="Coles Bay sunset">
+                            <div class="photo-caption">Sunset over Coles Bay with the Hazards mountains silhouetted</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/001_114110.webp" alt="Freycinet coast">
+                            <div class="photo-caption">The stunning coastline of Freycinet Peninsula - deep blue waters meeting pink granite</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/002_103953.webp" alt="Coles Bay">
+                            <div class="photo-caption">Morning light illuminating the bay</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/003_081121.webp" alt="Sunrise Coles Bay">
+                            <div class="photo-caption">Dawn breaking over Coles Bay</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/001_125033.webp" alt="Wineglass Bay">
+                            <div class="photo-caption">The iconic Wineglass Bay viewpoint - consistently rated one of the world's best beaches</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/003_105951.webp" alt="Hazards mountains">
+                            <div class="photo-caption">The pink granite Hazards mountains rising above the forest</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/006_112728.webp" alt="Freycinet beach">
+                            <div class="photo-caption">Pristine beaches with crystal-clear turquoise water</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-13/Coles_Bay/002_202029.webp" alt="Coles Bay evening">
+                            <div class="photo-caption">Evening light painting the landscape in warm tones</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/007_110126.webp" alt="Tasmania wilderness">
+                            <div class="photo-caption">The wild beauty of Tasmania's east coast</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Days Sydney -->
+            <div class="day-section">
+                <div class="day-header sydney-header">
+                    <div class="day-title">Day 10-11: Return to Sydney</div>
+                    <div class="day-subtitle">December 14-16 • An Unexpected Bonus Day</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>After an early departure from Freycinet, we drove back to Hobart for our flight to Sydney. The Qantas QF996 flight departed Hobart at 4:53 PM and arrived in Sydney at 6:32 PM - actually 13 minutes early. Security at Hobart Airport was the smoothest of the trip, and the Boeing 737-800 was comfortable for the 100-minute journey.</p>
+
+                        <p>We checked into the Kimpton Margot Sydney for our final evening. The Sydney Opera House and Harbour Bridge, illuminated against the night sky, provided a perfect bookend to our Australian adventure. Walking through Circular Quay at sunset, watching the ferries crisscross the harbour and the city lights begin to twinkle, we couldn't help but feel grateful for this incredible journey.</p>
+                    </div>
+
+                    <div class="highlight-box" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                        <strong>Flight Cancellation:</strong> Our United flight UA100 scheduled for December 15th was cancelled when the incoming aircraft from Houston went technical and had to turn back mid-flight. We were rescheduled to depart on December 16th, giving us an unexpected bonus day in Sydney!
+                    </div>
+
+                    <div class="story-text">
+                        <p><strong>Bonus Day - December 15th:</strong> What could have been a frustrating travel disruption turned into a delightful extra day to explore Sydney. We checked into the Sofitel Sydney Darling Harbour, enjoying the hotel's modern luxury and waterfront location. From Darling Harbour, we caught a ferry to Circular Quay, then continued on to Taronga Zoo, perched on the harbour's northern shore with spectacular views back to the city skyline. The ferry ride itself was a highlight, offering stunning perspectives of the Opera House and Harbour Bridge from the water. The zoo's collection of Australian wildlife - from koalas and kangaroos to Tasmanian devils - provided one last encounter with the continent's unique fauna.</p>
+
+                        <p>After the zoo, we took the scenic route back, walking along the harbour foreshore from Circular Quay all the way to Darling Harbour. The waterfront promenade offered constantly changing views of the harbour, passing historic wharves, modern developments, and the iconic Sydney skyline. The walk ended back at Darling Harbour, where we enjoyed the vibrant waterfront precinct. The extra day allowed us to savor Sydney at a more relaxed pace, without the rush of a departure schedule.</p>
+
+                        <p><strong>Departure Day - December 16th:</strong> The next morning, we headed to the airport and relaxed in the Priority Pass lounge before our rescheduled flight. United flight UA100 finally departed at 11:46 AM, and thanks to the time zone magic, we landed in Houston at 10:25 AM the same day - right on schedule after 15 hours and 39 minutes in the air. While the delay added a day to our journey, it gave us unexpected extra time in one of the world's most beautiful cities.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Sydney/001_203640.webp" alt="Sydney evening">
+                            <div class="photo-caption">Sydney Harbour at twilight</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Sydney/002_202924.webp" alt="Harbour Bridge night">
+                            <div class="photo-caption">The Harbour Bridge illuminated at night</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-15/Sydney/001_133250.webp" alt="Sydney wildlife">
+                            <div class="photo-caption">A wallaby at Taronga Zoo - one last wildlife encounter before departure</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-15/Sydney/002_122328.webp" alt="Sydney final views">
+                            <div class="photo-caption">Final harbour views before heading to the airport</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reflections -->
+            <div class="trip-overview">
+                <h2>Final Reflections</h2>
+                <div class="story-text">
+                    <p>This Australian adventure exceeded all expectations. From Sydney's iconic harbour to the dramatic coastline of the Great Ocean Road, and finally to Tasmania's pristine wilderness, every day brought new wonders. Even an unexpected flight cancellation turned into a blessing, giving us an extra day to explore Sydney's Taronga Zoo and harbour foreshore.</p>
+
+                    <p>The wildlife encounters were unforgettable - from the elusive platypus in Mount Field to the friendly wombats at Cradle Mountain, koalas at Taronga Zoo, and abundant birdlife throughout our journey. The landscapes shifted from urban sophistication to rugged coastal beauty to ancient rainforests and alpine peaks, showcasing Australia's incredible natural diversity.</p>
+
+                    <p>Tasmania, in particular, left a lasting impression. Its combination of world-class hiking, stunning coastlines, unique wildlife, and pristine wilderness areas make it a destination that demands more time than we could give it. Wineglass Bay, Cradle Mountain, and the Gordon River will remain etched in memory.</p>
+
+                    <p>Australia has a way of getting under your skin. The distances are vast, the landscapes are dramatic, and the experiences are transformative. Sometimes the best travel moments come from the unexpected - our bonus day in Sydney proved that perfectly. We're already planning our return.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            </div>
+
+            <div class="lightbox-info" id="lightbox-info">
+                <h3 id="lightbox-title">Photo Details</h3>
+                <div id="lightbox-metadata"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Photo data with metadata paths
+        const photoMetadata = {};
+        let allPhotos = [];
+        let currentPhotoIndex = 0;
+
+        // Build photo list from the page
+        function buildPhotoList() {
+            const photoCards = document.querySelectorAll('.photo-card');
+            allPhotos = Array.from(photoCards).map((card, index) => {
+                const img = card.querySelector('img');
+                const caption = card.querySelector('.photo-caption');
+                return {
+                    index: index,
+                    src: img.src,
+                    alt: img.alt,
+                    caption: caption ? caption.textContent : '',
+                    element: card
+                };
+            });
+        }
+
+        // Load metadata for a specific photo
+        async function loadPhotoMetadata(photoSrc) {
+            // Extract the path from the photo src
+            const pathMatch = photoSrc.match(/Photos\/([\d-]+)\/([^\/]+)\/([^\/]+\.webp)/);
+            if (!pathMatch) return null;
+
+            const [, date, location, filename] = pathMatch;
+            const metadataPath = `Photos/${date}/${location}/photo_metadata.json`;
+
+            // Check cache first
+            if (photoMetadata[metadataPath]) {
+                const metadata = photoMetadata[metadataPath];
+                return metadata.find(m => m.OptimizedImages?.WebPImage === filename);
+            }
+
+            // Load metadata
+            try {
+                const response = await fetch(metadataPath);
+                if (!response.ok) return null;
+                const data = await response.json();
+                photoMetadata[metadataPath] = data;
+                return data.find(m => m.OptimizedImages?.WebPImage === filename);
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+                return null;
+            }
+        }
+
+        // Format date and time
+        function formatDateTime(dateStr) {
+            if (!dateStr) return '';
+            const match = dateStr.match(/(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})/);
+            if (!match) return dateStr;
+            const [, year, month, day, hour, minute] = match;
+            const date = new Date(year, month - 1, day, hour, minute);
+            return date.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+        // Display photo in lightbox
+        async function showLightbox(index) {
+            currentPhotoIndex = index;
+            const photo = allPhotos[index];
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightbox-image');
+            const counter = document.getElementById('lightbox-counter');
+            const metadataDiv = document.getElementById('lightbox-metadata');
+            const title = document.getElementById('lightbox-title');
+
+            // Show lightbox
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Set image
+            image.src = photo.src;
+            image.alt = photo.alt;
+
+            // Set counter
+            counter.textContent = `${index + 1} / ${allPhotos.length}`;
+
+            // Update navigation buttons
+            updateNavButtons();
+
+            // Set title
+            title.textContent = photo.caption || 'Photo Details';
+
+            // Load and display metadata
+            metadataDiv.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Loading details...</p>';
+
+            const metadata = await loadPhotoMetadata(photo.src);
+
+            if (metadata) {
+                let html = '';
+
+                // Location Section
+                if (metadata.City || metadata.State || metadata.DisplayName) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Location</h4>';
+                    if (metadata.City) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">City</span>
+                            <span class="lightbox-info-value">${metadata.City}</span>
+                        </div>`;
+                    }
+                    if (metadata.State) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">State</span>
+                            <span class="lightbox-info-value">${metadata.State}</span>
+                        </div>`;
+                    }
+                    if (metadata.DisplayName) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Place</span>
+                            <span class="lightbox-info-value" style="max-width: 200px;">${metadata.DisplayName.split(',').slice(0, 2).join(',')}</span>
+                        </div>`;
+                    }
+                    if (metadata.Latitude && metadata.Longitude) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Coordinates</span>
+                            <span class="lightbox-info-value">${metadata.Latitude.toFixed(4)}, ${metadata.Longitude.toFixed(4)}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Date & Time Section
+                if (metadata.DateTaken) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Date & Time</h4>';
+                    html += `<div class="lightbox-info-item">
+                        <span class="lightbox-info-label">Taken</span>
+                        <span class="lightbox-info-value">${formatDateTime(metadata.DateTaken)}</span>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                // Camera Section
+                if (metadata.CameraMake || metadata.CameraModel) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Camera</h4>';
+                    if (metadata.CameraModel) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Model</span>
+                            <span class="lightbox-info-value">${metadata.CameraModel}</span>
+                        </div>`;
+                    }
+                    if (metadata.LensModel && !metadata.LensModel.includes(metadata.CameraModel)) {
+                        const lensShort = metadata.LensModel.split(' ').slice(-2).join(' ');
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Lens</span>
+                            <span class="lightbox-info-value">${lensShort}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Settings Section
+                if (metadata.ISO || metadata.ExposureTime || metadata.FNumber || metadata.FocalLength) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Settings</h4>';
+                    if (metadata.FocalLength) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Focal Length</span>
+                            <span class="lightbox-info-value">${metadata.FocalLength}</span>
+                        </div>`;
+                    }
+                    if (metadata.FNumber) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Aperture</span>
+                            <span class="lightbox-info-value">${metadata.FNumber}</span>
+                        </div>`;
+                    }
+                    if (metadata.ExposureTime) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Shutter</span>
+                            <span class="lightbox-info-value">${metadata.ExposureTime}</span>
+                        </div>`;
+                    }
+                    if (metadata.ISO) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">ISO</span>
+                            <span class="lightbox-info-value">${metadata.ISO}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                metadataDiv.innerHTML = html;
+            } else {
+                metadataDiv.innerHTML = `
+                    <div class="lightbox-info-section">
+                        <p style="color: var(--text-muted); font-style: italic;">
+                            ${photo.caption}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate between photos
+        function navigateLightbox(direction) {
+            const newIndex = currentPhotoIndex + direction;
+            if (newIndex >= 0 && newIndex < allPhotos.length) {
+                showLightbox(newIndex);
+            }
+        }
+
+        // Update navigation button states
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('lightbox-prev');
+            const nextBtn = document.getElementById('lightbox-next');
+
+            if (currentPhotoIndex === 0) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
+            }
+
+            if (currentPhotoIndex === allPhotos.length - 1) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            buildPhotoList();
+
+            // Add click handlers to all photo cards
+            allPhotos.forEach((photo, index) => {
+                photo.element.addEventListener('click', () => showLightbox(index));
+            });
+
+            // Close lightbox when clicking outside
+            document.getElementById('lightbox').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox.classList.contains('active')) return;
+
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        if (currentPhotoIndex > 0) navigateLightbox(-1);
+                        break;
+                    case 'ArrowRight':
+                        if (currentPhotoIndex < allPhotos.length - 1) navigateLightbox(1);
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

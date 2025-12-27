@@ -1,0 +1,32 @@
+[
+  {
+    "FileName": "74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg",
+    "FilePath": "..\\74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg",
+    "FileSize": 1164447,
+    "Latitude": -38.41661388888889,
+    "Longitude": 144.18228055555554,
+    "Altitude": "53.27 metres",
+    "City": "Anglesea",
+    "State": "Victoria",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Surf Coast Walk, Anglesea, Surf Coast Shire, Victoria, 3230, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:09 10:53:34",
+    "ExposureTime": "1/7937 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "001_105334.webp",
+      "OriginalSize": 1164447,
+      "OptimizedSize": 470422,
+      "CompressionRatio": 59.60125278351012
+    },
+    "HasGpsData": true
+  }
+]

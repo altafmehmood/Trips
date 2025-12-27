@@ -1,0 +1,24 @@
+[
+  {
+    "FileName": "D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg",
+    "FilePath": "..\\D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg",
+    "FileSize": 2134928,
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:11 18:35:55",
+    "ExposureTime": "1/66 sec",
+    "FNumber": "f/1.8",
+    "ISO": "200",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "001_183555.webp",
+      "OriginalSize": 2134928,
+      "OptimizedSize": 1018616,
+      "CompressionRatio": 52.28803969033148
+    },
+    "HasGpsData": false
+  }
+]
