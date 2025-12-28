@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasmania - Australia Adventure</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -24,15 +26,47 @@
                 </div>
                 <div class="day-content">
                     <div class="story-text">
-                        <p>Flying into Tasmania from Melbourne on Qantas flight QF1293 felt like entering another world. The quick 54-minute flight on the modern Airbus A220-200 offered stunning aerial views as we descended into Hobart. Security at Melbourne Airport was efficient as always, and we landed in Hobart ready for adventure. We immediately drove to Mount Wellington for our first taste of Tasmania's wilderness - the views from the summit were spectacular.</p>
+                        <p>Flying into Tasmania from Melbourne on Qantas flight QF1293 felt like entering another world. The quick 54-minute flight on the modern Airbus A220-200 offered stunning aerial views as we descended into Hobart. Security at Melbourne Airport was efficient as always, and we landed in Hobart ready for Tasmania's wilderness adventures.</p>
+                    </div>
 
-                        <p>The drive from Hobart to Strahan took us through Mount Field National Park, where we encountered our first platypus in the wild! This shy creature was foraging in a crystal-clear stream, occasionally surfacing for air. Russell Falls thundered nearby, cascading through ancient rainforest.</p>
+                    <div id="hobart-strahan-map" style="height: 450px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
 
-                        <p>Strahan, a quaint fishing village on Macquarie Harbour, served as our base for the Gordon River Cruise. The half-day journey took us through pristine wilderness, past ancient Huon pines over 2,000 years old, and to Sarah Island's haunting convict settlement. The seabirds gliding alongside our boat and the rugged lighthouse standing guard at the harbour entrance made for magical moments.</p>
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Mount Wellington - Summit Views Over Hobart</h3>
+
+                    <div class="story-text">
+                        <p>We immediately drove from Hobart Airport to <a href="https://www.wellingtonpark.org.au/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Mount Wellington (kunanyi)</a>, which towers 1,271 meters above Hobart. The winding 21-kilometer drive from sea level to the summit takes you through multiple climate zones - from temperate eucalyptus forests to sub-alpine vegetation and finally to the rocky, windswept summit.</p>
+
+                        <p>The panoramic views from the Pinnacle Observation Shelter were absolutely spectacular. Hobart sprawled below us, the Derwent River snaking through the landscape, and on the clearest days you can see all the way to Bruny Island. The mountain's dolerite columns, formed by ancient volcanic activity, create dramatic rock formations at the summit. The temperature dropped significantly as we ascended, a stark reminder of Tasmania's changeable weather - layers are essential!</p>
+
+                        <p>Mount Wellington holds deep cultural significance for the Muwinina people, who call it kunanyi. The mountain has been a landmark for navigation, a source of fresh water, and a spiritual site for thousands of years.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Mount Field National Park - Platypus Encounter & Russell Falls</h3>
+
+                    <div class="story-text">
+                        <p>Our drive from Hobart to Strahan took us through <a href="https://parks.tas.gov.au/explore-our-parks/mount-field-national-park" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Mount Field National Park</a>, Tasmania's oldest national park established in 1916. This easily accessible park, just 64 kilometers northwest of Hobart, protects ancient rainforests, alpine moorlands, and spectacular waterfalls.</p>
+
+                        <p>The highlight of our visit was an unforgettable wildlife encounter - we spotted our first platypus in the wild! This extraordinary monotreme (egg-laying mammal) was foraging in a crystal-clear stream, using its sensitive bill to detect prey on the streambed. We watched transfixed as it dove repeatedly, occasionally surfacing for air before disappearing again into the dark water. Platypuses are notoriously shy and difficult to spot, making this sighting all the more special. Early morning and dusk are the best times to see these elusive creatures.</p>
+
+                        <p>Nearby, <a href="https://parks.tas.gov.au/explore-our-parks/mount-field-national-park/russell-falls" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Russell Falls</a> thundered through ancient temperate rainforest. The three-tiered cascade drops 40 meters over moss-covered rocks, surrounded by towering tree ferns, myrtle beech, and sassafras trees that create a prehistoric atmosphere. The short, wheelchair-accessible walk from the car park makes this one of Tasmania's most visited waterfalls, and deservedly so - the combination of cascading water and primeval forest is simply magical.</p>
                     </div>
 
                     <div class="highlight-box">
-                        <strong>Wildlife Encounter:</strong> Spotting a platypus in Mount Field National Park - one of nature's most elusive and extraordinary creatures!
+                        <strong>Wildlife Encounter:</strong> Spotting a platypus in Mount Field National Park - one of nature's most elusive and extraordinary creatures! Visit at dawn or dusk for your best chance of a sighting.
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Gordon River Cruise - Journey Through Pristine Wilderness</h3>
+
+                    <div class="story-text">
+                        <p>We based ourselves in Strahan, a quaint fishing village on the shores of Macquarie Harbour. This remote west coast settlement serves as the gateway to the <a href="https://www.gordanrivercruises.com.au/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Gordon River</a>, and we embarked on a half-day cruise that took us deep into Tasmania's World Heritage wilderness.</p>
+
+                        <p>As we departed Strahan, we passed the Entrance Island Lighthouse standing sentinel at Macquarie Harbour's entrance - known as Hell's Gates due to the treacherous conditions faced by early maritime visitors. The harbour itself is Australia's second-largest, six times the size of Sydney Harbour, yet relatively shallow.</p>
+
+                        <p>The Gordon River is the jewel of Tasmania's southwest wilderness. As we cruised upstream, the pristine waters mirrored the ancient rainforest on both banks - dense stands of Huon pine, some over 2,000 years old, line the riverbanks. These slow-growing conifers are found nowhere else on Earth, and their timber is prized for its beautiful grain and resistance to rot. We stopped at Heritage Landing for a short walk through the ancient forest on a boardwalk that protects the delicate ecosystem.</p>
+
+                        <p>The cruise also included a stop at Sarah Island, site of one of Australia's most notorious penal settlements from 1822-1833. Convicts endured brutal conditions here, logging the valuable Huon pine in the harsh wilderness. The haunting ruins and stories of the settlement provide a sobering reminder of Tasmania's convict past.</p>
+
+                        <p>Seabirds glided alongside our vessel throughout the journey - cormorants, gulls, and the occasional sea eagle. The wilderness felt untouched, timeless, and profoundly peaceful.</p>
                     </div>
 
                     <div class="photo-gallery">
@@ -128,15 +162,35 @@
                 </div>
                 <div class="day-content">
                     <div class="story-text">
-                        <p>Cradle Mountain lived up to its reputation as one of Tasmania's crown jewels. The iconic jagged peak reflected perfectly in Dove Lake, creating one of those postcard-perfect scenes that no camera can truly capture.</p>
+                        <p>From Strahan, we drove to <a href="https://parks.tas.gov.au/explore-our-parks/cradle-mountain" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Cradle Mountain-Lake St Clair National Park</a>, the crown jewel of Tasmania's Wilderness World Heritage Area. This iconic peak has become the symbol of Tasmania's wilderness, and for good reason - few places combine such dramatic alpine scenery with abundant wildlife in such an accessible package.</p>
+                    </div>
 
-                        <p>The Dove Lake Circuit took us through diverse terrain - from beach pebbles along the shoreline to boardwalks through button grass plains, and finally through ancient myrtle forests. Wildlife was abundant: we spotted wombats, wallabies, and countless bird species.</p>
+                    <div id="cradle-mountain-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
 
-                        <p>Early morning at Ronny Creek rewarded us with close encounters with wombats grazing peacefully, seemingly unbothered by our presence. The alpine landscape, with its dramatic peaks and glacial valleys, felt untouched and timeless.</p>
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Dove Lake Circuit - Tasmania's Most Iconic Walk</h3>
+
+                    <div class="story-text">
+                        <p>Cradle Mountain lived up to its reputation as one of Tasmania's crown jewels. The iconic jagged peak, rising 1,545 meters, reflected perfectly in Dove Lake's mirror-like surface, creating one of those postcard-perfect scenes that no camera can truly capture. The distinctive serrated profile of the mountain dominates the landscape, formed by millions of years of glacial action that carved these dramatic dolerite peaks.</p>
+
+                        <p>The <a href="https://parks.tas.gov.au/explore-our-parks/cradle-mountain/dove-lake-circuit" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Dove Lake Circuit</a> is a 6-kilometer loop track that showcases the best of Cradle Mountain's alpine environment. The well-maintained trail takes 2-3 hours and can be walked in either direction. We chose to walk clockwise, saving the most dramatic mountain views for the second half of the circuit.</p>
+
+                        <p>The walk took us through remarkably diverse terrain - from beach pebbles along the shoreline where we could touch the crystal-clear glacial waters, across sturdy boardwalks through button grass plains that glow golden in the right light, and finally through ancient myrtle beech forests draped in moss and lichen. Each section offered a completely different perspective on this extraordinary landscape.</p>
+
+                        <p>The weather at Cradle Mountain is famously changeable - it's said you can experience four seasons in one day. We were fortunate with mostly clear skies, though the wind picked up significantly at exposed sections. The old saying "there's no such thing as bad weather, only inappropriate clothing" definitely applies here - layers and waterproofs are essential even on apparently fine days.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Wildlife Encounters - Wombats & Wallabies</h3>
+
+                    <div class="story-text">
+                        <p>Wildlife was incredibly abundant throughout our Cradle Mountain visit. Early morning at Ronny Creek, just a short shuttle ride from the main visitor center, rewarded us with close encounters with wombats grazing peacefully in the button grass plains. These stocky marsupials seemed completely unbothered by our presence, continuing their breakfast as we watched from just meters away.</p>
+
+                        <p>Wombats are surprisingly large when you see them up close - they can weigh up to 35 kilograms and are powerful diggers with their strong claws. Their cube-shaped droppings (yes, really!) are used to mark territory on rocks and logs. We also spotted several Bennett's wallabies bounding across the moorland, and countless bird species including the beautiful pink robin and endemic Tasmanian native-hen.</p>
+
+                        <p>The alpine landscape, with its dramatic peaks and glacial valleys carved during the ice ages, felt untouched and timeless. Pencil pines, found only in Tasmania, dot the landscape - these ancient conifers can live for over 1,000 years and grow incredibly slowly in the harsh alpine conditions.</p>
                     </div>
 
                     <div class="highlight-box">
-                        <strong>Don't Miss:</strong> The Dove Lake Circuit at sunrise when the mountain's reflection is crystal clear and wildlife is most active.
+                        <strong>Don't Miss:</strong> Visit Dove Lake at sunrise when the mountain's reflection is crystal clear and wildlife is most active. The early morning shuttle from the visitor center is worth setting your alarm for!
                     </div>
 
                     <div class="photo-gallery">
@@ -236,17 +290,43 @@
                 </div>
                 <div class="day-content">
                     <div class="story-text">
-                        <p>Freycinet National Park saved the best for last. The drive to Coles Bay offered glimpses of the stunning coastline to come, with the pink granite peaks of the Hazards mountains dominating the landscape.</p>
+                        <p>From Cradle Mountain, we drove to <a href="https://parks.tas.gov.au/explore-our-parks/freycinet-national-park" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Freycinet National Park</a> on Tasmania's stunning east coast. The drive offered glimpses of the coastline to come, with the pink granite peaks of the Hazards mountains dominating the landscape as we approached Coles Bay.</p>
+                    </div>
 
-                        <p>The hike to Wineglass Bay Lookout is deservedly famous. After a steady climb through native forest, the viewpoint revealed one of the world's most beautiful beaches - a perfect crescent of white sand embraced by turquoise waters and framed by pink granite mountains. The color of the water seemed almost unreal in its intensity.</p>
+                    <div id="freycinet-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
 
-                        <p>We descended to the beach itself early the next morning, having it almost entirely to ourselves. The silence was broken only by gentle waves and bird calls. Walking along Wineglass Bay's pristine shores, with the Hazards towering above and crystal-clear water lapping at our feet, felt like stepping into paradise.</p>
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Wineglass Bay Lookout - One of the World's Most Beautiful Views</h3>
 
-                        <p>The coastal scenery around Coles Bay offered endless photo opportunities - from serene sunset views over the bay to the dramatic blue waters contrasting with the orange-red granite rocks.</p>
+                    <div class="story-text">
+                        <p>The hike to <a href="https://parks.tas.gov.au/explore-our-parks/freycinet-national-park/wineglass-bay-lookout" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Wineglass Bay Lookout</a> is deservedly famous, and ranks among Australia's most rewarding short walks. The track climbs steadily for about 45 minutes through coastal forest, with well-maintained stone steps helping with the steeper sections. We encountered pademelon (small wallabies) along the forested trail, and the distinctive calls of yellow wattlebirds echoed through the trees.</p>
+
+                        <p>After the steady climb of around 300 meters elevation gain, the viewpoint revealed one of the world's most beautiful beaches - a perfect crescent of white sand embraced by turquoise waters and framed by the pink granite Hazards mountains. The color of the water seemed almost unreal in its intensity, a brilliant aquamarine that photographers struggle to capture accurately. The beach's namesake wineglass shape is immediately apparent from this elevated vantage point.</p>
+
+                        <p>Wineglass Bay consistently appears in lists of the world's top beaches, and standing at the lookout, it's easy to understand why. The combination of the perfect curve, pristine white sand, and impossibly blue water, all framed by pink granite peaks, creates a scene of such natural beauty that it feels almost too perfect to be real.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Wineglass Bay Beach - Paradise Found</h3>
+
+                    <div class="story-text">
+                        <p>We descended to Wineglass Bay beach itself early the next morning, adding another 45 minutes to the hike down to the beach level. The descent through forest opens onto the northern end of the beach, and we had it almost entirely to ourselves in the early morning. The silence was broken only by gentle waves lapping the shore and the calls of seabirds overhead.</p>
+
+                        <p>Walking along Wineglass Bay's pristine shores, with the Hazards towering above and crystal-clear water lapping at our feet, felt like stepping into paradise. The sand is incredibly fine and white, squeaking underfoot. The water, though cold from the Tasman Sea, was so clear we could see fish swimming near the shore. The beach curves for nearly 500 meters, backed by coastal vegetation and framed perfectly by the granite mountains.</p>
+
+                        <p>The bay's name has debated origins - some say it refers to the shape, others to the red algae that occasionally colors the water, and still others to whalers who would butcher whales here, turning the water red. Whatever the origin, the name is apt for this exquisitely curved beach.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Coles Bay - Pink Granite Coastline</h3>
+
+                    <div class="story-text">
+                        <p>The coastal scenery around Coles Bay, the small settlement that serves as the gateway to Freycinet National Park, offered endless photo opportunities. The distinctive pink-orange granite rocks that characterize this coastline create a stunning contrast with the deep blue waters of Great Oyster Bay.</p>
+
+                        <p>We enjoyed serene sunset views over the bay, watching the light change on the Hazards as the sun descended. The granite peaks glow a deep orange-pink in the evening light, their distinctive color caused by iron-rich minerals in the rock. These ancient granite formations are around 400 million years old, formed deep underground and later exposed by erosion.</p>
+
+                        <p>Coles Bay itself is a relaxed coastal village with excellent seafood restaurants showcasing the region's famous oysters and fresh fish. The combination of dramatic mountain scenery, pristine beaches, and crystal-clear water makes Freycinet one of Tasmania's unmissable destinations.</p>
                     </div>
 
                     <div class="highlight-box">
-                        <strong>Tasmania's Treasure:</strong> Wineglass Bay truly deserves its reputation as one of the world's top 10 beaches. The combination of the perfect curve, pristine white sand, and impossibly blue water is unforgettable.
+                        <strong>Tasmania's Treasure:</strong> Wineglass Bay truly deserves its reputation as one of the world's top 10 beaches. For the full experience, hike to the lookout, then descend to the beach itself. The round trip takes 3-4 hours and is absolutely worth the effort.
                     </div>
 
                     <div class="photo-gallery">
@@ -601,6 +681,118 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Hobart to Strahan map
+            const hobartMap = L.map('hobart-strahan-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-42.2, 145.8], 8);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(hobartMap);
+
+            const hobartPoints = [
+                { lat: -42.8821, lng: 147.3272, name: 'Hobart', emoji: '✈️', desc: 'Arrival in Tasmania' },
+                { lat: -42.8956, lng: 147.2378, name: 'Mount Wellington', emoji: '⛰️', desc: 'Summit views' },
+                { lat: -42.6767, lng: 146.7144, name: 'Mount Field NP', emoji: '🦆', desc: 'Platypus & Russell Falls' },
+                { lat: -42.1537, lng: 145.3236, name: 'Strahan', emoji: '⛵', desc: 'Gordon River gateway' }
+            ];
+
+            hobartPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(hobartMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Initialize Cradle Mountain map
+            const cradleMap = L.map('cradle-mountain-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-41.68, 145.95], 12);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(cradleMap);
+
+            const cradlePoints = [
+                { lat: -41.6561, lng: 145.9497, name: 'Dove Lake', emoji: '🏔️', desc: 'Iconic Cradle Mountain views' },
+                { lat: -41.6367, lng: 145.9342, name: 'Ronny Creek', emoji: '🦘', desc: 'Wombat spotting area' }
+            ];
+
+            cradlePoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(cradleMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Initialize Freycinet Peninsula map
+            const freycinetMap = L.map('freycinet-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-42.15, 148.3], 11);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(freycinetMap);
+
+            const freycinetPoints = [
+                { lat: -42.1308, lng: 148.2958, name: 'Coles Bay', emoji: '🏘️', desc: 'Gateway to Freycinet' },
+                { lat: -42.1742, lng: 148.2958, name: 'Wineglass Bay Lookout', emoji: '👀', desc: 'Stunning viewpoint' },
+                { lat: -42.1861, lng: 148.2958, name: 'Wineglass Bay Beach', emoji: '🏖️', desc: 'World-class beach' },
+                { lat: -42.15, lng: 148.35, name: 'The Hazards', emoji: '🗻', desc: 'Pink granite peaks' }
+            ];
+
+            freycinetPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(freycinetMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
             buildPhotoList();
 
             // Add click handlers to all photo cards
