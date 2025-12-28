@@ -1,35 +1,5 @@
 [
   {
-    "FileName": "IMG_2634.jpeg",
-    "FilePath": "..\\IMG_2634.jpeg",
-    "FileSize": 6903184,
-    "Latitude": -38.327488888888894,
-    "Longitude": 144.73945555555554,
-    "Altitude": "13.97 metres",
-    "City": "Melbourne",
-    "State": "Victoria",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Millionaires Walk, Sorrento, Melbourne, Shire of Mornington Peninsula, Victoria, 3943, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
-    "DateTaken": "2025:12:08 16:19:55",
-    "ExposureTime": "1/7937 sec",
-    "FNumber": "f/1.8",
-    "ISO": "80",
-    "FocalLength": "6.8 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.1",
-    "OptimizedImages": {
-      "WebPImage": "002_161955.webp",
-      "OriginalSize": 6903184,
-      "OptimizedSize": 2332696,
-      "CompressionRatio": 66.2084047013668
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "IMG_2637.jpeg",
     "FilePath": "..\\IMG_2637.jpeg",
     "FileSize": 4090070,
@@ -56,6 +26,36 @@
       "OriginalSize": 4090070,
       "OptimizedSize": 909256,
       "CompressionRatio": 77.76918243453046
+    },
+    "HasGpsData": true
+  },
+  {
+    "FileName": "IMG_2634.jpeg",
+    "FilePath": "..\\IMG_2634.jpeg",
+    "FileSize": 6903184,
+    "Latitude": -38.327488888888894,
+    "Longitude": 144.73945555555554,
+    "Altitude": "13.97 metres",
+    "City": "Melbourne",
+    "State": "Victoria",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Millionaires Walk, Sorrento, Melbourne, Shire of Mornington Peninsula, Victoria, 3943, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:08 16:19:55",
+    "ExposureTime": "1/7937 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "002_161955.webp",
+      "OriginalSize": 6903184,
+      "OptimizedSize": 2332696,
+      "CompressionRatio": 66.2084047013668
     },
     "HasGpsData": true
   },

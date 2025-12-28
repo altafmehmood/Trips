@@ -1,5 +1,35 @@
 [
   {
+    "FileName": "IMG_2728.jpeg",
+    "FilePath": "..\\IMG_2728.jpeg",
+    "FileSize": 2741673,
+    "Latitude": -42.99278888888889,
+    "Longitude": 147.40219166666668,
+    "Altitude": "0.52 metres",
+    "City": "Opossum Bay",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Pier Road, Opossum Bay, City of Clarence, Tasmania, 7023, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 2.22mm f/2.2",
+    "DateTaken": "2025:12:10 18:10:58",
+    "ExposureTime": "1/2985 sec",
+    "FNumber": "f/2.2",
+    "ISO": "50",
+    "FocalLength": "2.2 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "002_181058.webp",
+      "OriginalSize": 2741673,
+      "OptimizedSize": 807802,
+      "CompressionRatio": 70.53616532679135
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "9F183F8F-4ED6-4174-B134-F7FEB14017DF_1_102_a.jpeg",
     "FilePath": "..\\9F183F8F-4ED6-4174-B134-F7FEB14017DF_1_102_a.jpeg",
     "FileSize": 823095,

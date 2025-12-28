@@ -1,5 +1,34 @@
 [
   {
+    "FileName": "IMG_2713.jpeg",
+    "FilePath": "..\\IMG_2713.jpeg",
+    "FileSize": 3188960,
+    "Latitude": -42.89601944444444,
+    "Longitude": 147.23730555555554,
+    "Altitude": "1265.77 metres",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Pinnacle Road, City of Hobart, Tasmania, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:10 16:03:45",
+    "ExposureTime": "1/7937 sec",
+    "FNumber": "f/1.8",
+    "ISO": "64",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "002_160345.webp",
+      "OriginalSize": 3188960,
+      "OptimizedSize": 1056218,
+      "CompressionRatio": 66.8789197732176
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "490CDDFB-090F-4EEB-8776-380850CF6EF0_1_102_o.jpeg",
     "FilePath": "..\\490CDDFB-090F-4EEB-8776-380850CF6EF0_1_102_o.jpeg",
     "FileSize": 1138675,

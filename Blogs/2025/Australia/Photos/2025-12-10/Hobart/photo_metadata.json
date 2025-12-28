@@ -1,5 +1,35 @@
 [
   {
+    "FileName": "IMG_2730.jpeg",
+    "FilePath": "..\\IMG_2730.jpeg",
+    "FileSize": 5563102,
+    "Latitude": -42.88175555555556,
+    "Longitude": 147.33343611111113,
+    "Altitude": "2.68 metres",
+    "City": "Hobart",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Davey Street, Hobart, City of Hobart, Tasmania, 7000, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:10 19:37:47",
+    "ExposureTime": "1/4608 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "004_193747.webp",
+      "OriginalSize": 5563102,
+      "OptimizedSize": 1553772,
+      "CompressionRatio": 72.07004293647681
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "F67B3325-55C4-458D-A8FF-BBEF6A1B6D29_1_102_a.jpeg",
     "FilePath": "..\\F67B3325-55C4-458D-A8FF-BBEF6A1B6D29_1_102_a.jpeg",
     "FileSize": 937335,
@@ -26,6 +56,36 @@
       "OriginalSize": 937335,
       "OptimizedSize": 293250,
       "CompressionRatio": 68.71449375090015
+    },
+    "HasGpsData": true
+  },
+  {
+    "FileName": "IMG_2729.jpeg",
+    "FilePath": "..\\IMG_2729.jpeg",
+    "FileSize": 3617111,
+    "Latitude": -42.88155,
+    "Longitude": 147.3335277777778,
+    "Altitude": "3.48 metres",
+    "City": "Hobart",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Davey Street, Hobart, City of Hobart, Tasmania, 7000, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:10 19:17:22",
+    "ExposureTime": "1/1366 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "003_191722.webp",
+      "OriginalSize": 3617111,
+      "OptimizedSize": 957046,
+      "CompressionRatio": 73.54114927631473
     },
     "HasGpsData": true
   },

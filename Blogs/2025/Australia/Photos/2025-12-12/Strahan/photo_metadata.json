@@ -1,5 +1,35 @@
 [
   {
+    "FileName": "IMG_2785.jpeg",
+    "FilePath": "..\\IMG_2785.jpeg",
+    "FileSize": 3957847,
+    "Latitude": -42.154975,
+    "Longitude": 145.32829166666667,
+    "Altitude": "5.13 metres",
+    "City": "Strahan",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "The Esplanade, Regatta Point, Strahan, West Coast, Tasmania, 7468, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
+    "DateTaken": "2025:12:12 08:31:17",
+    "ExposureTime": "1/2137 sec",
+    "FNumber": "f/2.8",
+    "ISO": "25",
+    "FocalLength": "9 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "006_083117.webp",
+      "OriginalSize": 3957847,
+      "OptimizedSize": 1447186,
+      "CompressionRatio": 63.435019089924396
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "8C5E25B7-1B9D-454A-A62A-6B0762C88585_1_102_o.jpeg",
     "FilePath": "..\\8C5E25B7-1B9D-454A-A62A-6B0762C88585_1_102_o.jpeg",
     "FileSize": 1153872,

@@ -1,5 +1,35 @@
 [
   {
+    "FileName": "IMG_2672.jpeg",
+    "FilePath": "..\\IMG_2672.jpeg",
+    "FileSize": 2817369,
+    "Latitude": -38.54085833333333,
+    "Longitude": 143.97660833333333,
+    "Altitude": "9.65 metres",
+    "City": "Lorne",
+    "State": "Victoria",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Mountjoy Parade, Lorne, Surf Coast Shire, Victoria, 3232, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
+    "DateTaken": "2025:12:09 12:28:16",
+    "ExposureTime": "1/2660 sec",
+    "FNumber": "f/2.8",
+    "ISO": "32",
+    "FocalLength": "9 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "004_122816.webp",
+      "OriginalSize": 2817369,
+      "OptimizedSize": 879320,
+      "CompressionRatio": 68.78932081669103
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "IMG_2667.jpeg",
     "FilePath": "..\\IMG_2667.jpeg",
     "FileSize": 5566253,
@@ -56,36 +86,6 @@
       "OriginalSize": 2760300,
       "OptimizedSize": 798050,
       "CompressionRatio": 71.08828750498134
-    },
-    "HasGpsData": true
-  },
-  {
-    "FileName": "IMG_2672.jpeg",
-    "FilePath": "..\\IMG_2672.jpeg",
-    "FileSize": 2817369,
-    "Latitude": -38.54085833333333,
-    "Longitude": 143.97660833333333,
-    "Altitude": "9.65 metres",
-    "City": "Lorne",
-    "State": "Victoria",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Mountjoy Parade, Lorne, Surf Coast Shire, Victoria, 3232, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
-    "DateTaken": "2025:12:09 12:28:16",
-    "ExposureTime": "1/2660 sec",
-    "FNumber": "f/2.8",
-    "ISO": "32",
-    "FocalLength": "9 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.1",
-    "OptimizedImages": {
-      "WebPImage": "004_122816.webp",
-      "OriginalSize": 2817369,
-      "OptimizedSize": 879320,
-      "CompressionRatio": 68.78932081669103
     },
     "HasGpsData": true
   },
