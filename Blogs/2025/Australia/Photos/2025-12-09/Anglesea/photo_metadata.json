@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_2642.jpeg",
-    "FilePath": "..\\IMG_2642.jpeg",
+    "FilePath": "IMG_2642.jpeg",
     "FileSize": 7892757,
     "Latitude": -38.41661388888889,
     "Longitude": 144.18228055555554,
@@ -22,7 +22,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "002_105334.webp",
+      "WebPImage": "fc8f6ce5e84632b8.webp",
       "OriginalSize": 7892757,
       "OptimizedSize": 3154836,
       "CompressionRatio": 60.0287200024022
@@ -31,7 +31,7 @@
   },
   {
     "FileName": "74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg",
-    "FilePath": "..\\74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg",
+    "FilePath": "74071120-4859-4BB9-AED8-759D260A252C_1_102_a.jpeg",
     "FileSize": 1164447,
     "Latitude": -38.41661388888889,
     "Longitude": 144.18228055555554,
@@ -52,7 +52,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "001_105334.webp",
+      "WebPImage": "f5c3c6de732a06a8.webp",
       "OriginalSize": 1164447,
       "OptimizedSize": 470422,
       "CompressionRatio": 59.60125278351012

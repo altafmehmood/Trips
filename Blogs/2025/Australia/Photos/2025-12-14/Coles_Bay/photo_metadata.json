@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_6712.jpeg",
-    "FilePath": "..\\IMG_6712.jpeg",
+    "FilePath": "IMG_6712.jpeg",
     "FileSize": 6113375,
     "Latitude": -42.12316111111111,
     "Longitude": 148.34140000000002,
@@ -22,7 +22,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "007_114158.webp",
+      "WebPImage": "744b8e3f0f3b26e3.webp",
       "OriginalSize": 6113375,
       "OptimizedSize": 1827808,
       "CompressionRatio": 70.10149058416995
@@ -31,7 +31,7 @@
   },
   {
     "FileName": "IMG_2958.jpeg",
-    "FilePath": "..\\IMG_2958.jpeg",
+    "FilePath": "IMG_2958.jpeg",
     "FileSize": 3161521,
     "Latitude": -42.122925,
     "Longitude": 148.34289444444445,
@@ -52,7 +52,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "006_114707.webp",
+      "WebPImage": "432813bf76c713f5.webp",
       "OriginalSize": 3161521,
       "OptimizedSize": 1037626,
       "CompressionRatio": 67.17953162417709
@@ -61,7 +61,7 @@
   },
   {
     "FileName": "ADE54A26-FEF4-49BE-BDD0-902DB6CE38A2_1_102_a.jpeg",
-    "FilePath": "..\\ADE54A26-FEF4-49BE-BDD0-902DB6CE38A2_1_102_a.jpeg",
+    "FilePath": "ADE54A26-FEF4-49BE-BDD0-902DB6CE38A2_1_102_a.jpeg",
     "FileSize": 1273949,
     "Latitude": -42.122925,
     "Longitude": 148.34289444444445,
@@ -82,7 +82,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "005_114707.webp",
+      "WebPImage": "5ffd3722c5ba8140.webp",
       "OriginalSize": 1273949,
       "OptimizedSize": 485690,
       "CompressionRatio": 61.87523990363821
@@ -91,7 +91,7 @@
   },
   {
     "FileName": "EB32D757-6515-4296-B076-B5977159DC07_1_102_a.jpeg",
-    "FilePath": "..\\EB32D757-6515-4296-B076-B5977159DC07_1_102_a.jpeg",
+    "FilePath": "EB32D757-6515-4296-B076-B5977159DC07_1_102_a.jpeg",
     "FileSize": 1073546,
     "Latitude": -42.134905555555555,
     "Longitude": 148.3011638888889,
@@ -112,7 +112,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "004_081026.webp",
+      "WebPImage": "9ba0cc4f84ea83af.webp",
       "OriginalSize": 1073546,
       "OptimizedSize": 361890,
       "CompressionRatio": 66.29021951551215
@@ -121,7 +121,7 @@
   },
   {
     "FileName": "8343AC65-52DB-49FF-8A1F-E3C23DCCC0A3_1_102_a.jpeg",
-    "FilePath": "..\\8343AC65-52DB-49FF-8A1F-E3C23DCCC0A3_1_102_a.jpeg",
+    "FilePath": "8343AC65-52DB-49FF-8A1F-E3C23DCCC0A3_1_102_a.jpeg",
     "FileSize": 1029745,
     "Latitude": -42.134747222222224,
     "Longitude": 148.30126944444444,
@@ -142,7 +142,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "003_081121.webp",
+      "WebPImage": "1f439baefa1884c3.webp",
       "OriginalSize": 1029745,
       "OptimizedSize": 377406,
       "CompressionRatio": 63.34956712584183
@@ -150,38 +150,8 @@
     "HasGpsData": true
   },
   {
-    "FileName": "3A65F55C-47DA-4515-9886-36C083850BB4_1_105_c.jpeg",
-    "FilePath": "..\\3A65F55C-47DA-4515-9886-36C083850BB4_1_105_c.jpeg",
-    "FileSize": 390086,
-    "Latitude": -42.12317222222222,
-    "Longitude": 148.34140000000002,
-    "Altitude": "104.76 metres",
-    "City": "Coles Bay",
-    "State": "Tasmania",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Cape Tourville Circuit, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
-    "DateTaken": "2025:12:14 11:41:10",
-    "ExposureTime": "1/5814 sec",
-    "FNumber": "f/1.8",
-    "ISO": "80",
-    "FocalLength": "6.8 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.2",
-    "OptimizedImages": {
-      "WebPImage": "002_114110.webp",
-      "OriginalSize": 390086,
-      "OptimizedSize": 147548,
-      "CompressionRatio": 62.175520269889205
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "4319ECBB-580F-4A39-8469-AE5523DCA605_1_102_o.jpeg",
-    "FilePath": "..\\4319ECBB-580F-4A39-8469-AE5523DCA605_1_102_o.jpeg",
+    "FilePath": "4319ECBB-580F-4A39-8469-AE5523DCA605_1_102_o.jpeg",
     "FileSize": 1087379,
     "Latitude": -42.13429722222222,
     "Longitude": 148.30232222222224,
@@ -202,10 +172,40 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "001_103953.webp",
+      "WebPImage": "4091c7b6242cf510.webp",
       "OriginalSize": 1087379,
       "OptimizedSize": 373738,
       "CompressionRatio": 65.62946314026664
+    },
+    "HasGpsData": true
+  },
+  {
+    "FileName": "3A65F55C-47DA-4515-9886-36C083850BB4_1_105_c.jpeg",
+    "FilePath": "3A65F55C-47DA-4515-9886-36C083850BB4_1_105_c.jpeg",
+    "FileSize": 390086,
+    "Latitude": -42.12317222222222,
+    "Longitude": 148.34140000000002,
+    "Altitude": "104.76 metres",
+    "City": "Coles Bay",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Cape Tourville Circuit, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:14 11:41:10",
+    "ExposureTime": "1/5814 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "df1ef444b6d0daf0.webp",
+      "OriginalSize": 390086,
+      "OptimizedSize": 147548,
+      "CompressionRatio": 62.175520269889205
     },
     "HasGpsData": true
   }

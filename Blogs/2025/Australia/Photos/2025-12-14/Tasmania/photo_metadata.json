@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_2976.jpeg",
-    "FilePath": "..\\IMG_2976.jpeg",
+    "FilePath": "IMG_2976.jpeg",
     "FileSize": 8127447,
     "Latitude": -41.995383333333336,
     "Longitude": 148.28077777777779,
@@ -21,7 +21,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "011_130037.webp",
+      "WebPImage": "3c60c34e8145a4f0.webp",
       "OriginalSize": 8127447,
       "OptimizedSize": 3152518,
       "CompressionRatio": 61.21146037617963
@@ -29,37 +29,8 @@
     "HasGpsData": true
   },
   {
-    "FileName": "IMG_2955.jpeg",
-    "FilePath": "..\\IMG_2955.jpeg",
-    "FileSize": 11589334,
-    "Latitude": -42.13366666666666,
-    "Longitude": 148.31909166666665,
-    "Altitude": "18.33 metres",
-    "State": "Tasmania",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Sleepy Bay Track, Glamorgan-Spring Bay, Tasmania, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
-    "DateTaken": "2025:12:14 11:28:52",
-    "ExposureTime": "1/4310 sec",
-    "FNumber": "f/1.8",
-    "ISO": "80",
-    "FocalLength": "6.8 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.2",
-    "OptimizedImages": {
-      "WebPImage": "009_112852.webp",
-      "OriginalSize": 11589334,
-      "OptimizedSize": 5199284,
-      "CompressionRatio": 55.137335760622655
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "IMG_2935.jpeg",
-    "FilePath": "..\\IMG_2935.jpeg",
+    "FilePath": "IMG_2935.jpeg",
     "FileSize": 2868441,
     "Latitude": -42.154975,
     "Longitude": 148.2932888888889,
@@ -79,7 +50,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "010_093620.webp",
+      "WebPImage": "db095bd609ced36f.webp",
       "OriginalSize": 2868441,
       "OptimizedSize": 942542,
       "CompressionRatio": 67.14096612062093
@@ -87,8 +58,37 @@
     "HasGpsData": true
   },
   {
+    "FileName": "IMG_2955.jpeg",
+    "FilePath": "IMG_2955.jpeg",
+    "FileSize": 11589334,
+    "Latitude": -42.13366666666666,
+    "Longitude": 148.31909166666665,
+    "Altitude": "18.33 metres",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Sleepy Bay Track, Glamorgan-Spring Bay, Tasmania, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:14 11:28:52",
+    "ExposureTime": "1/4310 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "fd55f1b7058297b9.webp",
+      "OriginalSize": 11589334,
+      "OptimizedSize": 5199284,
+      "CompressionRatio": 55.137335760622655
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "F9F7CEDA-98BB-4488-AB88-A22CDEC30BAF_1_102_a.jpeg",
-    "FilePath": "..\\F9F7CEDA-98BB-4488-AB88-A22CDEC30BAF_1_102_a.jpeg",
+    "FilePath": "F9F7CEDA-98BB-4488-AB88-A22CDEC30BAF_1_102_a.jpeg",
     "FileSize": 1884521,
     "Latitude": -42.15501666666667,
     "Longitude": 148.29373055555556,
@@ -108,7 +108,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "008_093842.webp",
+      "WebPImage": "63c7d59c1b979fd8.webp",
       "OriginalSize": 1884521,
       "OptimizedSize": 937000,
       "CompressionRatio": 50.27914255134329
@@ -117,7 +117,7 @@
   },
   {
     "FileName": "C11D24B7-7708-4A82-AAC9-7AE04F0D9D64_1_102_a.jpeg",
-    "FilePath": "..\\C11D24B7-7708-4A82-AAC9-7AE04F0D9D64_1_102_a.jpeg",
+    "FilePath": "C11D24B7-7708-4A82-AAC9-7AE04F0D9D64_1_102_a.jpeg",
     "FileSize": 1543966,
     "Latitude": -42.13594722222222,
     "Longitude": 148.31854166666668,
@@ -137,7 +137,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "007_110126.webp",
+      "WebPImage": "7357c3fb575dd8d4.webp",
       "OriginalSize": 1543966,
       "OptimizedSize": 650204,
       "CompressionRatio": 57.887414619233844
@@ -146,7 +146,7 @@
   },
   {
     "FileName": "DA2886CF-92E4-44EA-8C0B-E9A6B8EF764F_1_102_a.jpeg",
-    "FilePath": "..\\DA2886CF-92E4-44EA-8C0B-E9A6B8EF764F_1_102_a.jpeg",
+    "FilePath": "DA2886CF-92E4-44EA-8C0B-E9A6B8EF764F_1_102_a.jpeg",
     "FileSize": 2106330,
     "Latitude": -42.13376944444445,
     "Longitude": 148.3191388888889,
@@ -166,7 +166,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "006_112728.webp",
+      "WebPImage": "68b1b1502f840bb9.webp",
       "OriginalSize": 2106330,
       "OptimizedSize": 942036,
       "CompressionRatio": 55.27595391035594
@@ -175,7 +175,7 @@
   },
   {
     "FileName": "B0FFEFBE-50DB-4D3B-8CDD-D4B219F48572_1_102_a.jpeg",
-    "FilePath": "..\\B0FFEFBE-50DB-4D3B-8CDD-D4B219F48572_1_102_a.jpeg",
+    "FilePath": "B0FFEFBE-50DB-4D3B-8CDD-D4B219F48572_1_102_a.jpeg",
     "FileSize": 1624765,
     "Latitude": -42.13368333333333,
     "Longitude": 148.3190611111111,
@@ -195,7 +195,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "005_105005.webp",
+      "WebPImage": "4ff6280158f1d390.webp",
       "OriginalSize": 1624765,
       "OptimizedSize": 683260,
       "CompressionRatio": 57.947149280049736
@@ -204,7 +204,7 @@
   },
   {
     "FileName": "77C70AAC-93D5-4FC3-A1B3-F16BC67F6087_1_102_a.jpeg",
-    "FilePath": "..\\77C70AAC-93D5-4FC3-A1B3-F16BC67F6087_1_102_a.jpeg",
+    "FilePath": "77C70AAC-93D5-4FC3-A1B3-F16BC67F6087_1_102_a.jpeg",
     "FileSize": 1518953,
     "Latitude": -42.13428888888889,
     "Longitude": 148.31884722222222,
@@ -224,7 +224,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "004_105251.webp",
+      "WebPImage": "8b42823788ed2366.webp",
       "OriginalSize": 1518953,
       "OptimizedSize": 616700,
       "CompressionRatio": 59.39966542743586
@@ -233,7 +233,7 @@
   },
   {
     "FileName": "14993094-29FD-4883-B0C3-02724FB57F77_1_102_a.jpeg",
-    "FilePath": "..\\14993094-29FD-4883-B0C3-02724FB57F77_1_102_a.jpeg",
+    "FilePath": "14993094-29FD-4883-B0C3-02724FB57F77_1_102_a.jpeg",
     "FileSize": 803800,
     "Latitude": -41.99417777777778,
     "Longitude": 148.28552222222223,
@@ -253,7 +253,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "003_124415.webp",
+      "WebPImage": "a31fb0e0987cfcd2.webp",
       "OriginalSize": 803800,
       "OptimizedSize": 219236,
       "CompressionRatio": 72.72505598407564
@@ -261,37 +261,8 @@
     "HasGpsData": true
   },
   {
-    "FileName": "2635238A-1DC9-462A-9B4E-D7DE370F2CE0_1_102_a.jpeg",
-    "FilePath": "..\\2635238A-1DC9-462A-9B4E-D7DE370F2CE0_1_102_a.jpeg",
-    "FileSize": 1270220,
-    "Latitude": -42.136177777777775,
-    "Longitude": 148.31844999999998,
-    "Altitude": "5.93 metres",
-    "State": "Tasmania",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Sleepy Bay Track, Glamorgan-Spring Bay, Tasmania, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
-    "DateTaken": "2025:12:14 10:59:51",
-    "ExposureTime": "1/9009 sec",
-    "FNumber": "f/1.8",
-    "ISO": "80",
-    "FocalLength": "6.8 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.2",
-    "OptimizedImages": {
-      "WebPImage": "002_105951.webp",
-      "OriginalSize": 1270220,
-      "OptimizedSize": 497822,
-      "CompressionRatio": 60.80820645242556
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "1F8C751A-E2A4-4A1C-BE45-59823C4A7409_1_102_a.jpeg",
-    "FilePath": "..\\1F8C751A-E2A4-4A1C-BE45-59823C4A7409_1_102_a.jpeg",
+    "FilePath": "1F8C751A-E2A4-4A1C-BE45-59823C4A7409_1_102_a.jpeg",
     "FileSize": 1018997,
     "Latitude": -41.99268611111111,
     "Longitude": 148.285675,
@@ -311,10 +282,39 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "001_125033.webp",
+      "WebPImage": "6691ce46e1830a85.webp",
       "OriginalSize": 1018997,
       "OptimizedSize": 344834,
       "CompressionRatio": 66.15946857547176
+    },
+    "HasGpsData": true
+  },
+  {
+    "FileName": "2635238A-1DC9-462A-9B4E-D7DE370F2CE0_1_102_a.jpeg",
+    "FilePath": "2635238A-1DC9-462A-9B4E-D7DE370F2CE0_1_102_a.jpeg",
+    "FileSize": 1270220,
+    "Latitude": -42.136177777777775,
+    "Longitude": 148.31844999999998,
+    "Altitude": "5.93 metres",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Sleepy Bay Track, Glamorgan-Spring Bay, Tasmania, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:14 10:59:51",
+    "ExposureTime": "1/9009 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "a975b958f85dd9a1.webp",
+      "OriginalSize": 1270220,
+      "OptimizedSize": 497822,
+      "CompressionRatio": 60.80820645242556
     },
     "HasGpsData": true
   }

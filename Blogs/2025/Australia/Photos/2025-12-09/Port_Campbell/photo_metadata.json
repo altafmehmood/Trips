@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_2707.jpeg",
-    "FilePath": "..\\IMG_2707.jpeg",
+    "FilePath": "IMG_2707.jpeg",
     "FileSize": 5458316,
     "Latitude": -38.64832222222222,
     "Longitude": 143.06887777777777,
@@ -22,7 +22,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "008_163942.webp",
+      "WebPImage": "d3c288b766b1ae95.webp",
       "OriginalSize": 5458316,
       "OptimizedSize": 2213594,
       "CompressionRatio": 59.44547732304248
@@ -31,7 +31,7 @@
   },
   {
     "FileName": "IMG_2705.jpeg",
-    "FilePath": "..\\IMG_2705.jpeg",
+    "FilePath": "IMG_2705.jpeg",
     "FileSize": 7128806,
     "Latitude": -38.64683055555555,
     "Longitude": 143.07095277777776,
@@ -52,7 +52,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "007_163504.webp",
+      "WebPImage": "bf350a6f33729d97.webp",
       "OriginalSize": 7128806,
       "OptimizedSize": 2293938,
       "CompressionRatio": 67.8215678754619
@@ -61,7 +61,7 @@
   },
   {
     "FileName": "IMG_2697.jpeg",
-    "FilePath": "..\\IMG_2697.jpeg",
+    "FilePath": "IMG_2697.jpeg",
     "FileSize": 4299565,
     "Latitude": -38.647891666666666,
     "Longitude": 143.07269166666666,
@@ -82,7 +82,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "005_162042.webp",
+      "WebPImage": "9f34c09bf4c2e90f.webp",
       "OriginalSize": 4299565,
       "OptimizedSize": 1651502,
       "CompressionRatio": 61.5890909894373
@@ -90,68 +90,8 @@
     "HasGpsData": true
   },
   {
-    "FileName": "93BDB01D-4FE8-4B5B-8541-D997DCC4A28C_1_102_a.jpeg",
-    "FilePath": "..\\93BDB01D-4FE8-4B5B-8541-D997DCC4A28C_1_102_a.jpeg",
-    "FileSize": 856381,
-    "Latitude": -38.6494,
-    "Longitude": 143.07229722222223,
-    "Altitude": "25.23 metres",
-    "City": "Port Campbell",
-    "State": "Victoria",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "The Razorback, Post Office Road, Port Campbell, Shire of Corangamite, Victoria, 3269, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 2.22mm f/2.2",
-    "DateTaken": "2025:12:09 16:26:36",
-    "ExposureTime": "1/3906 sec",
-    "FNumber": "f/2.2",
-    "ISO": "50",
-    "FocalLength": "2.2 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.1",
-    "OptimizedImages": {
-      "WebPImage": "004_162636.webp",
-      "OriginalSize": 856381,
-      "OptimizedSize": 258990,
-      "CompressionRatio": 69.75761956418931
-    },
-    "HasGpsData": true
-  },
-  {
-    "FileName": "7CA319D7-C387-4059-8AE2-CE0780EC70CA_1_102_a.jpeg",
-    "FilePath": "..\\7CA319D7-C387-4059-8AE2-CE0780EC70CA_1_102_a.jpeg",
-    "FileSize": 1293422,
-    "Latitude": -38.64937222222222,
-    "Longitude": 143.07229722222223,
-    "Altitude": "24.76 metres",
-    "City": "Port Campbell",
-    "State": "Victoria",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "The Razorback, Post Office Road, Port Campbell, Shire of Corangamite, Victoria, 3269, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
-    "DateTaken": "2025:12:09 16:26:26",
-    "ExposureTime": "1/1220 sec",
-    "FNumber": "f/2.8",
-    "ISO": "25",
-    "FocalLength": "9 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.1",
-    "OptimizedImages": {
-      "WebPImage": "003_162626.webp",
-      "OriginalSize": 1293422,
-      "OptimizedSize": 515840,
-      "CompressionRatio": 60.118198082296416
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "IMG_2702.jpeg",
-    "FilePath": "..\\IMG_2702.jpeg",
+    "FilePath": "IMG_2702.jpeg",
     "FileSize": 4496766,
     "Latitude": -38.649369444444446,
     "Longitude": 143.0723277777778,
@@ -172,7 +112,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "006_162549.webp",
+      "WebPImage": "715a12aef9f68f84.webp",
       "OriginalSize": 4496766,
       "OptimizedSize": 1742806,
       "CompressionRatio": 61.24312450325411
@@ -180,8 +120,68 @@
     "HasGpsData": true
   },
   {
+    "FileName": "93BDB01D-4FE8-4B5B-8541-D997DCC4A28C_1_102_a.jpeg",
+    "FilePath": "93BDB01D-4FE8-4B5B-8541-D997DCC4A28C_1_102_a.jpeg",
+    "FileSize": 856381,
+    "Latitude": -38.6494,
+    "Longitude": 143.07229722222223,
+    "Altitude": "25.23 metres",
+    "City": "Port Campbell",
+    "State": "Victoria",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "The Razorback, Post Office Road, Port Campbell, Shire of Corangamite, Victoria, 3269, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 2.22mm f/2.2",
+    "DateTaken": "2025:12:09 16:26:36",
+    "ExposureTime": "1/3906 sec",
+    "FNumber": "f/2.2",
+    "ISO": "50",
+    "FocalLength": "2.2 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "9b313a62de5dd308.webp",
+      "OriginalSize": 856381,
+      "OptimizedSize": 258990,
+      "CompressionRatio": 69.75761956418931
+    },
+    "HasGpsData": true
+  },
+  {
+    "FileName": "7CA319D7-C387-4059-8AE2-CE0780EC70CA_1_102_a.jpeg",
+    "FilePath": "7CA319D7-C387-4059-8AE2-CE0780EC70CA_1_102_a.jpeg",
+    "FileSize": 1293422,
+    "Latitude": -38.64937222222222,
+    "Longitude": 143.07229722222223,
+    "Altitude": "24.76 metres",
+    "City": "Port Campbell",
+    "State": "Victoria",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "The Razorback, Post Office Road, Port Campbell, Shire of Corangamite, Victoria, 3269, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
+    "DateTaken": "2025:12:09 16:26:26",
+    "ExposureTime": "1/1220 sec",
+    "FNumber": "f/2.8",
+    "ISO": "25",
+    "FocalLength": "9 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "b73d498088c34490.webp",
+      "OriginalSize": 1293422,
+      "OptimizedSize": 515840,
+      "CompressionRatio": 60.118198082296416
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "62181BD4-03FC-447F-AF82-A2BA5BFDDD9E_1_102_a.jpeg",
-    "FilePath": "..\\62181BD4-03FC-447F-AF82-A2BA5BFDDD9E_1_102_a.jpeg",
+    "FilePath": "62181BD4-03FC-447F-AF82-A2BA5BFDDD9E_1_102_a.jpeg",
     "FileSize": 1190457,
     "Latitude": -38.6479,
     "Longitude": 143.07267777777778,
@@ -202,7 +202,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "002_162048.webp",
+      "WebPImage": "b04450ad4bffec4c.webp",
       "OriginalSize": 1190457,
       "OptimizedSize": 458636,
       "CompressionRatio": 61.473954960153954
@@ -211,7 +211,7 @@
   },
   {
     "FileName": "54DFA024-4073-4B5F-946C-094BAB7FD106_1_102_a.jpeg",
-    "FilePath": "..\\54DFA024-4073-4B5F-946C-094BAB7FD106_1_102_a.jpeg",
+    "FilePath": "54DFA024-4073-4B5F-946C-094BAB7FD106_1_102_a.jpeg",
     "FileSize": 1307893,
     "Latitude": -38.64683055555555,
     "Longitude": 143.07095277777776,
@@ -232,7 +232,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "001_163504.webp",
+      "WebPImage": "76004cda07e0add2.webp",
       "OriginalSize": 1307893,
       "OptimizedSize": 465856,
       "CompressionRatio": 64.38118408768914

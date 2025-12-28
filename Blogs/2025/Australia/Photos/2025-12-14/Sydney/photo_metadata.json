@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_2986.jpeg",
-    "FilePath": "..\\IMG_2986.jpeg",
+    "FilePath": "IMG_2986.jpeg",
     "FileSize": 5926482,
     "Latitude": -33.87079166666667,
     "Longitude": 151.20184444444445,
@@ -22,7 +22,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "006_203447.webp",
+      "WebPImage": "762d3c015778912a.webp",
       "OriginalSize": 5926482,
       "OptimizedSize": 1579504,
       "CompressionRatio": 73.34837092224357
@@ -30,38 +30,8 @@
     "HasGpsData": true
   },
   {
-    "FileName": "IMG_2988.jpeg",
-    "FilePath": "..\\IMG_2988.jpeg",
-    "FileSize": 2706499,
-    "Latitude": -33.87327222222222,
-    "Longitude": 151.2071222222222,
-    "Altitude": "24.74 metres",
-    "City": "Sydney",
-    "State": "New South Wales",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Koreatown, Sydney, Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, 2000, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
-    "DateTaken": "2025:12:14 20:51:47",
-    "ExposureTime": "1/24 sec",
-    "FNumber": "f/1.8",
-    "ISO": "640",
-    "FocalLength": "6.8 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.2",
-    "OptimizedImages": {
-      "WebPImage": "005_205147.webp",
-      "OriginalSize": 2706499,
-      "OptimizedSize": 654458,
-      "CompressionRatio": 75.81901933087727
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "IMG_2985.jpeg",
-    "FilePath": "..\\IMG_2985.jpeg",
+    "FilePath": "IMG_2985.jpeg",
     "FileSize": 5080944,
     "Latitude": -33.87281388888889,
     "Longitude": 151.2016611111111,
@@ -82,7 +52,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "004_202924.webp",
+      "WebPImage": "f1b8dde7a645b204.webp",
       "OriginalSize": 5080944,
       "OptimizedSize": 1325426,
       "CompressionRatio": 73.91378452508037
@@ -90,8 +60,38 @@
     "HasGpsData": true
   },
   {
+    "FileName": "IMG_2988.jpeg",
+    "FilePath": "IMG_2988.jpeg",
+    "FileSize": 2706499,
+    "Latitude": -33.87327222222222,
+    "Longitude": 151.2071222222222,
+    "Altitude": "24.74 metres",
+    "City": "Sydney",
+    "State": "New South Wales",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Koreatown, Sydney, Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, 2000, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:14 20:51:47",
+    "ExposureTime": "1/24 sec",
+    "FNumber": "f/1.8",
+    "ISO": "640",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "7e3b9ef819c80f48.webp",
+      "OriginalSize": 2706499,
+      "OptimizedSize": 654458,
+      "CompressionRatio": 75.81901933087727
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "785A3165-E446-40BB-BF36-3468C5CA155A_1_105_c.jpeg",
-    "FilePath": "..\\785A3165-E446-40BB-BF36-3468C5CA155A_1_105_c.jpeg",
+    "FilePath": "785A3165-E446-40BB-BF36-3468C5CA155A_1_105_c.jpeg",
     "FileSize": 280220,
     "Latitude": -33.87327222222222,
     "Longitude": 151.2071222222222,
@@ -112,7 +112,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "003_205147.webp",
+      "WebPImage": "1503ada9cd5edbed.webp",
       "OriginalSize": 280220,
       "OptimizedSize": 64442,
       "CompressionRatio": 77.00306901720077
@@ -120,38 +120,8 @@
     "HasGpsData": true
   },
   {
-    "FileName": "00BF2F09-C45B-491D-91FC-CFE0A0DC6DF7_1_102_a.jpeg",
-    "FilePath": "..\\00BF2F09-C45B-491D-91FC-CFE0A0DC6DF7_1_102_a.jpeg",
-    "FileSize": 953939,
-    "Latitude": -33.87281388888889,
-    "Longitude": 151.2016611111111,
-    "Altitude": "4.55 metres",
-    "City": "Sydney",
-    "State": "New South Wales",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Sydney, Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, 2000, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
-    "DateTaken": "2025:12:14 20:29:24",
-    "ExposureTime": "1/33 sec",
-    "FNumber": "f/1.8",
-    "ISO": "1000",
-    "FocalLength": "6.8 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.2",
-    "OptimizedImages": {
-      "WebPImage": "002_202924.webp",
-      "OriginalSize": 953939,
-      "OptimizedSize": 283388,
-      "CompressionRatio": 70.29285939667001
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "03D352D5-BB20-418D-A6D5-655A042B4146_1_102_a.jpeg",
-    "FilePath": "..\\03D352D5-BB20-418D-A6D5-655A042B4146_1_102_a.jpeg",
+    "FilePath": "03D352D5-BB20-418D-A6D5-655A042B4146_1_102_a.jpeg",
     "FileSize": 1010418,
     "Latitude": -33.87110833333333,
     "Longitude": 151.2011722222222,
@@ -172,10 +142,40 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "001_203640.webp",
+      "WebPImage": "c281456157dd8ddf.webp",
       "OriginalSize": 1010418,
       "OptimizedSize": 315768,
       "CompressionRatio": 68.74877525934811
+    },
+    "HasGpsData": true
+  },
+  {
+    "FileName": "00BF2F09-C45B-491D-91FC-CFE0A0DC6DF7_1_102_a.jpeg",
+    "FilePath": "00BF2F09-C45B-491D-91FC-CFE0A0DC6DF7_1_102_a.jpeg",
+    "FileSize": 953939,
+    "Latitude": -33.87281388888889,
+    "Longitude": 151.2016611111111,
+    "Altitude": "4.55 metres",
+    "City": "Sydney",
+    "State": "New South Wales",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Sydney, Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, 2000, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2025:12:14 20:29:24",
+    "ExposureTime": "1/33 sec",
+    "FNumber": "f/1.8",
+    "ISO": "1000",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "1a97bc00b8b95e5f.webp",
+      "OriginalSize": 953939,
+      "OptimizedSize": 283388,
+      "CompressionRatio": 70.29285939667001
     },
     "HasGpsData": true
   }

@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_2778.jpeg",
-    "FilePath": "..\\IMG_2778.jpeg",
+    "FilePath": "IMG_2778.jpeg",
     "FileSize": 11595957,
     "CameraMake": "Apple",
     "CameraModel": "iPhone 15 Pro",
@@ -14,7 +14,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "002_183555.webp",
+      "WebPImage": "d3bc6b9882a1b9ca.webp",
       "OriginalSize": 11595957,
       "OptimizedSize": 5148368,
       "CompressionRatio": 55.60204302240859
@@ -23,7 +23,7 @@
   },
   {
     "FileName": "D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg",
-    "FilePath": "..\\D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg",
+    "FilePath": "D098F895-1A6F-4514-BC6F-CDDF1379D402_1_102_a.jpeg",
     "FileSize": 2134928,
     "CameraMake": "Apple",
     "CameraModel": "iPhone 15 Pro",
@@ -36,7 +36,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "001_183555.webp",
+      "WebPImage": "69bcb73041d4d180.webp",
       "OriginalSize": 2134928,
       "OptimizedSize": 1018616,
       "CompressionRatio": 52.28803969033148

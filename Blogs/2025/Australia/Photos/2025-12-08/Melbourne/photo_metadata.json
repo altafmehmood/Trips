@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_2637.jpeg",
-    "FilePath": "..\\IMG_2637.jpeg",
+    "FilePath": "IMG_2637.jpeg",
     "FileSize": 4090070,
     "Latitude": -38.34571944444445,
     "Longitude": 144.72737222222221,
@@ -22,7 +22,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "003_165034.webp",
+      "WebPImage": "f178a7e876057c0c.webp",
       "OriginalSize": 4090070,
       "OptimizedSize": 909256,
       "CompressionRatio": 77.76918243453046
@@ -31,7 +31,7 @@
   },
   {
     "FileName": "IMG_2634.jpeg",
-    "FilePath": "..\\IMG_2634.jpeg",
+    "FilePath": "IMG_2634.jpeg",
     "FileSize": 6903184,
     "Latitude": -38.327488888888894,
     "Longitude": 144.73945555555554,
@@ -52,7 +52,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "002_161955.webp",
+      "WebPImage": "567327d5928a93cd.webp",
       "OriginalSize": 6903184,
       "OptimizedSize": 2332696,
       "CompressionRatio": 66.2084047013668
@@ -61,7 +61,7 @@
   },
   {
     "FileName": "IMG_2628.jpeg",
-    "FilePath": "..\\IMG_2628.jpeg",
+    "FilePath": "IMG_2628.jpeg",
     "FileSize": 7320155,
     "Latitude": -38.324825000000004,
     "Longitude": 144.73890555555553,
@@ -82,7 +82,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "001_160209.webp",
+      "WebPImage": "e43a7fa998a8bc30.webp",
       "OriginalSize": 7320155,
       "OptimizedSize": 2474146,
       "CompressionRatio": 66.20090694800862

@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using ImageMagick;
 using Microsoft.Extensions.Logging;
 using PhotoAIExtractor.Configuration;
@@ -73,6 +74,22 @@ public sealed class ImageOptimizer(
     {
         try
         {
+            // Generate unique hash-based filename
+            var optimizedFileName = GenerateOptimizedFilename(imagePath, settings.OutputFormat);
+            var optimizedPath = Path.Combine(outputDirectory, optimizedFileName);
+
+            // Check if already optimized - skip if exists
+            if (File.Exists(optimizedPath))
+            {
+                var existingFileInfo = new FileInfo(optimizedPath);
+                logger.LogInformation(
+                    "Skipping already optimized file: {FileName} → {OptimizedFileName}",
+                    Path.GetFileName(imagePath),
+                    optimizedFileName);
+
+                return CreateSkippedResult(imagePath, $"already exists as {optimizedFileName}");
+            }
+
             using var originalBitmap = SKBitmap.Decode(imagePath);
             if (originalBitmap is null)
             {
@@ -82,10 +99,6 @@ public sealed class ImageOptimizer(
             var format = GetSkiaFormat(settings.OutputFormat);
 
             // Optimize image without resizing - preserve original dimensions
-            var optimizedPath = Path.Combine(
-                outputDirectory,
-                $"{fileName}{settings.OutputSuffix}.{settings.OutputFormat}");
-
             await SaveOptimizedImageAsync(
                 originalBitmap,
                 optimizedPath,
@@ -126,6 +139,22 @@ public sealed class ImageOptimizer(
     {
         try
         {
+            // Generate unique hash-based filename
+            var optimizedFileName = GenerateOptimizedFilename(imagePath, settings.OutputFormat);
+            var optimizedPath = Path.Combine(outputDirectory, optimizedFileName);
+
+            // Check if already optimized - skip if exists
+            if (File.Exists(optimizedPath))
+            {
+                var existingFileInfo = new FileInfo(optimizedPath);
+                logger.LogInformation(
+                    "Skipping already optimized file: {FileName} → {OptimizedFileName}",
+                    Path.GetFileName(imagePath),
+                    optimizedFileName);
+
+                return CreateSkippedResult(imagePath, $"already exists as {optimizedFileName}");
+            }
+
             using var magickImage = new MagickImage(imagePath);
 
             var originalWidth = (int)magickImage.Width;
@@ -136,10 +165,6 @@ public sealed class ImageOptimizer(
             magickImage.Quality = (uint)settings.Quality;
 
             // Save optimized image
-            var optimizedPath = Path.Combine(
-                outputDirectory,
-                $"{fileName}{settings.OutputSuffix}.{settings.OutputFormat}");
-
             await Task.Run(() => magickImage.Write(optimizedPath), cancellationToken);
 
             var optimizedFileInfo = new FileInfo(optimizedPath);
@@ -289,4 +314,21 @@ public sealed class ImageOptimizer(
         < 1024 * 1024 * 1024 => $"{bytes / (1024.0 * 1024.0):F1} MB",
         _ => $"{bytes / (1024.0 * 1024.0 * 1024.0):F1} GB"
     };
+
+    /// <summary>
+    /// Generates a unique filename for the optimized image based on SHA256 hash of the file content.
+    /// This ensures that:
+    /// - The same image always gets the same filename (deterministic)
+    /// - Different images get different filenames (collision-resistant)
+    /// - Re-running the optimizer skips already-optimized images
+    /// </summary>
+    private static string GenerateOptimizedFilename(string imagePath, string outputFormat)
+    {
+        using var stream = File.OpenRead(imagePath);
+        var hash = SHA256.HashData(stream);
+        var hashString = Convert.ToHexString(hash).ToLowerInvariant();
+
+        // Use first 16 characters of hash for reasonable filename length while maintaining uniqueness
+        return $"{hashString[..16]}.{outputFormat}";
+    }
 }

@@ -1,7 +1,7 @@
 [
   {
     "FileName": "IMG_2758.jpeg",
-    "FilePath": "..\\IMG_2758.jpeg",
+    "FilePath": "IMG_2758.jpeg",
     "FileSize": 7090421,
     "Latitude": -42.11440277777778,
     "Longitude": 146.1692361111111,
@@ -21,7 +21,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "004_154754.webp",
+      "WebPImage": "787ca7209d27e529.webp",
       "OriginalSize": 7090421,
       "OptimizedSize": 2457588,
       "CompressionRatio": 65.33932188229726
@@ -30,7 +30,7 @@
   },
   {
     "FileName": "4254448F-C97B-4791-819E-69A6DA83D816_1_102_a.jpeg",
-    "FilePath": "..\\4254448F-C97B-4791-819E-69A6DA83D816_1_102_a.jpeg",
+    "FilePath": "4254448F-C97B-4791-819E-69A6DA83D816_1_102_a.jpeg",
     "FileSize": 1721697,
     "Latitude": -42.67610833333333,
     "Longitude": 146.71134999999998,
@@ -50,7 +50,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "003_120437.webp",
+      "WebPImage": "0bdf018c291dcf49.webp",
       "OriginalSize": 1721697,
       "OptimizedSize": 713502,
       "CompressionRatio": 58.55821320476251
@@ -59,7 +59,7 @@
   },
   {
     "FileName": "241E8040-48FF-4073-8A29-B57BD52F92B0_1_102_a.jpeg",
-    "FilePath": "..\\241E8040-48FF-4073-8A29-B57BD52F92B0_1_102_a.jpeg",
+    "FilePath": "241E8040-48FF-4073-8A29-B57BD52F92B0_1_102_a.jpeg",
     "FileSize": 2081132,
     "Latitude": -42.677166666666665,
     "Longitude": 146.71276944444443,
@@ -79,7 +79,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "002_114918.webp",
+      "WebPImage": "49f0fd9917522cc9.webp",
       "OriginalSize": 2081132,
       "OptimizedSize": 941228,
       "CompressionRatio": 54.773267625503806
@@ -88,7 +88,7 @@
   },
   {
     "FileName": "3572AFEC-D049-4384-8F5B-8044704B496E_1_102_a.jpeg",
-    "FilePath": "..\\3572AFEC-D049-4384-8F5B-8044704B496E_1_102_a.jpeg",
+    "FilePath": "3572AFEC-D049-4384-8F5B-8044704B496E_1_102_a.jpeg",
     "FileSize": 1232805,
     "Latitude": -42.11440277777778,
     "Longitude": 146.1692361111111,
@@ -108,7 +108,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "001_154754.webp",
+      "WebPImage": "b10172e23cd42931.webp",
       "OriginalSize": 1232805,
       "OptimizedSize": 459892,
       "CompressionRatio": 62.69547900925125

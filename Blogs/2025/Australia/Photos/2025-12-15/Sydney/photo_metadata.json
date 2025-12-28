@@ -1,37 +1,7 @@
 [
   {
-    "FileName": "IMG_6776.jpeg",
-    "FilePath": "..\\IMG_6776.jpeg",
-    "FileSize": 2972186,
-    "Latitude": -33.843025000000004,
-    "Longitude": 151.24378888888887,
-    "Altitude": "69.67 metres",
-    "City": "Sydney",
-    "State": "New South Wales",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Wild Australia, Bradleys Head Road, Mosman, Lower North Shore, Sydney, Mosman Municipal Council, New South Wales, 2088, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 17 Pro",
-    "LensModel": "iPhone 17 Pro back triple camera 16.891mm f/2.8",
-    "DateTaken": "2025:12:15 13:05:04",
-    "ExposureTime": "1/263 sec",
-    "FNumber": "f/2.8",
-    "ISO": "40",
-    "FocalLength": "16.9 mm",
-    "Orientation": "Right side, top (Rotate 90 CW)",
-    "Software": "26.1",
-    "OptimizedImages": {
-      "WebPImage": "010_130504.webp",
-      "OriginalSize": 2972186,
-      "OptimizedSize": 825750,
-      "CompressionRatio": 72.217418425361
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "IMG_6803.jpeg",
-    "FilePath": "..\\IMG_6803.jpeg",
+    "FilePath": "IMG_6803.jpeg",
     "FileSize": 6214949,
     "Latitude": -33.879305555555554,
     "Longitude": 151.20416388888887,
@@ -52,7 +22,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.1",
     "OptimizedImages": {
-      "WebPImage": "011_192944.webp",
+      "WebPImage": "6ebba7265cf8a9c6.webp",
       "OriginalSize": 6214949,
       "OptimizedSize": 1527342,
       "CompressionRatio": 75.4247058181813
@@ -60,8 +30,38 @@
     "HasGpsData": true
   },
   {
+    "FileName": "IMG_6776.jpeg",
+    "FilePath": "IMG_6776.jpeg",
+    "FileSize": 2972186,
+    "Latitude": -33.843025000000004,
+    "Longitude": 151.24378888888887,
+    "Altitude": "69.67 metres",
+    "City": "Sydney",
+    "State": "New South Wales",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Wild Australia, Bradleys Head Road, Mosman, Lower North Shore, Sydney, Mosman Municipal Council, New South Wales, 2088, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 17 Pro",
+    "LensModel": "iPhone 17 Pro back triple camera 16.891mm f/2.8",
+    "DateTaken": "2025:12:15 13:05:04",
+    "ExposureTime": "1/263 sec",
+    "FNumber": "f/2.8",
+    "ISO": "40",
+    "FocalLength": "16.9 mm",
+    "Orientation": "Right side, top (Rotate 90 CW)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "a75ec583540ed973.webp",
+      "OriginalSize": 2972186,
+      "OptimizedSize": 825750,
+      "CompressionRatio": 72.217418425361
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "IMG_3013.jpeg",
-    "FilePath": "..\\IMG_3013.jpeg",
+    "FilePath": "IMG_3013.jpeg",
     "FileSize": 2753569,
     "Latitude": -33.84321666666667,
     "Longitude": 151.243775,
@@ -82,7 +82,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "008_131002.webp",
+      "WebPImage": "47b7fbeb9c5227e2.webp",
       "OriginalSize": 2753569,
       "OptimizedSize": 979060,
       "CompressionRatio": 64.4439634525229
@@ -90,38 +90,8 @@
     "HasGpsData": true
   },
   {
-    "FileName": "IMG_3014.jpeg",
-    "FilePath": "..\\IMG_3014.jpeg",
-    "FileSize": 2774559,
-    "Latitude": -33.844208333333334,
-    "Longitude": 151.24342222222222,
-    "Altitude": "51.99 metres",
-    "City": "Sydney",
-    "State": "New South Wales",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Bradleys Head Road, Mosman, Lower North Shore, Sydney, Mosman Municipal Council, New South Wales, 2088, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
-    "DateTaken": "2025:12:15 13:32:50",
-    "ExposureTime": "1/99 sec",
-    "FNumber": "f/2.8",
-    "ISO": "25",
-    "FocalLength": "9 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.2",
-    "OptimizedImages": {
-      "WebPImage": "009_133250.webp",
-      "OriginalSize": 2774559,
-      "OptimizedSize": 1214132,
-      "CompressionRatio": 56.240541289624765
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "IMG_3008.jpeg",
-    "FilePath": "..\\IMG_3008.jpeg",
+    "FilePath": "IMG_3008.jpeg",
     "FileSize": 1864186,
     "Latitude": -33.85809444444445,
     "Longitude": 151.2124472222222,
@@ -142,7 +112,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "007_122328.webp",
+      "WebPImage": "dccbdccb7a9c67f6.webp",
       "OriginalSize": 1864186,
       "OptimizedSize": 443354,
       "CompressionRatio": 76.21728733077065
@@ -151,7 +121,7 @@
   },
   {
     "FileName": "BE6E6B9D-28A8-4483-9F5E-43503DAD634E_1_201_a.heic",
-    "FilePath": "..\\BE6E6B9D-28A8-4483-9F5E-43503DAD634E_1_201_a.heic",
+    "FilePath": "BE6E6B9D-28A8-4483-9F5E-43503DAD634E_1_201_a.heic",
     "FileSize": 1476406,
     "Latitude": -33.84321666666667,
     "Longitude": 151.243775,
@@ -172,7 +142,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "006_131002.webp",
+      "WebPImage": "5f78052a48338feb.webp",
       "OriginalSize": 1476406,
       "OptimizedSize": 999960,
       "CompressionRatio": 32.27066267679758
@@ -181,7 +151,7 @@
   },
   {
     "FileName": "BCC86C97-8939-49A7-A80E-2C0E02BB5E73_1_105_c.jpeg",
-    "FilePath": "..\\BCC86C97-8939-49A7-A80E-2C0E02BB5E73_1_105_c.jpeg",
+    "FilePath": "BCC86C97-8939-49A7-A80E-2C0E02BB5E73_1_105_c.jpeg",
     "FileSize": 258955,
     "Latitude": -33.85413333333334,
     "Longitude": 151.20954999999998,
@@ -202,7 +172,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "005_161421.webp",
+      "WebPImage": "412e2a6fcd23f37a.webp",
       "OriginalSize": 258955,
       "OptimizedSize": 72874,
       "CompressionRatio": 71.85843100152536
@@ -211,7 +181,7 @@
   },
   {
     "FileName": "B66181D4-1821-4583-A226-EC82BBA2B870_1_105_c.jpeg",
-    "FilePath": "..\\B66181D4-1821-4583-A226-EC82BBA2B870_1_105_c.jpeg",
+    "FilePath": "B66181D4-1821-4583-A226-EC82BBA2B870_1_105_c.jpeg",
     "FileSize": 584144,
     "Latitude": -33.843472222222225,
     "Longitude": 151.2420972222222,
@@ -232,7 +202,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "004_124608.webp",
+      "WebPImage": "8c4e9ce2a1b8f1f3.webp",
       "OriginalSize": 584144,
       "OptimizedSize": 267660,
       "CompressionRatio": 54.179106521679586
@@ -241,7 +211,7 @@
   },
   {
     "FileName": "9BD5B04B-01A6-491F-8D2F-0EA56BF0A68D_1_105_c.jpeg",
-    "FilePath": "..\\9BD5B04B-01A6-491F-8D2F-0EA56BF0A68D_1_105_c.jpeg",
+    "FilePath": "9BD5B04B-01A6-491F-8D2F-0EA56BF0A68D_1_105_c.jpeg",
     "FileSize": 440980,
     "Latitude": -33.843025000000004,
     "Longitude": 151.243775,
@@ -262,7 +232,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "003_130508.webp",
+      "WebPImage": "0b6775fe32a5afa0.webp",
       "OriginalSize": 440980,
       "OptimizedSize": 153296,
       "CompressionRatio": 65.23742573359337
@@ -270,8 +240,38 @@
     "HasGpsData": true
   },
   {
+    "FileName": "IMG_3014.jpeg",
+    "FilePath": "IMG_3014.jpeg",
+    "FileSize": 2774559,
+    "Latitude": -33.844208333333334,
+    "Longitude": 151.24342222222222,
+    "Altitude": "51.99 metres",
+    "City": "Sydney",
+    "State": "New South Wales",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Bradleys Head Road, Mosman, Lower North Shore, Sydney, Mosman Municipal Council, New South Wales, 2088, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
+    "DateTaken": "2025:12:15 13:32:50",
+    "ExposureTime": "1/99 sec",
+    "FNumber": "f/2.8",
+    "ISO": "25",
+    "FocalLength": "9 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "f5448da9a369523b.webp",
+      "OriginalSize": 2774559,
+      "OptimizedSize": 1214132,
+      "CompressionRatio": 56.240541289624765
+    },
+    "HasGpsData": true
+  },
+  {
     "FileName": "6A5675FB-9879-405E-986D-3DD467BAC629_1_105_c.jpeg",
-    "FilePath": "..\\6A5675FB-9879-405E-986D-3DD467BAC629_1_105_c.jpeg",
+    "FilePath": "6A5675FB-9879-405E-986D-3DD467BAC629_1_105_c.jpeg",
     "FileSize": 230084,
     "Latitude": -33.85809444444445,
     "Longitude": 151.2124472222222,
@@ -292,7 +292,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "002_122328.webp",
+      "WebPImage": "e49a268489889d64.webp",
       "OriginalSize": 230084,
       "OptimizedSize": 58004,
       "CompressionRatio": 74.7900766676518
@@ -301,7 +301,7 @@
   },
   {
     "FileName": "684DBDDA-C8FF-48D6-8069-D0BEE30B94D4_1_201_a.heic",
-    "FilePath": "..\\684DBDDA-C8FF-48D6-8069-D0BEE30B94D4_1_201_a.heic",
+    "FilePath": "684DBDDA-C8FF-48D6-8069-D0BEE30B94D4_1_201_a.heic",
     "FileSize": 1905107,
     "Latitude": -33.844208333333334,
     "Longitude": 151.24342222222222,
@@ -322,7 +322,7 @@
     "Orientation": "Top, left side (Horizontal / normal)",
     "Software": "26.2",
     "OptimizedImages": {
-      "WebPImage": "001_133250.webp",
+      "WebPImage": "d691c37291c7ba3e.webp",
       "OriginalSize": 1905107,
       "OptimizedSize": 1242956,
       "CompressionRatio": 34.756630467475055
