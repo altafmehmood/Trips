@@ -540,10 +540,9 @@
                 maxZoom: 20
             }).addTo(gorMap);
 
-            // Define route points
+            // Define route points (removed Melbourne Coast/Millionaire Walk)
             const routePoints = [
-                { lat: -37.815, lng: 144.965, name: 'W Melbourne', emoji: '🏨', desc: 'Home base', isStart: true },
-                { lat: -37.85, lng: 144.77, name: 'Melbourne Coast', emoji: '🌊', desc: 'Millionaire Walk' },
+                { lat: -37.815, lng: 144.965, name: 'W Melbourne', emoji: '🏨', desc: 'Home base' },
                 { lat: -38.408, lng: 144.188, name: 'Anglesea', emoji: '🏄', desc: 'Surf beach town' },
                 { lat: -38.464, lng: 144.106, name: 'Aireys Inlet', emoji: '🗼', desc: 'Split Point Lighthouse' },
                 { lat: -38.543, lng: 143.978, name: 'Lorne', emoji: '🏖️', desc: 'Beach town gem' },
@@ -551,32 +550,7 @@
                 { lat: -38.666, lng: 143.105, name: 'Port Campbell', emoji: '🏔️', desc: 'Twelve Apostles & Loch Ard Gorge' }
             ];
 
-            // Create coastal route polyline (Great Ocean Road)
-            const coastalRoute = routePoints.map(p => [p.lat, p.lng]);
-            L.polyline(coastalRoute, {
-                color: '#6366f1',
-                weight: 4,
-                opacity: 0.8,
-                smoothFactor: 1
-            }).addTo(gorMap);
-
-            // Create return route via inland highway (faster route)
-            const returnRoute = [
-                [routePoints[6].lat, routePoints[6].lng], // Port Campbell
-                [-38.53, 143.35], // Inland via Colac
-                [-38.33, 143.59], // Colac
-                [-38.15, 144.36], // Geelong area
-                [routePoints[0].lat, routePoints[0].lng]  // Back to W Melbourne
-            ];
-            L.polyline(returnRoute, {
-                color: '#10b981',
-                weight: 4,
-                opacity: 0.6,
-                smoothFactor: 1,
-                dashArray: '10, 10'
-            }).addTo(gorMap);
-
-            // Add markers
+            // Add markers (no route lines)
             routePoints.forEach((point, index) => {
                 const marker = L.marker([point.lat, point.lng], {
                     icon: L.divIcon({
@@ -596,31 +570,11 @@
                 `);
             });
 
-            // Add map legend
-            const legend = L.control({ position: 'bottomright' });
-            legend.onAdd = function(map) {
-                const div = L.DomUtil.create('div', 'map-legend');
-                div.style.cssText = 'background: white; padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-family: Poppins, sans-serif; font-size: 13px;';
-                div.innerHTML = `
-                    <div style="margin-bottom: 6px;"><strong style="color: #1e293b;">Route Legend</strong></div>
-                    <div style="margin-bottom: 4px;">
-                        <span style="display: inline-block; width: 30px; height: 3px; background: #6366f1; vertical-align: middle; margin-right: 8px;"></span>
-                        <span style="color: #64748b;">Coastal Drive</span>
-                    </div>
-                    <div>
-                        <span style="display: inline-block; width: 30px; height: 3px; background: #10b981; vertical-align: middle; margin-right: 8px; opacity: 0.6; background-image: linear-gradient(to right, #10b981 50%, transparent 50%); background-size: 10px 3px;"></span>
-                        <span style="color: #64748b;">Return (Inland)</span>
-                    </div>
-                `;
-                return div;
-            };
-            legend.addTo(gorMap);
-
             // Initialize Day 1 Melbourne coastal suburbs map
             const day1Map = L.map('melbourne-day1-map', {
                 zoomControl: true,
                 scrollWheelZoom: false
-            }).setView([-38.0, 144.9], 10);
+            }).setView([-38.0, 144.9], 9);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -636,16 +590,7 @@
                 { lat: -38.325, lng: 144.715, name: 'Sorrento Ocean Beach', emoji: '🏖️', desc: 'Ocean beach walk' }
             ];
 
-            // Create Day 1 route polyline
-            const day1Route = day1Points.map(p => [p.lat, p.lng]);
-            L.polyline(day1Route, {
-                color: '#f59e0b',
-                weight: 4,
-                opacity: 0.8,
-                smoothFactor: 1
-            }).addTo(day1Map);
-
-            // Add markers for Day 1
+            // Add markers for Day 1 (no route line)
             day1Points.forEach((point, index) => {
                 const marker = L.marker([point.lat, point.lng], {
                     icon: L.divIcon({
