@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melbourne & Great Ocean Road - Australia Adventure</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -61,6 +63,8 @@
 
                         <p>What makes the Great Ocean Road truly special is its variety. In a single day's drive, you experience diverse landscapes: the surf beaches of Torquay, the towering trees of the Otway Ranges, the windswept cliffs of Port Campbell, and the peaceful fishing villages that dot the coast. It's a journey through some of Australia's most pristine coastal wilderness.</p>
                     </div>
+
+                    <div id="great-ocean-road-map" style="height: 450px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
 
                     <div class="highlight-box">
                         <strong>Drive Tip:</strong> Start early in the morning to avoid crowds at the Twelve Apostles. The drive from Melbourne to Port Campbell takes about 3-4 hours, but allow a full day to stop at lookouts and explore coastal towns along the way.
@@ -518,6 +522,58 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Great Ocean Road map
+            const gorMap = L.map('great-ocean-road-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-38.4, 143.8], 9);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(gorMap);
+
+            // Define route points
+            const routePoints = [
+                { lat: -37.673, lng: 144.843, name: 'Melbourne Airport', emoji: '✈️', desc: 'Journey begins' },
+                { lat: -37.85, lng: 144.77, name: 'Melbourne Coast', emoji: '🌊', desc: 'Millionaire Walk' },
+                { lat: -38.408, lng: 144.188, name: 'Anglesea', emoji: '🏄', desc: 'Surf beach town' },
+                { lat: -38.464, lng: 144.106, name: 'Aireys Inlet', emoji: '🗼', desc: 'Split Point Lighthouse' },
+                { lat: -38.543, lng: 143.978, name: 'Lorne', emoji: '🏖️', desc: 'Beach town gem' },
+                { lat: -38.667, lng: 143.859, name: 'Kennett River', emoji: '🌳', desc: 'Nature walk' },
+                { lat: -38.666, lng: 143.105, name: 'Port Campbell', emoji: '🏔️', desc: 'Twelve Apostles & Loch Ard Gorge' }
+            ];
+
+            // Create route polyline
+            const routeCoordinates = routePoints.map(p => [p.lat, p.lng]);
+            L.polyline(routeCoordinates, {
+                color: '#6366f1',
+                weight: 3,
+                opacity: 0.8,
+                smoothFactor: 1
+            }).addTo(gorMap);
+
+            // Add markers
+            routePoints.forEach((point, index) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(gorMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #6366f1; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
             buildPhotoList();
 
             // Add click handlers to all photo cards
