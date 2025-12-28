@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sydney - December 6-7 - Australia Adventure</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -143,6 +145,8 @@
                         <strong>Pro Tip:</strong> The 333 bus from the city center to Bondi Beach makes getting to the start of the walk easy. Allow 2-3 hours for the full walk, more if you want to stop for a swim or coffee at one of the beach cafes along the way.
                     </div>
 
+                    <div id="bondi-coogee-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
                     <div class="photo-gallery">
                         <div class="photo-card">
                             <img src="Photos/2025-12-07/Sydney/051e3e23f94cd714.webp" alt="Bondi Beach Coastal Walk start">
@@ -212,6 +216,8 @@
                         <strong>Ferry Tip:</strong> The Manly ferry from Circular Quay is one of Sydney's best value experiences. Sit on the right side going to Manly for the best Opera House views, and on the left returning to the city for sunset perspectives of the Harbour Bridge.
                     </div>
 
+                    <div id="circular-quay-manly-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
                     <div class="photo-gallery">
                         <div class="photo-card">
                             <img src="Photos/2025-12-07/Sydney/17817d4306ecc463.webp" alt="Manly Beach">
@@ -261,6 +267,8 @@
 
                         <p>We strolled past the Chinese Garden of Friendship, the SEA LIFE Sydney Aquarium, and WILD LIFE Sydney Zoo, all housed in striking waterfront buildings. The Pyrmont Bridge, a historic swing bridge dating back to 1902, connects the eastern and western sides of the harbour and provides excellent views of the entire precinct. It was the perfect way to end our action-packed day - the relaxed atmosphere, harbor breezes, and twinkling city lights providing a gentle contrast to the day's adventurous hikes and coastal walks.</p>
                     </div>
+
+                    <div id="circular-quay-darling-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
                 </div>
             </div>
         </div>
@@ -527,6 +535,119 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Bondi to Coogee Coastal Walk map
+            const bondiMap = L.map('bondi-coogee-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-33.905, 151.265], 13);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(bondiMap);
+
+            // Bondi to Coogee points of interest
+            const bondiPoints = [
+                { lat: -33.8915, lng: 151.2767, name: 'Bondi Beach', emoji: '🏖️', desc: 'Starting point - iconic surf beach' },
+                { lat: -33.8986, lng: 151.2697, name: 'Tamarama Beach', emoji: '🌊', desc: 'Glamarama - small scenic beach' },
+                { lat: -33.9064, lng: 151.2648, name: 'Bronte Beach', emoji: '🏊', desc: 'Ocean pool and swimming spot' },
+                { lat: -33.9192, lng: 151.2593, name: 'Coogee Beach', emoji: '🏝️', desc: 'End point - family-friendly beach' }
+            ];
+
+            bondiPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(bondiMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #06b6d4; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Initialize Circular Quay to Manly map
+            const manlyMap = L.map('circular-quay-manly-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-33.83, 151.235], 12);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(manlyMap);
+
+            // Circular Quay to Manly points
+            const manlyPoints = [
+                { lat: -33.8611, lng: 151.2111, name: 'Circular Quay', emoji: '⛴️', desc: 'Ferry departure point' },
+                { lat: -33.7969, lng: 151.2873, name: 'Manly Beach', emoji: '🏖️', desc: 'Manly Wharf and ocean beach' }
+            ];
+
+            manlyPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(manlyMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #06b6d4; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Initialize Circular Quay and Darling Harbour map
+            const darlingMap = L.map('circular-quay-darling-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-33.8688, 151.2006], 14);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(darlingMap);
+
+            // Circular Quay and Darling Harbour points
+            const darlingPoints = [
+                { lat: -33.8611, lng: 151.2111, name: 'Circular Quay', emoji: '⛴️', desc: 'Ferry terminal and harbour hub' },
+                { lat: -33.8688, lng: 151.1988, name: 'Darling Harbour', emoji: '🌃', desc: 'Waterfront entertainment precinct' }
+            ];
+
+            darlingPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(darlingMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #06b6d4; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
             buildPhotoList();
 
             // Add click handlers to all photo cards
