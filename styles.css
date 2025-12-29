@@ -452,9 +452,21 @@ h2 {
 .stat-card {
     text-align: center;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--gray-50), white);
+    background: white;
     border-radius: var(--radius-xl);
-    border: 1px solid var(--border-light);
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
+}
+
+a:has(.stat-card) {
+    display: block;
 }
 
 .stat-icon {
