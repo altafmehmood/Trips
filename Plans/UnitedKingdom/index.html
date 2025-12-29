@@ -615,6 +615,12 @@
             flex: 1;
         }
 
+        .flight-route-map {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
         .map-overlay {
             position: absolute;
             top: 0;
@@ -1066,6 +1072,9 @@
                             <span class="flight-info-value">Yes</span>
                         </div>
                     </div>
+                    <div style="margin-top: 1.5rem;">
+                        <div id="outbound-flight-map" class="activity-map flight-route-map" style="min-height: 400px;"></div>
+                    </div>
                 </div>
 
                 <div class="flight-card">
@@ -1104,6 +1113,9 @@
                             <span class="flight-info-label">Meal Service</span>
                             <span class="flight-info-value">Yes</span>
                         </div>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <div id="return-flight-map" class="activity-map flight-route-map" style="min-height: 400px;"></div>
                     </div>
                 </div>
             </div>
@@ -1557,6 +1569,84 @@
             }
         ];
 
+        // Flight route map function (matching Australia plan)
+        function createFlightRouteMap(mapId, origin, destination, centerView, zoomLevel) {
+            try {
+                const mapElement = document.getElementById(mapId);
+                if (!mapElement) {
+                    console.error(`Flight map container with id "${mapId}" not found`);
+                    return;
+                }
+
+                // Create map with zoom controls enabled
+                const map = L.map(mapId, {
+                    scrollWheelZoom: true,
+                    dragging: true,
+                    zoomControl: true
+                }).setView(centerView, zoomLevel);
+
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap contributors © CARTO'
+                }).addTo(map);
+
+                // Add origin marker
+                const originIcon = L.divIcon({
+                    className: 'simple-marker',
+                    html: '🛫',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
+                L.marker([origin.lat, origin.lng], { icon: originIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">Departure</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${origin.name}</p>
+                        </div>
+                    `);
+
+                // Add destination marker
+                const destIcon = L.divIcon({
+                    className: 'simple-marker',
+                    html: '🛬',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
+                L.marker([destination.lat, destination.lng], { icon: destIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">Arrival</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${destination.name}</p>
+                        </div>
+                    `);
+
+                // Add flight path line
+                L.polyline([[origin.lat, origin.lng], [destination.lat, destination.lng]], {
+                    color: '#667eea',
+                    weight: 3,
+                    opacity: 0.9,
+                    dashArray: '8, 4'
+                }).addTo(map);
+
+                return map;
+            } catch (error) {
+                console.error(`Error creating flight map "${mapId}":`, error);
+                return null;
+            }
+        }
+
+        // Initialize flight route maps
+        createFlightRouteMap('outbound-flight-map',
+            { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' },
+            { lat: 51.4700, lng: -0.4543, name: 'London Heathrow (LHR)' },
+            [45.0, -45.0], 3);
+
+        createFlightRouteMap('return-flight-map',
+            { lat: 51.4700, lng: -0.4543, name: 'London Heathrow (LHR)' },
+            { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' },
+            [45.0, -45.0], 3);
+
         days.forEach(day => {
             // Get the map container
             const mapContainer = document.getElementById(day.id);
@@ -1564,11 +1654,11 @@
 
             // Create map
             const map = L.map(day.id, {
-                dragging: false,
-                zoomControl: false,
-                scrollWheelZoom: false,
-                doubleClickZoom: false,
-                touchZoom: false
+                dragging: true,
+                zoomControl: true,
+                scrollWheelZoom: true,
+                doubleClickZoom: true,
+                touchZoom: true
             }).setView(day.center, day.zoom);
 
             // Use CartoDB Voyager tiles for cleaner look (matching Australia)
