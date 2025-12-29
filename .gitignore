@@ -1,2 +1,36 @@
+# OS files
 .DS_Store
-/Code/.vs
+Thumbs.db
+desktop.ini
+
+# Development tools
+.vs/
+.vscode/
+*.suo
+*.user
+
+# Unrelated projects
+Code/
+
+# Large binary files - Photos should be hosted externally or use Git LFS
+*.webp
+*.jpg
+*.jpeg
+*.png
+*.gif
+photos/
+Photos/
+
+# Temporary files
+*-backup.html
+*.tmp
+*.bak
+
+# IDE and Claude Code settings
+.claude/settings.local.json
+
+# Build artifacts
+bin/
+obj/
+dist/
+build/
