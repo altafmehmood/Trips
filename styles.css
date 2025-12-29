@@ -200,6 +200,7 @@ h2 {
     -webkit-mask-composite: subtract;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: subtract;
+    pointer-events: none;
 }
 
 .trip-card:hover,
@@ -280,6 +281,7 @@ h2 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    pointer-events: none;
 }
 
 .status-badge.upcoming {
