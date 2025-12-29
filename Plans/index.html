@@ -48,7 +48,7 @@
             <h2 class="section-title">Past Trips</h2>
             <div class="trips-grid">
                 <!-- Australia -->
-                <a href="Australia/index.html" class="trip-card card-australia">
+                <div class="trip-card card-australia" style="position: relative;">
                     <div class="status-badge completed">Completed</div>
                     <div class="card-icon">🇦🇺</div>
                     <div class="card-date">Dec 6-16, 2025</div>
@@ -56,12 +56,6 @@
                     <p class="card-description">
                         An epic journey across Sydney, Melbourne, and the wilderness of Tasmania. Featuring iconic
                         landmarks, coastal drives, and ancient forests.
-                        <br><br>
-                        <a href="../Blogs/2025/Australia/index.html"
-                           style="color: var(--primary); font-weight: 600; text-decoration: none;"
-                           onclick="event.preventDefault(); event.stopPropagation(); window.location.href='../Blogs/2025/Australia/index.html';">
-                            📝 Read the blog post →
-                        </a>
                     </p>
                     <div class="card-footer">
                         <div class="trip-tags">
@@ -69,11 +63,18 @@
                             <span class="tag">Sydney</span>
                             <span class="tag">Tasmania</span>
                         </div>
-                        <svg class="arrow-icon" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
                     </div>
-                </a>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                        <a href="Australia/index.html"
+                           style="flex: 1; padding: 0.75rem 1rem; background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; text-align: center; transition: all 0.2s ease;">
+                            View Itinerary
+                        </a>
+                        <a href="../Blogs/2025/Australia/index.html"
+                           style="flex: 1; padding: 0.75rem 1rem; background: var(--secondary); color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; text-align: center; transition: all 0.2s ease;">
+                            📝 Read Blog
+                        </a>
+                    </div>
+                </div>
 
                 <!-- India -->
                 <a href="India/index.html" class="trip-card card-india">
