@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Coast Wilderness - Tasmania Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="tasmania.html" class="back-link">← Back to Tasmania Overview</a>
+
+        <h1><span class="gradient-text">West Coast Wilderness</span></h1>
+        <p class="subtitle">Mount Field, Lake St Clair & Franklin-Gordon Wild Rivers</p>
+
+        <div class="blog-content">
+            <!-- West Coast Journey -->
+            <div class="day-section">
+                <div class="day-header tasmania-header">
+                    <div class="day-title">Day 6: West Coast Journey</div>
+                    <div class="day-subtitle">December 11 • Mount Field, Lake St Clair & Franklin-Gordon Wilderness</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Our journey from Hobart to Strahan took us through some of Tasmania's most spectacular national parks and wilderness areas. This epic drive west across the island showcases the diversity of Tasmania's landscapes - from mountain rainforests and glacial lakes to ancient temperate rainforest and wild rivers.</p>
+                    </div>
+
+                    <div id="day6-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Mount Field National Park - Russell Falls & Tall Trees</h3>
+
+                    <div class="story-text">
+                        <p>Our first stop was <a href="https://parks.tas.gov.au/explore-our-parks/mount-field-national-park" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Mount Field National Park</a>, Tasmania's oldest national park established in 1916. The park protects an extraordinary range of habitats from eucalyptus forests at lower elevations to alpine moorland on the plateau, with some of the most accessible and beautiful waterfalls in Tasmania.</p>
+
+                        <p>The <a href="https://parks.tas.gov.au/explore-our-parks/mount-field-national-park/russell-falls" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Russell Falls Track</a> is an easy 20-minute walk through enchanting temperate rainforest to the park's most famous feature. Russell Falls cascades in three tiers over moss-covered rocks, surrounded by massive tree ferns that create a prehistoric atmosphere. The falls are particularly impressive after rain, though we were fortunate to see them flowing well even in summer.</p>
+
+                        <p>The rainforest here is magnificent - dominated by massive swamp gums (the world's tallest flowering plant), myrtle beech draped in moss and lichen, and towering tree ferns creating a lush canopy overhead. The well-maintained boardwalk allows you to experience this ancient forest without impacting the delicate ecosystem.</p>
+
+                        <p>We continued on the <a href="https://parks.tas.gov.au/explore-our-parks/mount-field-national-park/tall-trees-walk" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Tall Trees Walk</a>, a circuit track through some of the most impressive old-growth forest in Tasmania. These enormous swamp gums tower over 80 meters high, their straight trunks soaring up to a distant canopy. Walking among these giants - some hundreds of years old - gives you a profound sense of the timescales of nature.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/0bdf018c291dcf49.webp" alt="Mount Field rainforest">
+                            <div class="photo-caption">Ancient temperate rainforest at Mount Field National Park</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/49f0fd9917522cc9.webp" alt="Russell Falls">
+                            <div class="photo-caption">Russell Falls cascading through the lush rainforest</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Journey Through the Central Highlands</h3>
+
+                    <div class="story-text">
+                        <p>The drive from Mount Field to Lake St Clair takes you through the beautiful Central Highlands, a region of rolling hills, pastoral farmland, and remnant forests. The small town of Ouse marks the midpoint of this scenic journey, where the landscape transitions from the lowland forests to the glacial highlands beyond.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Ouse/7a03b3bbca143fa5.webp" alt="Central Highlands">
+                            <div class="photo-caption">Scenic views through Tasmania's Central Highlands</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Ouse/a4e5bfba8f904a5e.webp" alt="Highland landscape">
+                            <div class="photo-caption">The rural landscapes of the Central Highlands</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Ouse/338122626d3c1ae1.webp" alt="Ouse region">
+                            <div class="photo-caption">Pastoral scenes near Ouse</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Lake St Clair - Australia's Deepest Lake</h3>
+
+                    <div class="story-text">
+                        <p>Continuing west, we arrived at <a href="https://parks.tas.gov.au/explore-our-parks/lake-st-clair-national-park" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Lake St Clair</a>, the deepest freshwater lake in Australia at over 200 meters deep. The lake was carved by glaciers during the ice ages and sits at the southern end of the famous Overland Track, one of Australia's premier multi-day hiking routes.</p>
+
+                        <p>The <a href="https://parks.tas.gov.au/explore-our-parks/lake-st-clair-national-park/cynthia-bay-foreshore-walk" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Cynthia Bay Foreshore Walk</a> is a gentle track along the lake's edge, offering stunning views across the pristine glacial waters to the mountains beyond. The water is incredibly clear but freezing cold - fed by mountain streams and retaining its glacial chill year-round. On calm days, the lake's surface perfectly mirrors the surrounding peaks and ancient forests.</p>
+
+                        <p>The area has a profound sense of wilderness and solitude. The silence is broken only by the calls of black currawongs and the gentle lapping of water on the rocky shore. It's easy to understand why this area is part of the Tasmanian Wilderness World Heritage Area - it feels utterly untouched by human development.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/787ca7209d27e529.webp" alt="Lake St Clair">
+                            <div class="photo-caption">The pristine waters of Lake St Clair, Australia's deepest lake</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Franklin-Gordon Wild Rivers National Park</h3>
+
+                    <div class="story-text">
+                        <p><a href="https://parks.tas.gov.au/explore-our-parks/franklin-gordon-wild-rivers-national-park" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Franklin-Gordon Wild Rivers National Park</a> protects some of the last untamed rivers in the world and was the site of one of Australia's most significant environmental campaigns in the 1980s. The successful campaign to prevent the damming of the Franklin River helped establish Tasmania's wilderness areas as World Heritage listed.</p>
+
+                        <p>The <a href="https://parks.tas.gov.au/explore-our-parks/franklin-gordon-wild-rivers-national-park/nelson-falls-nature-trail" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Nelson Falls</a> walk is a short 20-minute loop through primeval rainforest to a beautiful waterfall. The forest here is even more ancient and untouched than Mount Field - massive myrtle beech trees hundreds of years old, their trunks cloaked in thick moss and epiphytic ferns. The falls themselves drop in a silvery curtain through the green gloom of the rainforest.</p>
+
+                        <p>At <a href="https://parks.tas.gov.au/explore-our-parks/franklin-gordon-wild-rivers-national-park/donaghys-hill-wilderness-lookout" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Donaghys Hill Lookout</a>, we stopped for sweeping views across the wild rivers region. From this elevated viewpoint, the landscape stretches to the horizon - endless forested mountains, deep valleys carved by ancient rivers, and not a single sign of human presence. It's a landscape that has remained essentially unchanged for millions of years.</p>
+
+                        <p>The <a href="https://parks.tas.gov.au/explore-our-parks/franklin-gordon-wild-rivers-national-park/franklin-river-nature-trail" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Franklin River Nature Trail</a> descends to the edge of the wild Franklin River itself. This relatively short walk (30 minutes return) takes you down through Huon pine forest to the river's edge. Standing beside these dark, tannin-stained waters, you're touching a piece of living history - the Franklin River has been flowing through these ancient forests since before humans walked the earth.</p>
+
+                        <p>The Huon pines along the trail are particularly special - this endemic Tasmanian tree is one of the longest-living organisms on earth, with some trees over 2,000 years old. They grow incredibly slowly in these wet, cool conditions, their timber so dense and resinous that fallen logs can remain intact for thousands of years.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/c13158cfde71e5ef.webp" alt="Lyell Highway">
+                            <div class="photo-caption">Driving through the wild landscapes along Lyell Highway</div>
+                        </div>
+                        <div class="photo-card">
+                            <div style="overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                                <img src="Photos/2025-12-11/Tasmania/536f9fcd3a4a43ca.webp" alt="Nelson Falls" style="transform: rotate(90deg); transform-origin: center center; max-width: none; width: auto; height: 400px;" data-rotation="90">
+                            </div>
+                            <div class="photo-caption">Nelson Falls cascading through ancient rainforest</div>
+                        </div>
+                        <div class="photo-card">
+                            <div style="overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                                <img src="Photos/2025-12-11/Tasmania/d98520b0296b2fef.webp" alt="Nelson Falls track" style="transform: rotate(90deg); transform-origin: center center; max-width: none; width: auto; height: 400px;" data-rotation="90">
+                            </div>
+                            <div class="photo-caption">Exploring the enchanting Nelson Falls track</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/e89425f35e420382.webp" alt="Donaghys Hill lookout">
+                            <div class="photo-caption">Sweeping wilderness views from Donaghys Hill Lookout</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/1ad5220cc422913d.webp" alt="Donaghys Hill vista">
+                            <div class="photo-caption">Endless forested mountains at Donaghys Hill</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Tasmania/f0c324fa7139aaee.webp" alt="Wilderness panorama">
+                            <div class="photo-caption">Taking in the vast wilderness panorama</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-11/Unknown_Location/d3bc6b9882a1b9ca.webp" alt="Franklin-Gordon wilderness">
+                            <div class="photo-caption">The ancient wilderness of Franklin-Gordon Wild Rivers National Park</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Evening in Queenstown and Strahan</h3>
+
+                    <div class="story-text">
+                        <p>After our wilderness explorations, we stopped in the historic mining town of Queenstown for dinner at <a href="https://www.facebook.com/mimsokitchen/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Mimso Kitchen</a>, a local favorite serving fresh Tasmanian cuisine with Asian influences. The seafood here is exceptional - caught fresh from the surrounding waters and prepared with creative flair.</p>
+
+                        <p>We then continued our drive to <a href="https://www.discovertasmania.com.au/about/towns-regions/west-coast/strahan" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Strahan</a>, nestled on the shores of massive Macquarie Harbour on Tasmania's wild west coast. This charming fishing village is the gateway to the Gordon River and Sarah Island's convict history.</p>
+
+                        <p>We checked into <a href="https://www.strahanvillage.com.au/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Strahan Village</a>, perfectly located on the waterfront. The village-style accommodation offers comfortable rooms with views over the harbor, and the property includes excellent dining options and a cozy atmosphere that perfectly complements Strahan's laid-back charm.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>West Coast Wilderness:</strong> The drive from Hobart to Strahan takes you through the heart of Tasmania's World Heritage wilderness. Allow a full day and stop at Mount Field, Lake St Clair, and Franklin-Gordon Wild Rivers National Park to truly appreciate the journey.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-navigation" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center;">
+            <a href="hobart.html" class="nav-link" style="color: var(--primary); text-decoration: none; font-weight: 600;">← Hobart & Mount Wellington</a>
+            <a href="tasmania.html" class="nav-link" style="color: var(--text-muted); text-decoration: none;">Tasmania Overview</a>
+            <a href="strahan.html" class="nav-link" style="color: var(--primary); text-decoration: none; font-weight: 600;">Gordon River & Strahan →</a>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            </div>
+
+            <div class="lightbox-info" id="lightbox-info">
+                <h3 id="lightbox-title">Photo Details</h3>
+                <div id="lightbox-metadata"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Photo data with metadata paths
+        const photoMetadata = {};
+        let allPhotos = [];
+        let currentPhotoIndex = 0;
+
+        // Build photo list from the page
+        function buildPhotoList() {
+            const photoCards = document.querySelectorAll('.photo-card');
+            allPhotos = Array.from(photoCards).map((card, index) => {
+                const img = card.querySelector('img');
+                const caption = card.querySelector('.photo-caption');
+                return {
+                    index: index,
+                    src: img.src,
+                    alt: img.alt,
+                    caption: caption ? caption.textContent : '',
+                    element: card
+                };
+            });
+        }
+
+        // Load metadata for a specific photo
+        async function loadPhotoMetadata(photoSrc) {
+            // Extract the path from the photo src
+            const pathMatch = photoSrc.match(/Photos\/([\d-]+)\/([^\/]+)\/([^\/]+\.webp)/);
+            if (!pathMatch) return null;
+
+            const [, date, location, filename] = pathMatch;
+            const metadataPath = `Photos/${date}/${location}/photo_metadata.json`;
+
+            // Check cache first
+            if (photoMetadata[metadataPath]) {
+                const metadata = photoMetadata[metadataPath];
+                return metadata.find(m => m.OptimizedImages?.WebPImage === filename);
+            }
+
+            // Load metadata
+            try {
+                const response = await fetch(metadataPath);
+                if (!response.ok) return null;
+                const data = await response.json();
+                photoMetadata[metadataPath] = data;
+                return data.find(m => m.OptimizedImages?.WebPImage === filename);
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+                return null;
+            }
+        }
+
+        // Format date and time
+        function formatDateTime(dateStr) {
+            if (!dateStr) return '';
+            const match = dateStr.match(/(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})/);
+            if (!match) return dateStr;
+            const [, year, month, day, hour, minute] = match;
+            const date = new Date(year, month - 1, day, hour, minute);
+            return date.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+        // Display photo in lightbox
+        async function showLightbox(index) {
+            currentPhotoIndex = index;
+            const photo = allPhotos[index];
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightbox-image');
+            const counter = document.getElementById('lightbox-counter');
+            const metadataDiv = document.getElementById('lightbox-metadata');
+            const title = document.getElementById('lightbox-title');
+
+            // Show lightbox
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Set image
+            image.src = photo.src;
+            image.alt = photo.alt;
+
+            // Check if image needs rotation
+            const rotation = photo.element.querySelector('img').getAttribute('data-rotation');
+            if (rotation) {
+                image.style.transform = `rotate(${rotation}deg)`;
+                image.style.maxHeight = '80vh';
+                image.style.maxWidth = 'none';
+                image.style.width = 'auto';
+            } else {
+                image.style.transform = '';
+                image.style.maxHeight = '';
+                image.style.maxWidth = '';
+                image.style.width = '';
+            }
+
+            // Set counter
+            counter.textContent = `${index + 1} / ${allPhotos.length}`;
+
+            // Update navigation buttons
+            updateNavButtons();
+
+            // Set title
+            title.textContent = photo.caption || 'Photo Details';
+
+            // Load and display metadata
+            metadataDiv.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Loading details...</p>';
+
+            const metadata = await loadPhotoMetadata(photo.src);
+
+            if (metadata) {
+                let html = '';
+
+                // Location Section
+                if (metadata.City || metadata.State || metadata.DisplayName) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Location</h4>';
+                    if (metadata.City) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">City</span>
+                            <span class="lightbox-info-value">${metadata.City}</span>
+                        </div>`;
+                    }
+                    if (metadata.State) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">State</span>
+                            <span class="lightbox-info-value">${metadata.State}</span>
+                        </div>`;
+                    }
+                    if (metadata.DisplayName) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Place</span>
+                            <span class="lightbox-info-value" style="max-width: 200px;">${metadata.DisplayName.split(',').slice(0, 2).join(',')}</span>
+                        </div>`;
+                    }
+                    if (metadata.Latitude && metadata.Longitude) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Coordinates</span>
+                            <span class="lightbox-info-value">${metadata.Latitude.toFixed(4)}, ${metadata.Longitude.toFixed(4)}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Date & Time Section
+                if (metadata.DateTaken) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Date & Time</h4>';
+                    html += `<div class="lightbox-info-item">
+                        <span class="lightbox-info-label">Taken</span>
+                        <span class="lightbox-info-value">${formatDateTime(metadata.DateTaken)}</span>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                // Camera Section
+                if (metadata.CameraMake || metadata.CameraModel) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Camera</h4>';
+                    if (metadata.CameraModel) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Model</span>
+                            <span class="lightbox-info-value">${metadata.CameraModel}</span>
+                        </div>`;
+                    }
+                    if (metadata.LensModel && !metadata.LensModel.includes(metadata.CameraModel)) {
+                        const lensShort = metadata.LensModel.split(' ').slice(-2).join(' ');
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Lens</span>
+                            <span class="lightbox-info-value">${lensShort}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Settings Section
+                if (metadata.ISO || metadata.ExposureTime || metadata.FNumber || metadata.FocalLength) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Settings</h4>';
+                    if (metadata.FocalLength) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Focal Length</span>
+                            <span class="lightbox-info-value">${metadata.FocalLength}</span>
+                        </div>`;
+                    }
+                    if (metadata.FNumber) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Aperture</span>
+                            <span class="lightbox-info-value">${metadata.FNumber}</span>
+                        </div>`;
+                    }
+                    if (metadata.ExposureTime) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Shutter</span>
+                            <span class="lightbox-info-value">${metadata.ExposureTime}</span>
+                        </div>`;
+                    }
+                    if (metadata.ISO) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">ISO</span>
+                            <span class="lightbox-info-value">${metadata.ISO}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                metadataDiv.innerHTML = html;
+            } else {
+                metadataDiv.innerHTML = `
+                    <div class="lightbox-info-section">
+                        <p style="color: var(--text-muted); font-style: italic;">
+                            ${photo.caption}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate between photos
+        function navigateLightbox(direction) {
+            const newIndex = currentPhotoIndex + direction;
+            if (newIndex >= 0 && newIndex < allPhotos.length) {
+                showLightbox(newIndex);
+            }
+        }
+
+        // Update navigation button states
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('lightbox-prev');
+            const nextBtn = document.getElementById('lightbox-next');
+
+            if (currentPhotoIndex === 0) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
+            }
+
+            if (currentPhotoIndex === allPhotos.length - 1) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Day 6 West Coast Journey map
+            const day6Map = L.map('day6-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-42.4, 146.2], 8);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(day6Map);
+
+            const day6Points = [
+                { lat: -42.8826, lng: 147.3257, name: 'Hobart', emoji: '🏨', desc: 'Starting point from Hotel Grand Chancellor' },
+                { lat: -42.6767, lng: 146.7144, name: 'Mount Field National Park', emoji: '💧', desc: 'Russell Falls Track & Tall Trees Walk' },
+                { lat: -42.1228, lng: 146.1633, name: 'Lake St Clair', emoji: '🏔️', desc: 'Cynthia Bay Foreshore Walk - Australia\'s deepest lake' },
+                { lat: -42.2167, lng: 145.7667, name: 'Nelson Falls', emoji: '🌲', desc: 'Rainforest waterfall in Franklin-Gordon NP' },
+                { lat: -42.1878, lng: 145.7644, name: 'Donaghys Hill Lookout', emoji: '👁️', desc: 'Panoramic views over wild rivers region' },
+                { lat: -42.0833, lng: 145.7167, name: 'Franklin River Nature Trail', emoji: '🌊', desc: 'Ancient Huon pine forest & wild river' },
+                { lat: -42.1537, lng: 145.3236, name: 'Strahan', emoji: '🍽️', desc: 'Dinner at Mimso Kitchen & Strahan Village' }
+            ];
+
+            day6Points.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(day6Map);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Build photo list and set up click handlers
+            buildPhotoList();
+
+            allPhotos.forEach((photo) => {
+                photo.element.style.cursor = 'pointer';
+                photo.element.addEventListener('click', () => showLightbox(photo.index));
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox.classList.contains('active')) return;
+
+                if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+
+            // Close lightbox when clicking outside the image
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

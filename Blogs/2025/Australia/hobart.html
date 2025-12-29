@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasmania - Australia Adventure</title>
+    <title>Hobart & Mount Wellington - Tasmania Adventure</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -12,125 +12,76 @@
 
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Trip Overview</a>
+        <a href="tasmania.html" class="back-link">← Back to Tasmania Overview</a>
 
-        <h1><span class="gradient-text">Tasmania</span></h1>
-        <p class="subtitle">Wilderness & Wildlife</p>
+        <h1><span class="gradient-text">Hobart & Mount Wellington</span></h1>
+        <p class="subtitle">Mount Wellington Summit, Opossum Bay & Waterfront Dining</p>
 
         <div class="blog-content">
+            <!-- Hobart and Vicinity -->
             <div class="day-section">
                 <div class="day-header tasmania-header">
-                    <div class="day-title">Tasmania Adventure</div>
-                    <div class="day-subtitle">December 10-14 • Five Days of Wilderness, Wildlife & Coastal Beauty</div>
+                    <div class="day-title">Day 5: Hobart and Vicinity</div>
+                    <div class="day-subtitle">December 10 • Mount Wellington, Opossum Bay & Waterfront Dining</div>
                 </div>
                 <div class="day-content">
                     <div class="story-text">
-                        <p>Tasmania is Australia's island wilderness - a land of ancient rainforests, glacial mountains, pristine beaches, and unique wildlife found nowhere else on Earth. Over five incredible days, we explored the island's most spectacular national parks and wilderness areas, from the rugged west coast to the stunning Freycinet Peninsula.</p>
-
-                        <p>Our Tasmania adventure showcased the remarkable diversity of this island state. We hiked through temperate rainforests among trees thousands of years old, stood on clifftops watching the Southern Ocean crash against pink granite shores, spotted wombats grazing in alpine meadows, and gazed upon beaches ranked among the world's most beautiful. Tasmania is a place where nature remains largely untouched, where wilderness areas stretch to the horizon, and where every turn reveals another breathtaking landscape.</p>
-
-                        <p>This journey took us across the island from east to west and back again, experiencing Tasmania's World Heritage wilderness areas, its iconic mountain landscapes, and its extraordinary coastal scenery. From Hobart to Cradle Mountain, from the Gordon River to Wineglass Bay, every day brought new wonders.</p>
+                        <p>Flying into Tasmania from Melbourne on Qantas flight QF1293 felt like entering another world. The quick 54-minute flight on the modern Airbus A220-200 offered stunning aerial views as we descended into Hobart. Security at Melbourne Airport was efficient as always, and we landed in Hobart ready for Tasmania's wilderness adventures.</p>
                     </div>
 
-                    <div id="tasmania-overview-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+                    <div id="hobart-day-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Mount Wellington - Summit Views Over Hobart</h3>
+
+                    <div class="story-text">
+                        <p>We immediately drove from Hobart Airport to <a href="https://www.wellingtonpark.org.au/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Mount Wellington (kunanyi)</a>, which towers 1,271 meters above Hobart. The winding 21-kilometer drive from sea level to the summit takes you through multiple climate zones - from temperate eucalyptus forests to sub-alpine vegetation and finally to the rocky, windswept summit.</p>
+
+                        <p>The panoramic views from the Pinnacle Observation Shelter were absolutely spectacular. Hobart sprawled below us, the Derwent River snaking through the landscape, and on the clearest days you can see all the way to Bruny Island. The mountain's dolerite columns, formed by ancient volcanic activity, create dramatic rock formations at the summit. The temperature dropped significantly as we ascended, a stark reminder of Tasmania's changeable weather - layers are essential!</p>
+
+                        <p>Mount Wellington holds deep cultural significance for the Muwinina people, who call it kunanyi. The mountain has been a landmark for navigation, a source of fresh water, and a spiritual site for thousands of years.</p>
+                    </div>
 
                     <div class="photo-gallery">
                         <div class="photo-card">
-                            <img src="Photos/2025-12-13/Tasmania/723b550ca414335c.webp" alt="Cradle Mountain">
-                            <div class="photo-caption">Cradle Mountain's iconic peaks reflected in Dove Lake - Tasmania's most photographed landscape</div>
+                            <img src="Photos/2025-12-10/Tasmania/e638969591b31b74.webp" alt="Mount Wellington">
+                            <div class="photo-caption">Panoramic views from Mount Wellington's summit overlooking Hobart</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Opossum Bay - Coastal Serenity</h3>
+
+                    <div class="story-text">
+                        <p>After Mount Wellington, we drove to <a href="https://www.discovertasmania.com.au/about/towns-regions/south/hobart/opossum-bay" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Opossum Bay</a>, a peaceful coastal suburb southeast of Hobart. This quiet seaside spot offered beautiful views across the D'Entrecasteaux Channel and a chance to relax after our mountain adventure.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-10/Opossum_Bay/6093d61adb9aae4e.webp" alt="Opossum Bay">
+                            <div class="photo-caption">Serene coastal views at Opossum Bay</div>
                         </div>
                         <div class="photo-card">
-                            <img src="Photos/2025-12-14/Tasmania/db095bd609ced36f.webp" alt="Wineglass Bay">
-                            <div class="photo-caption">Wineglass Bay - consistently rated one of the world's most beautiful beaches</div>
+                            <img src="Photos/2025-12-10/Opossum_Bay/8797d048487d6aba.webp" alt="Opossum Bay coastline">
+                            <div class="photo-caption">The peaceful coastline of Opossum Bay</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Evening in Hobart - Waterfront Dining</h3>
+
+                    <div class="story-text">
+                        <p>We checked into the <a href="https://www.grandchancellorhotels.com/hotel-grand-chancellor-hobart" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Hotel Grand Chancellor Hobart</a>, perfectly located on the waterfront with stunning views across the harbor. The hotel's central location made it easy to explore Hobart's attractions on foot.</p>
+
+                        <p>For dinner, we walked to <a href="https://www.mures.com.au/upper-deck" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Mures Upper Deck</a>, one of Hobart's premier seafood restaurants right on the waterfront. The restaurant specializes in fresh Tasmanian seafood, and we enjoyed a delicious meal while watching the sunset paint the sky in brilliant colors over the harbor.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-10/Hobart/1c43d254ecd901a8.webp" alt="Hobart evening">
+                            <div class="photo-caption">Evening atmosphere in Hobart</div>
                         </div>
                         <div class="photo-card">
-                            <img src="Photos/2025-12-12/Tasmania/6ee17df7fbb4ab5b.webp" alt="Gordon River">
-                            <div class="photo-caption">The pristine Gordon River flowing through ancient World Heritage wilderness</div>
+                            <img src="Photos/2025-12-10/Hobart/d3285bc4aa2fc76d.webp" alt="Hobart waterfront">
+                            <div class="photo-caption">Hobart's beautiful waterfront at sunset</div>
                         </div>
-                    </div>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Five Days of Adventure</h3>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;"><a href="hobart.html" style="color: var(--primary); text-decoration: none;">Day 5: Hobart & Mount Wellington</a></h3>
-
-                    <div class="story-text">
-                        <p>Our Tasmania adventure began in Hobart, exploring Mount Wellington's summit with panoramic views over the city and southern Tasmania, followed by coastal explorations at Opossum Bay and waterfront dining at Constitution Dock.</p>
-                    </div>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;"><a href="westcoast.html" style="color: var(--primary); text-decoration: none;">Day 6: West Coast Wilderness</a></h3>
-
-                    <div class="story-text">
-                        <p>The epic drive from Hobart to Strahan took us through Tasmania's World Heritage wilderness - from Russell Falls at Mount Field National Park to the pristine waters of Lake St Clair (Australia's deepest lake), and through the ancient rainforests of Franklin-Gordon Wild Rivers National Park.</p>
-                    </div>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;"><a href="strahan.html" style="color: var(--primary); text-decoration: none;">Day 7: Gordon River & Strahan</a></h3>
-
-                    <div class="story-text">
-                        <p>The Gordon River Cruise was a once-in-a-lifetime wilderness experience - cruising through Macquarie Harbour to Heritage Landing where we walked among 2,000-year-old Huon pines. The afternoon brought our journey to Cradle Mountain with evening wildlife spotting and close encounters with wombats.</p>
-                    </div>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;"><a href="cradle.html" style="color: var(--primary); text-decoration: none;">Day 8: Cradle Mountain</a></h3>
-
-                    <div class="story-text">
-                        <p>Tasmania's most iconic walk - the Dove Lake Circuit - showcased Cradle Mountain at its finest with perfect morning reflections. We hiked part of the legendary Overland Track to Cradle Lake Lookout, met endangered Tasmanian devils at Devils@Cradle, then faced the challenging 4-hour mountain drive to Freycinet Peninsula.</p>
-                    </div>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;"><a href="freycinet.html" style="color: var(--primary); text-decoration: none;">Day 9: Freycinet Peninsula & Return to Hobart</a></h3>
-
-                    <div class="story-text">
-                        <p>Our final day exploring Freycinet National Park was spectacular - hiking to Wineglass Bay Lookout (one of the world's top beaches), discovering the pink granite boulders at Sleepy Bay, walking the Cape Tourville lighthouse circuit, and strolling 3km of pristine white sand at Friendly Beaches before our return to Hobart and evening flight to Sydney.</p>
-                    </div>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Tasmania Highlights</h3>
-
-                    <div class="highlight-box">
-                        <strong>World Heritage Wilderness:</strong> Explored ancient rainforests in Mount Field, Franklin-Gordon and Cradle Mountain, walking among Huon pines thousands of years old.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Iconic Walks:</strong> Hiked the Dove Lake Circuit at Cradle Mountain and climbed to Wineglass Bay Lookout, two of Australia's most famous walks.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Unique Wildlife:</strong> Close encounters with wombats, wallabies, pademelons, and endangered Tasmanian devils at conservation sanctuaries.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Gordon River Cruise:</strong> Journeyed deep into wilderness on Macquarie Harbour, visiting Sarah Island convict settlement and ancient rainforest at Heritage Landing.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Pristine Beaches:</strong> Discovered Freycinet's spectacular coastline including Wineglass Bay, pink granite boulders at Sleepy Bay, and 3km of sand at Friendly Beaches.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Glacial Landscapes:</strong> Witnessed stunning glacial features at Lake St Clair (Australia's deepest lake) and the dramatic dolerite peaks of Cradle Mountain.
-                    </div>
-
-                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Planning Tips</h3>
-
-                    <div class="highlight-box">
-                        <strong>Allow enough time:</strong> Tasmania is larger than it appears on maps. Drives are scenic but winding - factor in extra time for mountain roads and photo stops.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Early starts pay off:</strong> Arrive at Cradle Mountain before 7:30am to drive your own vehicle directly to trailheads and avoid crowds. Early morning also offers the best light for photography and wildlife spotting.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Pack for all seasons:</strong> Tasmania's weather is famously changeable. Even in summer, bring warm layers, waterproof gear, and be prepared for sudden weather changes in the mountains.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Book accommodations early:</strong> Popular lodges like Cradle Mountain Lodge and Freycinet Lodge fill up months in advance, especially during peak season (December-February).
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Don't skip Sleepy Bay:</strong> Most visitors only see Wineglass Bay, but Sleepy Bay's pink granite boulders and turquoise water are equally spectacular with far fewer people.
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Wildlife at dawn and dusk:</strong> The best time to spot wombats, wallabies, and other marsupials is early morning or late afternoon around Ronny Creek at Cradle Mountain.
                     </div>
                 </div>
             </div>
@@ -138,8 +89,8 @@
 
         <!-- Bottom Navigation -->
         <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <a href="index.html" class="back-link">← Back to Trip Overview</a>
-            <a href="hobart.html" class="back-link" style="margin-left: auto;">Start Journey: Hobart & Mount Wellington →</a>
+            <a href="tasmania.html" class="back-link">← Back to Tasmania Overview</a>
+            <a href="westcoast.html" class="back-link" style="margin-left: auto;">Next: West Coast Wilderness →</a>
         </div>
     </div>
 
@@ -246,6 +197,20 @@
             // Set image
             image.src = photo.src;
             image.alt = photo.alt;
+
+            // Check if image needs rotation
+            const rotation = photo.element.querySelector('img').getAttribute('data-rotation');
+            if (rotation) {
+                image.style.transform = `rotate(${rotation}deg)`;
+                image.style.maxHeight = '80vh';
+                image.style.maxWidth = 'none';
+                image.style.width = 'auto';
+            } else {
+                image.style.transform = '';
+                image.style.maxHeight = '';
+                image.style.maxWidth = '';
+                image.style.width = '';
+            }
 
             // Set counter
             counter.textContent = `${index + 1} / ${allPhotos.length}`;
@@ -402,87 +367,76 @@
             }
         }
 
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Tasmania overview map
-            const map = L.map('tasmania-overview-map', {
+            // Initialize Hobart Day 5 activities map
+            const hobartDayMap = L.map('hobart-day-map', {
                 zoomControl: true,
                 scrollWheelZoom: false
-            }).setView([-42.0, 146.5], 7);
+            }).setView([-42.93, 147.34], 11);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
                 subdomains: 'abcd',
                 maxZoom: 20
-            }).addTo(map);
+            }).addTo(hobartDayMap);
 
-            // Define all major stops on the route
-            const routePoints = [
-                { lat: -42.8826, lng: 147.3257, name: 'Hobart', emoji: '🏨', desc: 'Day 5 - Capital city & Mount Wellington' },
-                { lat: -42.6767, lng: 146.7144, name: 'Mount Field NP', emoji: '💧', desc: 'Day 6 - Russell Falls & Tall Trees' },
-                { lat: -42.1228, lng: 146.1633, name: 'Lake St Clair', emoji: '🏔️', desc: 'Day 6 - Australia\'s deepest lake' },
-                { lat: -42.1537, lng: 145.3236, name: 'Strahan', emoji: '⛵', desc: 'Day 6-7 - Gateway to Gordon River' },
-                { lat: -41.6826, lng: 145.9159, name: 'Cradle Mountain', emoji: '🦘', desc: 'Day 7-8 - Dove Lake & alpine wilderness' },
-                { lat: -42.1347, lng: 148.3008, name: 'Freycinet NP', emoji: '🏖️', desc: 'Day 8-9 - Wineglass Bay & coastal paradise' }
+            const hobartDayPoints = [
+                { lat: -42.8821, lng: 147.3272, name: 'Hobart Airport', emoji: '✈️', desc: 'Arrival in Tasmania' },
+                { lat: -42.8956, lng: 147.2378, name: 'Mount Wellington', emoji: '⛰️', desc: 'Pinnacle Observation Shelter - 1,271m summit views' },
+                { lat: -42.9833, lng: 147.4833, name: 'Opossum Bay', emoji: '🌊', desc: 'Peaceful coastal serenity' },
+                { lat: -42.8826, lng: 147.3257, name: 'Hotel Grand Chancellor', emoji: '🏨', desc: 'Waterfront accommodation' },
+                { lat: -42.8826, lng: 147.3310, name: 'Mures Upper Deck', emoji: '🍽️', desc: 'Fresh Tasmanian seafood' }
             ];
 
-            // Add markers for each point
-            routePoints.forEach((point) => {
+            hobartDayPoints.forEach((point) => {
                 const marker = L.marker([point.lat, point.lng], {
                     icon: L.divIcon({
                         className: 'custom-marker',
-                        html: `<div style="font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
-                        iconSize: [35, 35],
-                        iconAnchor: [17, 17]
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
                     })
-                }).addTo(map);
+                }).addTo(hobartDayMap);
 
                 marker.bindPopup(`
-                    <div style="font-family: 'Poppins', sans-serif; min-width: 180px;">
-                        <strong style="color: #10b981; font-size: 1.2em;">${point.emoji} ${point.name}</strong>
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
                         <br>
-                        <span style="color: #64748b; font-size: 0.95em;">${point.desc}</span>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
                     </div>
                 `);
             });
 
-            // Draw route line connecting all points
-            const routeLine = routePoints.map(p => [p.lat, p.lng]);
-            // Add return to Hobart
-            routeLine.push([routePoints[0].lat, routePoints[0].lng]);
-
-            L.polyline(routeLine, {
-                color: '#6366f1',
-                weight: 3,
-                opacity: 0.7,
-                dashArray: '10, 10'
-            }).addTo(map);
-
-            // Build photo list and set up click handlers
             buildPhotoList();
 
-            allPhotos.forEach((photo) => {
-                photo.element.style.cursor = 'pointer';
-                photo.element.addEventListener('click', () => showLightbox(photo.index));
+            // Add click handlers to all photo cards
+            allPhotos.forEach((photo, index) => {
+                photo.element.addEventListener('click', () => showLightbox(index));
             });
 
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                const lightbox = document.getElementById('lightbox');
-                if (!lightbox.classList.contains('active')) return;
-
-                if (e.key === 'ArrowLeft') {
-                    navigateLightbox(-1);
-                } else if (e.key === 'ArrowRight') {
-                    navigateLightbox(1);
-                } else if (e.key === 'Escape') {
+            // Close lightbox when clicking outside
+            document.getElementById('lightbox').addEventListener('click', function(e) {
+                if (e.target === this) {
                     closeLightbox();
                 }
             });
 
-            // Close lightbox when clicking outside the image
-            document.getElementById('lightbox').addEventListener('click', (e) => {
-                if (e.target.id === 'lightbox') {
-                    closeLightbox();
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox.classList.contains('active')) return;
+
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        if (currentPhotoIndex > 0) navigateLightbox(-1);
+                        break;
+                    case 'ArrowRight':
+                        if (currentPhotoIndex < allPhotos.length - 1) navigateLightbox(1);
+                        break;
                 }
             });
         });

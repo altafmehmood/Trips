@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freycinet Peninsula - Tasmania Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="tasmania.html" class="back-link">← Back to Tasmania Overview</a>
+
+        <h1><span class="gradient-text">Freycinet Peninsula</span></h1>
+        <p class="subtitle">Wineglass Bay, Sleepy Bay, Cape Tourville, Friendly Beaches & Departure</p>
+
+        <div class="blog-content">
+            <!-- Freycinet National Park -->
+            <div class="day-section">
+                <div class="day-header tasmania-header">
+                    <div class="day-title">Day 9: Freycinet National Park & Return to Hobart</div>
+                    <div class="day-subtitle">December 14 • Wineglass Bay, Sleepy Bay, Cape Tourville, Friendly Beaches & Departure</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Our final full day in Tasmania was dedicated to exploring <a href="https://parks.tas.gov.au/explore-our-parks/freycinet-national-park" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Freycinet National Park</a>, one of Tasmania's most iconic coastal destinations. We woke early at Freycinet Lodge to maximize our time exploring the park's stunning coastline and beaches before our evening flight back to Sydney.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Morning at Freycinet Lodge</h3>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/5ea71989d9e4f285.webp" alt="Morning at Freycinet">
+                            <div class="photo-caption">Early morning at Freycinet Lodge before exploring the national park</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/1f439baefa1884c3.webp" alt="Freycinet Lodge morning">
+                            <div class="photo-caption">Morning view at Freycinet Lodge</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/9ba0cc4f84ea83af.webp" alt="Freycinet Lodge surrounds">
+                            <div class="photo-caption">The peaceful surroundings of Freycinet Lodge</div>
+                        </div>
+                    </div>
+
+                    <div id="freycinet-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Wineglass Bay Lookout</h3>
+
+                    <div class="story-text">
+                        <p>The hike to <a href="https://parks.tas.gov.au/explore-our-parks/freycinet-national-park/wineglass-bay-lookout" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Wineglass Bay Lookout</a> is deservedly famous, ranking among Australia's most rewarding short walks. The well-maintained track climbs steadily for about 45 minutes through coastal forest, with stone steps helping navigate the steeper sections. We encountered pademelons (small wallabies) along the forested trail, and the distinctive calls of yellow wattlebirds echoed through the trees.</p>
+
+                        <p>After the steady climb of around 300 meters elevation gain, the viewpoint revealed one of the world's most beautiful beaches - a perfect crescent of white sand embraced by turquoise waters and framed by the pink granite Hazards mountains. The water's brilliant aquamarine color seemed almost unreal in its intensity. Wineglass Bay consistently appears in lists of the world's top beaches, and standing at the lookout, it's easy to understand why - the combination of the perfect curve, pristine white sand, and impossibly blue water, all framed by pink granite peaks, creates a scene of such natural beauty that it feels almost too perfect to be real.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/db095bd609ced36f.webp" alt="Wineglass Bay">
+                            <div class="photo-caption">The iconic Wineglass Bay - consistently rated one of the world's best beaches with its perfect crescent shape</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Sleepy Bay Beach</h3>
+
+                    <div class="story-text">
+                        <p>After Wineglass Bay, we drove a short distance to <a href="https://parks.tas.gov.au/explore-our-parks/freycinet-national-park/sleepy-bay" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Sleepy Bay</a>, a hidden gem that many visitors overlook in favor of the more famous Wineglass Bay. The short 15-minute walk through coastal heathland leads to a secluded beach nestled between massive pink granite boulders.</p>
+
+                        <p>Sleepy Bay is utterly spectacular - enormous orange-pink granite boulders, some the size of houses, frame a small but perfect beach. The rocks glow in the morning light, their distinctive color created by iron-rich feldspar minerals. The contrast between the warm-toned granite, white sand, and brilliant turquoise water creates one of Tasmania's most photogenic coastal scenes. Unlike the sweeping curve of Wineglass Bay, Sleepy Bay feels intimate and sheltered, almost like a secret cove.</p>
+
+                        <p>We spent time exploring the rocky shoreline, photographing the play of light on the granite, and simply enjoying the peaceful beauty of this special place. The bay is perfectly sheltered from the wind, living up to its peaceful name.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/aecc76c03765a79f.webp" alt="Sleepy Bay granite boulders">
+                            <div class="photo-caption">Massive pink granite boulders frame Sleepy Bay's turquoise waters</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/a975b958f85dd9a1.webp" alt="Sleepy Bay rocks">
+                            <div class="photo-caption">The pink granite formations at Sleepy Bay glowing in the morning light</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/efe5578df49c725b.webp" alt="Sleepy Bay coastline">
+                            <div class="photo-caption">The stunning contrast of orange granite against blue water at Sleepy Bay</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/8b42823788ed2366.webp" alt="Sleepy Bay track">
+                            <div class="photo-caption">Walking the coastal track to Sleepy Bay</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/3fe950e3ed7a183e.webp" alt="Sleepy Bay panorama">
+                            <div class="photo-caption">Ancient granite formations at Sleepy Bay</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/4ff6280158f1d390.webp" alt="Sleepy Bay views">
+                            <div class="photo-caption">Spectacular coastal views at Sleepy Bay</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/fdb5fe66308ae55d.webp" alt="Sleepy Bay beach">
+                            <div class="photo-caption">The secluded beach at Sleepy Bay nestled between granite boulders</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/c16e3628204fd4bb.webp" alt="Sleepy Bay beauty">
+                            <div class="photo-caption">One of Tasmania's most photogenic coastal scenes</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Cape Tourville Lighthouse</h3>
+
+                    <div class="story-text">
+                        <p>Our final stop in Freycinet was <a href="https://parks.tas.gov.au/explore-our-parks/freycinet-national-park/cape-tourville" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Cape Tourville</a>, home to an automated lighthouse perched on dramatic coastal cliffs. The 20-minute wheelchair-accessible circuit walk around the headland offers spectacular 360-degree views of the Freycinet Peninsula, the Hazards mountains, and the Tasman Sea stretching to the horizon.</p>
+
+                        <p>The coastal scenery from Cape Tourville is breathtaking - waves crash against pink granite cliffs far below, while the turquoise and deep blue waters of the Tasman Sea create a stunning color palette. On a clear day like ours, you can see for miles along the coastline in both directions. The lighthouse itself, built in 1971, is a striking white tower that has guided ships safely along this spectacular but treacherous coastline for over 50 years.</p>
+
+                        <p>Standing on the exposed headland with the wind whipping around us, surrounded by that incredible blue ocean and pink granite, we felt privileged to experience such natural beauty. From here, we could see the sweep of Friendly Beaches to the north - our next and final stop in Freycinet National Park.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/143d5b24c5aed969.webp" alt="Cape Tourville views">
+                            <div class="photo-caption">Spectacular coastal views from Cape Tourville lookout</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/7afbb2a8f4b6bbf8.webp" alt="Cape Tourville coastline">
+                            <div class="photo-caption">The dramatic coastline and turquoise waters from Cape Tourville</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/5ffd3722c5ba8140.webp" alt="Cape Tourville cliffs">
+                            <div class="photo-caption">Pink granite cliffs plunging into the Tasman Sea</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Coles_Bay/744b8e3f0f3b26e3.webp" alt="Cape Tourville lighthouse">
+                            <div class="photo-caption">The Cape Tourville lighthouse and coastal scenery</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Friendly Beaches</h3>
+
+                    <div class="story-text">
+                        <p>After Cape Tourville, we drove north to <a href="https://parks.tas.gov.au/explore-our-parks/freycinet-national-park/friendly-beaches" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Friendly Beaches</a>, a stunning stretch of pristine white sand beach on the northern edge of Freycinet National Park. True to its name, this expansive beach felt welcoming and peaceful, with gentle waves rolling onto the shore.</p>
+
+                        <p>Friendly Beaches is a 3-kilometer sweep of white sand backed by coastal dunes and native vegetation. Unlike the dramatic granite scenery of Wineglass Bay and Sleepy Bay, Friendly Beaches offers a different kind of beauty - wide open spaces, endless sand, and the feeling of having a pristine beach almost entirely to yourself. The beach faces northeast, making it a perfect spot for sunrise, and the shallow gradient of the sand creates beautiful patterns in the water.</p>
+
+                        <p>We walked along the beach, enjoying the solitude and the sound of waves. The beach is a popular spot for surfing when conditions are right, and the northern end offers access to scenic coastal walks. It was the perfect final beach stop before our drive back to Hobart.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Tasmania/3c60c34e8145a4f0.webp" alt="Friendly Beaches">
+                            <div class="photo-caption">Walking along the pristine sands of Friendly Beaches</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Return to Hobart</h3>
+
+                    <div class="story-text">
+                        <p>After our morning exploring Freycinet's coastal highlights, we began the 2.5-hour drive back to Hobart for our evening flight to Sydney. The drive retraced our route south through Tasmania's scenic east coast, passing through small coastal towns and offering final glimpses of the island's beautiful landscapes.</p>
+
+                        <p>Our 9 days in Tasmania had taken us from the sophisticated capital of Hobart to wilderness areas like Mount Field and Franklin-Gordon, from the wild west coast at Strahan to the alpine beauty of Cradle Mountain, and finally to the stunning coastal paradise of Freycinet. Tasmania exceeded all our expectations with its pristine wilderness, unique wildlife, and breathtaking natural beauty at every turn.</p>
+                    </div>
+
+                    <div id="return-hobart-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <div class="highlight-box">
+                        <strong>Freycinet Highlights:</strong> Don't miss Sleepy Bay - it's less crowded than Wineglass Bay but equally spectacular with massive pink granite boulders. The Cape Tourville circuit walk offers 360-degree coastal views and is wheelchair accessible. Friendly Beaches provides a completely different experience - 3km of pristine white sand perfect for a peaceful beach walk before leaving the park.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-navigation" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center;">
+            <a href="cradle.html" class="nav-link" style="color: var(--primary); text-decoration: none; font-weight: 600;">← Cradle Mountain</a>
+            <a href="tasmania.html" class="nav-link" style="color: var(--text-muted); text-decoration: none;">Tasmania Overview</a>
+            <div style="width: 150px;"></div> <!-- Spacer for alignment -->
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            </div>
+
+            <div class="lightbox-info" id="lightbox-info">
+                <h3 id="lightbox-title">Photo Details</h3>
+                <div id="lightbox-metadata"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Photo data with metadata paths
+        const photoMetadata = {};
+        let allPhotos = [];
+        let currentPhotoIndex = 0;
+
+        // Build photo list from the page
+        function buildPhotoList() {
+            const photoCards = document.querySelectorAll('.photo-card');
+            allPhotos = Array.from(photoCards).map((card, index) => {
+                const img = card.querySelector('img');
+                const caption = card.querySelector('.photo-caption');
+                return {
+                    index: index,
+                    src: img.src,
+                    alt: img.alt,
+                    caption: caption ? caption.textContent : '',
+                    element: card
+                };
+            });
+        }
+
+        // Load metadata for a specific photo
+        async function loadPhotoMetadata(photoSrc) {
+            // Extract the path from the photo src
+            const pathMatch = photoSrc.match(/Photos\/([\d-]+)\/([^\/]+)\/([^\/]+\.webp)/);
+            if (!pathMatch) return null;
+
+            const [, date, location, filename] = pathMatch;
+            const metadataPath = `Photos/${date}/${location}/photo_metadata.json`;
+
+            // Check cache first
+            if (photoMetadata[metadataPath]) {
+                const metadata = photoMetadata[metadataPath];
+                return metadata.find(m => m.OptimizedImages?.WebPImage === filename);
+            }
+
+            // Load metadata
+            try {
+                const response = await fetch(metadataPath);
+                if (!response.ok) return null;
+                const data = await response.json();
+                photoMetadata[metadataPath] = data;
+                return data.find(m => m.OptimizedImages?.WebPImage === filename);
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+                return null;
+            }
+        }
+
+        // Format date and time
+        function formatDateTime(dateStr) {
+            if (!dateStr) return '';
+            const match = dateStr.match(/(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})/);
+            if (!match) return dateStr;
+            const [, year, month, day, hour, minute] = match;
+            const date = new Date(year, month - 1, day, hour, minute);
+            return date.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+        // Display photo in lightbox
+        async function showLightbox(index) {
+            currentPhotoIndex = index;
+            const photo = allPhotos[index];
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightbox-image');
+            const counter = document.getElementById('lightbox-counter');
+            const metadataDiv = document.getElementById('lightbox-metadata');
+            const title = document.getElementById('lightbox-title');
+
+            // Show lightbox
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Set image
+            image.src = photo.src;
+            image.alt = photo.alt;
+
+            // Check if image needs rotation
+            const rotation = photo.element.querySelector('img').getAttribute('data-rotation');
+            if (rotation) {
+                image.style.transform = `rotate(${rotation}deg)`;
+                image.style.maxHeight = '80vh';
+                image.style.maxWidth = 'none';
+                image.style.width = 'auto';
+            } else {
+                image.style.transform = '';
+                image.style.maxHeight = '';
+                image.style.maxWidth = '';
+                image.style.width = '';
+            }
+
+            // Set counter
+            counter.textContent = `${index + 1} / ${allPhotos.length}`;
+
+            // Update navigation buttons
+            updateNavButtons();
+
+            // Set title
+            title.textContent = photo.caption || 'Photo Details';
+
+            // Load and display metadata
+            metadataDiv.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Loading details...</p>';
+
+            const metadata = await loadPhotoMetadata(photo.src);
+
+            if (metadata) {
+                let html = '';
+
+                // Location Section
+                if (metadata.City || metadata.State || metadata.DisplayName) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Location</h4>';
+                    if (metadata.City) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">City</span>
+                            <span class="lightbox-info-value">${metadata.City}</span>
+                        </div>`;
+                    }
+                    if (metadata.State) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">State</span>
+                            <span class="lightbox-info-value">${metadata.State}</span>
+                        </div>`;
+                    }
+                    if (metadata.DisplayName) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Place</span>
+                            <span class="lightbox-info-value" style="max-width: 200px;">${metadata.DisplayName.split(',').slice(0, 2).join(',')}</span>
+                        </div>`;
+                    }
+                    if (metadata.Latitude && metadata.Longitude) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Coordinates</span>
+                            <span class="lightbox-info-value">${metadata.Latitude.toFixed(4)}, ${metadata.Longitude.toFixed(4)}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Date & Time Section
+                if (metadata.DateTaken) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Date & Time</h4>';
+                    html += `<div class="lightbox-info-item">
+                        <span class="lightbox-info-label">Taken</span>
+                        <span class="lightbox-info-value">${formatDateTime(metadata.DateTaken)}</span>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                // Camera Section
+                if (metadata.CameraMake || metadata.CameraModel) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Camera</h4>';
+                    if (metadata.CameraModel) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Model</span>
+                            <span class="lightbox-info-value">${metadata.CameraModel}</span>
+                        </div>`;
+                    }
+                    if (metadata.LensModel && !metadata.LensModel.includes(metadata.CameraModel)) {
+                        const lensShort = metadata.LensModel.split(' ').slice(-2).join(' ');
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Lens</span>
+                            <span class="lightbox-info-value">${lensShort}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Settings Section
+                if (metadata.ISO || metadata.ExposureTime || metadata.FNumber || metadata.FocalLength) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Settings</h4>';
+                    if (metadata.FocalLength) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Focal Length</span>
+                            <span class="lightbox-info-value">${metadata.FocalLength}</span>
+                        </div>`;
+                    }
+                    if (metadata.FNumber) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Aperture</span>
+                            <span class="lightbox-info-value">${metadata.FNumber}</span>
+                        </div>`;
+                    }
+                    if (metadata.ExposureTime) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Shutter</span>
+                            <span class="lightbox-info-value">${metadata.ExposureTime}</span>
+                        </div>`;
+                    }
+                    if (metadata.ISO) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">ISO</span>
+                            <span class="lightbox-info-value">${metadata.ISO}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                metadataDiv.innerHTML = html;
+            } else {
+                metadataDiv.innerHTML = `
+                    <div class="lightbox-info-section">
+                        <p style="color: var(--text-muted); font-style: italic;">
+                            ${photo.caption}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate between photos
+        function navigateLightbox(direction) {
+            const newIndex = currentPhotoIndex + direction;
+            if (newIndex >= 0 && newIndex < allPhotos.length) {
+                showLightbox(newIndex);
+            }
+        }
+
+        // Update navigation button states
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('lightbox-prev');
+            const nextBtn = document.getElementById('lightbox-next');
+
+            if (currentPhotoIndex === 0) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
+            }
+
+            if (currentPhotoIndex === allPhotos.length - 1) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Freycinet Peninsula map
+            const freycinetMap = L.map('freycinet-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-42.13, 148.30], 11);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(freycinetMap);
+
+            const freycinetPoints = [
+                { lat: -42.1347, lng: 148.3008, name: 'Freycinet Lodge', emoji: '🏨', desc: 'Base camp for exploring the park' },
+                { lat: -42.1742, lng: 148.2958, name: 'Wineglass Bay Lookout', emoji: '👀', desc: 'One of world\'s top 10 beaches' },
+                { lat: -42.1360, lng: 148.3190, name: 'Sleepy Bay', emoji: '🪨', desc: 'Pink granite boulders & turquoise water' },
+                { lat: -42.1230, lng: 148.3420, name: 'Cape Tourville', emoji: '🗼', desc: '360° coastal views & lighthouse' },
+                { lat: -42.0833, lng: 148.2833, name: 'Friendly Beaches', emoji: '🏖️', desc: '3km of pristine white sand beach' }
+            ];
+
+            freycinetPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(freycinetMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Initialize Return to Hobart map
+            const returnHobartMap = L.map('return-hobart-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-42.5, 147.9], 8);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(returnHobartMap);
+
+            const returnHobartPoints = [
+                { lat: -42.0833, lng: 148.2833, name: 'Friendly Beaches', emoji: '🏖️', desc: 'Final stop at Freycinet' },
+                { lat: -42.88, lng: 147.33, name: 'Hobart International Airport', emoji: '✈️', desc: 'Evening flight to Sydney' }
+            ];
+
+            returnHobartPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(returnHobartMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Build photo list and set up click handlers
+            buildPhotoList();
+
+            allPhotos.forEach((photo) => {
+                photo.element.style.cursor = 'pointer';
+                photo.element.addEventListener('click', () => showLightbox(photo.index));
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox.classList.contains('active')) return;
+
+                if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+
+            // Close lightbox when clicking outside the image
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

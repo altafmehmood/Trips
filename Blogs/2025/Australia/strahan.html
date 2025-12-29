@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gordon River & Strahan - Tasmania Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="tasmania.html" class="back-link">← Back to Tasmania Overview</a>
+
+        <h1><span class="gradient-text">Gordon River & Strahan</span></h1>
+        <p class="subtitle">Wilderness Cruise & Alpine Wildlife</p>
+
+        <div class="blog-content">
+            <!-- Gordon River & Journey to Cradle Mountain -->
+            <div class="day-section">
+                <div class="day-header tasmania-header">
+                    <div class="day-title">Day 7: Gordon River & Journey to Cradle Mountain</div>
+                    <div class="day-subtitle">December 12 • Wilderness Cruise & Alpine Wildlife</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Our day began in Strahan with a once-in-a-lifetime experience cruising through one of the world's last great wilderness areas, followed by our journey to Tasmania's most iconic mountain landscape.</p>
+                    </div>
+
+                    <div id="day7-cruise-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Gordon River Cruise - Into the Wilderness</h3>
+
+                    <div class="story-text">
+                        <p>The <a href="https://www.gordonrivercruises.com.au/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Gordon River Cruise</a> is one of Tasmania's most spectacular experiences. Departing from Strahan's waterfront, the cruise takes you across Macquarie Harbour - one of Australia's largest natural harbors, six times the size of Sydney Harbour - and deep into the heart of the Tasmanian Wilderness World Heritage Area.</p>
+
+                        <p>As we crossed Macquarie Harbour toward the open ocean, we passed <strong>Bonnet Island</strong> with its distinctive lighthouse. Built in 1889, the Bonnet Island Lighthouse marks the treacherous entrance to Macquarie Harbour known as Hells Gates - a narrow 120-meter wide channel where the Southern Ocean surges through with tremendous force. The lighthouse has guided countless ships safely through these perilous waters, warning mariners of the dangerous rocks and fierce currents that have claimed many vessels over the centuries. Standing sentinel on this remote island, the lighthouse represents both the danger and the vital navigation aids that made safe passage possible in this wild corner of Tasmania.</p>
+
+                        <p>The journey up the Gordon River is otherworldly. The river flows dark and still, stained a tea-brown color by tannins from the surrounding buttongrass plains and ancient forests. This pristine water is so pure and acidic that it preserves fallen Huon pine logs for thousands of years on the river bottom. The forest-clad hills rise steeply from the water's edge, creating a sense of complete wilderness isolation.</p>
+                    </div>
+
+                    <h4 style="font-family: 'Poppins', sans-serif; color: var(--secondary); margin: 1.5rem 0 1rem 0; font-size: 1.2rem;">Sarah Island - Harsh Convict History</h4>
+
+                    <div class="story-text">
+                        <p>The cruise includes a stop at <strong>Sarah Island</strong>, a former penal settlement that was once considered the harshest convict station in the British Empire. Between 1822 and 1833, convicts endured brutal conditions here, logging Huon pine in freezing conditions while chained together. Many attempted escape, though few succeeded in crossing the treacherous Southern Ocean beyond.</p>
+
+                        <p>Walking through the sparse ruins, you can feel the weight of history. The island's isolation in the middle of massive Macquarie Harbour made it the perfect prison - escape was nearly impossible. The convicts built ships here from the prized Huon pine, ironically crafting the very vessels that would eventually transport them to other destinations. The island's history is haunting, yet the natural beauty surrounding it is undeniable.</p>
+                    </div>
+
+                    <h4 style="font-family: 'Poppins', sans-serif; color: var(--secondary); margin: 1.5rem 0 1rem 0; font-size: 1.2rem;">Heritage Landing - Ancient Rainforest</h4>
+
+                    <div class="story-text">
+                        <p>The highlight of the cruise is <strong>Heritage Landing</strong>, where we disembarked to walk through one of the last remaining stands of ancient Huon pines and massive myrtle beech trees. This 2,000-year-old rainforest is utterly primeval - trees that were already ancient when the Romans walked the Earth still stand here, their trunks draped in moss and lichen.</p>
+
+                        <p>The boardwalk winds through the forest, protecting the fragile ecosystem while allowing close encounters with these magnificent trees. Huon pines are endemic to Tasmania and among the oldest living organisms on Earth - they grow incredibly slowly, with some trees over 3,000 years old. The timber is so dense and resinous that fallen logs can remain intact on the riverbed for millennia.</p>
+
+                        <p>The silence of this rainforest, broken only by bird calls and the gentle sound of water, is almost spiritual. Standing among these ancient giants gives you a profound sense of the timescales of nature and the importance of preserving these last wilderness areas.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Strahan/825072ef89e09dd3.webp" alt="Strahan morning">
+                            <div class="photo-caption">Morning departure from Strahan for the Gordon River Cruise</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Strahan/a7908989c5f9c403.webp" alt="Strahan waterfront">
+                            <div class="photo-caption">Strahan's beautiful waterfront at the start of our cruise</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Strahan/b539854d067c67fc.webp" alt="Bonnet Island Lighthouse">
+                            <div class="photo-caption">Bonnet Island Lighthouse - guiding ships through treacherous Macquarie Harbour entrance</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Strahan/a9bf337afdaa153a.webp" alt="Entrance Island Lighthouse">
+                            <div class="photo-caption">Entrance Island Lighthouse at Hells Gates - the narrow entrance to the harbour</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/6ee17df7fbb4ab5b.webp" alt="Gordon River">
+                            <div class="photo-caption">The pristine waters of the Gordon River flowing through wilderness</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/80fb140e26763ca3.webp" alt="Gordon River wilderness">
+                            <div class="photo-caption">Dense rainforest rising from the river's edge</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/d18e0ae2873cc078.webp" alt="Heritage Landing">
+                            <div class="photo-caption">Heritage Landing - walking amongst ancient Huon pines and rainforest giants</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/bb5e7324b816d4a4.webp" alt="Gordon River landscape">
+                            <div class="photo-caption">The untouched wilderness of the Gordon River region</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/2f1d1f577f552192.webp" alt="West Coast wilderness">
+                            <div class="photo-caption">Tasmania's wild west coast landscape</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/01b1eeb519af531d.webp" alt="Cruise views">
+                            <div class="photo-caption">Spectacular views from the Gordon River Cruise</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Strahan/1e26751aa19bc916.webp" alt="Return to Strahan">
+                            <div class="photo-caption">Returning to Strahan after an unforgettable wilderness cruise</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Drive to Cradle Mountain</h3>
+
+                    <div class="story-text">
+                        <p>After the cruise, we drove from Strahan to <a href="https://parks.tas.gov.au/explore-our-parks/cradle-mountain" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Cradle Mountain-Lake St Clair National Park</a>. The drive takes you through changing landscapes - from the barren, moonscape-like hills around Queenstown (stripped bare by 19th-century mining operations) to the pristine wilderness of the national park.</p>
+                    </div>
+
+                    <div id="day7-drive-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Evening Wildlife Spotting - Wombats & Marsupials</h3>
+
+                    <div class="story-text">
+                        <p>Arriving at Cradle Mountain in the late afternoon, we first checked into <a href="https://www.cradlemountainlodge.com.au/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Cradle Mountain Lodge</a>, a beautiful wilderness retreat nestled at the edge of the national park. The lodge offers comfortable accommodation with stunning mountain views, perfectly positioned for exploring the park.</p>
+
+                        <p>After settling in, we drove to Ronny Creek for an evening wildlife walk. One of the advantages of visiting after 6:30pm is that you can drive your own vehicle all the way into the park without needing to take the shuttle bus - the park opens up private vehicle access outside peak hours. This made it easy to reach the best wildlife viewing spots in the evening light.</p>
+
+                        <p>The late afternoon and early evening hours are prime time for spotting Tasmania's unique marsupials, and we weren't disappointed. Wombats were everywhere - these stocky, powerful diggers were grazing peacefully in the button grass plains, completely unfazed by our presence. We watched them waddle about on their surprisingly short legs, munching grass and occasionally marking their territory. Wombats can weigh up to 35 kilograms and are incredibly strong, using their powerful claws to dig extensive burrow systems.</p>
+
+                        <p>We also spotted several Bennett's wallabies bounding across the moorland with their distinctive hopping gait, and heard the calls of countless bird species including the beautiful pink robin and the endemic Tasmanian native-hen. The alpine landscape at dusk, with wildlife moving freely through the pristine wilderness, felt utterly magical.</p>
+
+                        <p>As the sun began to set, Cradle Mountain's iconic jagged peak glowed in the golden light, promising spectacular hiking for the following day.</p>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/8a5918d28f338b3d.webp" alt="Wombat at Ronny Creek">
+                            <div class="photo-caption">Close encounter with a wombat grazing peacefully at Ronny Creek</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/584d1760d85c33eb.webp" alt="Evening wildlife">
+                            <div class="photo-caption">Evening wildlife spotting along the Overland Track</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/fa6ad6389337dcde.webp" alt="Cradle Valley evening">
+                            <div class="photo-caption">Golden evening light over Cradle Valley</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-12/Tasmania/8e74fc5c43fe1862.webp" alt="Marsupial sighting">
+                            <div class="photo-caption">Marsupial spotted while driving back from Ronny Creek at dusk</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Wildlife Watching Tip:</strong> Early morning and late afternoon are the best times to spot wombats and other marsupials at Cradle Mountain. Head to Ronny Creek or around the Discovery Centre just before sunset for your best chance of close encounters.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-navigation" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center;">
+            <a href="westcoast.html" class="nav-link" style="color: var(--primary); text-decoration: none; font-weight: 600;">← West Coast Wilderness</a>
+            <a href="tasmania.html" class="nav-link" style="color: var(--text-muted); text-decoration: none;">Tasmania Overview</a>
+            <a href="cradle.html" class="nav-link" style="color: var(--primary); text-decoration: none; font-weight: 600;">Cradle Mountain →</a>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            </div>
+
+            <div class="lightbox-info" id="lightbox-info">
+                <h3 id="lightbox-title">Photo Details</h3>
+                <div id="lightbox-metadata"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Photo data with metadata paths
+        const photoMetadata = {};
+        let allPhotos = [];
+        let currentPhotoIndex = 0;
+
+        // Build photo list from the page
+        function buildPhotoList() {
+            const photoCards = document.querySelectorAll('.photo-card');
+            allPhotos = Array.from(photoCards).map((card, index) => {
+                const img = card.querySelector('img');
+                const caption = card.querySelector('.photo-caption');
+                return {
+                    index: index,
+                    src: img.src,
+                    alt: img.alt,
+                    caption: caption ? caption.textContent : '',
+                    element: card
+                };
+            });
+        }
+
+        // Load metadata for a specific photo
+        async function loadPhotoMetadata(photoSrc) {
+            // Extract the path from the photo src
+            const pathMatch = photoSrc.match(/Photos\/([\d-]+)\/([^\/]+)\/([^\/]+\.webp)/);
+            if (!pathMatch) return null;
+
+            const [, date, location, filename] = pathMatch;
+            const metadataPath = `Photos/${date}/${location}/photo_metadata.json`;
+
+            // Check cache first
+            if (photoMetadata[metadataPath]) {
+                const metadata = photoMetadata[metadataPath];
+                return metadata.find(m => m.OptimizedImages?.WebPImage === filename);
+            }
+
+            // Load metadata
+            try {
+                const response = await fetch(metadataPath);
+                if (!response.ok) return null;
+                const data = await response.json();
+                photoMetadata[metadataPath] = data;
+                return data.find(m => m.OptimizedImages?.WebPImage === filename);
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+                return null;
+            }
+        }
+
+        // Format date and time
+        function formatDateTime(dateStr) {
+            if (!dateStr) return '';
+            const match = dateStr.match(/(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})/);
+            if (!match) return dateStr;
+            const [, year, month, day, hour, minute] = match;
+            const date = new Date(year, month - 1, day, hour, minute);
+            return date.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+        // Display photo in lightbox
+        async function showLightbox(index) {
+            currentPhotoIndex = index;
+            const photo = allPhotos[index];
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightbox-image');
+            const counter = document.getElementById('lightbox-counter');
+            const metadataDiv = document.getElementById('lightbox-metadata');
+            const title = document.getElementById('lightbox-title');
+
+            // Show lightbox
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Set image
+            image.src = photo.src;
+            image.alt = photo.alt;
+
+            // Check if image needs rotation
+            const rotation = photo.element.querySelector('img').getAttribute('data-rotation');
+            if (rotation) {
+                image.style.transform = `rotate(${rotation}deg)`;
+                image.style.maxHeight = '80vh';
+                image.style.maxWidth = 'none';
+                image.style.width = 'auto';
+            } else {
+                image.style.transform = '';
+                image.style.maxHeight = '';
+                image.style.maxWidth = '';
+                image.style.width = '';
+            }
+
+            // Set counter
+            counter.textContent = `${index + 1} / ${allPhotos.length}`;
+
+            // Update navigation buttons
+            updateNavButtons();
+
+            // Set title
+            title.textContent = photo.caption || 'Photo Details';
+
+            // Load and display metadata
+            metadataDiv.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Loading details...</p>';
+
+            const metadata = await loadPhotoMetadata(photo.src);
+
+            if (metadata) {
+                let html = '';
+
+                // Location Section
+                if (metadata.City || metadata.State || metadata.DisplayName) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Location</h4>';
+                    if (metadata.City) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">City</span>
+                            <span class="lightbox-info-value">${metadata.City}</span>
+                        </div>`;
+                    }
+                    if (metadata.State) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">State</span>
+                            <span class="lightbox-info-value">${metadata.State}</span>
+                        </div>`;
+                    }
+                    if (metadata.DisplayName) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Place</span>
+                            <span class="lightbox-info-value" style="max-width: 200px;">${metadata.DisplayName.split(',').slice(0, 2).join(',')}</span>
+                        </div>`;
+                    }
+                    if (metadata.Latitude && metadata.Longitude) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Coordinates</span>
+                            <span class="lightbox-info-value">${metadata.Latitude.toFixed(4)}, ${metadata.Longitude.toFixed(4)}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Date & Time Section
+                if (metadata.DateTaken) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Date & Time</h4>';
+                    html += `<div class="lightbox-info-item">
+                        <span class="lightbox-info-label">Taken</span>
+                        <span class="lightbox-info-value">${formatDateTime(metadata.DateTaken)}</span>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                // Camera Section
+                if (metadata.CameraMake || metadata.CameraModel) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Camera</h4>';
+                    if (metadata.CameraModel) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Model</span>
+                            <span class="lightbox-info-value">${metadata.CameraModel}</span>
+                        </div>`;
+                    }
+                    if (metadata.LensModel && !metadata.LensModel.includes(metadata.CameraModel)) {
+                        const lensShort = metadata.LensModel.split(' ').slice(-2).join(' ');
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Lens</span>
+                            <span class="lightbox-info-value">${lensShort}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Settings Section
+                if (metadata.ISO || metadata.ExposureTime || metadata.FNumber || metadata.FocalLength) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Settings</h4>';
+                    if (metadata.FocalLength) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Focal Length</span>
+                            <span class="lightbox-info-value">${metadata.FocalLength}</span>
+                        </div>`;
+                    }
+                    if (metadata.FNumber) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Aperture</span>
+                            <span class="lightbox-info-value">${metadata.FNumber}</span>
+                        </div>`;
+                    }
+                    if (metadata.ExposureTime) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Shutter</span>
+                            <span class="lightbox-info-value">${metadata.ExposureTime}</span>
+                        </div>`;
+                    }
+                    if (metadata.ISO) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">ISO</span>
+                            <span class="lightbox-info-value">${metadata.ISO}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                metadataDiv.innerHTML = html;
+            } else {
+                metadataDiv.innerHTML = `
+                    <div class="lightbox-info-section">
+                        <p style="color: var(--text-muted); font-style: italic;">
+                            ${photo.caption}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate between photos
+        function navigateLightbox(direction) {
+            const newIndex = currentPhotoIndex + direction;
+            if (newIndex >= 0 && newIndex < allPhotos.length) {
+                showLightbox(newIndex);
+            }
+        }
+
+        // Update navigation button states
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('lightbox-prev');
+            const nextBtn = document.getElementById('lightbox-next');
+
+            if (currentPhotoIndex === 0) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
+            }
+
+            if (currentPhotoIndex === allPhotos.length - 1) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Day 7 Gordon River Cruise map
+            const day7CruiseMap = L.map('day7-cruise-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-42.3, 145.4], 10);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(day7CruiseMap);
+
+            const day7CruisePoints = [
+                { lat: -42.1537, lng: 145.3236, name: 'Strahan', emoji: '⛵', desc: 'Departure point for Gordon River Cruise' },
+                { lat: -42.2239, lng: 145.2234, name: 'Bonnet Island Lighthouse', emoji: '🗼', desc: 'Historic lighthouse marking Hells Gates entrance (1889)' },
+                { lat: -42.3333, lng: 145.4167, name: 'Sarah Island', emoji: '⛓️', desc: 'Historic convict settlement (1822-1833)' },
+                { lat: -42.4167, lng: 145.5833, name: 'Gordon River', emoji: '🌲', desc: 'Ancient wilderness & Huon pines' },
+                { lat: -42.4426, lng: 145.6143, name: 'Heritage Landing', emoji: '🌳', desc: 'Ancient rainforest boardwalk' }
+            ];
+
+            day7CruisePoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(day7CruiseMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Initialize Day 7 Drive to Cradle Mountain map
+            const day7DriveMap = L.map('day7-drive-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([-42.0, 145.6], 9);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(day7DriveMap);
+
+            const day7DrivePoints = [
+                { lat: -42.1537, lng: 145.3236, name: 'Strahan', emoji: '🚗', desc: 'Starting point after Gordon River Cruise' },
+                { lat: -42.0833, lng: 145.55, name: 'Queenstown', emoji: '⛏️', desc: 'Historic mining town - moonscape hills' },
+                { lat: -41.6826, lng: 145.9159, name: 'Cradle Mountain Lodge', emoji: '🏨', desc: 'Wilderness accommodation for the night' }
+            ];
+
+            day7DrivePoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(day7DriveMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #10b981; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Build photo list and set up click handlers
+            buildPhotoList();
+
+            allPhotos.forEach((photo) => {
+                photo.element.style.cursor = 'pointer';
+                photo.element.addEventListener('click', () => showLightbox(photo.index));
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox.classList.contains('active')) return;
+
+                if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+
+            // Close lightbox when clicking outside the image
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
