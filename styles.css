@@ -427,7 +427,7 @@ h2 {
 .trip-overview {
     background: white;
     backdrop-filter: blur(20px);
-    padding: 2.5rem;
+    padding: 2rem 2.5rem;
     border-radius: 24px;
     margin-bottom: 4rem;
     box-shadow: var(--shadow-xl);
@@ -443,7 +443,7 @@ h2 {
 .trip-overview h2 {
     font-family: 'Playfair Display', serif;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     font-weight: 600;
     font-size: 1.75rem;
 }
@@ -566,12 +566,16 @@ a:has(.stat-card) {
 .story-text {
     font-size: 1.1rem;
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--text-secondary);
 }
 
 .story-text p {
     margin-bottom: 1rem;
+}
+
+.story-text p:last-child {
+    margin-bottom: 0;
 }
 
 .highlight-box {
