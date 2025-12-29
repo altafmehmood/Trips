@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blogs - Travel Adventures</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+
+        <h1 class="gradient-title">Travel Blogs</h1>
+        <p class="subtitle">Stories, photos, and highlights from completed adventures around the world</p>
+
+        <div class="blog-posts-grid">
+            <!-- Australia Blog -->
+            <a href="2025/Australia/index.html" class="blog-post-card card-australia">
+                <div class="card-icon">🇦🇺</div>
+                <div class="post-date">December 6-16, 2025</div>
+                <h2 class="card-title">Australia Adventure</h2>
+                <p class="card-description">
+                    An 11-day journey exploring Sydney's iconic harbor, the stunning Great Ocean Road, and Tasmania's
+                    ancient wilderness. From the Sydney Harbour Bridge to Cradle Mountain's alpine peaks, this trip
+                    covered 179,670 steps and 85 miles on foot across diverse landscapes.
+                </p>
+                <div class="post-stats">
+                    <span class="stat">📸 95+ Photos</span>
+                    <span class="stat">📍 5 Cities</span>
+                    <span class="stat">🥾 85 Miles Walked</span>
+                    <span class="stat">✈️ 19,875 Miles Flown</span>
+                </div>
+                <div class="card-footer">
+                    <a href="../Plans/Australia/index.html" class="plan-link"
+                        onclick="event.preventDefault(); event.stopPropagation(); window.location.href='../Plans/Australia/index.html';">
+                        📅 View Itinerary
+                    </a>
+                    <svg class="arrow-icon" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Future blog posts will be added here as trips are completed -->
+        </div>
+
+        <div class="trip-overview" style="margin-top: 4rem;">
+            <h2>More Adventures Coming Soon</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin: 0;">
+                Check back after upcoming trips for new blog posts with photos and stories from around the world.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -4,91 +4,172 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This repository contains a collection of travel itineraries, each organized as a separate subfolder with a self-contained HTML document. The project is deployed via GitHub Pages and serves as a portfolio of travel plans with interactive maps and detailed itineraries.
+This repository contains a collection of travel itineraries (Plans) and travel blogs (Blogs) organized into separate sections. The project is deployed via GitHub Pages and serves as a portfolio of travel plans, trip recaps, and photography.
 
 ## Repository Structure
 
-- `index.html` - Landing page with links to individual trip itineraries
-- `Australia/` - 9-day Australia trip itinerary (Sydney, Melbourne, Tasmania)
-  - Contains its own detailed CLAUDE.md with architecture specifics
-- Each trip folder follows the same pattern: self-contained HTML with embedded CSS and JavaScript
+```
+Trips/ (root)
+├── index.html                    # Landing page - links to Plans and Blogs
+├── styles.css                    # Centralized stylesheet for all pages
+├── CLAUDE.md                     # This file
+├── .gitignore
+│
+├── Plans/                        # Trip itineraries and schedules
+│   ├── index.html               # Plans overview (upcoming/past)
+│   ├── Australia/
+│   │   ├── index.html           # Australia itinerary (self-contained with embedded CSS)
+│   │   ├── australia_itinerary.csv
+│   │   └── CLAUDE.md            # Australia-specific documentation
+│   ├── India/
+│   │   └── index.html           # India itinerary
+│   └── UnitedKingdom/
+│       └── index.html           # UK itinerary
+│
+└── Blogs/                        # Travel blog posts and recaps
+    ├── index.html               # Blog overview (all posts)
+    └── 2025/
+        └── Australia/
+            ├── index.html       # Australia blog overview
+            ├── sydney-early.html
+            ├── sydney-late.html
+            ├── melbourne.html
+            ├── tasmania.html
+            ├── cradle.html
+            ├── freycinet.html
+            ├── hobart.html
+            ├── strahan.html
+            ├── westcoast.html
+            └── Photos/          # 235 photos (246MB, WebP format)
+                └── 2025-12-*/   # Organized by date
+```
 
 ## Architecture
 
-### Multi-Trip Organization
-Each trip is organized as a separate folder containing:
-- `index.html` - Main itinerary file with embedded styling and JavaScript
-- `CLAUDE.md` - Trip-specific development guidance
-- All content is self-contained within each folder
+### Centralized vs Embedded CSS
+
+**Centralized Stylesheet (`styles.css`)**
+- Root-level stylesheet used by most pages
+- Contains all common components: cards, navigation, typography, colors
+- Blog pages and overview pages reference: `<link rel="stylesheet" href="../../../styles.css">`
+- Plans overview references: `<link rel="stylesheet" href="../styles.css">`
+
+**Embedded CSS (Plans only)**
+- Individual plan pages (e.g., `Plans/Australia/index.html`) retain embedded CSS
+- These are self-contained itinerary documents with Leaflet.js maps
+- Allows plans to be standalone documents with all styling inline
+
+### Plans vs Blogs Organization
+
+**Plans Folder**
+- Contains trip itineraries organized by destination
+- Each plan is forward-looking: schedules, activities, maps, logistics
+- Plans for completed trips link to their corresponding blog posts
+- Organized into "Upcoming" and "Past" sections on `Plans/index.html`
+
+**Blogs Folder**
+- Contains trip recaps organized by year and destination
+- Each blog is retrospective: stories, photos, highlights, statistics
+- Blog posts link back to original plans for reference
+- Organized chronologically on `Blogs/index.html`
+
+### Cross-Linking System
+
+**From Plans to Blogs:**
+- Completed trips show a banner: "✨ This trip is complete! Read the blog post..."
+- Banner appears below back link, above main content
+- Links to corresponding blog post
+
+**From Blogs to Plans:**
+- Blog posts include: "📅 View the original itinerary to see what we planned..."
+- Reference appears below back link, above main content
+- Links back to corresponding plan
 
 ### Static Site Deployment
+
 - Deployed via GitHub Pages
 - No build process or server-side logic required
 - Main branch serves as deployment source
-- Root `index.html` serves as landing page
+- Root `index.html` serves as simple landing page
+- Photos stored directly in repository (246MB currently)
 
-### Shared Design System
+## Design System
 
-All trip itineraries should follow this consistent design pattern:
+### Color Palette
+```css
+--primary: #6366f1;        /* Indigo */
+--secondary: #06b6d4;       /* Cyan */
+--accent: #f59e0b;          /* Amber */
+--success: #10b981;         /* Green */
+--gray-50 through --gray-900
+```
 
-#### Styling System
-- Modern design system using CSS custom properties (CSS variables)
-- Color palette:
-  - Primary: `#6366f1` (indigo)
-  - Secondary: `#06b6d4` (cyan)
-  - Accent: `#f59e0b` (amber)
-  - Gray scale: `--gray-50` through `--gray-900`
-- Typography: Inter for body text, Poppins for headings (imported from Google Fonts)
-- Shadow system: `--shadow-sm` through `--shadow-2xl` using defined CSS variables
-- Border radius system: `--radius-sm` through `--radius-2xl`
-- Activity categorization with semantic color coding
+### Typography
+- **Body**: Inter (300-900 weights)
+- **Headings**: Poppins (300-900 weights)
+- **Decorative**: Playfair Display (400-900 weights)
+- All imported from Google Fonts
 
-#### Layout & Responsive Design
-- Responsive grid layout with mobile-first approach
-- Max width: `1400px` for main container
-- Semantic HTML5 structure
-- CSS Grid and Flexbox for layouts
-- Clamp() functions for fluid typography
+### Component System
 
-#### Interactive Maps
+**Cards** (`.trip-card`, `.nav-card`, `.blog-post-card`)
+- Consistent padding, shadows, hover effects
+- Color-coded top borders by destination
+- Status badges for upcoming/completed trips
 
-**Map Library & Implementation**
-- Leaflet.js v1.9.4 loaded via CDN
-  - CSS: `https://unpkg.com/leaflet@1.9.4/dist/leaflet.css`
-  - JS: `https://unpkg.com/leaflet@1.9.4/dist/leaflet.js`
-- CARTO Voyager basemap tiles (no API keys required)
-  - `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`
-- Maps initialized on `DOMContentLoaded` event
+**Navigation** (`.back-link`)
+- Always positioned top-left
+- Color transitions on hover
+- Points to parent section
 
-**Two Map Types**
-1. **Flight Route Maps** - Display flight paths between cities
-   - Pacific-centered view for intercontinental routes
-   - Curved polylines showing flight paths
-   - Custom emoji markers: 🛫 origin, 🛬 destination
-   - Styled popups with flight information
+**Banners** (`.blog-available-banner`, `.plan-reference`)
+- Gradient backgrounds
+- White text with underlined links
+- Positioned between back link and main content
 
-2. **Simple Location Maps** - Display daily points of interest
-   - Emoji-based markers for different location types
-   - Examples: 🏨 hotels, 🍽️ restaurants, 🏖️ beaches, 🥾 hiking, 🎭 attractions
-   - Custom popups with location name and description
-   - Centered on relevant city/region with appropriate zoom
+### Responsive Design
+- Mobile-first approach
+- Breakpoints: 768px (mobile), 1024px (tablet)
+- Grid layouts collapse to single column on mobile
+- Lightbox photo galleries adapt to viewport
 
-**Map Features**
-- Custom markers using `L.divIcon()` with emoji icons instead of default pins
-- Interactive controls enabled (zoom, drag, scroll)
-- Responsive sizing with minimum heights (375px for activity maps)
-- Each map instance created with `createSimpleMap()` or `createFlightRouteMap()` helper functions
+### Interactive Maps (Plans Only)
 
-**Print Optimization**
-- Maps hidden in print view with placeholder text
-- Shows: "📍 Interactive map available online"
-- Focuses on itinerary content for printed documents
+**Map Library**
+- Leaflet.js v1.9.4 (CDN)
+- CARTO Voyager basemap tiles (no API keys)
 
-#### Print Functionality
-- Comprehensive `@media print` rules
-- Typography and layout optimized for printed documents
-- Page break controls for better printouts
-- Maps replaced with placeholder text (see Interactive Maps section)
+**Map Types**
+1. Flight Route Maps - Pacific-centered, curved polylines, emoji markers (🛫🛬)
+2. Location Maps - Daily POIs with emoji markers (🏨🍽️🏖️🥾)
+
+**Features**
+- Custom `L.divIcon()` with emoji instead of default pins
+- Interactive controls (zoom, drag, scroll)
+- Responsive sizing (min-height: 375px)
+- Hidden in print view with placeholder text
+
+### Photo Galleries (Blogs Only)
+
+**Gallery Grid** (`.photo-gallery`)
+- Auto-fit grid: `minmax(300px, 1fr)`
+- Photo cards with hover effects
+- Clickable to open lightbox
+
+**Lightbox Modal** (`.lightbox`)
+- Full-screen overlay (rgba(0,0,0,0.95))
+- Navigation buttons (prev/next)
+- Photo metadata panel (location, camera, settings)
+- Keyboard navigation (arrows, ESC)
+- Mobile-optimized layout
+
+### Print Styles
+
+All pages include `@media print` rules:
+- Hide navigation, banners, interactive elements
+- Optimize typography for paper
+- Page break controls
+- Maps replaced with "📍 Interactive map available online"
 
 ## Development Commands
 
@@ -103,15 +184,76 @@ python3 -m http.server 8000
 ```
 
 ### Git Workflow
-This is a Git repository using `main` as the primary branch. Standard git workflow applies:
-- Commit changes with descriptive messages
-- Changes to main branch automatically deploy via GitHub Pages
-- Check git status before committing to review changes
+- Primary branch: `main`
+- Changes to main automatically deploy via GitHub Pages
+- Commit frequently with descriptive messages
+- Review changes with `git status` before committing
 
-## Adding New Trips
+### Photo Management
+- Photos stored in `Blogs/[Year]/[Destination]/Photos/`
+- Organized by date folders (YYYY-MM-DD format)
+- WebP format for optimal file size
+- Currently tracked in git (may move to Git LFS or CDN in future)
 
-When adding a new trip itinerary:
-1. Create a new folder with the trip name (e.g., `Japan/`)
-2. Add an `index.html` file following the existing pattern
-3. Update root `index.html` to include a link to the new trip
-4. Consider adding a trip-specific CLAUDE.md if the architecture differs significantly
+## Adding New Content
+
+### Adding a New Plan
+
+1. Create folder: `Plans/[Destination]/`
+2. Add `index.html` with itinerary details
+3. Use embedded CSS or reference centralized stylesheet
+4. Add to `Plans/index.html` in appropriate section (upcoming/past)
+5. If using maps, follow Leaflet.js pattern from Australia
+
+### Adding a New Blog Post
+
+1. Create folder: `Blogs/[Year]/[Destination]/`
+2. Add overview: `index.html` with trip stats and navigation
+3. Add day pages: `[location]-[day].html` as needed
+4. Create `Photos/` subfolder with date-organized images
+5. All pages must reference: `<link rel="stylesheet" href="../../../styles.css">`
+6. Add back links pointing to home or blog overview
+7. Add plan reference banner linking to original itinerary
+8. Add to `Blogs/index.html` with preview card
+
+### Cross-Linking
+
+When a trip is completed:
+1. Add blog link to plan page (banner below back link)
+2. Add plan reference to blog page (banner below back link)
+3. Update `Plans/index.html` to show blog link in card footer
+4. Update status badge from "Upcoming" to "Completed"
+
+## Key Patterns
+
+### Navigation Hierarchy
+```
+index.html (root)
+├── Plans/index.html
+│   └── Plans/[Destination]/index.html
+└── Blogs/index.html
+    └── Blogs/[Year]/[Destination]/index.html
+        └── Blogs/[Year]/[Destination]/[day].html
+```
+
+### Stylesheet References
+- Root pages: `<link rel="stylesheet" href="styles.css">`
+- Plans overview: `<link rel="stylesheet" href="../styles.css">`
+- Blog pages (3 levels deep): `<link rel="stylesheet" href="../../../styles.css">`
+- Individual plan pages: Embedded CSS (self-contained)
+
+### Card Color Themes
+```css
+.card-india, .card-plans: border-top: 4px solid #f59e0b (amber)
+.card-australia, .card-blogs: border-top: 4px solid #6366f1 (indigo)
+.card-uk: border-top: 4px solid #dc2626 (red)
+```
+
+## File Ignore Patterns
+
+See `.gitignore` for current patterns:
+- Development folders: `.vs/`, `.vscode/`, `Code/`
+- Temporary files: `*-backup.html`, `*.tmp`
+- Local settings: `.claude/settings.local.json`
+
+Note: Photos are currently tracked in git but may be moved to external hosting in future.

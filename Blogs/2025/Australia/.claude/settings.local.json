@@ -7,7 +7,9 @@
       "Bash(git checkout:*)",
       "Bash(ls:*)",
       "Bash(python -c:*)",
-      "Bash(find . -type f -name \"*&&*\" -delete)"
+      "Bash(find . -type f -name \"*&&*\" -delete)",
+      "Bash(.css)",
+      "Bash(.md \")"
     ]
   }
 }

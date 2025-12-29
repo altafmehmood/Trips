@@ -1,4 +1,12 @@
+/* ========================================
+   Centralized Stylesheet for Travel Site
+   ======================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+/* ========================================
+   CSS Variables
+   ======================================== */
 
 :root {
     --primary: #6366f1;
@@ -42,6 +50,10 @@
     --radius-2xl: 1.5rem;
 }
 
+/* ========================================
+   Base Styles
+   ======================================== */
+
 * {
     box-sizing: border-box;
 }
@@ -69,12 +81,65 @@ body::before {
         radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
     z-index: -1;
+    animation: backgroundShift 20s ease-in-out infinite;
 }
+
+@keyframes backgroundShift {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+h1.gradient-title {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+/* ========================================
+   Layout
+   ======================================== */
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 3rem;
+    padding: 4rem 2rem;
 }
 
 .back-link {
@@ -92,29 +157,270 @@ body::before {
     color: var(--primary);
 }
 
-h1 {
+/* ========================================
+   Card Components
+   ======================================== */
+
+.trips-grid,
+.main-nav-grid,
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.trip-card,
+.nav-card,
+.blog-post-card {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.trip-card::before,
+.nav-card::before,
+.blog-post-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-xl);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: subtract;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+}
+
+.trip-card:hover,
+.nav-card:hover,
+.blog-post-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.trip-card:hover .card-icon,
+.nav-card:hover .card-icon,
+.blog-post-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card-title {
     font-family: 'Poppins', sans-serif;
-    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.card-date,
+.post-date {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-bottom: 1rem;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
 }
 
-.gradient-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(135deg, var(--primary), var(--secondary));
-}
-
-.subtitle {
-    text-align: center;
-    font-size: 1.25rem;
+.card-description {
     color: var(--text-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.trip-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--gray-100);
+    color: var(--text-secondary);
+}
+
+/* Status Badges */
+.status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-badge.upcoming {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+}
+
+.status-badge.completed {
+    background: linear-gradient(135deg, var(--success), var(--secondary));
+    color: white;
+}
+
+/* Cross-links */
+.blog-link,
+.plan-link {
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.blog-link:hover,
+.plan-link:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Banners */
+.blog-available-banner,
+.plan-reference {
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+    text-align: center;
     font-weight: 500;
 }
+
+.blog-available-banner a,
+.plan-reference a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Arrow Icons */
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s ease;
+}
+
+.trip-card:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* ========================================
+   Card Color Themes
+   ======================================== */
+
+.card-india,
+.card-plans {
+    border-top: 4px solid #f59e0b;
+}
+
+.card-india .card-icon,
+.card-plans .card-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-australia,
+.card-blogs {
+    border-top: 4px solid #6366f1;
+}
+
+.card-australia .card-icon,
+.card-blogs .card-icon {
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-uk {
+    border-top: 4px solid #dc2626;
+}
+
+.card-uk .card-icon {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ========================================
+   Plans & Blogs Sections
+   ======================================== */
+
+.plans-section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    text-align: center;
+}
+
+.post-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.post-stats .stat {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ========================================
+   Blog Content Styles
+   ======================================== */
 
 .trip-overview {
     background: white;
@@ -228,6 +534,25 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.highlight-box {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    color: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-xl);
+    margin: 2rem 0;
+    font-weight: 500;
+}
+
+.highlight-box strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   Photo Gallery
+   ======================================== */
+
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -263,7 +588,10 @@ h1 {
     font-style: italic;
 }
 
-/* Lightbox Modal */
+/* ========================================
+   Lightbox Modal
+   ======================================== */
+
 .lightbox {
     display: none;
     position: fixed;
@@ -283,12 +611,8 @@ h1 {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .lightbox-content {
@@ -448,20 +772,9 @@ h1 {
     z-index: 10001;
 }
 
-.highlight-box {
-    background: linear-gradient(135deg, var(--accent-light), var(--accent));
-    color: white;
-    padding: 1.5rem;
-    border-radius: var(--radius-xl);
-    margin: 2rem 0;
-    font-weight: 500;
-}
-
-.highlight-box strong {
-    display: block;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
+/* ========================================
+   Responsive Design
+   ======================================== */
 
 @media (max-width: 1024px) {
     .container {
@@ -475,7 +788,17 @@ h1 {
 
 @media (max-width: 768px) {
     .container {
-        padding: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .trips-grid,
+    .main-nav-grid,
+    .blog-posts-grid {
+        grid-template-columns: 1fr;
     }
 
     .photo-gallery {
@@ -525,12 +848,19 @@ h1 {
     }
 }
 
+/* ========================================
+   Print Styles
+   ======================================== */
+
 @media print {
     body::before {
         display: none;
     }
 
-    .back-link {
+    .back-link,
+    .blog-link,
+    .plan-link,
+    .status-badge {
         display: none;
     }
 
@@ -539,7 +869,13 @@ h1 {
         margin-bottom: 1in;
     }
 
-    .photo-gallery {
+    .photo-gallery,
+    .lightbox {
         display: none;
+    }
+
+    .trip-card,
+    .nav-card {
+        page-break-inside: avoid;
     }
 }

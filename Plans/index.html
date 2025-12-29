@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Plans - Travel Adventures</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+
+        <h1 class="gradient-title">Trip Plans</h1>
+        <p class="subtitle">Detailed itineraries and schedules for upcoming and past adventures</p>
+
+        <!-- Upcoming Trips -->
+        <section class="plans-section">
+            <h2 class="section-title">Upcoming Trips</h2>
+            <div class="trips-grid">
+                <!-- United Kingdom -->
+                <a href="UnitedKingdom/index.html" class="trip-card card-uk">
+                    <div class="status-badge upcoming">Upcoming</div>
+                    <div class="card-icon">🇬🇧</div>
+                    <div class="card-date">Jan 10-18, 2026</div>
+                    <h2 class="card-title">United Kingdom</h2>
+                    <p class="card-description">
+                        A winter adventure through London, the Lake District, and Scotland. Exploring history, culture,
+                        and scenic landscapes.
+                    </p>
+                    <div class="card-footer">
+                        <div class="trip-tags">
+                            <span class="tag">9 Days</span>
+                            <span class="tag">London</span>
+                            <span class="tag">Scotland</span>
+                        </div>
+                        <svg class="arrow-icon" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Past Trips -->
+        <section class="plans-section">
+            <h2 class="section-title">Past Trips</h2>
+            <div class="trips-grid">
+                <!-- Australia -->
+                <a href="Australia/index.html" class="trip-card card-australia">
+                    <div class="status-badge completed">Completed</div>
+                    <div class="card-icon">🇦🇺</div>
+                    <div class="card-date">Dec 6-16, 2025</div>
+                    <h2 class="card-title">Australia Adventure</h2>
+                    <p class="card-description">
+                        An epic journey across Sydney, Melbourne, and the wilderness of Tasmania. Featuring iconic
+                        landmarks, coastal drives, and ancient forests.
+                    </p>
+                    <div class="card-footer">
+                        <div class="trip-tags">
+                            <span class="tag">11 Days</span>
+                            <span class="tag">Sydney</span>
+                            <span class="tag">Tasmania</span>
+                        </div>
+                        <a href="../Blogs/2025/Australia/index.html" class="blog-link"
+                            onclick="event.preventDefault(); event.stopPropagation(); window.location.href='../Blogs/2025/Australia/index.html';">
+                            📝 Read Blog
+                        </a>
+                    </div>
+                </a>
+
+                <!-- India -->
+                <a href="India/index.html" class="trip-card card-india">
+                    <div class="status-badge completed">Completed</div>
+                    <div class="card-icon">🇮🇳</div>
+                    <div class="card-date">Nov 6-16, 2025</div>
+                    <h2 class="card-title">India Adventure</h2>
+                    <p class="card-description">
+                        A journey through Mumbai and Nagpur, featuring culinary delights, family visits, and cultural
+                        exploration.
+                    </p>
+                    <div class="card-footer">
+                        <div class="trip-tags">
+                            <span class="tag">11 Days</span>
+                            <span class="tag">Mumbai</span>
+                            <span class="tag">Nagpur</span>
+                        </div>
+                        <svg class="arrow-icon" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
