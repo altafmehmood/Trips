@@ -17,7 +17,7 @@
 
         <div class="blog-posts-grid">
             <!-- Australia Blog -->
-            <a href="2025/Australia/index.html" class="blog-post-card card-australia">
+            <div class="blog-post-card card-australia">
                 <div class="card-icon">🇦🇺</div>
                 <div class="post-date">December 6-16, 2025</div>
                 <h2 class="card-title">Australia Adventure</h2>
@@ -32,16 +32,19 @@
                     <span class="stat">🥾 85 Miles Walked</span>
                     <span class="stat">✈️ 19,875 Miles Flown</span>
                 </div>
-                <div class="card-footer">
-                    <a href="../Plans/Australia/index.html" class="plan-link"
-                        onclick="event.preventDefault(); event.stopPropagation(); window.location.href='../Plans/Australia/index.html';">
+                <div style="display: flex; gap: 0.5rem; margin-top: auto; padding-top: 1rem;">
+                    <a href="2025/Australia/index.html"
+                       style="flex: 1; padding: 0.75rem 1rem; background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; text-align: center; transition: all 0.2s ease;"
+                       onmouseover="this.style.background='var(--primary-dark)'" onmouseout="this.style.background='var(--primary)'">
+                        Read Blog Post
+                    </a>
+                    <a href="../Plans/Australia/index.html"
+                       style="flex: 1; padding: 0.75rem 1rem; background: var(--secondary); color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; text-align: center; transition: all 0.2s ease;"
+                       onmouseover="this.style.background='var(--secondary-dark)'" onmouseout="this.style.background='var(--secondary)'">
                         📅 View Itinerary
                     </a>
-                    <svg class="arrow-icon" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
                 </div>
-            </a>
+            </div>
 
             <!-- Future blog posts will be added here as trips are completed -->
         </div>
