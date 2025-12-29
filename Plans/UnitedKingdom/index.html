@@ -1033,6 +1033,13 @@
                     <div class="city-duration">2 days • Royal Mile & Hiking</div>
                 </a>
             </div>
+        </div>
+
+        <!-- Flights Section -->
+        <div class="trip-overview" style="margin-bottom: 3rem;">
+            <h2 style="color: var(--text-primary); text-align: center; margin-bottom: 2rem; font-weight: 600; font-family: 'Inter', sans-serif;">
+                ✈️ Flights
+            </h2>
 
             <!-- Flight Route Map -->
             <div style="margin-bottom: 2rem;">
@@ -1629,13 +1636,6 @@
                     dashArray: '8, 4'
                 }).addTo(map);
 
-                // Add map overlay with title
-                const mapContainer = document.getElementById(mapId);
-                const overlay = document.createElement('div');
-                overlay.className = 'map-overlay';
-                overlay.innerHTML = `<div class="map-title">Houston ↔ London Flight Route</div>`;
-                mapContainer.appendChild(overlay);
-
                 return map;
             } catch (error) {
                 console.error(`Error creating flight map "${mapId}":`, error);
@@ -1686,12 +1686,6 @@
                     `)
                     .addTo(map);
             });
-
-            // Add minimal map overlay at bottom
-            const overlay = document.createElement('div');
-            overlay.className = 'map-overlay';
-            overlay.innerHTML = `<div class="map-title">${day.title}</div>`;
-            mapContainer.appendChild(overlay);
         });
     </script>
 </body>
