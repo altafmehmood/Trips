@@ -623,25 +623,26 @@
 
         .map-overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
             color: white;
-            padding: 1rem;
+            padding: 0.75rem 1rem;
             backdrop-filter: blur(10px);
-            border-radius: 16px 16px 0 0;
+            border-radius: 0 0 16px 16px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
         .map-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             margin: 0;
+            text-align: center;
         }
 
         .map-controls {
@@ -1033,6 +1034,11 @@
                 </a>
             </div>
 
+            <!-- Flight Route Map -->
+            <div style="margin-bottom: 2rem;">
+                <div id="flight-route-map" class="activity-map flight-route-map" style="min-height: 450px; border-radius: 16px;"></div>
+            </div>
+
             <div class="flight-section">
                 <div class="flight-card">
                     <div class="flight-header">
@@ -1072,9 +1078,6 @@
                             <span class="flight-info-value">Yes</span>
                         </div>
                     </div>
-                    <div style="margin-top: 1.5rem;">
-                        <div id="outbound-flight-map" class="activity-map flight-route-map" style="min-height: 400px;"></div>
-                    </div>
                 </div>
 
                 <div class="flight-card">
@@ -1113,9 +1116,6 @@
                             <span class="flight-info-label">Meal Service</span>
                             <span class="flight-info-value">Yes</span>
                         </div>
-                    </div>
-                    <div style="margin-top: 1.5rem;">
-                        <div id="return-flight-map" class="activity-map flight-route-map" style="min-height: 400px;"></div>
                     </div>
                 </div>
             </div>
@@ -1629,6 +1629,13 @@
                     dashArray: '8, 4'
                 }).addTo(map);
 
+                // Add map overlay with title
+                const mapContainer = document.getElementById(mapId);
+                const overlay = document.createElement('div');
+                overlay.className = 'map-overlay';
+                overlay.innerHTML = `<div class="map-title">Houston ↔ London Flight Route</div>`;
+                mapContainer.appendChild(overlay);
+
                 return map;
             } catch (error) {
                 console.error(`Error creating flight map "${mapId}":`, error);
@@ -1636,15 +1643,10 @@
             }
         }
 
-        // Initialize flight route maps
-        createFlightRouteMap('outbound-flight-map',
+        // Initialize single flight route map (IAH ↔ LHR)
+        createFlightRouteMap('flight-route-map',
             { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' },
             { lat: 51.4700, lng: -0.4543, name: 'London Heathrow (LHR)' },
-            [45.0, -45.0], 3);
-
-        createFlightRouteMap('return-flight-map',
-            { lat: 51.4700, lng: -0.4543, name: 'London Heathrow (LHR)' },
-            { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' },
             [45.0, -45.0], 3);
 
         days.forEach(day => {
@@ -1685,12 +1687,10 @@
                     .addTo(map);
             });
 
-            // Add map overlay with title
+            // Add minimal map overlay at bottom
             const overlay = document.createElement('div');
             overlay.className = 'map-overlay';
-            overlay.innerHTML = `
-                <h3 class="map-title">${day.title}</h3>
-            `;
+            overlay.innerHTML = `<div class="map-title">${day.title}</div>`;
             mapContainer.appendChild(overlay);
         });
     </script>
