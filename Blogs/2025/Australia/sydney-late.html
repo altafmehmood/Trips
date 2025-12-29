@@ -28,8 +28,14 @@
                     <div class="story-text">
                         <p>After an early departure from Freycinet, we drove back to Hobart for our flight to Sydney. The Qantas QF996 flight departed Hobart at 4:53 PM and arrived in Sydney at 6:32 PM - actually 13 minutes early. Security at Hobart Airport was the smoothest of the trip, and the Boeing 737-800 was comfortable for the 100-minute journey.</p>
 
-                        <p>We checked into the Kimpton Margot Sydney for our final evening. The Sydney Opera House and Harbour Bridge, illuminated against the night sky, provided a perfect bookend to our Australian adventure. Walking through Circular Quay at sunset, watching the ferries crisscross the harbour and the city lights begin to twinkle, we couldn't help but feel grateful for this incredible journey.</p>
+                        <p>Landing at Sydney Airport, we took the Airport Link train to Museum station in the heart of the city. From there, it was a pleasant walk through Sydney's bustling streets to the Kimpton Margot Sydney, our hotel for the evening. The boutique property, located in the historic Pitt Street precinct, offered a perfect base for exploring the city one last time.</p>
+
+                        <p>After refreshing at the hotel, we ventured out for an evening stroll to Darling Harbour on December 14th. The waterfront precinct, transformed from industrial wharves into a vibrant entertainment hub, came alive as twilight descended on the city. Our walk took us across the historic Pyrmont Bridge, a heritage swing bridge dating from 1902 that connects the eastern and western sides of Darling Harbour. Standing on the bridge's pedestrian walkway, we watched the city lights begin to twinkle across the water, the modern skyline reflecting off the calm harbour waters.</p>
+
+                        <p>The evening air was warm and inviting as we explored Darling Harbour's waterfront promenade. Restaurants and cafes buzzed with diners enjoying outdoor seating, while the illuminated buildings cast colorful reflections across the marina. The Sydney Opera House and Harbour Bridge, visible in the distance and illuminated against the night sky, provided a perfect bookend to our Australian adventure. Walking through these iconic harbourside locations at sunset, watching the ferries crisscross the water and the city lights begin to glow, we couldn't help but feel grateful for this incredible journey.</p>
                     </div>
+
+                    <div id="kimpton-darling-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
 
                     <div class="highlight-box" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
                         <strong>Flight Cancellation:</strong> Our United flight UA100 scheduled for December 15th was cancelled when the incoming aircraft from Houston went technical and had to turn back mid-flight. We were rescheduled to depart on December 16th, giving us an unexpected bonus day in Sydney!
@@ -59,12 +65,20 @@
 
                     <div class="photo-gallery">
                         <div class="photo-card">
-                            <img src="Photos/2025-12-14/Sydney/001_203640.webp" alt="Sydney evening">
-                            <div class="photo-caption">Sydney Harbour at twilight</div>
+                            <img src="Photos/2025-12-14/Sydney/762d3c015778912a.webp" alt="Pyrmont Bridge at night">
+                            <div class="photo-caption">Pyrmont Bridge - Historic 1902 swing bridge connecting Darling Harbour</div>
                         </div>
                         <div class="photo-card">
-                            <img src="Photos/2025-12-14/Sydney/004_202924.webp" alt="Harbour Bridge night">
-                            <div class="photo-caption">The Harbour Bridge illuminated at night</div>
+                            <img src="Photos/2025-12-14/Sydney/c281456157dd8ddf.webp" alt="Darling Harbour Marina">
+                            <div class="photo-caption">Darling Harbour Marina - Waterfront promenade at twilight</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Sydney/f1b8dde7a645b204.webp" alt="Sydney evening">
+                            <div class="photo-caption">Evening in Sydney's vibrant harbor district</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2025-12-14/Sydney/1a97bc00b8b95e5f.webp" alt="Sydney waterfront night">
+                            <div class="photo-caption">The waterfront illuminated as night falls</div>
                         </div>
                         <div class="photo-card">
                             <img src="Photos/2025-12-15/Sydney/009_133250.webp" alt="Sydney wildlife">
@@ -393,10 +407,49 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Kimpton to Darling Harbour map
+            const kimptonMap = L.map('kimpton-darling-map', {
+                zoomControl: true,
+                scrollWheelZoom: true
+            }).setView([-33.8730, 151.2070], 15);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(kimptonMap);
+
+            // Museum station, Kimpton, Pyrmont Bridge, Darling Harbour points
+            const kimptonPoints = [
+                { lat: -33.8738, lng: 151.2103, name: 'Museum Station', emoji: '🚇', desc: 'Airport Link train arrival' },
+                { lat: -33.8722, lng: 151.2071, name: 'Kimpton Margot Sydney', emoji: '🏨', desc: 'Boutique hotel in Pitt Street precinct' },
+                { lat: -33.8708, lng: 151.2018, name: 'Pyrmont Bridge', emoji: '🌉', desc: 'Historic 1902 swing bridge' },
+                { lat: -33.8711, lng: 151.2012, name: 'Darling Harbour Marina', emoji: '⚓', desc: 'Waterfront entertainment precinct' }
+            ];
+
+            kimptonPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(kimptonMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Poppins', sans-serif; min-width: 150px;">
+                        <strong style="color: #06b6d4; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
             // Initialize Circular Quay and Darling Harbour map
             const darlingMap = L.map('circular-quay-darling-map', {
                 zoomControl: true,
-                scrollWheelZoom: false
+                scrollWheelZoom: true
             }).setView([-33.8688, 151.2006], 14);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
