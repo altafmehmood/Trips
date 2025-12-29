@@ -60,36 +60,6 @@
     "HasGpsData": true
   },
   {
-    "FileName": "IMG_2910.jpeg",
-    "FilePath": "IMG_2910.jpeg",
-    "FileSize": 3338566,
-    "Latitude": -42.13494166666666,
-    "Longitude": 148.30070555555557,
-    "Altitude": "2.01 metres",
-    "City": "Coles Bay",
-    "State": "Tasmania",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Freycinet Lodge, Richardsons Lane, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 2.22mm f/2.2",
-    "DateTaken": "2025:12:13 18:45:23",
-    "ExposureTime": "1/720 sec",
-    "FNumber": "f/2.2",
-    "ISO": "40",
-    "FocalLength": "2.2 mm",
-    "Orientation": "Right side, top (Rotate 90 CW)",
-    "Software": "26.1",
-    "OptimizedImages": {
-      "WebPImage": "7d9d6825c4dad9ec.webp",
-      "OriginalSize": 3338566,
-      "OptimizedSize": 1053304,
-      "CompressionRatio": 68.450406551795
-    },
-    "HasGpsData": true
-  },
-  {
     "FileName": "IMG_2919.jpeg",
     "FilePath": "IMG_2919.jpeg",
     "FileSize": 5181875,
@@ -116,6 +86,36 @@
       "OriginalSize": 5181875,
       "OptimizedSize": 1349388,
       "CompressionRatio": 73.95946447955615
+    },
+    "HasGpsData": true
+  },
+  {
+    "FileName": "IMG_2910.jpeg",
+    "FilePath": "IMG_2910.jpeg",
+    "FileSize": 3338566,
+    "Latitude": -42.13494166666666,
+    "Longitude": 148.30070555555557,
+    "Altitude": "2.01 metres",
+    "City": "Coles Bay",
+    "State": "Tasmania",
+    "Country": "Australia",
+    "CountryCode": "AU",
+    "DisplayName": "Freycinet Lodge, Richardsons Lane, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 2.22mm f/2.2",
+    "DateTaken": "2025:12:13 18:45:23",
+    "ExposureTime": "1/720 sec",
+    "FNumber": "f/2.2",
+    "ISO": "40",
+    "FocalLength": "2.2 mm",
+    "Orientation": "Right side, top (Rotate 90 CW)",
+    "Software": "26.1",
+    "OptimizedImages": {
+      "WebPImage": "7d9d6825c4dad9ec.webp",
+      "OriginalSize": 3338566,
+      "OptimizedSize": 1053304,
+      "CompressionRatio": 68.450406551795
     },
     "HasGpsData": true
   },
@@ -206,36 +206,6 @@
       "OriginalSize": 302344,
       "OptimizedSize": 88472,
       "CompressionRatio": 70.73796734845077
-    },
-    "HasGpsData": true
-  },
-  {
-    "FileName": "2C2CFC03-788F-47AD-B1A3-945DE417D674_1_102_a.jpeg",
-    "FilePath": "2C2CFC03-788F-47AD-B1A3-945DE417D674_1_102_a.jpeg",
-    "FileSize": 847706,
-    "Latitude": -42.12941111111111,
-    "Longitude": 148.3006888888889,
-    "Altitude": "2.55 metres",
-    "City": "Coles Bay",
-    "State": "Tasmania",
-    "Country": "Australia",
-    "CountryCode": "AU",
-    "DisplayName": "Freycinet National Park Campground (Sand dune sites 19-45), Freycinet Drive, Coles Bay, Glamorgan-Spring Bay, Tasmania, 7215, Australia",
-    "CameraMake": "Apple",
-    "CameraModel": "iPhone 15 Pro",
-    "LensModel": "iPhone 15 Pro back triple camera 9mm f/2.8",
-    "DateTaken": "2025:12:13 20:09:15",
-    "ExposureTime": "1/99 sec",
-    "FNumber": "f/2.8",
-    "ISO": "40",
-    "FocalLength": "9 mm",
-    "Orientation": "Top, left side (Horizontal / normal)",
-    "Software": "26.1",
-    "OptimizedImages": {
-      "WebPImage": "e0f84a0132c59ea9.webp",
-      "OriginalSize": 847706,
-      "OptimizedSize": 185480,
-      "CompressionRatio": 78.11977265702967
     },
     "HasGpsData": true
   }
