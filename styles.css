@@ -429,9 +429,15 @@ h2 {
     backdrop-filter: blur(20px);
     padding: 2.5rem;
     border-radius: 24px;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     box-shadow: var(--shadow-xl);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.trip-overview + .trip-overview,
+.trip-overview + .blog-content,
+.blog-content + .trip-overview {
+    margin-top: 4rem;
 }
 
 .trip-overview h2 {
@@ -447,6 +453,7 @@ h2 {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-top: 2rem;
+    grid-auto-rows: 1fr;
 }
 
 @media (max-width: 1024px) {
@@ -461,6 +468,12 @@ h2 {
     }
 }
 
+a:has(.stat-card) {
+    display: flex;
+    height: 100%;
+    cursor: pointer;
+}
+
 .stat-card {
     text-align: center;
     padding: 1.5rem;
@@ -469,20 +482,17 @@ h2 {
     border: 2px solid var(--border);
     box-shadow: var(--shadow-md);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 1;
+    width: 100%;
 }
 
 .stat-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-xl);
     border-color: var(--primary);
-}
-
-a:has(.stat-card) {
-    display: block;
 }
 
 .stat-icon {
