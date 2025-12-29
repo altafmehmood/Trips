@@ -444,9 +444,21 @@ h2 {
 
 .overview-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .overview-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .overview-stats {
+        grid-template-columns: 1fr;
+    }
 }
 
 .stat-card {
@@ -457,6 +469,10 @@ h2 {
     border: 2px solid var(--border);
     box-shadow: var(--shadow-md);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stat-card:hover {
