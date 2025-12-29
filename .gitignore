@@ -12,15 +12,6 @@ desktop.ini
 # Unrelated projects
 Code/
 
-# Large binary files - Photos should be hosted externally or use Git LFS
-*.webp
-*.jpg
-*.jpeg
-*.png
-*.gif
-photos/
-Photos/
-
 # Temporary files
 *-backup.html
 *.tmp
