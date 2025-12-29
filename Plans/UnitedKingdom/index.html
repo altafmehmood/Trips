@@ -514,15 +514,20 @@
         }
 
         .activity {
-            padding: 1rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            background: var(--surface-secondary);
-            transition: all 0.2s ease;
+            margin-bottom: 1rem;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border-left: 4px solid;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .activity:hover {
-            transform: translateX(4px);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
 
@@ -533,50 +538,59 @@
             margin-bottom: 0.5rem;
         }
 
-        .activity-name {
-            font-weight: 600;
+        .activity-desc {
+            font-size: 0.95rem;
             color: var(--text-primary);
-            margin-bottom: 0.25rem;
+            line-height: 1.6;
+            font-weight: 500;
         }
 
-        .activity-description {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
+        .flight-activity {
+            border-left-color: #f59e0b;
         }
 
-        .activity-type {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
+        .beach-activity {
+            border-left-color: #06b6d4;
         }
 
-        .type-sightseeing {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
+        .culture-activity {
+            border-left-color: #8b5cf6;
         }
 
-        .type-food {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--accent);
+        .nature-activity {
+            border-left-color: #10b981;
         }
 
-        .type-culture {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
+        .food-activity {
+            border-left-color: #f97316;
         }
 
-        .type-shopping {
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--secondary);
+        .hotel-activity {
+            border-left-color: #3b82f6;
         }
 
-        .type-entertainment {
-            background: rgba(139, 92, 246, 0.1);
-            color: #8b5cf6;
+        .transport-activity {
+            border-left-color: #6b7280;
+        }
+
+        .shopping-activity {
+            border-left-color: #ec4899;
+        }
+
+        .adventure-activity {
+            border-left-color: #f59e0b;
+        }
+
+        .work-activity {
+            border-left-color: #8b5cf6;
+        }
+
+        .wellness-activity {
+            border-left-color: #10b981;
+        }
+
+        .sightseeing-activity {
+            border-left-color: #6366f1;
         }
 
         .day-map-container {
@@ -1112,27 +1126,17 @@
                                 <p class="day-date">Saturday, January 10, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity flight-activity">
                                     <div class="activity-time">10:15 AM</div>
-                                    <div class="activity-name">Arrival at Heathrow Airport (LHR)</div>
-                                    <div class="activity-description">Clear customs and collect luggage</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">✈️ Arrival at Heathrow Airport (LHR) - Clear customs and collect luggage</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity hotel-activity">
                                     <div class="activity-time">12:00 PM</div>
-                                    <div class="activity-name">Check in at Hilton Garden Inn London Heathrow Airport
-                                    </div>
-                                    <div class="activity-description">Hatton Cross location - rest and refresh from
-                                        journey</div>
-                                    <span class="activity-type type-sightseeing">Hotel</span>
+                                    <div class="activity-desc">🏨 Check in at Hilton Garden Inn London Heathrow Airport - Hatton Cross location - rest and refresh from journey</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-name">★★ Michelin Dinner at Gymkhana</div>
-                                    <div class="activity-description">42 Albemarle Street, Mayfair, London, W1S 4JH -
-                                        Iconic Indian cuisine with tandoori lamb chops, wild muntjac biryani, and Goan
-                                        prawn curry. Chic, club-style setting.</div>
-                                    <span class="activity-type type-food">Michelin 2-Star</span>
+                                    <div class="activity-desc">🍽️ ★★ Michelin Dinner at Gymkhana - 42 Albemarle Street, Mayfair, London, W1S 4JH - Iconic Indian cuisine with tandoori lamb chops, wild muntjac biryani, and Goan prawn curry. Chic, club-style setting.</div>
                                 </div>
                             </div>
                         </div>
@@ -1159,59 +1163,37 @@
                                 <p class="day-date">Sunday, January 11, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity transport-activity">
                                     <div class="activity-time">8:00 AM</div>
-                                    <div class="activity-name">🚗 Pick up rental car at Heathrow</div>
-                                    <div class="activity-description">Checkout from hotel and car pickup</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🚗 Pick up rental car at Heathrow - Checkout from hotel and car pickup</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity transport-activity">
                                     <div class="activity-time">8:45 AM - 12:15 PM</div>
-                                    <div class="activity-name">🚗 Drive to Manchester</div>
-                                    <div class="activity-description">3.5-hour scenic drive north through English
-                                        countryside</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🚗 Drive to Manchester - 3.5-hour scenic drive north through English countryside</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">12:30 PM - 1:45 PM</div>
-                                    <div class="activity-name">🍽️ Lunch at Dishoom Manchester</div>
-                                    <div class="activity-description">Bombay-style café • 32 Bridge St, Manchester M3
-                                        3BT</div>
-                                    <span class="activity-type type-food">Food</span>
+                                    <div class="activity-desc">🍽️ Lunch at Dishoom Manchester - Bombay-style café • 32 Bridge St, Manchester M3 3BT</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity transport-activity">
                                     <div class="activity-time">1:45 PM - 3:45 PM</div>
-                                    <div class="activity-name">🚗 Drive to Lake District</div>
-                                    <div class="activity-description">2-hour drive from Manchester to Tarn Hows area
-                                    </div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🚗 Drive to Lake District - 2-hour drive from Manchester to Tarn Hows area</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity nature-activity">
                                     <div class="activity-time">3:45 PM - 4:50 PM</div>
-                                    <div class="activity-name">🥾 Tarn Hows Circular Walk</div>
-                                    <div class="activity-description">2-mile easy circular path with postcard-perfect
-                                        views • Wide, mostly flat trail around the tarn • National Trust car park (Tarn
-                                        Hows, Coniston, LA22 0PP)</div>
-                                    <span class="activity-type type-nature">Nature</span>
+                                    <div class="activity-desc">🥾 Tarn Hows Circular Walk - 2-mile easy circular path with postcard-perfect views • Wide, mostly flat trail around the tarn • National Trust car park (Tarn Hows, Coniston, LA22 0PP)</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity transport-activity">
                                     <div class="activity-time">4:50 PM - 5:15 PM</div>
-                                    <div class="activity-name">🚗 Drive to Grasmere</div>
-                                    <div class="activity-description">20-minute scenic drive to hotel</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🚗 Drive to Grasmere - 20-minute scenic drive to hotel</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity hotel-activity">
                                     <div class="activity-time">5:15 PM</div>
-                                    <div class="activity-name">Check in at The Daffodil Hotel</div>
-                                    <div class="activity-description">4.0 star hotel • Keswick Road, Grasmere • Jan
-                                        11-14, 2026</div>
-                                    <span class="activity-type type-sightseeing">Hotel</span>
+                                    <div class="activity-desc">🏨 Check in at The Daffodil Hotel - 4.0 star hotel • Keswick Road, Grasmere • Jan 11-14, 2026</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-name">Dinner at Hotel</div>
-                                    <div class="activity-description">Lakeside restaurant or local pub</div>
-                                    <span class="activity-type type-food">Food</span>
+                                    <div class="activity-desc">🍽️ Dinner at Hotel - Lakeside restaurant or local pub</div>
                                 </div>
                             </div>
                         </div>
@@ -1228,24 +1210,17 @@
                                 <p class="day-date">Monday, January 12, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity nature-activity">
                                     <div class="activity-time">Morning</div>
-                                    <div class="activity-name">🥾 Hike Catbells</div>
-                                    <div class="activity-description">Moderate 2.3-mile hike with panoramic Lake
-                                        District views (2-3 hours)</div>
-                                    <span class="activity-type type-sightseeing">Hiking</span>
+                                    <div class="activity-desc">🥾 Hike Catbells - Moderate 2.3-mile hike with panoramic Lake District views (2-3 hours)</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity work-activity">
                                     <div class="activity-time">1:00 PM - 8:00 PM</div>
-                                    <div class="activity-name">💼 Remote Work</div>
-                                    <div class="activity-description">Work from hotel with lakeside views</div>
-                                    <span class="activity-type type-entertainment">Work</span>
+                                    <div class="activity-desc">💼 Remote Work - Work from hotel with lakeside views</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity wellness-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-name">Relax at Hotel Spa</div>
-                                    <div class="activity-description">Unwind after hiking and work</div>
-                                    <span class="activity-type type-sightseeing">Wellness</span>
+                                    <div class="activity-desc">🧘 Relax at Hotel Spa - Unwind after hiking and work</div>
                                 </div>
                             </div>
                         </div>
@@ -1262,31 +1237,21 @@
                                 <p class="day-date">Tuesday, January 13, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity nature-activity">
                                     <div class="activity-time">9:00 AM - 1:00 PM</div>
-                                    <div class="activity-name">🥾 Easedale Tarn Hike</div>
-                                    <div class="activity-description">4.5-mile moderate hike through scenic valley •
-                                        Beautiful waterfalls (Sour Milk Gill) • Mountain tarn with stunning views • 3-4
-                                        hour round trip from Grasmere village</div>
-                                    <span class="activity-type type-sightseeing">Hiking</span>
+                                    <div class="activity-desc">🥾 Easedale Tarn Hike - 4.5-mile moderate hike through scenic valley • Beautiful waterfalls (Sour Milk Gill) • Mountain tarn with stunning views • 3-4 hour round trip from Grasmere village</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">1:00 PM - 2:00 PM</div>
-                                    <div class="activity-name">🍽️ Lunch</div>
-                                    <div class="activity-description">Return to Grasmere for lunch</div>
-                                    <span class="activity-type type-food">Food</span>
+                                    <div class="activity-desc">🍽️ Lunch - Return to Grasmere for lunch</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity work-activity">
                                     <div class="activity-time">2:00 PM - 8:00 PM</div>
-                                    <div class="activity-name">💼 Remote Work</div>
-                                    <div class="activity-description">Work from hotel</div>
-                                    <span class="activity-type type-entertainment">Work</span>
+                                    <div class="activity-desc">💼 Remote Work - Work from hotel</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-name">Dinner at Lakeside Restaurant</div>
-                                    <div class="activity-description">Celebrate Lake District adventure</div>
-                                    <span class="activity-type type-food">Food</span>
+                                    <div class="activity-desc">🍽️ Dinner at Lakeside Restaurant - Celebrate Lake District adventure</div>
                                 </div>
                             </div>
                         </div>
@@ -1313,38 +1278,25 @@
                                 <p class="day-date">Wednesday, January 14, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity transport-activity">
                                     <div class="activity-time">Morning</div>
-                                    <div class="activity-name">🚗 Drive to Glasgow</div>
-                                    <div class="activity-description">2.5-3 hour scenic drive through Scottish
-                                        countryside</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🚗 Drive to Glasgow - 2.5-3 hour scenic drive through Scottish countryside</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity hotel-activity">
                                     <div class="activity-time">12:00 PM</div>
-                                    <div class="activity-name">Check in at Glasgow Marriott Hotel</div>
-                                    <div class="activity-description">Jan 14-15, 2026 • City center location</div>
-                                    <span class="activity-type type-sightseeing">Hotel</span>
+                                    <div class="activity-desc">🏨 Check in at Glasgow Marriott Hotel - Jan 14-15, 2026 • City center location</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity work-activity">
                                     <div class="activity-time">1:00 PM - 8:00 PM</div>
-                                    <div class="activity-name">💼 Remote Work</div>
-                                    <div class="activity-description">Work from hotel</div>
-                                    <span class="activity-type type-entertainment">Work</span>
+                                    <div class="activity-desc">💼 Remote Work - Work from hotel</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity nature-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-name">Explore Kelvingrove Park</div>
-                                    <div class="activity-description">Beautiful park in West End</div>
-                                    <span class="activity-type type-sightseeing">Sightseeing</span>
+                                    <div class="activity-desc">🌳 Explore Kelvingrove Park - Beautiful park in West End</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">Dinner</div>
-                                    <div class="activity-name">🍽️ Kinara</div>
-                                    <div class="activity-description">1161 Argyle Street, Glasgow G3 8TB • Contemporary
-                                        Pakistani cuisine with tandoori specialties and modern twists on traditional
-                                        dishes</div>
-                                    <span class="activity-type type-food">Dinner</span>
+                                    <div class="activity-desc">🍽️ Kinara - 1161 Argyle Street, Glasgow G3 8TB • Contemporary Pakistani cuisine with tandoori specialties and modern twists on traditional dishes</div>
                                 </div>
                             </div>
                         </div>
@@ -1371,31 +1323,21 @@
                                 <p class="day-date">Thursday, January 15, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity transport-activity">
                                     <div class="activity-time">Morning</div>
-                                    <div class="activity-name">🚗 Drive to Edinburgh</div>
-                                    <div class="activity-description">1-1.5 hour drive to Scotland's capital</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🚗 Drive to Edinburgh - 1-1.5 hour drive to Scotland's capital</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity hotel-activity">
                                     <div class="activity-time">11:00 AM</div>
-                                    <div class="activity-name">Check in at Ten Hill Place</div>
-                                    <div class="activity-description">4.0 star hotel with restaurant • Near University
-                                        of Edinburgh</div>
-                                    <span class="activity-type type-sightseeing">Hotel</span>
+                                    <div class="activity-desc">🏨 Check in at Ten Hill Place - 4.0 star hotel with restaurant • Near University of Edinburgh</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity work-activity">
                                     <div class="activity-time">1:00 PM - 8:00 PM</div>
-                                    <div class="activity-name">💼 Remote Work</div>
-                                    <div class="activity-description">Work from hotel</div>
-                                    <span class="activity-type type-entertainment">Work</span>
+                                    <div class="activity-desc">💼 Remote Work - Work from hotel</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity culture-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-name">Stroll the Royal Mile or Whisky Bar</div>
-                                    <div class="activity-description">Explore historic Edinburgh or sample Scottish
-                                        whisky</div>
-                                    <span class="activity-type type-culture">Culture</span>
+                                    <div class="activity-desc">🏛️ Stroll the Royal Mile or Whisky Bar - Explore historic Edinburgh or sample Scottish whisky</div>
                                 </div>
                             </div>
                         </div>
@@ -1412,26 +1354,17 @@
                                 <p class="day-date">Friday, January 16, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity nature-activity">
                                     <div class="activity-time">Morning</div>
-                                    <div class="activity-name">🥾 Hike Arthur's Seat or Pentland Hills</div>
-                                    <div class="activity-description">Choice: Arthur's Seat (moderate, 1.5-2 hours,
-                                        panoramic city views) OR Pentland Hills (more rugged, longer hill walking
-                                        outside the city)</div>
-                                    <span class="activity-type type-sightseeing">Hiking</span>
+                                    <div class="activity-desc">🥾 Hike Arthur's Seat or Pentland Hills - Choice: Arthur's Seat (moderate, 1.5-2 hours, panoramic city views) OR Pentland Hills (more rugged, longer hill walking outside the city)</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity work-activity">
                                     <div class="activity-time">1:00 PM - 8:00 PM</div>
-                                    <div class="activity-name">💼 Remote Work</div>
-                                    <div class="activity-description">Work from hotel</div>
-                                    <span class="activity-type type-entertainment">Work</span>
+                                    <div class="activity-desc">💼 Remote Work - Work from hotel</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">Evening</div>
-                                    <div class="activity-name">Dinner at Hotel Restaurant or Classic Pub</div>
-                                    <div class="activity-description">Dine at Ten Hill Place restaurant or traditional
-                                        Scottish pub</div>
-                                    <span class="activity-type type-food">Food</span>
+                                    <div class="activity-desc">🍽️ Dinner at Hotel Restaurant or Classic Pub - Dine at Ten Hill Place restaurant or traditional Scottish pub</div>
                                 </div>
                             </div>
                         </div>
@@ -1458,48 +1391,29 @@
                                 <p class="day-date">Saturday, January 17, 2026 • 7-8 hour drive with stops</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity transport-activity">
                                     <div class="activity-time">7:00 AM</div>
-                                    <div class="activity-name">🚗 Depart Edinburgh</div>
-                                    <div class="activity-description">Start scenic drive to London via historic cities
-                                        and countryside</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🚗 Depart Edinburgh - Start scenic drive to London via historic cities and countryside</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity culture-activity">
                                     <div class="activity-time">10:00 AM - 11:30 AM</div>
-                                    <div class="activity-name">Stop in York</div>
-                                    <div class="activity-description">Historic walled city - explore York Minster,
-                                        medieval Shambles street, and city walls. Coffee and breakfast break.</div>
-                                    <span class="activity-type type-culture">Culture</span>
+                                    <div class="activity-desc">🏰 Stop in York - Historic walled city - explore York Minster, medieval Shambles street, and city walls. Coffee and breakfast break.</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">1:30 PM - 2:30 PM</div>
-                                    <div class="activity-name">Lunch in Peak District National Park</div>
-                                    <div class="activity-description">Stop in Bakewell or Chatsworth - stunning
-                                        countryside views, historic estates</div>
-                                    <span class="activity-type type-food">Food & Nature</span>
+                                    <div class="activity-desc">🍽️ Lunch in Peak District National Park - Stop in Bakewell or Chatsworth - stunning countryside views, historic estates</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity nature-activity">
                                     <div class="activity-time">4:00 PM - 5:00 PM</div>
-                                    <div class="activity-name">Drive through the Cotswolds</div>
-                                    <div class="activity-description">Scenic route through honey-stone villages like
-                                        Bourton-on-the-Water or Stow-on-the-Wold. Photo stop.</div>
-                                    <span class="activity-type type-sightseeing">Scenic Drive</span>
+                                    <div class="activity-desc">🚗 Drive through the Cotswolds - Scenic route through honey-stone villages like Bourton-on-the-Water or Stow-on-the-Wold. Photo stop.</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity hotel-activity">
                                     <div class="activity-time">6:30 PM</div>
-                                    <div class="activity-name">Arrive in London</div>
-                                    <div class="activity-description">Check in at Hilton Garden Inn London Heathrow
-                                        Airport</div>
-                                    <span class="activity-type type-sightseeing">Hotel</span>
+                                    <div class="activity-desc">🏨 Arrive in London - Check in at Hilton Garden Inn London Heathrow Airport</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity food-activity">
                                     <div class="activity-time">8:00 PM</div>
-                                    <div class="activity-name">★ Michelin Dinner at Jamavar</div>
-                                    <div class="activity-description">8 Mount Street, Mayfair, London, W1K 3NF -
-                                        Refined, beautifully presented Indian cuisine. Try the tandoori chicken, narangi
-                                        prawns, or stone bass tikka.</div>
-                                    <span class="activity-type type-food">Michelin 1-Star</span>
+                                    <div class="activity-desc">🍽️ ★ Michelin Dinner at Jamavar - 8 Mount Street, Mayfair, London, W1K 3NF - Refined, beautifully presented Indian cuisine. Try the tandoori chicken, narangi prawns, or stone bass tikka.</div>
                                 </div>
                             </div>
                         </div>
@@ -1516,17 +1430,13 @@
                                 <p class="day-date">Sunday, January 18, 2026</p>
                             </div>
                             <div class="activities">
-                                <div class="activity">
+                                <div class="activity hotel-activity">
                                     <div class="activity-time">Early Morning</div>
-                                    <div class="activity-name">Departure Preparation</div>
-                                    <div class="activity-description">Final packing and hotel checkout</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">🧳 Departure Preparation - Final packing and hotel checkout</div>
                                 </div>
-                                <div class="activity">
+                                <div class="activity flight-activity">
                                     <div class="activity-time">10:00 AM</div>
-                                    <div class="activity-name">✈️ Flight UA 879 to Houston</div>
-                                    <div class="activity-description">Depart LHR → IAH (arrives 2:45 PM same day)</div>
-                                    <span class="activity-type type-sightseeing">Travel</span>
+                                    <div class="activity-desc">✈️ Flight UA 879 to Houston - Depart LHR → IAH (arrives 2:45 PM same day)</div>
                                 </div>
                             </div>
                         </div>
