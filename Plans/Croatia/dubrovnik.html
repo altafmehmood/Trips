@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dubrovnik - Croatia Adventure</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .location-map {
+            height: 500px;
+            border-radius: var(--radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-marker {
+            background: none;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                height: 375px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -20,6 +44,9 @@
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
                 Explore the magnificent walled city of Dubrovnik, walk the iconic city walls, hike Mount Srđ, and discover Game of Thrones filming locations
             </p>
+
+            <!-- Map -->
+            <div id="dubrovnik-map" class="location-map"></div>
         </div>
 
         <div class="blog-content">
@@ -219,6 +246,53 @@
         </div>
 
     </div>
+
+    <script>
+        // Initialize Dubrovnik map
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('dubrovnik-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([42.6414, 18.1083], 13); // Dubrovnik Old Town
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Key locations in Dubrovnik
+            const locations = [
+                { lat: 42.6414, lng: 18.1083, label: '🏰', name: 'Old Town (Stari Grad)', desc: 'UNESCO World Heritage Site' },
+                { lat: 42.6408, lng: 18.1077, label: '🚪', name: 'Pile Gate', desc: 'Main entrance to Old Town' },
+                { lat: 42.6412, lng: 18.1102, label: '🚶', name: 'Stradun', desc: 'Main street of Old Town' },
+                { lat: 42.6420, lng: 18.1108, label: '⛪', name: 'Cathedral', desc: 'Dubrovnik Cathedral' },
+                { lat: 42.6404, lng: 18.1068, label: '🏛️', name: "Rector's Palace", desc: 'Gothic-Renaissance palace' },
+                { lat: 42.6486, lng: 18.1119, label: '⛰️', name: 'Mount Srđ Summit', desc: 'Fort Imperial, panoramic views' },
+                { lat: 42.6390, lng: 18.1050, label: '🌅', name: 'Buža Bar', desc: 'Cliffside bar on city walls' }
+            ];
+
+            // Add markers
+            locations.forEach(location => {
+                const marker = L.marker([location.lat, location.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: location.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${location.desc}</p>
+                    </div>
+                `);
+            });
+        });
+    </script>
 </body>
 
 </html>
