@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zagreb - Croatia Adventure</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .location-map {
+            height: 500px;
+            border-radius: var(--radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-marker {
+            background: none;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                height: 375px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -20,6 +44,9 @@
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
                 Arrive in Zagreb and explore Croatia's historic capital city with its charming Upper Town, vibrant markets, and café culture
             </p>
+
+            <!-- Map -->
+            <div id="zagreb-map" class="location-map"></div>
         </div>
 
         <div class="blog-content">
@@ -133,6 +160,53 @@
         </div>
 
     </div>
+
+    <script>
+        // Initialize Zagreb map
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('zagreb-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([45.8150, 15.9819], 14); // Zagreb center
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Key locations in Zagreb
+            const locations = [
+                { lat: 45.8148, lng: 15.9730, label: '⛪', name: "St. Mark's Church", desc: 'Colorful tiled roof' },
+                { lat: 45.8144, lng: 15.9780, label: '⛪', name: 'Zagreb Cathedral', desc: 'Neo-Gothic twin spires' },
+                { lat: 45.8156, lng: 15.9731, label: '🗼', name: 'Lotrščak Tower', desc: 'Panoramic views, noon cannon' },
+                { lat: 45.8129, lng: 15.9772, label: '🍅', name: 'Dolac Market', desc: 'Red umbrellas, local produce' },
+                { lat: 45.8136, lng: 15.9742, label: '☕', name: 'Tkalčićeva Street', desc: 'Cafes and restaurants' },
+                { lat: 45.8131, lng: 15.9768, label: '🎭', name: 'Lower Town', desc: 'Museums and parks' },
+                { lat: 45.8100, lng: 15.9778, label: '🚉', name: 'Main Square (Ban Jelačić)', desc: 'City center hub' }
+            ];
+
+            // Add markers
+            locations.forEach(location => {
+                const marker = L.marker([location.lat, location.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: location.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${location.desc}</p>
+                    </div>
+                `);
+            });
+        });
+    </script>
 </body>
 
 </html>

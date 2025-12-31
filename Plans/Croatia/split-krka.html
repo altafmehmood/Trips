@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Split & Krka - Croatia Adventure</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .location-map {
+            height: 500px;
+            border-radius: var(--radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-marker {
+            background: none;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                height: 375px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -20,6 +44,9 @@
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
                 Explore Split's 1,700-year-old Diocletian's Palace and visit Krka National Park's spectacular Skradinski Buk waterfall
             </p>
+
+            <!-- Map -->
+            <div id="split-krka-map" class="location-map"></div>
         </div>
 
         <div class="blog-content">
@@ -237,6 +264,59 @@
         </div>
 
     </div>
+
+    <script>
+        // Initialize Split & Krka map
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('split-krka-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([43.7000, 16.2000], 10); // Centered between Split and Krka
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Key locations
+            const locations = [
+                // Split
+                { lat: 43.5081, lng: 16.4402, label: '🏛️', name: "Diocletian's Palace", desc: '1,700-year-old Roman palace' },
+                { lat: 43.5082, lng: 16.4395, label: '⛪', name: 'Cathedral of St. Domnius', desc: "World's oldest Catholic cathedral" },
+                { lat: 43.5078, lng: 16.4385, label: '🏛️', name: 'Peristyle', desc: 'Central palace square' },
+                { lat: 43.5090, lng: 16.4389, label: '🚪', name: 'Golden Gate', desc: 'Northern entrance, Gregory statue' },
+                { lat: 43.5080, lng: 16.4406, label: '🌊', name: 'Riva Promenade', desc: 'Palm-lined waterfront' },
+                { lat: 43.5035, lng: 16.4413, label: '🏖️', name: 'Bačvice Beach', desc: 'Popular city beach' },
+                { lat: 43.5354, lng: 16.4358, label: '🌲', name: 'Marjan Forest Park', desc: 'Hill peninsula with views' },
+
+                // Krka
+                { lat: 43.8067, lng: 15.9692, label: '💦', name: 'Skradinski Buk', desc: "Croatia's most photographed waterfall" },
+                { lat: 43.8080, lng: 15.9710, label: '🌊', name: 'Krka Waterfalls', desc: '17 cascading waterfalls' },
+                { lat: 43.8100, lng: 15.9650, label: '🅿️', name: 'Lozovac Entrance', desc: 'Main park entrance' }
+            ];
+
+            // Add markers
+            locations.forEach(location => {
+                const marker = L.marker([location.lat, location.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: location.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${location.desc}</p>
+                    </div>
+                `);
+            });
+        });
+    </script>
 </body>
 
 </html>

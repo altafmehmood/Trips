@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plitvice Lakes - Croatia Adventure</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .location-map {
+            height: 500px;
+            border-radius: var(--radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-marker {
+            background: none;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                height: 375px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -20,6 +44,9 @@
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
                 Croatia's most famous national park featuring 16 interconnected turquoise lakes, spectacular waterfalls, and pristine nature
             </p>
+
+            <!-- Map -->
+            <div id="plitvice-map" class="location-map"></div>
         </div>
 
         <div class="blog-content">
@@ -182,6 +209,53 @@
         </div>
 
     </div>
+
+    <script>
+        // Initialize Plitvice Lakes map
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('plitvice-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([44.8800, 15.6164], 13); // Plitvice Lakes center
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Key locations in Plitvice
+            const locations = [
+                { lat: 44.8650, lng: 15.6050, label: '🅿️', name: 'Entrance 1', desc: 'Lower Lakes entrance' },
+                { lat: 44.8960, lng: 15.6250, label: '🅿️', name: 'Entrance 2', desc: 'Upper Lakes entrance' },
+                { lat: 44.8800, lng: 15.6100, label: '💦', name: 'Veliki Slap', desc: '78m Great Waterfall' },
+                { lat: 44.8750, lng: 15.6120, label: '🌊', name: 'Sastavci', desc: 'Upper & lower lakes meet' },
+                { lat: 44.8850, lng: 15.6180, label: '🛥️', name: 'Lake Kozjak', desc: 'Largest lake, boat ride' },
+                { lat: 44.8920, lng: 15.6220, label: '🏞️', name: 'Upper Lakes', desc: 'Smaller cascading lakes' },
+                { lat: 44.8700, lng: 15.6080, label: '🌲', name: 'Lower Lakes', desc: 'Main waterfalls area' }
+            ];
+
+            // Add markers
+            locations.forEach(location => {
+                const marker = L.marker([location.lat, location.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: location.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${location.desc}</p>
+                    </div>
+                `);
+            });
+        });
+    </script>
 </body>
 
 </html>

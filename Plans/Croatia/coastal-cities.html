@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zadar & Paklenica - Croatia Adventure</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .location-map {
+            height: 500px;
+            border-radius: var(--radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-marker {
+            background: none;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                height: 375px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -20,6 +44,9 @@
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
                 Experience Zadar's unique Sea Organ and world-famous sunset, then hike dramatic canyons at Paklenica National Park before continuing to Split
             </p>
+
+            <!-- Map -->
+            <div id="zadar-paklenica-map" class="location-map"></div>
         </div>
 
         <div class="blog-content">
@@ -219,6 +246,53 @@
         </div>
 
     </div>
+
+    <script>
+        // Initialize Zadar & Paklenica map
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('zadar-paklenica-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([44.1500, 15.4500], 10); // Centered between Zadar and Paklenica
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Key locations
+            const locations = [
+                { lat: 44.1194, lng: 15.2422, label: '🌊', name: 'Sea Organ', desc: "Musical instrument played by waves" },
+                { lat: 44.1195, lng: 15.2430, label: '☀️', name: 'Greeting to the Sun', desc: 'Solar-powered light installation' },
+                { lat: 44.1178, lng: 15.2289, label: '🏛️', name: 'Roman Forum', desc: '3,000 year old square' },
+                { lat: 44.1199, lng: 15.2262, label: '⛪', name: 'St. Donatus Church', desc: '9th century symbol of Zadar' },
+                { lat: 44.1203, lng: 15.2247, label: '⛪', name: 'St. Anastasia Cathedral', desc: 'Romanesque cathedral' },
+                { lat: 44.2894, lng: 15.4458, label: '⛰️', name: 'Paklenica National Park', desc: 'Dramatic canyon hiking' },
+                { lat: 44.2900, lng: 15.4470, label: '🥾', name: 'Velika Paklenica', desc: 'Main canyon trail' }
+            ];
+
+            // Add markers
+            locations.forEach(location => {
+                const marker = L.marker([location.lat, location.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: location.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${location.desc}</p>
+                    </div>
+                `);
+            });
+        });
+    </script>
 </body>
 
 </html>

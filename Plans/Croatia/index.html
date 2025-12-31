@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Croatia Adventure - April 2026 Trip Plan</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .flight-map {
+            height: 400px;
+            border-radius: var(--radius-lg);
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-marker {
+            background: none;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .flight-map {
+                height: 300px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -71,6 +95,9 @@
                 <p style="margin: 0.5rem 0 0 0; font-style: italic; color: var(--accent);">Arrive Saturday morning, April 25</p>
             </div>
 
+            <!-- Outbound Flight Map -->
+            <div id="outbound-flight-map" class="flight-map"></div>
+
             <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Return - Sunday, May 3, 2026</h3>
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
                 <p style="margin: 0 0 0.5rem 0;"><strong>UA 386</strong></p>
@@ -84,6 +111,9 @@
                 <p style="margin: 0; color: var(--text-secondary);">Duration: ~3-4 hours (domestic)</p>
                 <p style="margin: 0.5rem 0 0 0; font-style: italic; color: var(--accent);">Arrive Houston same day</p>
             </div>
+
+            <!-- Return Flight Map -->
+            <div id="return-flight-map" class="flight-map"></div>
         </div>
 
         <!-- Explore Journey -->
@@ -209,6 +239,136 @@
         </div>
 
     </div>
+
+    <script>
+        // Flight route map creation with curved routes for multi-leg flights
+        function createFlightRouteMap(mapId, legs, viewCenter, viewZoom) {
+            try {
+                const mapElement = document.getElementById(mapId);
+                if (!mapElement) {
+                    console.error(`Flight map container with id "${mapId}" not found`);
+                    return;
+                }
+
+                // Create map centered on specified view
+                const map = L.map(mapId, {
+                    scrollWheelZoom: true,
+                    dragging: true,
+                    zoomControl: true
+                }).setView(viewCenter, viewZoom);
+
+                // Add CARTO Voyager tiles
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap contributors © CARTO',
+                    maxZoom: 19
+                }).addTo(map);
+
+                // Add markers and routes for each leg
+                legs.forEach((leg, index) => {
+                    // Origin marker (first leg only or connection point)
+                    if (index === 0) {
+                        const originIcon = L.divIcon({
+                            className: 'simple-marker',
+                            html: '🛫',
+                            iconSize: [30, 30],
+                            iconAnchor: [15, 15]
+                        });
+                        L.marker([leg.origin.lat, leg.origin.lng], { icon: originIcon })
+                            .addTo(map)
+                            .bindPopup(`
+                                <div style="font-family: Inter, sans-serif;">
+                                    <h4 style="margin: 0 0 5px 0;">Departure</h4>
+                                    <p style="margin: 0; font-size: 0.9rem;">${leg.origin.name}</p>
+                                </div>
+                            `);
+                    } else {
+                        // Connection point
+                        const connectionIcon = L.divIcon({
+                            className: 'simple-marker',
+                            html: '✈️',
+                            iconSize: [30, 30],
+                            iconAnchor: [15, 15]
+                        });
+                        L.marker([leg.origin.lat, leg.origin.lng], { icon: connectionIcon })
+                            .addTo(map)
+                            .bindPopup(`
+                                <div style="font-family: Inter, sans-serif;">
+                                    <h4 style="margin: 0 0 5px 0;">Connection</h4>
+                                    <p style="margin: 0; font-size: 0.9rem;">${leg.origin.name}</p>
+                                </div>
+                            `);
+                    }
+
+                    // Destination marker
+                    const destIcon = L.divIcon({
+                        className: 'simple-marker',
+                        html: index === legs.length - 1 ? '🛬' : '✈️',
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    });
+                    L.marker([leg.destination.lat, leg.destination.lng], { icon: destIcon })
+                        .addTo(map)
+                        .bindPopup(`
+                            <div style="font-family: Inter, sans-serif;">
+                                <h4 style="margin: 0 0 5px 0;">${index === legs.length - 1 ? 'Arrival' : 'Connection'}</h4>
+                                <p style="margin: 0; font-size: 0.9rem;">${leg.destination.name}</p>
+                            </div>
+                        `);
+
+                    // Add flight path line
+                    L.polyline(
+                        [[leg.origin.lat, leg.origin.lng], [leg.destination.lat, leg.destination.lng]],
+                        {
+                            color: '#6366f1',
+                            weight: 3,
+                            opacity: 0.7,
+                            dashArray: '8, 4'
+                        }
+                    ).addTo(map);
+                });
+
+                // Fit map to show entire route
+                const allPoints = legs.flatMap(leg => [
+                    [leg.origin.lat, leg.origin.lng],
+                    [leg.destination.lat, leg.destination.lng]
+                ]);
+                const bounds = L.latLngBounds(allPoints);
+                map.fitBounds(bounds, { padding: [50, 50] });
+
+                return map;
+            } catch (error) {
+                console.error(`Error creating flight map "${mapId}":`, error);
+                return null;
+            }
+        }
+
+        // Initialize maps when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Outbound flight: Houston → Frankfurt → Zagreb
+            createFlightRouteMap('outbound-flight-map', [
+                {
+                    origin: { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' },
+                    destination: { lat: 50.0379, lng: 8.5622, name: 'Frankfurt (FRA)' }
+                },
+                {
+                    origin: { lat: 50.0379, lng: 8.5622, name: 'Frankfurt (FRA)' },
+                    destination: { lat: 45.7429, lng: 16.0688, name: 'Zagreb (ZAG)' }
+                }
+            ], [45, -20], 3);
+
+            // Return flight: Dubrovnik → Newark → Houston
+            createFlightRouteMap('return-flight-map', [
+                {
+                    origin: { lat: 42.5614, lng: 18.2683, name: 'Dubrovnik (DBV)' },
+                    destination: { lat: 40.6895, lng: -74.1745, name: 'Newark (EWR)' }
+                },
+                {
+                    origin: { lat: 40.6895, lng: -74.1745, name: 'Newark (EWR)' },
+                    destination: { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' }
+                }
+            ], [40, -50], 3);
+        });
+    </script>
 </body>
 
 </html>
