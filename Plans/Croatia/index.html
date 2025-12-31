@@ -124,6 +124,9 @@
                 Click on each section to view detailed daily plans and activities.
             </p>
 
+            <!-- Route Overview Map -->
+            <div id="route-overview-map" class="flight-map"></div>
+
             <div class="blog-grid">
                 <!-- Zagreb -->
                 <a href="zagreb.html" class="blog-post-card" style="text-decoration: none;">
@@ -367,6 +370,62 @@
                     destination: { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' }
                 }
             ], [40, -50], 3);
+
+            // Route Overview Map: Zagreb to Dubrovnik journey
+            const routeMap = L.map('route-overview-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([44.5, 16.0], 7); // Centered on Croatia
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(routeMap);
+
+            // Route stops in order
+            const routeStops = [
+                { lat: 45.8150, lng: 15.9819, label: '🏛️', name: 'Zagreb', desc: 'Days 1-2 • Capital City', color: '#6366f1' },
+                { lat: 44.8800, lng: 15.6164, label: '🏞️', name: 'Plitvice Lakes', desc: 'Day 3 • UNESCO Heritage', color: '#06b6d4' },
+                { lat: 44.1194, lng: 15.2422, label: '🌊', name: 'Zadar', desc: 'Day 4 • Coastal City', color: '#f59e0b' },
+                { lat: 44.2894, lng: 15.4458, label: '⛰️', name: 'Paklenica', desc: 'Day 5 • National Park', color: '#f59e0b' },
+                { lat: 43.5081, lng: 16.4402, label: '🏛️', name: 'Split', desc: 'Days 6-7 • Roman Palace', color: '#10b981' },
+                { lat: 43.8067, lng: 15.9692, label: '💦', name: 'Krka', desc: 'Day 7 • Waterfalls', color: '#10b981' },
+                { lat: 42.6414, lng: 18.1083, label: '🏰', name: 'Dubrovnik', desc: 'Days 8-10 • Pearl of Adriatic', color: '#dc2626' }
+            ];
+
+            // Add markers for each stop
+            routeStops.forEach((stop, index) => {
+                const marker = L.marker([stop.lat, stop.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: stop.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(routeMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0; color: ${stop.color};">${stop.name}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${stop.desc}</p>
+                    </div>
+                `);
+            });
+
+            // Draw route line connecting all stops
+            const routeLine = routeStops.map(stop => [stop.lat, stop.lng]);
+            L.polyline(routeLine, {
+                color: '#6366f1',
+                weight: 3,
+                opacity: 0.7,
+                dashArray: '10, 5'
+            }).addTo(routeMap);
+
+            // Fit map to show entire route
+            const routeBounds = L.latLngBounds(routeLine);
+            routeMap.fitBounds(routeBounds, { padding: [50, 50] });
         });
     </script>
 </body>
