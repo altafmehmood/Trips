@@ -244,24 +244,33 @@
             </div>
 
             <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">🏨 Hotels to Book</h3>
+
+            <!-- Hotels Map -->
+            <div id="hotels-map" class="flight-map" style="margin-bottom: 2rem;"></div>
+
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
-                <p style="margin: 0;"><strong>Canopy by Hilton Zagreb - City Centre</strong></p>
+                <p style="margin: 0;"><strong><a href="https://www.hilton.com/en/hotels/zagzcpy-canopy-zagreb-city-centre/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Canopy by Hilton Zagreb - City Centre</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Ulica kneza Branimira 29, 10000 Zagreb, Croatia</p>
                 <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 25 • Check-out: April 27 (2 nights)</p>
                 <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Modern 151-room hotel steps from Main Train Station with complimentary bikes, rooftop terrace, Croatian cuisine restaurant, and art-deco inspired design. Guests praise the helpful staff, spacious clean rooms, and excellent location near tram station.</p>
 
-                <p style="margin: 1.5rem 0 0 0;"><strong>Fenomen Plitvice</strong></p>
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://fenomen-plitvice.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Fenomen Plitvice</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Plitvica Selo 81, 53231 Plitvicka Jezera, Croatia</p>
                 <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 26 • Check-out: April 27 (1 night)</p>
                 <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Rated #1 resort near Plitvice Lakes with 18 luxury cabins on the edge of the UNESCO park. Just 0.5km from Veliki Slap waterfall with private jacuzzi, sauna, archery, cycling, and free breakfast on terrace. Couples rate the location 9.5/10.</p>
 
-                <p style="margin: 1.5rem 0 0 0;"><strong>Heritage Hotel Bastion</strong></p>
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.hotel-bastion.hr" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Heritage Hotel Bastion</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Bedemi Zadarskih Pobuna 13, 23000 Zadar, Croatia</p>
                 <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 27 • Check-out: April 29 (2 nights recommended)</p>
                 <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Relais & Châteaux boutique hotel in a 13th-century fortress in Zadar's historic core. Features handmade art-deco furniture, Castello Spa & Wellness Center, Michelin-star restaurant, and individually decorated rooms with exposed stone walls. Walking distance to Sea Organ.</p>
 
-                <p style="margin: 1.5rem 0 0 0;"><strong>Boutique Hotel Luxe</strong></p>
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://hotelluxesplit.com/en/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Boutique Hotel Luxe</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Ul. kralja Zvonimira 6, 21000 Split, Croatia</p>
                 <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 29 • Check-out: May 1 (2 nights)</p>
                 <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Contemporary design hotel just 5 minutes from Diocletian's Palace with 30 modern rooms, many featuring sea views and private balconies. Includes spa, hot tub, sauna, fitness center, cigar lounge, and complimentary welcome wine. Guests love the helpful staff and rich breakfast.</p>
 
-                <p style="margin: 1.5rem 0 0 0;"><strong>Sun Gardens Dubrovnik</strong></p>
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.dubrovniksungardens.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Sun Gardens Dubrovnik</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Na moru 1, 20235 Orašac, Croatia</p>
                 <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: May 1 • Check-out: May 3 (2 nights)</p>
                 <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Five-star Leading Hotels of the World resort on the Adriatic coast with natural pebble beach, 4 pools (1 indoor), award-winning 3,000 sqm spa, 16 restaurants and bars, kids club, tennis courts, and complimentary shuttle to Old Town (15 min). Rated #1 in area on TripAdvisor.</p>
             </div>
@@ -479,6 +488,100 @@
             // Fit map to show entire route
             const routeBounds = L.latLngBounds(routeLine);
             routeMap.fitBounds(routeBounds, { padding: [50, 50] });
+
+            // Hotels Map: All accommodation locations
+            const hotelsMap = L.map('hotels-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([44.5, 16.0], 7); // Centered on Croatia
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(hotelsMap);
+
+            // Hotel locations with coordinates
+            const hotels = [
+                {
+                    lat: 45.8079, lng: 15.9760,
+                    label: '🏨',
+                    name: 'Canopy by Hilton Zagreb',
+                    address: 'Ulica kneza Branimira 29, Zagreb',
+                    nights: '2 nights (Apr 25-27)'
+                },
+                {
+                    lat: 44.8800, lng: 15.6164,
+                    label: '🏨',
+                    name: 'Fenomen Plitvice',
+                    address: 'Plitvica Selo 81, Plitvicka Jezera',
+                    nights: '1 night (Apr 26-27)'
+                },
+                {
+                    lat: 44.1173, lng: 15.2289,
+                    label: '🏨',
+                    name: 'Heritage Hotel Bastion',
+                    address: 'Bedemi Zadarskih Pobuna 13, Zadar',
+                    nights: '2 nights (Apr 27-29)'
+                },
+                {
+                    lat: 43.5097, lng: 16.4403,
+                    label: '🏨',
+                    name: 'Boutique Hotel Luxe',
+                    address: 'Ul. kralja Zvonimira 6, Split',
+                    nights: '2 nights (Apr 29-May 1)'
+                },
+                {
+                    lat: 42.6486, lng: 18.0519,
+                    label: '🏨',
+                    name: 'Sun Gardens Dubrovnik',
+                    address: 'Na moru 1, Orašac',
+                    nights: '2 nights (May 1-3)'
+                }
+            ];
+
+            // Add markers for each hotel
+            hotels.forEach((hotel, index) => {
+                const marker = L.marker([hotel.lat, hotel.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: hotel.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(hotelsMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0; color: var(--primary);">${hotel.name}</h4>
+                        <p style="margin: 0 0 3px 0; font-size: 0.85rem; color: #666;">${hotel.address}</p>
+                        <p style="margin: 0; font-size: 0.9rem; font-weight: 600; color: var(--accent);">${hotel.nights}</p>
+                    </div>
+                `);
+
+                // Add number labels
+                const numberLabel = L.divIcon({
+                    className: 'hotel-number-label',
+                    html: `<div style="background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">${index + 1}</div>`,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 36]
+                });
+                L.marker([hotel.lat, hotel.lng], { icon: numberLabel }).addTo(hotelsMap);
+            });
+
+            // Draw line connecting hotels in order
+            const hotelLine = hotels.map(hotel => [hotel.lat, hotel.lng]);
+            L.polyline(hotelLine, {
+                color: '#6366f1',
+                weight: 2,
+                opacity: 0.5,
+                dashArray: '5, 5'
+            }).addTo(hotelsMap);
+
+            // Fit map to show all hotels
+            const hotelBounds = L.latLngBounds(hotelLine);
+            hotelsMap.fitBounds(hotelBounds, { padding: [50, 50] });
         });
     </script>
 </body>
