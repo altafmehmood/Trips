@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Bled - Croatia Adventure</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .location-map {
+            height: 500px;
+            border-radius: var(--radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simple-marker {
+            background: none;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                height: 375px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Overview</a>
+
+        <h1><span class="gradient-text">🇸🇮 Lake Bled, Slovenia</span></h1>
+        <p class="subtitle">Day 3 • Alpine Gem • April 26, 2026</p>
+
+        <div class="trip-overview">
+            <h2>Overview</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                Escape to Slovenia's fairy-tale Lake Bled with its iconic island church, clifftop medieval castle, and stunning Alpine scenery
+            </p>
+
+            <!-- Map -->
+            <div id="bled-map" class="location-map"></div>
+        </div>
+
+        <div class="blog-content">
+            <!-- Day 3 -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <div class="day-title">Day 3 - Saturday, April 26</div>
+                    <div class="day-subtitle">Lake Bled, Slovenia</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <h3>🚗 Drive from Zagreb to Lake Bled</h3>
+                        <ul>
+                            <li>2-2.5 hour scenic drive from Zagreb (140 miles/225km)</li>
+                            <li>Cross into Slovenia (EU member, easy border crossing)</li>
+                            <li>Enter the Julian Alps region</li>
+                            <li>Arrive mid-morning for full day of activities</li>
+                        </ul>
+
+                        <h3>🏝️ Bled Island (Blejski Otok)</h3>
+                        <ul>
+                            <li><strong>The only island in Slovenia!</strong></li>
+                            <li>Take traditional pletna boat (€15-20 round trip) - iconic experience</li>
+                            <li>Or rent your own rowboat to explore at your own pace</li>
+                            <li><strong>Church of the Assumption</strong> - climb 99 steps to the church</li>
+                            <li>Ring the "wishing bell" - legend says your wish will come true</li>
+                            <li>Beautiful Baroque church dating from 1698</li>
+                        </ul>
+
+                        <h3>🏰 Bled Castle (Blejski Grad)</h3>
+                        <ul>
+                            <li><strong>Slovenia's oldest castle</strong> - perched 130m above the lake</li>
+                            <li>Dating back to 1004 AD (over 1,000 years old!)</li>
+                            <li>Steep climb but rewarded with breathtaking panoramic views</li>
+                            <li>Museum showcasing castle and regional history</li>
+                            <li>Castle restaurant with terrace overlooking the lake</li>
+                            <li>Traditional printing press and wine cellar</li>
+                            <li>Best views: from the upper courtyard terrace</li>
+                        </ul>
+
+                        <h3>🚶 Walk Around Lake Bled</h3>
+                        <ul>
+                            <li>6km (3.7 miles) loop taking approximately 1.5 hours</li>
+                            <li>Flat, easy walk suitable for all fitness levels</li>
+                            <li>Different perspectives of the lake, island, and mountains</li>
+                            <li>Photo opportunities at every turn</li>
+                            <li>Pass by swimming areas, cafes, and viewpoints</li>
+                        </ul>
+
+                        <h3>📸 Ojstrica Viewpoint (Optional)</h3>
+                        <ul>
+                            <li><strong>THE iconic Lake Bled photo spot</strong></li>
+                            <li>Short but steep 20-minute hike (400m elevation gain)</li>
+                            <li>Aerial view of lake, island, castle, and Julian Alps</li>
+                            <li>Best for sunset or early morning light</li>
+                            <li>Classic postcard view of Lake Bled</li>
+                        </ul>
+
+                        <h3>🍰 Try Bled Cream Cake (Kremšnita)</h3>
+                        <ul>
+                            <li>Lake Bled's most famous dessert since 1953</li>
+                            <li>Layers of vanilla custard cream and whipped cream between puff pastry</li>
+                            <li>Best at Park Hotel or Hotel Triglav restaurants</li>
+                            <li>Over 15 million served since inception!</li>
+                        </ul>
+
+                        <h3>🏞️ Vintgar Gorge (Optional)</h3>
+                        <ul>
+                            <li>1.6km gorge with dramatic waterfalls and wooden walkways</li>
+                            <li>4 miles (15 min drive) from Lake Bled</li>
+                            <li>Timed entry tickets must be purchased in advance online</li>
+                            <li>Allow 1.5 hours for visit</li>
+                            <li>Worth it if time permits!</li>
+                        </ul>
+
+                        <h3>🏨 Overnight in Lake Bled</h3>
+                        <ul>
+                            <li>Stay lakeside to enjoy evening and early morning serenity</li>
+                            <li>Lake is magical at sunset and sunrise</li>
+                            <li>Evening stroll along illuminated lakefront</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, var(--accent), var(--accent-dark));">
+                    <div class="day-title">💡 Lake Bled Tips</div>
+                    <div class="day-subtitle">Local Insights</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <h3>Timing Recommendations</h3>
+                        <ul>
+                            <li>Start with pletna boat to island (before crowds around 9-10 AM)</li>
+                            <li>Bled Castle mid-morning when it opens (8 AM in summer)</li>
+                            <li>Lake walk in afternoon (any time is good)</li>
+                            <li>Ojstrica viewpoint for sunset if weather is clear</li>
+                        </ul>
+
+                        <h3>Money & Practicalities</h3>
+                        <ul>
+                            <li>Slovenia uses Euro (€) - Croatia uses Kuna, so get some Euros</li>
+                            <li>Bled Castle entrance: €13-15 adults</li>
+                            <li>Pletna boat: €15-20 round trip (plus €6 church entry)</li>
+                            <li>Parking: Several paid lots around the lake (€2-4/hour)</li>
+                        </ul>
+
+                        <h3>What to Eat</h3>
+                        <ul>
+                            <li><strong>Kremšnita</strong> - Bled cream cake (must try!)</li>
+                            <li><strong>Potica</strong> - Traditional Slovenian nut roll</li>
+                            <li>Fresh lake fish at lakeside restaurants</li>
+                            <li>Try Slovenian wines - different from Croatian</li>
+                        </ul>
+
+                        <h3>Photography</h3>
+                        <ul>
+                            <li>Ojstrica viewpoint: Best for classic aerial shot</li>
+                            <li>Mala Osojnica: Slightly higher, more dramatic (steeper hike)</li>
+                            <li>From Bled Castle: Great for looking down on the island</li>
+                            <li>Evening: Lake illuminations create beautiful reflections</li>
+                        </ul>
+
+                        <h3>Weather Note</h3>
+                        <ul>
+                            <li>April in the Alps can be cooler than Croatia coast</li>
+                            <li>Bring layers - mornings/evenings can be chilly</li>
+                            <li>Mountains may still have snow in April - beautiful backdrop!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="trip-overview">
+            <h2>Continue the Journey</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <a href="zagreb.html" style="display: block; padding: 1.5rem; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; text-decoration: none; border-radius: var(--radius-lg); text-align: center; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏛️</div>
+                    <div style="font-weight: 700; font-size: 1.1rem;">Previous: Zagreb</div>
+                    <div style="opacity: 0.9; font-size: 0.9rem; margin-top: 0.25rem;">Day 2</div>
+                </a>
+                <a href="plitvice.html" style="display: block; padding: 1.5rem; background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)); color: white; text-decoration: none; border-radius: var(--radius-lg); text-align: center; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏞️</div>
+                    <div style="font-weight: 700; font-size: 1.1rem;">Next: Plitvice Lakes</div>
+                    <div style="opacity: 0.9; font-size: 0.9rem; margin-top: 0.25rem;">Day 4</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Initialize Lake Bled map
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('bled-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([46.3683, 14.1146], 14); // Lake Bled center
+
+            // Add CARTO Voyager tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Key locations at Lake Bled
+            const locations = [
+                { lat: 46.3681, lng: 14.0991, label: '🏝️', name: 'Bled Island', desc: 'Take pletna boat to church' },
+                { lat: 46.3698, lng: 14.0968, label: '🏰', name: 'Bled Castle', desc: 'Medieval castle with panoramic views' },
+                { lat: 46.3650, lng: 14.1100, label: '🚶', name: 'Lake Promenade', desc: '6km walk around lake' },
+                { lat: 46.3717, lng: 14.1033, label: '📸', name: 'Ojstrica Viewpoint', desc: 'Iconic Lake Bled photo spot' },
+                { lat: 46.3900, lng: 14.1133, label: '🏞️', name: 'Vintgar Gorge', desc: '15 min drive, advance tickets' },
+                { lat: 46.3683, lng: 14.1146, label: '🍰', name: 'Town Center', desc: 'Try famous Bled cream cake' },
+                { lat: 46.3640, lng: 14.1000, label: '🏖️', name: 'Swimming Areas', desc: 'Lake beaches and access' }
+            ];
+
+            // Add markers
+            locations.forEach(location => {
+                const marker = L.marker([location.lat, location.lng], {
+                    icon: L.divIcon({
+                        className: 'simple-marker',
+                        html: location.label,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <div style="font-family: Inter, sans-serif;">
+                        <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #666;">${location.desc}</p>
+                    </div>
+                `);
+            });
+        });
+    </script>
+</body>
+
+</html>
