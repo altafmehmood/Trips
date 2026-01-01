@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Croatia Adventure - April 2026 Trip Plan</title>
+    <title>Croatia Adventure (South to North) - April 2026 Trip Plan</title>
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -47,17 +47,17 @@
 
         <!-- Route Option Banner -->
         <div class="route-option-banner">
-            <p style="margin: 0; font-weight: 600;">🔄 Multiple Route Options Available</p>
-            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.95;">North to South routing (current) • <a href="index-alt.html" style="color: white; text-decoration: underline;">View South to North route</a></p>
+            <p style="margin: 0; font-weight: 600;">🔄 Alternate Route Option</p>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.95;">South to North routing • <a href="index.html" style="color: white; text-decoration: underline;">View North to South route</a></p>
         </div>
 
         <h1><span class="gradient-text">🇭🇷 Croatia Adventure</span></h1>
-        <p class="subtitle">Zagreb to Dubrovnik Road Trip • April 24 - May 3, 2026</p>
+        <p class="subtitle">Dubrovnik to Zagreb Road Trip • April 24 - May 3, 2026</p>
 
         <div class="trip-overview">
             <h2>Trip at a Glance</h2>
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
-                A springtime journey through Croatia's stunning coastline, UNESCO World Heritage sites, and dramatic national parks. From the capital city of Zagreb to the Pearl of the Adriatic in Dubrovnik.
+                A springtime journey through Croatia's stunning coastline, UNESCO World Heritage sites, and dramatic national parks. From the Pearl of the Adriatic in Dubrovnik to the capital city of Zagreb.
             </p>
             <div class="overview-stats" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="stat-card">
@@ -72,7 +72,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">✈️</div>
-                    <div class="stat-value">5</div>
+                    <div class="stat-value">4</div>
                     <div class="stat-label">Flights</div>
                 </div>
                 <div class="stat-card">
@@ -99,27 +99,23 @@
 
             <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Outbound - Friday, April 24, 2026</h3>
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
-                <p style="margin: 0 0 0.5rem 0;"><strong>British Airways BA 196</strong></p>
+                <p style="margin: 0 0 0.5rem 0;"><strong>British Airways BA 194</strong></p>
                 <p style="margin: 0; color: var(--text-secondary);">Houston IAH → London Heathrow (LHR)</p>
-                <p style="margin: 0; color: var(--text-secondary);">Duration: ~9h 30min</p>
+                <p style="margin: 0; color: var(--text-secondary);">Departs: 3:30 PM CDT | Arrives: 6:40 AM+1 BST</p>
+                <p style="margin: 0; color: var(--text-secondary);">Duration: 9h 10min</p>
             </div>
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
-                <p style="margin: 0 0 0.5rem 0;"><strong>British Airways BA 848</strong></p>
-                <p style="margin: 0; color: var(--text-secondary);">London Heathrow (LHR) → Zagreb ZAG, Croatia</p>
-                <p style="margin: 0; color: var(--text-secondary);">Duration: ~2h 30min</p>
-                <p style="margin: 0.5rem 0 0 0; font-style: italic; color: var(--accent);">Arrive Saturday morning, April 25</p>
+                <p style="margin: 0 0 0.5rem 0;"><strong>British Airways BA 838</strong></p>
+                <p style="margin: 0; color: var(--text-secondary);">London Heathrow (LHR) → Dubrovnik DBV, Croatia</p>
+                <p style="margin: 0; color: var(--text-secondary);">Departs: 11:00 AM BST | Arrives: 2:45 PM CEST</p>
+                <p style="margin: 0; color: var(--text-secondary);">Duration: 2h 45min</p>
+                <p style="margin: 0.5rem 0 0 0; font-style: italic; color: var(--accent);">Arrive Saturday afternoon, April 25</p>
             </div>
 
             <!-- Outbound Flight Map -->
             <div id="outbound-flight-map" class="flight-map"></div>
 
             <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Return - Sunday, May 3, 2026</h3>
-            <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
-                <p style="margin: 0 0 0.5rem 0;"><strong>Croatia Airlines OU 661</strong></p>
-                <p style="margin: 0; color: var(--text-secondary);">Dubrovnik DBV → Zagreb ZAG</p>
-                <p style="margin: 0; color: var(--text-secondary);">Departs: 6:40 AM | Arrives: 7:35 AM</p>
-                <p style="margin: 0; color: var(--text-secondary);">Duration: 55 minutes</p>
-            </div>
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
                 <p style="margin: 0 0 0.5rem 0;"><strong>British Airways BA 849</strong></p>
                 <p style="margin: 0; color: var(--text-secondary);">Zagreb ZAG → London Heathrow (LHR)</p>
@@ -138,9 +134,9 @@
 
         <!-- Explore Journey -->
         <div class="trip-overview">
-            <h2>🗺️ Your Route: Zagreb to Dubrovnik</h2>
+            <h2>🗺️ Your Route: Dubrovnik to Zagreb</h2>
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
-                A classic north-to-south Croatia road trip combining culture, nature, and coastal beauty.<br>
+                A reverse south-to-north Croatia road trip combining coastal beauty, nature, and culture.<br>
                 Click on each section to view detailed daily plans and activities.
             </p>
 
@@ -148,70 +144,19 @@
             <div id="route-overview-map" class="flight-map"></div>
 
             <div class="blog-grid">
-                <!-- Zagreb -->
-                <a href="zagreb.html" class="blog-post-card" style="text-decoration: none;">
-                    <div class="blog-card-header" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
-                        <div class="blog-card-icon">🏛️</div>
-                        <div class="blog-card-title">Zagreb</div>
-                        <div class="blog-card-subtitle">Day 2 • Capital City</div>
+                <!-- Dubrovnik -->
+                <a href="dubrovnik.html" class="blog-post-card" style="text-decoration: none;">
+                    <div class="blog-card-header" style="background: linear-gradient(135deg, #dc2626, #991b1b);">
+                        <div class="blog-card-icon">🏰</div>
+                        <div class="blog-card-title">Dubrovnik</div>
+                        <div class="blog-card-subtitle">Days 2-4 • Pearl of Adriatic</div>
                     </div>
                     <div class="blog-card-content">
-                        <p>Arrive in Croatia's vibrant capital. Explore the historic Upper Town, visit colorful Dolac Market, and stroll through Tkalčićeva Street's cafes.</p>
+                        <p>Start in the magnificent walled city. Walk the famous city walls, explore Game of Thrones locations, and hike Mount Srđ for panoramic views.</p>
                         <div class="blog-card-highlights">
-                            <span class="highlight-tag">St. Mark's Church</span>
-                            <span class="highlight-tag">Zagreb Cathedral</span>
-                            <span class="highlight-tag">Dolac Market</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Lake Bled -->
-                <a href="bled.html" class="blog-post-card" style="text-decoration: none;">
-                    <div class="blog-card-header" style="background: linear-gradient(135deg, #10b981, #059669);">
-                        <div class="blog-card-icon">🇸🇮</div>
-                        <div class="blog-card-title">Lake Bled, Slovenia</div>
-                        <div class="blog-card-subtitle">Day 3 • Alpine Gem</div>
-                    </div>
-                    <div class="blog-card-content">
-                        <p>Escape to Slovenia's fairy-tale Lake Bled with its iconic island church, clifftop medieval castle, and stunning Alpine scenery.</p>
-                        <div class="blog-card-highlights">
-                            <span class="highlight-tag">Bled Island</span>
-                            <span class="highlight-tag">Bled Castle</span>
-                            <span class="highlight-tag">Cream Cake</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Plitvice Lakes -->
-                <a href="plitvice.html" class="blog-post-card" style="text-decoration: none;">
-                    <div class="blog-card-header" style="background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));">
-                        <div class="blog-card-icon">🏞️</div>
-                        <div class="blog-card-title">Plitvice Lakes</div>
-                        <div class="blog-card-subtitle">Day 4 • UNESCO Heritage</div>
-                    </div>
-                    <div class="blog-card-content">
-                        <p>Hike through Croatia's most famous national park with 16 interconnected lakes and stunning waterfalls. Electric boat ride across Lake Kozjak.</p>
-                        <div class="blog-card-highlights">
-                            <span class="highlight-tag">Trail C or K</span>
-                            <span class="highlight-tag">Veliki Slap 78m</span>
-                            <span class="highlight-tag">Turquoise Lakes</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Coastal Cities -->
-                <a href="coastal-cities.html" class="blog-post-card" style="text-decoration: none;">
-                    <div class="blog-card-header" style="background: linear-gradient(135deg, var(--accent), var(--accent-dark));">
-                        <div class="blog-card-icon">🌊</div>
-                        <div class="blog-card-title">Zadar & Paklenica</div>
-                        <div class="blog-card-subtitle">Days 5-6 • Coast & Mountains</div>
-                    </div>
-                    <div class="blog-card-content">
-                        <p>Experience Zadar's unique Sea Organ and world-famous sunset. Hike dramatic canyons at Paklenica National Park before heading to Split.</p>
-                        <div class="blog-card-highlights">
-                            <span class="highlight-tag">Sea Organ</span>
-                            <span class="highlight-tag">Canyon Hiking</span>
-                            <span class="highlight-tag">Adriatic Views</span>
+                            <span class="highlight-tag">City Walls 2km</span>
+                            <span class="highlight-tag">Mount Srđ Hike</span>
+                            <span class="highlight-tag">Old Town UNESCO</span>
                         </div>
                     </div>
                 </a>
@@ -221,7 +166,7 @@
                     <div class="blog-card-header" style="background: linear-gradient(135deg, var(--success), #059669);">
                         <div class="blog-card-icon">🏛️</div>
                         <div class="blog-card-title">Split & Krka</div>
-                        <div class="blog-card-subtitle">Days 7-8 • History & Nature</div>
+                        <div class="blog-card-subtitle">Days 5-6 • History & Nature</div>
                     </div>
                     <div class="blog-card-content">
                         <p>Explore the 1,700-year-old Diocletian's Palace in Split, then visit Krka National Park's famous Skradinski Buk waterfall.</p>
@@ -233,19 +178,70 @@
                     </div>
                 </a>
 
-                <!-- Dubrovnik -->
-                <a href="dubrovnik.html" class="blog-post-card" style="text-decoration: none;">
-                    <div class="blog-card-header" style="background: linear-gradient(135deg, #dc2626, #991b1b);">
-                        <div class="blog-card-icon">🏰</div>
-                        <div class="blog-card-title">Dubrovnik</div>
-                        <div class="blog-card-subtitle">Days 8-10 • Pearl of Adriatic</div>
+                <!-- Coastal Cities -->
+                <a href="coastal-cities.html" class="blog-post-card" style="text-decoration: none;">
+                    <div class="blog-card-header" style="background: linear-gradient(135deg, var(--accent), var(--accent-dark));">
+                        <div class="blog-card-icon">🌊</div>
+                        <div class="blog-card-title">Zadar & Paklenica</div>
+                        <div class="blog-card-subtitle">Days 7-8 • Coast & Mountains</div>
                     </div>
                     <div class="blog-card-content">
-                        <p>Walk the famous city walls, explore Game of Thrones locations, and hike Mount Srđ for panoramic views over the Old Town.</p>
+                        <p>Experience Zadar's unique Sea Organ and world-famous sunset. Hike dramatic canyons at Paklenica National Park.</p>
                         <div class="blog-card-highlights">
-                            <span class="highlight-tag">City Walls 2km</span>
-                            <span class="highlight-tag">Mount Srđ Hike</span>
-                            <span class="highlight-tag">Old Town UNESCO</span>
+                            <span class="highlight-tag">Sea Organ</span>
+                            <span class="highlight-tag">Canyon Hiking</span>
+                            <span class="highlight-tag">Adriatic Views</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Plitvice Lakes -->
+                <a href="plitvice.html" class="blog-post-card" style="text-decoration: none;">
+                    <div class="blog-card-header" style="background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));">
+                        <div class="blog-card-icon">🏞️</div>
+                        <div class="blog-card-title">Plitvice Lakes</div>
+                        <div class="blog-card-subtitle">Day 9 • UNESCO Heritage</div>
+                    </div>
+                    <div class="blog-card-content">
+                        <p>Hike through Croatia's most famous national park with 16 interconnected lakes and stunning waterfalls. Electric boat ride across Lake Kozjak.</p>
+                        <div class="blog-card-highlights">
+                            <span class="highlight-tag">Trail C or K</span>
+                            <span class="highlight-tag">Veliki Slap 78m</span>
+                            <span class="highlight-tag">Turquoise Lakes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Lake Bled -->
+                <a href="bled.html" class="blog-post-card" style="text-decoration: none;">
+                    <div class="blog-card-header" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <div class="blog-card-icon">🇸🇮</div>
+                        <div class="blog-card-title">Lake Bled, Slovenia</div>
+                        <div class="blog-card-subtitle">Day 9 • Alpine Gem</div>
+                    </div>
+                    <div class="blog-card-content">
+                        <p>Escape to Slovenia's fairy-tale Lake Bled with its iconic island church, clifftop medieval castle, and stunning Alpine scenery.</p>
+                        <div class="blog-card-highlights">
+                            <span class="highlight-tag">Bled Island</span>
+                            <span class="highlight-tag">Bled Castle</span>
+                            <span class="highlight-tag">Cream Cake</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Zagreb -->
+                <a href="zagreb.html" class="blog-post-card" style="text-decoration: none;">
+                    <div class="blog-card-header" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
+                        <div class="blog-card-icon">🏛️</div>
+                        <div class="blog-card-title">Zagreb</div>
+                        <div class="blog-card-subtitle">Day 10 • Capital City</div>
+                    </div>
+                    <div class="blog-card-content">
+                        <p>End in Croatia's vibrant capital. Explore the historic Upper Town, visit colorful Dolac Market, and stroll through Tkalčićeva Street's cafes.</p>
+                        <div class="blog-card-highlights">
+                            <span class="highlight-tag">St. Mark's Church</span>
+                            <span class="highlight-tag">Zagreb Cathedral</span>
+                            <span class="highlight-tag">Dolac Market</span>
                         </div>
                     </div>
                 </a>
@@ -263,12 +259,11 @@
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
                 <p style="margin: 0;"><strong>Outbound - April 24, 2026</strong></p>
                 <ul style="margin: 0.5rem 0 0 1.5rem;">
-                    <li>British Airways BA 196: Houston IAH → London Heathrow LHR</li>
-                    <li>British Airways BA 848: London Heathrow LHR → Zagreb ZAG</li>
+                    <li>British Airways BA 194: Houston IAH → London Heathrow LHR (departs 3:30 PM)</li>
+                    <li>British Airways BA 838: London Heathrow LHR → Dubrovnik DBV (departs 11:00 AM+1)</li>
                 </ul>
                 <p style="margin: 1rem 0 0 0;"><strong>Return - May 3, 2026</strong></p>
                 <ul style="margin: 0.5rem 0 0 1.5rem;">
-                    <li>Croatia Airlines OU 661: Dubrovnik DBV → Zagreb ZAG (6:40 AM departure)</li>
                     <li>British Airways BA 849: Zagreb ZAG → London Heathrow LHR</li>
                     <li>British Airways BA 197: London Heathrow LHR → Houston IAH</li>
                 </ul>
@@ -276,9 +271,9 @@
 
             <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">🚗 Car Rental to Book</h3>
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
-                <p style="margin: 0;"><strong>Pick-up:</strong> Zagreb Airport or City Center - April 25, 2026 (Day 2)</p>
-                <p style="margin: 0.5rem 0 0 0;"><strong>Drop-off:</strong> Dubrovnik - May 1, 2026 (Day 8)</p>
-                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">One-way rental • 7 days total</p>
+                <p style="margin: 0;"><strong>Pick-up:</strong> Dubrovnik Airport or City Center - April 25, 2026 (Day 2)</p>
+                <p style="margin: 0.5rem 0 0 0;"><strong>Drop-off:</strong> Zagreb - May 3, 2026 (Day 10)</p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">One-way rental • 9 days total</p>
             </div>
 
             <h3 style="font-family: 'Poppins', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">🏨 Hotels to Book</h3>
@@ -287,35 +282,35 @@
             <div id="hotels-map" class="flight-map" style="margin-bottom: 2rem;"></div>
 
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
-                <p style="margin: 0;"><strong><a href="https://www.hilton.com/en/hotels/zagzcpy-canopy-zagreb-city-centre/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Canopy by Hilton Zagreb - City Centre</a></strong></p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Ulica kneza Branimira 29, 10000 Zagreb, Croatia</p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 25 • Check-out: April 26 (1 night)</p>
-                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Modern 151-room hotel steps from Main Train Station with complimentary bikes, rooftop terrace, Croatian cuisine restaurant, and art-deco inspired design. Guests praise the helpful staff, spacious clean rooms, and excellent location near tram station.</p>
-
-                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.hoteltriglavbled.si/en/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Hotel Triglav Bled</a></strong></p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Kolodvorska cesta 33, 4260 Bled, Slovenia</p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 26 • Check-out: April 27 (1 night)</p>
-                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Historic 4-star hotel from 1906, reopened in 2009 after renovations. Located 650m from Lake Bled with 21 eco-friendly rooms, most with lake-view balconies. Features indoor pool, spa with massages and aromatherapy, award-winning à la carte restaurant 1906 Bled with Slovene Nouvelle cuisine, piano bar, and wine cellar.</p>
-
-                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://fenomen-plitvice.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Fenomen Plitvice</a></strong></p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Plitvica Selo 81, 53231 Plitvicka Jezera, Croatia</p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 27 • Check-out: April 28 (1 night)</p>
-                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Rated #1 resort near Plitvice Lakes with 18 luxury cabins on the edge of the UNESCO park. Just 0.5km from Veliki Slap waterfall with private jacuzzi, sauna, archery, cycling, and free breakfast on terrace. Couples rate the location 9.5/10.</p>
-
-                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.hotel-bastion.hr" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Heritage Hotel Bastion</a></strong></p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Bedemi Zadarskih Pobuna 13, 23000 Zadar, Croatia</p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 28 • Check-out: April 30 (2 nights recommended)</p>
-                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Relais & Châteaux boutique hotel in a 13th-century fortress in Zadar's historic core. Features handmade art-deco furniture, Castello Spa & Wellness Center, Michelin-star restaurant, and individually decorated rooms with exposed stone walls. Walking distance to Sea Organ.</p>
+                <p style="margin: 0;"><strong><a href="https://www.dubrovniksungardens.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Sun Gardens Dubrovnik</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Na moru 1, 20235 Orašac, Croatia</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 25 • Check-out: April 28 (3 nights)</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Five-star Leading Hotels of the World resort on the Adriatic coast with natural pebble beach, 4 pools (1 indoor), award-winning 3,000 sqm spa, 16 restaurants and bars, kids club, tennis courts, and complimentary shuttle to Old Town (15 min). Rated #1 in area on TripAdvisor.</p>
 
                 <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://hotelluxesplit.com/en/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Boutique Hotel Luxe</a></strong></p>
                 <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Ul. kralja Zvonimira 6, 21000 Split, Croatia</p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 30 • Check-out: May 1 (1 night)</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 28 • Check-out: April 30 (2 nights)</p>
                 <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Contemporary design hotel just 5 minutes from Diocletian's Palace with 30 modern rooms, many featuring sea views and private balconies. Includes spa, hot tub, sauna, fitness center, cigar lounge, and complimentary welcome wine. Guests love the helpful staff and rich breakfast.</p>
 
-                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.dubrovniksungardens.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Sun Gardens Dubrovnik</a></strong></p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Na moru 1, 20235 Orašac, Croatia</p>
-                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: May 1 • Check-out: May 3 (2 nights)</p>
-                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Five-star Leading Hotels of the World resort on the Adriatic coast with natural pebble beach, 4 pools (1 indoor), award-winning 3,000 sqm spa, 16 restaurants and bars, kids club, tennis courts, and complimentary shuttle to Old Town (15 min). Rated #1 in area on TripAdvisor.</p>
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.hotel-bastion.hr" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Heritage Hotel Bastion</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Bedemi Zadarskih Pobuna 13, 23000 Zadar, Croatia</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: April 30 • Check-out: May 2 (2 nights)</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Relais & Châteaux boutique hotel in a 13th-century fortress in Zadar's historic core. Features handmade art-deco furniture, Castello Spa & Wellness Center, Michelin-star restaurant, and individually decorated rooms with exposed stone walls. Walking distance to Sea Organ.</p>
+
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://fenomen-plitvice.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Fenomen Plitvice</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Plitvica Selo 81, 53231 Plitvicka Jezera, Croatia</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: May 1 • Check-out: May 2 (1 night)</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Rated #1 resort near Plitvice Lakes with 18 luxury cabins on the edge of the UNESCO park. Just 0.5km from Veliki Slap waterfall with private jacuzzi, sauna, archery, cycling, and free breakfast on terrace. Couples rate the location 9.5/10.</p>
+
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.hoteltriglavbled.si/en/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Hotel Triglav Bled</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Kolodvorska cesta 33, 4260 Bled, Slovenia</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: May 2 • Check-out: May 3 (1 night)</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Historic 4-star hotel from 1906, reopened in 2009 after renovations. Located 650m from Lake Bled with 21 eco-friendly rooms, most with lake-view balconies. Features indoor pool, spa with massages and aromatherapy, award-winning à la carte restaurant 1906 Bled with Slovene Nouvelle cuisine, piano bar, and wine cellar.</p>
+
+                <p style="margin: 1.5rem 0 0 0;"><strong><a href="https://www.hilton.com/en/hotels/zagzcpy-canopy-zagreb-city-centre/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">Canopy by Hilton Zagreb - City Centre</a></strong></p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">📍 Ulica kneza Branimira 29, 10000 Zagreb, Croatia</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-secondary);">Check-in: May 3 • Airport hotel near departure (half day before evening flight)</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Modern 151-room hotel steps from Main Train Station with complimentary bikes, rooftop terrace, Croatian cuisine restaurant, and art-deco inspired design. Guests praise the helpful staff, spacious clean rooms, and excellent location near tram station.</p>
             </div>
         </div>
 
@@ -327,8 +322,8 @@
             <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg);">
                 <p style="margin: 0; color: var(--text-secondary);"><strong>Average Temperature:</strong> 15-20°C (59-68°F)</p>
                 <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Perfect spring weather with fewer crowds and high water levels at waterfalls from melting snow - ideal for hiking!</p>
-                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);"><strong>Lake Bled:</strong> Can be cooler in the Alps - bring layers for mornings and evenings</p>
-                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);"><strong>Coastal areas:</strong> Warm and sunny, perfect for exploring Zadar, Split, and Dubrovnik</p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);"><strong>Coastal areas (Dubrovnik, Split, Zadar):</strong> Warm and sunny - perfect start to your trip!</p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);"><strong>Lake Bled:</strong> Can be cooler in the Alps - bring layers for mornings and evenings at the end of your journey</p>
             </div>
         </div>
 
@@ -438,7 +433,7 @@
 
         // Initialize maps when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Outbound flight: Houston → London → Zagreb
+            // Outbound flight: Houston → London → Dubrovnik
             createFlightRouteMap('outbound-flight-map', [
                 {
                     origin: { lat: 29.9844, lng: -95.3414, name: 'Houston (IAH)' },
@@ -446,16 +441,12 @@
                 },
                 {
                     origin: { lat: 51.4700, lng: -0.4543, name: 'London Heathrow (LHR)' },
-                    destination: { lat: 45.7429, lng: 16.0688, name: 'Zagreb (ZAG)' }
+                    destination: { lat: 42.5614, lng: 18.2683, name: 'Dubrovnik (DBV)' }
                 }
             ], [45, -20], 3);
 
-            // Return flight: Dubrovnik → Zagreb → London → Houston
+            // Return flight: Zagreb → London → Houston
             createFlightRouteMap('return-flight-map', [
-                {
-                    origin: { lat: 42.5614, lng: 18.2683, name: 'Dubrovnik (DBV)' },
-                    destination: { lat: 45.7429, lng: 16.0688, name: 'Zagreb (ZAG)' }
-                },
                 {
                     origin: { lat: 45.7429, lng: 16.0688, name: 'Zagreb (ZAG)' },
                     destination: { lat: 51.4700, lng: -0.4543, name: 'London Heathrow (LHR)' }
@@ -466,7 +457,7 @@
                 }
             ], [40, -50], 3);
 
-            // Route Overview Map: Zagreb to Dubrovnik journey
+            // Route Overview Map: Dubrovnik to Zagreb journey (reversed)
             const routeMap = L.map('route-overview-map', {
                 scrollWheelZoom: true,
                 dragging: true,
@@ -479,16 +470,16 @@
                 maxZoom: 19
             }).addTo(routeMap);
 
-            // Route stops in order
+            // Route stops in REVERSE order (Dubrovnik to Zagreb)
             const routeStops = [
-                { lat: 45.8150, lng: 15.9819, label: '🏛️', name: 'Zagreb', desc: 'Day 2 • Capital City', color: '#6366f1' },
-                { lat: 46.3683, lng: 14.1146, label: '🇸🇮', name: 'Lake Bled', desc: 'Day 3 • Alpine Gem', color: '#10b981' },
-                { lat: 44.8800, lng: 15.6164, label: '🏞️', name: 'Plitvice Lakes', desc: 'Day 4 • UNESCO Heritage', color: '#06b6d4' },
-                { lat: 44.1194, lng: 15.2422, label: '🌊', name: 'Zadar', desc: 'Day 5 • Coastal City', color: '#f59e0b' },
-                { lat: 44.2894, lng: 15.4458, label: '⛰️', name: 'Paklenica', desc: 'Day 6 • National Park', color: '#f59e0b' },
-                { lat: 43.5081, lng: 16.4402, label: '🏛️', name: 'Split', desc: 'Days 7-8 • Roman Palace', color: '#10b981' },
-                { lat: 43.8067, lng: 15.9692, label: '💦', name: 'Krka', desc: 'Day 8 • Waterfalls', color: '#10b981' },
-                { lat: 42.6414, lng: 18.1083, label: '🏰', name: 'Dubrovnik', desc: 'Days 8-10 • Pearl of Adriatic', color: '#dc2626' }
+                { lat: 42.6414, lng: 18.1083, label: '🏰', name: 'Dubrovnik', desc: 'Days 2-4 • Pearl of Adriatic', color: '#dc2626' },
+                { lat: 43.8067, lng: 15.9692, label: '💦', name: 'Krka', desc: 'Day 5 • Waterfalls', color: '#10b981' },
+                { lat: 43.5081, lng: 16.4402, label: '🏛️', name: 'Split', desc: 'Days 5-6 • Roman Palace', color: '#10b981' },
+                { lat: 44.1194, lng: 15.2422, label: '🌊', name: 'Zadar', desc: 'Days 7-8 • Coastal City', color: '#f59e0b' },
+                { lat: 44.2894, lng: 15.4458, label: '⛰️', name: 'Paklenica', desc: 'Day 8 • National Park', color: '#f59e0b' },
+                { lat: 44.8800, lng: 15.6164, label: '🏞️', name: 'Plitvice Lakes', desc: 'Day 9 • UNESCO Heritage', color: '#06b6d4' },
+                { lat: 46.3683, lng: 14.1146, label: '🇸🇮', name: 'Lake Bled', desc: 'Day 10 • Alpine Gem', color: '#10b981' },
+                { lat: 45.8150, lng: 15.9819, label: '🏛️', name: 'Zagreb', desc: 'Day 10 • Capital City', color: '#6366f1' }
             ];
 
             // Add markers for each stop
@@ -523,7 +514,7 @@
             const routeBounds = L.latLngBounds(routeLine);
             routeMap.fitBounds(routeBounds, { padding: [50, 50] });
 
-            // Hotels Map: All accommodation locations
+            // Hotels Map: All accommodation locations in REVERSE order
             const hotelsMap = L.map('hotels-map', {
                 scrollWheelZoom: true,
                 dragging: true,
@@ -536,49 +527,49 @@
                 maxZoom: 19
             }).addTo(hotelsMap);
 
-            // Hotel locations with coordinates
+            // Hotel locations with coordinates (REVERSED ORDER)
             const hotels = [
                 {
-                    lat: 45.8079, lng: 15.9760,
+                    lat: 42.6486, lng: 18.0519,
                     label: '🏨',
-                    name: 'Canopy by Hilton Zagreb',
-                    address: 'Ulica kneza Branimira 29, Zagreb',
-                    nights: '1 night (Apr 25-26)'
-                },
-                {
-                    lat: 46.3683, lng: 14.1146,
-                    label: '🏨',
-                    name: 'Hotel Triglav Bled',
-                    address: 'Kolodvorska cesta 33, Bled, Slovenia',
-                    nights: '1 night (Apr 26-27)'
-                },
-                {
-                    lat: 44.8800, lng: 15.6164,
-                    label: '🏨',
-                    name: 'Fenomen Plitvice',
-                    address: 'Plitvica Selo 81, Plitvicka Jezera',
-                    nights: '1 night (Apr 27-28)'
-                },
-                {
-                    lat: 44.1173, lng: 15.2289,
-                    label: '🏨',
-                    name: 'Heritage Hotel Bastion',
-                    address: 'Bedemi Zadarskih Pobuna 13, Zadar',
-                    nights: '2 nights (Apr 28-30)'
+                    name: 'Sun Gardens Dubrovnik',
+                    address: 'Na moru 1, Orašac',
+                    nights: '3 nights (Apr 25-28)'
                 },
                 {
                     lat: 43.5097, lng: 16.4403,
                     label: '🏨',
                     name: 'Boutique Hotel Luxe',
                     address: 'Ul. kralja Zvonimira 6, Split',
-                    nights: '1 night (Apr 30-May 1)'
+                    nights: '2 nights (Apr 28-30)'
                 },
                 {
-                    lat: 42.6486, lng: 18.0519,
+                    lat: 44.1173, lng: 15.2289,
                     label: '🏨',
-                    name: 'Sun Gardens Dubrovnik',
-                    address: 'Na moru 1, Orašac',
-                    nights: '2 nights (May 1-3)'
+                    name: 'Heritage Hotel Bastion',
+                    address: 'Bedemi Zadarskih Pobuna 13, Zadar',
+                    nights: '2 nights (Apr 30-May 2)'
+                },
+                {
+                    lat: 44.8800, lng: 15.6164,
+                    label: '🏨',
+                    name: 'Fenomen Plitvice',
+                    address: 'Plitvica Selo 81, Plitvicka Jezera',
+                    nights: '1 night (May 1-2)'
+                },
+                {
+                    lat: 46.3683, lng: 14.1146,
+                    label: '🏨',
+                    name: 'Hotel Triglav Bled',
+                    address: 'Kolodvorska cesta 33, Bled, Slovenia',
+                    nights: '1 night (May 2-3)'
+                },
+                {
+                    lat: 45.8079, lng: 15.9760,
+                    label: '🏨',
+                    name: 'Canopy by Hilton Zagreb',
+                    address: 'Ulica kneza Branimira 29, Zagreb',
+                    nights: 'Half day (May 3)'
                 }
             ];
 
