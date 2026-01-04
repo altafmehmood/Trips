@@ -1141,8 +1141,8 @@
                     <div class="day-block">
                         <div class="day-content">
                             <div class="day-header">
-                                <h3 class="day-title">Day 1</h3>
-                                <p class="day-date">Saturday, January 10, 2026</p>
+                                <h3 class="day-title">Day 1 - London Icons Tour</h3>
+                                <p class="day-date">Saturday, January 10, 2026 • Westminster to Mayfair</p>
                             </div>
                             <div class="activities">
                                 <div class="activity flight-activity">
@@ -1150,12 +1150,44 @@
                                     <div class="activity-desc">✈️ Arrival at Heathrow Airport (LHR) - Clear customs and collect luggage</div>
                                 </div>
                                 <div class="activity hotel-activity">
-                                    <div class="activity-time">12:00 PM</div>
-                                    <div class="activity-desc">🏨 Check in at Hilton Garden Inn London Heathrow Airport - Hatton Cross location - rest and refresh from journey</div>
+                                    <div class="activity-time">12:00 PM - 1:00 PM</div>
+                                    <div class="activity-desc">🏨 Check in at Hilton Garden Inn Heathrow (Hatton Cross) - Rest, refresh, and shake off jet lag</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">1:15 PM - 2:05 PM</div>
+                                    <div class="activity-desc">🚇 Tube: Hatton Cross → Westminster (Piccadilly Line, 50 min, £5.80 with contactless/Oyster) - Use Apple/Google Pay at turnstiles</div>
+                                </div>
+                                <div class="activity sightseeing-activity">
+                                    <div class="activity-time">2:15 PM - 2:45 PM</div>
+                                    <div class="activity-desc">🕰️ Big Ben & Houses of Parliament - Iconic Elizabeth Tower and Palace of Westminster • Photo stop at Westminster Bridge for classic views</div>
+                                </div>
+                                <div class="activity culture-activity">
+                                    <div class="activity-time">2:45 PM - 3:30 PM</div>
+                                    <div class="activity-desc">⛪ Westminster Abbey Exterior - Where kings are crowned and poets rest • Admire Gothic architecture (entry £27 if time permits, otherwise exterior photos)</div>
+                                </div>
+                                <div class="activity nature-activity">
+                                    <div class="activity-time">3:30 PM - 4:15 PM</div>
+                                    <div class="activity-desc">🌳 Walk through St James's Park - Beautiful royal park • Lake views and pelicans • 15-min scenic walk to Buckingham Palace</div>
+                                </div>
+                                <div class="activity sightseeing-activity">
+                                    <div class="activity-time">4:15 PM - 4:45 PM</div>
+                                    <div class="activity-desc">👑 Buckingham Palace - Royal residence exterior and gates • Photo opportunity at the famous facade</div>
+                                </div>
+                                <div class="activity sightseeing-activity">
+                                    <div class="activity-time">4:45 PM - 5:15 PM</div>
+                                    <div class="activity-desc">🦁 Trafalgar Square - London's famous public square • Nelson's Column, lion statues, National Gallery exterior • 10-min walk from palace</div>
+                                </div>
+                                <div class="activity transport-activity">
+                                    <div class="activity-time">5:15 PM - 5:30 PM</div>
+                                    <div class="activity-desc">🚶 Walk to Mayfair - 15-min stroll through elegant streets to dinner location • Pass by Piccadilly and historic neighborhoods</div>
+                                </div>
+                                <div class="activity wellness-activity">
+                                    <div class="activity-time">5:30 PM - 7:00 PM</div>
+                                    <div class="activity-desc">☕ Rest Break in Mayfair - Find a café for coffee/tea or return to hotel to freshen up before dinner • Explore elegant Mayfair streets</div>
                                 </div>
                                 <div class="activity food-activity">
-                                    <div class="activity-time">Evening</div>
-                                    <div class="activity-desc">🍽️ ★★ Michelin Dinner at Gymkhana - 42 Albemarle Street, Mayfair, London, W1S 4JH - Iconic Indian cuisine with tandoori lamb chops, wild muntjac biryani, and Goan prawn curry. Chic, club-style setting.</div>
+                                    <div class="activity-time">7:00 PM</div>
+                                    <div class="activity-desc">🍽️ ★★ Michelin Dinner at Gymkhana - 42 Albemarle Street, Mayfair, W1S 4JH • Iconic Indian cuisine: tandoori lamb chops, wild muntjac biryani, Goan prawn curry • Chic colonial-era club setting</div>
                                 </div>
                             </div>
                         </div>
@@ -1486,13 +1518,18 @@
         const days = [
             {
                 id: 'map-day1',
-                title: 'London Arrival & Gymkhana',
-                center: [51.4900, -0.3000],
-                zoom: 11,
+                title: 'London Icons Walking Tour',
+                center: [51.5050, -0.1200],
+                zoom: 12,
                 locations: [
-                    { coords: [51.4700, -0.4543], label: '✈️', name: 'Heathrow Airport', description: 'Arrival' },
-                    { coords: [51.4587, -0.4520], label: '🏨', name: 'Hilton Garden Inn Heathrow', description: 'Check-in' },
-                    { coords: [51.5076, -0.1425], label: '🍽️', name: 'Gymkhana (Mayfair)', description: 'Michelin Star Dinner' }
+                    { coords: [51.4700, -0.4543], label: '✈️', name: 'Heathrow Airport', description: '10:15 AM - Arrival' },
+                    { coords: [51.4587, -0.4520], label: '🏨', name: 'Hilton Garden Inn Heathrow', description: '12:00 PM - Check-in' },
+                    { coords: [51.5007, -0.1246], label: '🕰️', name: 'Big Ben & Westminster', description: '2:15 PM - Iconic clock tower' },
+                    { coords: [51.4994, -0.1273], label: '⛪', name: 'Westminster Abbey', description: '2:45 PM - Gothic masterpiece' },
+                    { coords: [51.5023, -0.1376], label: '🌳', name: 'St James\'s Park', description: '3:30 PM - Royal park walk' },
+                    { coords: [51.5014, -0.1419], label: '👑', name: 'Buckingham Palace', description: '4:15 PM - Royal residence' },
+                    { coords: [51.5080, -0.1281], label: '🦁', name: 'Trafalgar Square', description: '4:45 PM - Nelson\'s Column' },
+                    { coords: [51.5076, -0.1425], label: '🍽️', name: 'Gymkhana (Mayfair)', description: '7:00 PM - Michelin dinner' }
                 ]
             },
             {
