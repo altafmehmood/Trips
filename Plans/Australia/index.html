@@ -7,7 +7,7 @@
     <title>Australia Adventure Itinerary - Clean Maps</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
         :root {
             --primary: #6366f1;
@@ -56,7 +56,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
@@ -115,7 +115,7 @@
         }
 
         h1 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             text-align: center;
             margin-bottom: 3rem;
             font-size: clamp(2.5rem, 5vw, 4rem);
@@ -178,7 +178,7 @@
         }
 
         .trip-overview h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', sans-serif;
             color: var(--text-primary);
             text-align: center;
             margin-bottom: 2rem;
@@ -260,7 +260,7 @@
         }
 
         .city-name {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -342,7 +342,7 @@
         }
 
         .city-title {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(2rem, 4vw, 2.5rem);
             font-weight: 800;
             margin-bottom: 0.5rem;
@@ -462,7 +462,7 @@
         }
 
         .map-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
             margin: 0;
@@ -700,7 +700,7 @@
         }
 
         .day-title {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
@@ -1489,7 +1489,7 @@
 
         <div class="trip-overview">
             <h2
-                style="color: var(--text-primary); text-align: center; margin-bottom: 25px; font-weight: 600; font-family: 'Inter', sans-serif;">
+                style="color: var(--text-primary); text-align: center; margin-bottom: 25px; font-weight: 600; font-family: 'Space Grotesk', sans-serif;">
                 Australia Adventure • Dec 4-15, 2025</h2>
 
             <div class="overview-grid">
@@ -2198,7 +2198,7 @@
                     L.marker([origin.lat, origin.lng], { icon: originIcon })
                         .addTo(map)
                         .bindPopup(`
-                        <div style="font-family: Inter, sans-serif;">
+                        <div style="font-family: 'Space Grotesk', sans-serif;">
                             <h4 style="margin: 0 0 5px 0;">Departure</h4>
                             <p style="margin: 0; font-size: 0.9rem;">${origin.name}</p>
                         </div>
@@ -2214,7 +2214,7 @@
                     L.marker([destination.lat, destination.lng], { icon: destIcon })
                         .addTo(map)
                         .bindPopup(`
-                        <div style="font-family: Inter, sans-serif;">
+                        <div style="font-family: 'Space Grotesk', sans-serif;">
                             <h4 style="margin: 0 0 5px 0;">Arrival</h4>
                             <p style="margin: 0; font-size: 0.9rem;">${destination.name}</p>
                         </div>
@@ -2275,7 +2275,7 @@
 
                         // Simple popup - JUST LOCATION INFO
                         marker.bindPopup(`
-                        <div style="font-family: Inter, sans-serif;">
+                        <div style="font-family: 'Space Grotesk', sans-serif;">
                             <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
                             <p style="margin: 0; font-size: 0.9rem;">${location.description}</p>
                         </div>

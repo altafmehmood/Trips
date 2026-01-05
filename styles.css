@@ -2,7 +2,7 @@
    Centralized Stylesheet for Travel Site
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* ========================================
    CSS Variables
@@ -59,7 +59,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
@@ -94,11 +94,11 @@ body::before {
    ======================================== */
 
 h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     text-align: center;
     margin-bottom: 1rem;
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.02em;
 }
 
@@ -110,7 +110,7 @@ h1.gradient-title {
 }
 
 h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
 }
 
@@ -224,7 +224,7 @@ h2 {
 }
 
 .card-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -390,6 +390,17 @@ h2 {
     -webkit-text-fill-color: transparent;
 }
 
+.card-croatia {
+    border-top: 4px solid #14b8a6;
+}
+
+.card-croatia .card-icon {
+    background: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* ========================================
    Plans & Blogs Sections
    ======================================== */
@@ -399,7 +410,7 @@ h2 {
 }
 
 .section-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
@@ -445,7 +456,7 @@ h2 {
 }
 
 .trip-overview h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Space Grotesk', sans-serif;
     text-align: center;
     margin-bottom: 1.25rem;
     font-weight: 600;
@@ -508,7 +519,7 @@ a:has(.stat-card) {
     font-size: 2rem;
     font-weight: 700;
     color: var(--primary);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .stat-label {
@@ -550,9 +561,9 @@ a:has(.stat-card) {
 }
 
 .day-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.75rem, 4vw, 2.25rem);
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
 }
@@ -699,7 +710,7 @@ a:has(.stat-card) {
 }
 
 .lightbox-info h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.25rem;
     margin: 0 0 1rem 0;
     color: var(--primary);
@@ -926,7 +937,7 @@ a:has(.stat-card) {
 }
 
 .blog-card-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
