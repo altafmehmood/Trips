@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake District - Days 2-4 | UK Adventure</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --secondary-light: #22d3ee;
+            --secondary-dark: #0891b2;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
+            --surface: #ffffff;
+            --surface-secondary: var(--gray-50);
+            --border: var(--gray-200);
+            --border-light: var(--gray-100);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(5, 150, 105, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .next-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .next-link:hover {
+            color: var(--primary);
+        }
+
+        .simple-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            transition: transform 0.2s ease;
+        }
+
+        .simple-marker:hover {
+            transform: scale(1.2);
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #10b981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .day-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: var(--radius-2xl);
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            align-items: stretch;
+        }
+
+        .day-block:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .day-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .day-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .day-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .day-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .activities {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity {
+            margin-bottom: 1rem;
+            padding: 1.25rem;
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border-left: 4px solid;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .activity-time {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-desc {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .nature-activity {
+            border-left-color: #10b981;
+        }
+
+        .food-activity {
+            border-left-color: #f97316;
+        }
+
+        .hotel-activity {
+            border-left-color: #3b82f6;
+        }
+
+        .transport-activity {
+            border-left-color: #6b7280;
+        }
+
+        .culture-activity {
+            border-left-color: #8b5cf6;
+        }
+
+        .wellness-activity {
+            border-left-color: #10b981;
+        }
+
+        .day-map-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-map {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: var(--surface);
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .day-block {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-map {
+                min-height: 350px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact !important;
+            }
+
+            .nav-bar,
+            .back-link,
+            .next-link {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            body::before {
+                display: none !important;
+            }
+
+            .container {
+                width: 100%;
+                max-width: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            h1 {
+                font-size: 24pt !important;
+                background: none !important;
+                color: black !important;
+                -webkit-background-clip: initial !important;
+                -webkit-text-fill-color: black !important;
+                text-align: center !important;
+                margin: 0 0 0.25in 0 !important;
+                page-break-after: avoid !important;
+            }
+
+            .activity-map {
+                display: none !important;
+            }
+
+            .day-block {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                border-radius: 0 !important;
+                margin: 0.15in 0 !important;
+                padding: 0.15in !important;
+                box-shadow: none !important;
+                display: block !important;
+                page-break-inside: avoid !important;
+            }
+
+            .activity {
+                margin: 0.08in 0 !important;
+                padding: 0.05in 0 !important;
+                border-left: 2pt solid #ccc !important;
+                padding-left: 0.1in !important;
+                page-break-inside: avoid !important;
+            }
+
+            @page {
+                margin: 0.75in 0.5in 0.75in 0.5in !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <a href="london-arrival.html" class="back-link">← Previous: London Arrival</a>
+            <a href="index.html" class="back-link" style="margin: 0 auto;">← Back to Overview</a>
+            <a href="glasgow.html" class="next-link">Next: Glasgow →</a>
+        </div>
+        <h1>🏔️ Lake District - Days 2-4</h1>
+
+        <!-- Day 2 -->
+        <div class="day-block">
+            <div class="day-content">
+                <div class="day-header">
+                    <h3 class="day-title">Day 2</h3>
+                    <p class="day-date">Sunday, January 11, 2026</p>
+                </div>
+                <div class="activities">
+                    <div class="activity transport-activity">
+                        <div class="activity-time">8:00 AM</div>
+                        <div class="activity-desc">🚗 Pick up rental car at Heathrow - Checkout from hotel and car pickup</div>
+                    </div>
+                    <div class="activity transport-activity">
+                        <div class="activity-time">8:45 AM - 12:15 PM</div>
+                        <div class="activity-desc">🚗 Drive to Manchester - 3.5-hour scenic drive north through English countryside</div>
+                    </div>
+                    <div class="activity food-activity">
+                        <div class="activity-time">12:30 PM - 1:45 PM</div>
+                        <div class="activity-desc">🍽️ Lunch at Dishoom Manchester - Bombay-style café • 32 Bridge St, Manchester M3 3BT</div>
+                    </div>
+                    <div class="activity transport-activity">
+                        <div class="activity-time">1:45 PM - 3:45 PM</div>
+                        <div class="activity-desc">🚗 Drive to Lake District - 2-hour drive from Manchester to Tarn Hows area</div>
+                    </div>
+                    <div class="activity nature-activity">
+                        <div class="activity-time">3:45 PM - 4:50 PM</div>
+                        <div class="activity-desc">🥾 Tarn Hows Circular Walk - 2-mile easy circular path with postcard-perfect views • Wide, mostly flat trail around the tarn • National Trust car park (Tarn Hows, Coniston, LA22 0PP)</div>
+                    </div>
+                    <div class="activity transport-activity">
+                        <div class="activity-time">4:50 PM - 5:15 PM</div>
+                        <div class="activity-desc">🚗 Drive to Grasmere - 20-minute scenic drive to hotel</div>
+                    </div>
+                    <div class="activity hotel-activity">
+                        <div class="activity-time">5:15 PM</div>
+                        <div class="activity-desc">🏨 Check in at The Daffodil Hotel - 4.0 star hotel • Keswick Road, Grasmere • Jan 11-14, 2026</div>
+                    </div>
+                    <div class="activity food-activity">
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-desc">🍽️ Dinner at Hotel - Lakeside restaurant or local pub</div>
+                    </div>
+                </div>
+            </div>
+            <div class="day-map-container">
+                <div id="map-day2" class="activity-map"></div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-block">
+            <div class="day-content">
+                <div class="day-header">
+                    <h3 class="day-title">Day 3 - Weather Adjusted</h3>
+                    <p class="day-date">Monday, January 12, 2026 • Wet & Windy (13°C, 90% rain, 50km/h gusts)</p>
+                </div>
+                <div class="activities">
+                    <div class="activity nature-activity">
+                        <div class="activity-time">9:00 AM - 11:00 AM</div>
+                        <div class="activity-desc">💧 Aira Force Waterfalls - Sheltered woodland walk to spectacular cascades (stunning in rain with potential icicles) • 1.5-mile loop • Near Ullswater, 30-min drive from Grasmere</div>
+                    </div>
+                    <div class="activity culture-activity">
+                        <div class="activity-time">11:30 AM - 1:30 PM</div>
+                        <div class="activity-desc">🐰 Hill Top - Beatrix Potter's cottage where she wrote Peter Rabbit • Near Sawrey, 20-min from Aira Force • Indoor attraction perfect for wet weather</div>
+                    </div>
+                    <div class="activity food-activity">
+                        <div class="activity-time">1:30 PM - 2:30 PM</div>
+                        <div class="activity-desc">🍽️ Lunch in Ambleside or Bowness - Cozy pub lunch</div>
+                    </div>
+                    <div class="activity nature-activity">
+                        <div class="activity-time">3:00 PM - 4:30 PM</div>
+                        <div class="activity-desc">🏞️ Castle Crag (Optional) - Short 2.5-mile hike if weather improves • Lower elevation (290m), more sheltered • 15-min from Grasmere • OR return to hotel if still stormy</div>
+                    </div>
+                    <div class="activity wellness-activity">
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-desc">🧘 Hotel Spa & Relaxation - Unwind after wet weather adventures • Enjoy lakeside views from inside</div>
+                    </div>
+                </div>
+            </div>
+            <div class="day-map-container">
+                <div id="map-day3" class="activity-map"></div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-block">
+            <div class="day-content">
+                <div class="day-header">
+                    <h3 class="day-title">Day 4 - Best Hiking Day</h3>
+                    <p class="day-date">Tuesday, January 13, 2026 • Better Weather (10°C, drier conditions)</p>
+                </div>
+                <div class="activities">
+                    <div class="activity nature-activity">
+                        <div class="activity-time">8:30 AM - 11:30 AM</div>
+                        <div class="activity-desc">⛰️ Catbells Summit Hike - Classic Lake District ridge walk • 2.3-mile moderate hike • Panoramic views of Derwentwater • 2-3 hours • Moved from Monday due to better weather</div>
+                    </div>
+                    <div class="activity food-activity">
+                        <div class="activity-time">12:00 PM - 1:00 PM</div>
+                        <div class="activity-desc">🍽️ Lunch in Keswick - Refuel after morning hike</div>
+                    </div>
+                    <div class="activity nature-activity">
+                        <div class="activity-time">1:30 PM - 5:00 PM</div>
+                        <div class="activity-desc">🥾 Easedale Tarn Hike - 4.5-mile moderate hike through scenic valley • Beautiful waterfalls (Sour Milk Gill) • Mountain tarn with stunning winter views • 3-4 hour round trip • May have snow/ice, bring microspikes</div>
+                    </div>
+                    <div class="activity wellness-activity">
+                        <div class="activity-time">5:30 PM - 7:00 PM</div>
+                        <div class="activity-desc">🛁 Hotel Spa Recovery - Relax after full day of hiking • Hot tub and sauna</div>
+                    </div>
+                    <div class="activity food-activity">
+                        <div class="activity-time">7:30 PM</div>
+                        <div class="activity-desc">🍽️ Celebration Dinner at Lakeside Restaurant - Toast to an epic Lake District hiking day • Local Cumbrian cuisine</div>
+                    </div>
+                </div>
+            </div>
+            <div class="day-map-container">
+                <div id="map-day4" class="activity-map"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Simple marker helper
+        function createSimpleMarker(emoji) {
+            return L.divIcon({
+                className: 'simple-marker',
+                html: emoji,
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+        }
+
+        // Map configurations for each day
+        const days = [
+            {
+                id: 'map-day2',
+                title: 'Drive to Lake District via Manchester',
+                center: [53.0000, -2.0000],
+                zoom: 6,
+                locations: [
+                    { coords: [51.4700, -0.4543], label: '🚗', name: 'Heathrow Airport', description: '8:00 AM - Depart' },
+                    { coords: [53.4808, -2.2426], label: '🍽️', name: 'Dishoom Manchester', description: '12:30 PM - Lunch' },
+                    { coords: [54.3780, -3.0180], label: '🥾', name: 'Tarn Hows', description: '3:45 PM - Walk' },
+                    { coords: [54.4609, -3.0886], label: '🏞️', name: 'Grasmere', description: 'Final destination' },
+                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel', description: '5:15 PM - Check-in' }
+                ]
+            },
+            {
+                id: 'map-day3',
+                title: 'Wet Weather Day - Waterfalls & Culture',
+                center: [54.4800, -2.9500],
+                zoom: 10,
+                locations: [
+                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel', description: 'Start' },
+                    { coords: [54.5771, -2.9026], label: '💧', name: 'Aira Force Waterfalls', description: 'Morning - Spectacular in rain' },
+                    { coords: [54.3699, -2.9732], label: '🐰', name: 'Hill Top (Near Sawrey)', description: 'Beatrix Potter cottage' },
+                    { coords: [54.4750, -2.9950], label: '🍽️', name: 'Ambleside', description: 'Lunch stop' },
+                    { coords: [54.5089, -3.1539], label: '🏞️', name: 'Castle Crag', description: 'Optional afternoon hike' }
+                ]
+            },
+            {
+                id: 'map-day4',
+                title: 'Double Hike Day - Catbells & Easedale',
+                center: [54.5000, -3.0800],
+                zoom: 11,
+                locations: [
+                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel', description: 'Start - 8:30 AM' },
+                    { coords: [54.5277, -3.1538], label: '⛰️', name: 'Catbells Summit', description: 'Morning hike - Panoramic views' },
+                    { coords: [54.5264, -3.1339], label: '🍽️', name: 'Keswick', description: 'Lunch - 12:00 PM' },
+                    { coords: [54.4609, -3.0886], label: '🚶', name: 'Grasmere Village', description: 'Afternoon hike start' },
+                    { coords: [54.4662, -3.0294], label: '💧', name: 'Easedale Tarn', description: 'Mountain tarn - Winter views' },
+                    { coords: [54.4645, -3.0938], label: '🛁', name: 'Hotel Spa', description: 'Evening recovery' }
+                ]
+            }
+        ];
+
+        days.forEach(day => {
+            const mapContainer = document.getElementById(day.id);
+            if (!mapContainer) return;
+
+            const map = L.map(day.id, {
+                dragging: true,
+                zoomControl: true,
+                scrollWheelZoom: true,
+                doubleClickZoom: true,
+                touchZoom: true
+            }).setView(day.center, day.zoom);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO'
+            }).addTo(map);
+
+            day.locations.forEach(location => {
+                L.marker(location.coords, { icon: createSimpleMarker(location.label) })
+                    .bindPopup(`
+                        <div style="font-family: Inter, sans-serif;">
+                            <h4 style="margin: 0 0 5px 0;">${location.name}</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">${location.description}</p>
+                        </div>
+                    `)
+                    .addTo(map);
+            });
+        });
+    </script>
+</body>
+
+</html>
