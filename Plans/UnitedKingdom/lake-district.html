@@ -395,31 +395,31 @@
                 </div>
                 <div class="activities">
                     <div class="activity transport-activity">
-                        <div class="activity-time">8:00 AM</div>
-                        <div class="activity-desc">🚗 Pick up rental car at Heathrow - Checkout from hotel and car pickup</div>
+                        <div class="activity-time">7:00 AM</div>
+                        <div class="activity-desc">🚗 Pick up rental car in London - Checkout from hotel and car pickup</div>
                     </div>
                     <div class="activity transport-activity">
-                        <div class="activity-time">8:45 AM - 12:15 PM</div>
-                        <div class="activity-desc">🚗 Drive to Manchester - 3.5-hour scenic drive north through English countryside</div>
+                        <div class="activity-time">7:30 AM - 9:00 AM</div>
+                        <div class="activity-desc">🚗 Drive to Stonehenge - 1.5-hour drive southwest (130 km / 80 mi)</div>
+                    </div>
+                    <div class="activity culture-activity">
+                        <div class="activity-time">9:00 AM - 9:30 AM</div>
+                        <div class="activity-desc">🗿 Stonehenge Visit - Quick stop at the iconic prehistoric monument • Stonehenge, Amesbury, Salisbury SP4 7DE</div>
+                    </div>
+                    <div class="activity transport-activity">
+                        <div class="activity-time">9:30 AM - 1:00 PM</div>
+                        <div class="activity-desc">🚗 Drive to Manchester - 3.5-hour drive north through English countryside (350 km / 217 mi)</div>
                     </div>
                     <div class="activity food-activity">
-                        <div class="activity-time">12:30 PM - 1:45 PM</div>
+                        <div class="activity-time">1:00 PM - 2:15 PM</div>
                         <div class="activity-desc">🍽️ Lunch at Dishoom Manchester - Bombay-style café • 32 Bridge St, Manchester M3 3BT</div>
                     </div>
                     <div class="activity transport-activity">
-                        <div class="activity-time">1:45 PM - 3:45 PM</div>
-                        <div class="activity-desc">🚗 Drive to Lake District - 2-hour drive from Manchester to Tarn Hows area</div>
-                    </div>
-                    <div class="activity nature-activity">
-                        <div class="activity-time">3:45 PM - 4:50 PM</div>
-                        <div class="activity-desc">🥾 Tarn Hows Circular Walk - 2-mile easy circular path with postcard-perfect views • Wide, mostly flat trail around the tarn • National Trust car park (Tarn Hows, Coniston, LA22 0PP)</div>
-                    </div>
-                    <div class="activity transport-activity">
-                        <div class="activity-time">4:50 PM - 5:15 PM</div>
-                        <div class="activity-desc">🚗 Drive to Grasmere - 20-minute scenic drive to hotel</div>
+                        <div class="activity-time">2:15 PM - 4:30 PM</div>
+                        <div class="activity-desc">🚗 Drive to Lake District - 2-2.5 hour scenic drive to Grasmere through countryside and lakes</div>
                     </div>
                     <div class="activity hotel-activity">
-                        <div class="activity-time">5:15 PM</div>
+                        <div class="activity-time">4:30 PM</div>
                         <div class="activity-desc">🏨 Check in at The Daffodil Hotel - 4.0 star hotel • Keswick Road, Grasmere • Jan 11-14, 2026</div>
                     </div>
                     <div class="activity food-activity">
@@ -455,7 +455,7 @@
                     </div>
                     <div class="activity nature-activity">
                         <div class="activity-time">3:00 PM - 4:30 PM</div>
-                        <div class="activity-desc">🏞️ Castle Crag (Optional) - Short 2.5-mile hike if weather improves • Lower elevation (290m), more sheltered • 15-min from Grasmere • OR return to hotel if still stormy</div>
+                        <div class="activity-desc">🥾 Tarn Hows Circular Walk - 2-mile easy circular path with postcard-perfect views • Wide, mostly flat trail around the tarn • Good in any weather • National Trust car park (Tarn Hows, Coniston, LA22 0PP) • 20-min from Grasmere</div>
                     </div>
                     <div class="activity wellness-activity">
                         <div class="activity-time">Evening</div>
@@ -794,15 +794,14 @@
         const days = [
             {
                 id: 'map-day2',
-                title: 'Drive to Lake District via Manchester',
+                title: 'Drive to Lake District via Stonehenge & Manchester',
                 center: [53.0000, -2.0000],
                 zoom: 6,
                 locations: [
-                    { coords: [51.4700, -0.4543], label: '🚗', name: 'Heathrow Airport', description: '8:00 AM - Depart' },
-                    { coords: [53.4808, -2.2426], label: '🍽️', name: 'Dishoom Manchester', description: '12:30 PM - Lunch' },
-                    { coords: [54.3780, -3.0180], label: '🥾', name: 'Tarn Hows', description: '3:45 PM - Walk' },
-                    { coords: [54.4609, -3.0886], label: '🏞️', name: 'Grasmere', description: 'Final destination' },
-                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel', description: '5:15 PM - Check-in' }
+                    { coords: [51.5074, -0.1278], label: '🚗', name: 'London', description: '7:00 AM - Depart with rental car' },
+                    { coords: [51.1789, -1.8262], label: '🗿', name: 'Stonehenge', description: '9:00 AM - 30 min visit' },
+                    { coords: [53.4808, -2.2426], label: '🍽️', name: 'Dishoom Manchester', description: '1:00 PM - Lunch' },
+                    { coords: [54.4645, -3.0938], label: '🏨', name: 'The Daffodil Hotel, Grasmere', description: '4:30 PM - Check-in' }
                 ]
             },
             {
@@ -815,7 +814,7 @@
                     { coords: [54.5771, -2.9026], label: '💧', name: 'Aira Force Waterfalls', description: 'Morning - Spectacular in rain' },
                     { coords: [54.3699, -2.9732], label: '🐰', name: 'Hill Top (Near Sawrey)', description: 'Beatrix Potter cottage' },
                     { coords: [54.4750, -2.9950], label: '🍽️', name: 'Ambleside', description: 'Lunch stop' },
-                    { coords: [54.5089, -3.1539], label: '🏞️', name: 'Castle Crag', description: 'Optional afternoon hike' }
+                    { coords: [54.3780, -3.0180], label: '🥾', name: 'Tarn Hows', description: '3:00 PM - Easy circular walk' }
                 ]
             },
             {
