@@ -35,6 +35,10 @@
                         <strong>Tube Travel:</strong> We took the Piccadilly Line from Hatton Cross (near Heathrow) to Knightsbridge to start our walking tour, and returned via Green Park station to Hatton Cross after dinner. The Piccadilly Line offers direct access from Heathrow to central London. Simply tap contactless payment at the gates - fares range from £1.80 to £5.80 depending on zones and time of day.
                     </div>
 
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Piccadilly Line Journey</h3>
+
+                    <div id="tube-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
                     <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Westminster Landmarks</h3>
 
                     <div id="london-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
@@ -99,7 +103,7 @@
                     </div>
 
                     <div class="highlight-box">
-                        <strong>London on Foot:</strong> Our walking route from Knightsbridge to Gymkhana covered approximately 5-6 miles through central London, passing through Knightsbridge, Westminster, the South Bank, and the City. This is the best way to experience London's incredible density of landmarks - comfortable shoes and a good map (or smartphone) are essential!
+                        <strong>London on Foot:</strong> Our walking route from Knightsbridge to Gymkhana covered 14.8 miles through central London, logging 31,385 steps as we passed through Knightsbridge, Westminster, the South Bank, and the City. This is the best way to experience London's incredible density of landmarks - comfortable shoes and a good map (or smartphone) are essential! Despite the jet lag, the excitement of exploring London kept us energized throughout the day.
                     </div>
 
                     <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Evening in London</h3>
@@ -459,6 +463,53 @@
                     </div>
                 `);
             });
+
+            // Initialize Piccadilly Line tube map
+            const tubeMap = L.map('tube-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([51.4900, -0.2500], 11);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(tubeMap);
+
+            // Piccadilly Line stations
+            const tubeStations = [
+                { lat: 51.4700, lng: -0.4543, name: 'Heathrow Terminal 2&3', emoji: '✈️', desc: 'Arrival from Houston' },
+                { lat: 51.4829, lng: -0.4225, name: 'Hatton Cross', emoji: '🚇', desc: 'Hotel station' },
+                { lat: 51.4990, lng: -0.1601, name: 'Knightsbridge', emoji: '🚇', desc: 'Start of walking tour' },
+                { lat: 51.5067, lng: -0.1428, name: 'Green Park', emoji: '🚇', desc: 'Return after dinner' }
+            ];
+
+            tubeStations.forEach((station) => {
+                const marker = L.marker([station.lat, station.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${station.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(tubeMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Space Grotesk', sans-serif; min-width: 150px;">
+                        <strong style="color: #6366f1; font-size: 1.1em;">${station.emoji} ${station.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${station.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Draw Piccadilly Line route
+            const tubeRoute = tubeStations.map(s => [s.lat, s.lng]);
+            L.polyline(tubeRoute, {
+                color: '#003688',  // Official Piccadilly Line dark blue color
+                weight: 4,
+                opacity: 0.8
+            }).addTo(tubeMap);
 
             buildPhotoList();
 
