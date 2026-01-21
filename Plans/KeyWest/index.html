@@ -675,7 +675,7 @@
                     <div class="day-map-container">
                         <div id="map-day1" class="activity-map"></div>
                         <div class="map-overlay">
-                            <p class="map-title">Fort Lauderdale Airport</p>
+                            <p class="map-title">Flight from Houston</p>
                         </div>
                     </div>
                 </div>
@@ -1140,11 +1140,14 @@
             // Store all maps for later refresh
             const maps = [];
 
-            // Day 1: FLL Airport
-            const map1 = L.map('map-day1', mapOptions).setView([26.0742, -80.15], 12);
+            // Day 1: Flight from Houston to FLL
+            const map1 = L.map('map-day1', mapOptions).setView([27.5, -87], 5);
             L.tileLayer(tiles, { attribution: attr }).addTo(map1);
-            L.marker([26.0742, -80.1506], { icon: emojiMarker('✈️') }).addTo(map1).bindPopup('<b>FLL Airport</b>');
-            L.marker([26.0726, -80.1528], { icon: emojiMarker('🏨') }).addTo(map1).bindPopup('<b>Airport Hotels</b>');
+            L.marker([29.6454, -95.2789], { icon: emojiMarker('🛫') }).addTo(map1).bindPopup('<b>Houston Hobby</b><br>6:45 PM');
+            L.marker([26.0742, -80.1506], { icon: emojiMarker('🛬') }).addTo(map1).bindPopup('<b>Fort Lauderdale</b><br>10:05 PM');
+            L.polyline([
+                [29.6454, -95.2789], [27.5, -87], [26.0742, -80.1506]
+            ], { color: '#8b5cf6', weight: 3, dashArray: '5, 10' }).addTo(map1);
             maps.push(map1);
 
             // Day 2: FLL to Marathon
