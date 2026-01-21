@@ -1,0 +1,23 @@
+[
+  {
+    "FileName": "IMG_3128.JPEG",
+    "FilePath": "IMG_3128.JPEG",
+    "FileSize": 1599888,
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2026:01:14 11:06:03",
+    "ExposureTime": "1/325 sec",
+    "FNumber": "f/1.8",
+    "ISO": "80",
+    "FocalLength": "6.8 mm",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "224055dcf07444d0.webp",
+      "OriginalSize": 1599888,
+      "OptimizedSize": 665146,
+      "CompressionRatio": 58.425464782534775
+    },
+    "HasGpsData": false
+  }
+]

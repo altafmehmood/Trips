@@ -1,0 +1,33 @@
+[
+  {
+    "FileName": "IMG_3095.JPEG",
+    "FilePath": "IMG_3095.JPEG",
+    "FileSize": 1113533,
+    "Latitude": 54.217505555555555,
+    "Longitude": -3.349911111111111,
+    "Altitude": "3.64 metres",
+    "City": "Silecroft",
+    "State": "England",
+    "Country": "United Kingdom",
+    "CountryCode": "GB",
+    "DisplayName": "Silecroft Beach Car Park, Seldom Seen Lane, Whicham, Silecroft, Cumberland, England, LA18 4NX, United Kingdom",
+    "Region": "Cumberland",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 6.765mm f/1.78",
+    "DateTaken": "2026:01:12 16:45:46",
+    "ExposureTime": "1/60 sec",
+    "FNumber": "f/1.8",
+    "ISO": "500",
+    "FocalLength": "6.8 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "7560b678f209fa01.webp",
+      "OriginalSize": 1113533,
+      "OptimizedSize": 359276,
+      "CompressionRatio": 67.7354869590753
+    },
+    "HasGpsData": true
+  }
+]

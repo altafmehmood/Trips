@@ -1,0 +1,33 @@
+[
+  {
+    "FileName": "IMG_3092.JPEG",
+    "FilePath": "IMG_3092.JPEG",
+    "FileSize": 1124028,
+    "Latitude": 54.578205555555556,
+    "Longitude": -3.163936111111111,
+    "Altitude": "159.72 metres",
+    "City": "Portinscale",
+    "State": "England",
+    "Country": "United Kingdom",
+    "CountryCode": "GB",
+    "DisplayName": "Derwent Bank Crescent, Above Derwent, Portinscale, Cumberland, England, CA12 5TP, United Kingdom",
+    "Region": "Cumberland",
+    "CameraMake": "Apple",
+    "CameraModel": "iPhone 15 Pro",
+    "LensModel": "iPhone 15 Pro back triple camera 2.22mm f/2.2",
+    "DateTaken": "2026:01:12 13:18:11",
+    "ExposureTime": "1/253 sec",
+    "FNumber": "f/2.2",
+    "ISO": "40",
+    "FocalLength": "2.2 mm",
+    "Orientation": "Top, left side (Horizontal / normal)",
+    "Software": "26.2",
+    "OptimizedImages": {
+      "WebPImage": "2cb37339dfa939e4.webp",
+      "OriginalSize": 1124028,
+      "OptimizedSize": 370252,
+      "CompressionRatio": 67.06025116812036
+    },
+    "HasGpsData": true
+  }
+]

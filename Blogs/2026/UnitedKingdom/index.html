@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United Kingdom Adventure - January 2026 Travel Blog</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="back-link">← Back to Home</a>
+
+        <!-- Plan Reference -->
+        <div class="plan-reference">
+            📅 View the <a href="../../../Plans/UnitedKingdom/index.html">original itinerary</a> to see what we planned before the trip
+        </div>
+
+        <h1><span class="gradient-text">United Kingdom Adventure</span></h1>
+        <p class="subtitle">A Journey Through England & Scotland • January 2026</p>
+
+        <div class="trip-overview">
+            <h2>Trip at a Glance</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                From the historic streets of London to the dramatic peaks of the Lake District, and from Scotland's vibrant cities to its ancient highlands, this 9-day winter journey showcased the United Kingdom's incredible blend of history, culture, and natural beauty.
+            </p>
+            <div class="overview-stats" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-value">9</div>
+                    <div class="stat-label">Days</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏙️</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Destinations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚗</div>
+                    <div class="stat-value">700+</div>
+                    <div class="stat-label">Miles Driven</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🥾</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Hikes Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📸</div>
+                    <div class="stat-value">104</div>
+                    <div class="stat-label">Photos Captured</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- By the Numbers -->
+        <div class="trip-overview">
+            <h2>By the Numbers: Our British Driving Adventure</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; font-style: italic;">
+                Navigating the left side of the road through England and Scotland
+            </p>
+
+            <div style="background: linear-gradient(135deg, #dc2626, #ef4444); padding: 2rem; border-radius: var(--radius-xl); color: white; margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 800; font-family: 'Space Grotesk', sans-serif;">700+</div>
+                        <div style="font-size: 1.1rem; opacity: 0.95;">Miles Driven</div>
+                        <div style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem;">London to Edinburgh and back</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 800; font-family: 'Space Grotesk', sans-serif;">5</div>
+                        <div style="font-size: 1.1rem; opacity: 0.95;">Major Hikes</div>
+                        <div style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem;">From lakeside trails to mountain summits</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 800; font-family: 'Space Grotesk', sans-serif;">2</div>
+                        <div style="font-size: 1.1rem; opacity: 0.95;">Countries Explored</div>
+                        <div style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem;">England & Scotland</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem;">
+                <h4 style="font-weight: 600; color: var(--text-secondary); margin: 0 0 1rem 0;">Hiking Highlights 🥾</h4>
+                <p style="margin: 0; color: var(--text-secondary);">
+                    <strong style="color: var(--primary);">Lake District Adventures:</strong> Aira Force Waterfalls, Tarn Hows Circular Walk, Catbells Summit, and Easedale Tarn - each offering stunning winter landscapes with dramatic skies and crisp mountain air. The Lake District in January proved to be both challenging and incredibly rewarding, with weather-dependent planning adding to the adventure.
+                </p>
+            </div>
+
+            <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 1.5rem; border-left: 4px solid var(--accent);">
+                <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;">
+                    <strong>Fun Fact:</strong> The 700+ miles we drove would take you from Land's End (England's southwestern tip) to John o' Groats (Scotland's northeastern tip) - Britain's most famous road trip - with miles to spare! We chose to explore the vertical slice from London through the Lake District to Edinburgh instead. 🚗
+                </p>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <!-- Flight Experience -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="day-title">Flying Across the Atlantic</div>
+                    <div class="day-subtitle">The Journey to the United Kingdom</div>
+                </div>
+                <div class="day-content">
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 0 0 1.5rem 0;">Transatlantic Flights</h3>
+
+                    <div class="story-text">
+                        <p>Our United Kingdom adventure began with United Airlines flight UA5 from Houston to London Heathrow - a 5,014-mile journey across the Atlantic. After a gate departure at 7:37 PM on January 9th, we took off at 7:52 PM and touched down at London Heathrow at 10:20 AM on January 10th - an 8 hour 28 minute overnight flight that maximized our time in the UK.</p>
+
+                        <p>The <a href="https://www.boeing.com/commercial/777" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Boeing 777-200ER</a> proved to be an excellent choice for this transatlantic flight. This twin-engine wide-body aircraft is perfectly suited for long-haul routes, offering comfort and reliability. United's service was excellent, and we managed to get some rest during the overnight flight, arriving refreshed and ready to explore London.</p>
+
+                        <p>The return journey on flight UA879 was slightly longer at 9 hours 47 minutes, departing London at 10:11 AM and arriving in Houston at 1:58 PM the same day (thanks to favorable time zones). The 5,020-mile westbound route took us back across the Atlantic, completing our British adventure.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Flight Stats:</strong> The IAH-LHR route covered over 5,000 miles each way - approximately the distance from New York to London. The Boeing 777-200ER's twin-engine efficiency makes it ideal for these transatlantic operations.
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Transatlantic Flight Routes</h3>
+
+                    <div id="flight-routes-map" style="height: 450px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem;">
+                        <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif; color: var(--primary);">Flight Summary</h3>
+
+                        <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">Transatlantic</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; font-size: 0.9rem; margin-bottom: 2rem;">
+                            <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                                <strong style="color: var(--primary); font-size: 1rem;">UA5 IAH→LHR</strong><br>
+                                <a href="https://www.boeing.com/commercial/777" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Boeing 777-200ER</a><br>
+                                <span style="color: var(--text-primary);">8h 28m • 5,014 miles</span><br>
+                                <span style="color: var(--text-muted);">Departed: Jan 9, 7:52 PM CST</span><br>
+                                <span style="color: var(--text-muted);">Arrived: Jan 10, 10:20 AM GMT</span>
+                            </div>
+                            <div style="background: white; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                                <strong style="color: var(--primary); font-size: 1rem;">UA879 LHR→IAH</strong><br>
+                                <a href="https://www.boeing.com/commercial/777" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Boeing 777-200ER</a><br>
+                                <span style="color: var(--text-primary);">9h 47m • 5,020 miles</span><br>
+                                <span style="color: var(--text-muted);">Departed: Jan 18, 10:11 AM GMT</span><br>
+                                <span style="color: var(--text-muted);">Arrived: Jan 18, 1:58 PM CST</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Sections -->
+            <div class="trip-overview" style="margin-bottom: 0;">
+                <h2>Explore the Journey</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                    Dive into the details of each leg of our United Kingdom adventure
+                </p>
+
+                <div class="overview-stats">
+                    <a href="london-arrival.html" style="text-decoration: none; color: inherit;">
+                        <div class="stat-card">
+                            <div class="stat-icon">🇬🇧</div>
+                            <div class="stat-value" style="font-size: 1.5rem;">London Arrival</div>
+                            <div class="stat-label">Day 1 • Jan 10</div>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Westminster, Big Ben & Michelin Dining</p>
+                        </div>
+                    </a>
+                    <a href="lake-district.html" style="text-decoration: none; color: inherit;">
+                        <div class="stat-card">
+                            <div class="stat-icon">⛰️</div>
+                            <div class="stat-value" style="font-size: 1.5rem;">Lake District</div>
+                            <div class="stat-label">Days 2-4 • Jan 11-13</div>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Stonehenge, Hiking Trails & Mountain Peaks</p>
+                        </div>
+                    </a>
+                    <a href="glasgow.html" style="text-decoration: none; color: inherit;">
+                        <div class="stat-card">
+                            <div class="stat-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+                            <div class="stat-value" style="font-size: 1.5rem;">Glasgow</div>
+                            <div class="stat-label">Day 5 • Jan 14</div>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Scottish Borders Drive & City Exploration</p>
+                        </div>
+                    </a>
+                    <a href="edinburgh.html" style="text-decoration: none; color: inherit;">
+                        <div class="stat-card">
+                            <div class="stat-icon">🏰</div>
+                            <div class="stat-value" style="font-size: 1.5rem;">Edinburgh</div>
+                            <div class="stat-label">Days 6-7 • Jan 15-16</div>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Arthur's Seat, Royal Mile & Historic Old Town</p>
+                        </div>
+                    </a>
+                    <a href="london-return.html" style="text-decoration: none; color: inherit;">
+                        <div class="stat-card">
+                            <div class="stat-icon">🛫</div>
+                            <div class="stat-value" style="font-size: 1.5rem;">Return to London</div>
+                            <div class="stat-label">Days 8-9 • Jan 17-18</div>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Scenic Drive & Departure</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Reflections -->
+            <div class="trip-overview" style="margin-top: 0;">
+                <h2>Final Reflections</h2>
+                <div class="story-text">
+                    <p>This United Kingdom adventure showcased the best of Britain's winter beauty. From London's iconic landmarks to the Lake District's dramatic peaks, and from Glasgow's vibrant culture to Edinburgh's historic charm, every day brought new discoveries and experiences.</p>
+
+                    <p>The Lake District, despite January's challenging weather, revealed itself as one of England's most spectacular regions. Weather-dependent planning added an element of adventure, and the clear summit days rewarded us with views that made every uphill step worthwhile. The combination of waterfalls, mountain tarns, and classic English fells created memories that will last a lifetime.</p>
+
+                    <p>Scotland exceeded all expectations. The scenic drive from the Lake District through Dumfries and Galloway offered stunning Border country views, while Edinburgh's blend of medieval history and modern sophistication created a perfect finale to our journey. Arthur's Seat provided both a physical challenge and panoramic views across the Scottish capital.</p>
+
+                    <p>Britain in winter has a unique character - crisp air, dramatic skies, cozy pubs, and landscapes that shift between moody and magnificent by the hour. The blend of urban exploration and mountain hiking, of Michelin dining and casual fish and chips, of ancient history and modern culture - it all combined to create an unforgettable journey. We'll be back.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize flight routes map
+        document.addEventListener('DOMContentLoaded', function() {
+            const flightMap = L.map('flight-routes-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([45, -35], 3);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(flightMap);
+
+            // Airport markers
+            const airports = [
+                { lat: 29.9844, lng: -95.3414, name: 'Houston IAH', emoji: '🛫', desc: 'George Bush Intercontinental' },
+                { lat: 51.4700, lng: -0.4543, name: 'London LHR', emoji: '🛬', desc: 'London Heathrow' }
+            ];
+
+            airports.forEach((airport) => {
+                L.marker([airport.lat, airport.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">${airport.emoji}</div>`,
+                        iconSize: [35, 35],
+                        iconAnchor: [17, 17]
+                    })
+                }).addTo(flightMap).bindPopup(`
+                    <div style="font-family: 'Space Grotesk', sans-serif; min-width: 150px;">
+                        <strong style="color: #6366f1; font-size: 1.1em;">${airport.emoji} ${airport.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${airport.desc}</span>
+                    </div>
+                `);
+            });
+
+            // Outbound route UA5 - North Atlantic Track (from actual flight track)
+            // Houston to London via northern route
+            const outboundRoute = [
+                [29.9844, -95.3414],  // Houston IAH
+                [32.5, -93.5],        // Northeast Texas
+                [35.0, -90.0],        // Arkansas/Tennessee
+                [38.0, -85.0],        // Kentucky/Indiana
+                [41.0, -80.0],        // Ohio/Pennsylvania
+                [43.5, -73.0],        // Upstate New York
+                [46.0, -65.0],        // New Brunswick/Nova Scotia
+                [48.5, -55.0],        // Newfoundland
+                [51.0, -45.0],        // North Atlantic
+                [54.0, -35.0],        // Mid-Atlantic (northern track)
+                [57.0, -25.0],        // North Atlantic
+                [58.0, -15.0],        // Approaching Iceland latitude
+                [56.0, -8.0],         // West of Ireland
+                [53.5, -3.0],         // Irish Sea
+                [51.4700, -0.4543]    // London LHR
+            ];
+
+            // Return route UA879 - Great Circle via Toronto (from actual flight track)
+            // London to Houston via southern Canada
+            const returnRoute = [
+                [51.4700, -0.4543],   // London LHR
+                [52.5, -5.0],         // West of Wales
+                [54.0, -12.0],        // West of Ireland
+                [55.0, -20.0],        // North Atlantic
+                [56.0, -30.0],        // Mid-Atlantic
+                [55.5, -40.0],        // Mid-Atlantic
+                [54.0, -50.0],        // Approaching Newfoundland
+                [51.0, -58.0],        // Newfoundland/Gulf of St. Lawrence
+                [47.0, -68.0],        // Quebec
+                [44.5, -75.0],        // Eastern Ontario
+                [43.7, -79.4],        // Toronto area
+                [42.0, -83.0],        // Detroit/Windsor area
+                [40.0, -87.0],        // Indiana
+                [37.5, -90.0],        // Missouri
+                [35.0, -92.5],        // Arkansas
+                [32.0, -94.0],        // East Texas
+                [29.9844, -95.3414]   // Houston IAH
+            ];
+
+            // Draw outbound route (UA5) in blue
+            const outboundLine = L.polyline(outboundRoute, {
+                color: '#3b82f6',
+                weight: 3,
+                opacity: 0.8,
+                dashArray: '10, 5'
+            }).addTo(flightMap);
+
+            // Draw return route (UA879) in green
+            const returnLine = L.polyline(returnRoute, {
+                color: '#10b981',
+                weight: 3,
+                opacity: 0.8,
+                dashArray: '10, 5'
+            }).addTo(flightMap);
+
+            // Add route labels
+            outboundLine.bindPopup(`
+                <div style="font-family: 'Space Grotesk', sans-serif;">
+                    <strong style="color: #3b82f6;">UA5 Houston → London</strong><br>
+                    <span style="color: #64748b; font-size: 0.9em;">Jan 9-10 • 8h 28m • 5,014 miles</span>
+                </div>
+            `);
+
+            returnLine.bindPopup(`
+                <div style="font-family: 'Space Grotesk', sans-serif;">
+                    <strong style="color: #10b981;">UA879 London → Houston</strong><br>
+                    <span style="color: #64748b; font-size: 0.9em;">Jan 18 • 9h 47m • 5,020 miles</span>
+                </div>
+            `);
+
+            // Fit map to show both routes
+            const bounds = L.latLngBounds(outboundRoute.concat(returnRoute));
+            flightMap.fitBounds(bounds, { padding: [50, 50] });
+        });
+    </script>
+</body>
+</html>

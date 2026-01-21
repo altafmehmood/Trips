@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>London Arrival - January 10 - United Kingdom Adventure</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Trip Overview</a>
+
+        <h1><span class="gradient-text">London Arrival</span></h1>
+        <p class="subtitle">January 10 • Historic Landmarks & Michelin Dining</p>
+
+        <div class="blog-content">
+            <!-- London Day 1 -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);">
+                    <div class="day-title">Day 1: London</div>
+                    <div class="day-subtitle">January 10 • Westminster, Royal Parks & Fine Dining</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Our United Kingdom adventure began with an overnight flight from Houston, landing at London Heathrow at 10:15 AM on January 10th. After a smooth arrival and efficient passport control, we took the Piccadilly Line from Hatton Cross station into central London, getting off at Knightsbridge - one of the easiest and most economical airport-to-city connections in Europe.</p>
+
+                        <p>Despite jet lag from the overnight transatlantic flight, we were eager to explore London on foot. Our day-long walking tour would take us through some of the city's most iconic landmarks, covering several miles of central London's most historic neighborhoods.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Tube Travel:</strong> We took the Piccadilly Line from Hatton Cross (near Heathrow) to Knightsbridge to start our walking tour, and returned via Green Park station to Hatton Cross after dinner. The Piccadilly Line offers direct access from Heathrow to central London. Simply tap contactless payment at the gates - fares range from £1.80 to £5.80 depending on zones and time of day.
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Westminster Landmarks</h3>
+
+                    <div id="london-map" style="height: 400px; margin: 2rem 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);"></div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/City_of_Westminster/23fd5d39e721c5ab.webp" alt="London Eye at night">
+                            <div class="photo-caption">The London Eye illuminated against the night sky on the South Bank</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/City_of_Westminster/ba8c8318a8f0e028.webp" alt="National Gallery at Trafalgar Square">
+                            <div class="photo-caption">The National Gallery overlooking Trafalgar Square, one of London's iconic public spaces</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/City_of_Westminster/53f8cd79272e44e5.webp" alt="Big Ben and Parliament at twilight">
+                            <div class="photo-caption">Big Ben and the Palace of Westminster illuminated at twilight - London's most famous landmark</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/City_of_Westminster/6de01e77e591fd87.webp" alt="Big Ben clock tower close-up">
+                            <div class="photo-caption">Close-up of the iconic Big Ben clock tower against dramatic winter skies</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/City_of_Westminster/611099d5ef933528.webp" alt="Buckingham Palace at twilight">
+                            <div class="photo-caption">Buckingham Palace, the London residence of the British monarch, at twilight</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Knightsbridge to Buckingham Palace</h3>
+
+                    <div class="story-text">
+                        <p>Emerging from Knightsbridge tube station, our first stop was Harrods, the world-famous luxury department store. The iconic terracotta building with its elaborate facade and window displays has been a Knightsbridge landmark since 1849. Even from the outside, the grandeur and scale of this seven-story retail palace impressed.</p>
+
+                        <p>From Harrods, we walked southwest toward Buckingham Palace, passing through the elegant streets of Belgravia. Arriving at Buckingham Palace, the London residence and administrative headquarters of the British monarch, we admired the imposing neoclassical facade and the Victoria Memorial that stands prominently in front. While the Changing of the Guard wasn't scheduled for our arrival day, the palace's grandeur and the crowds of tourists photographing the famous gates created a lively atmosphere.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Westminster & Whitehall</h3>
+
+                    <div class="story-text">
+                        <p>From Buckingham Palace, we walked east through St James's Park toward Westminster, passing through one of London's eight Royal Parks. The park's lake, with its resident pelicans and waterfowl, offered peaceful views despite the January chill.</p>
+
+                        <p>Arriving at Westminster, we stood before the Gothic Revival magnificence of the Palace of Westminster and its famous clock tower - Big Ben. The intricate stonework and towering spires create one of the most recognizable silhouettes in the world. We visited Westminster Abbey, the coronation church where British monarchs have been crowned since 1066. This Gothic masterpiece, with its soaring vaulted ceilings and intricate fan vaulting, stands as a testament to over 1,000 years of English history.</p>
+
+                        <p>Next, we made our way to the London Eye, the massive observation wheel on the South Bank of the Thames. From there, we walked through Whitehall to see 10 Downing Street, the official residence and office of the Prime Minister. The famous black door and security gates have been the center of British political power for nearly 300 years, though we could only view it from behind the security barriers at the end of Downing Street.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Trafalgar Square to the City</h3>
+
+                    <div class="story-text">
+                        <p>We continued to Trafalgar Square, one of London's most famous public spaces, with its towering Nelson's Column and the National Gallery backdrop. The square was alive with street performers and tourists despite the January weather.</p>
+
+                        <p>Our walking route then took us eastward across the Millennium Bridge, the sleek pedestrian suspension bridge that connects the South Bank with the City of London. This modern structure, opened in 2000, offered dramatic views of St. Paul's Cathedral ahead and the Thames below. We passed St. Paul's Cathedral, Sir Christopher Wren's baroque masterpiece crowned by one of the world's most recognizable domes, its commanding position on Ludgate Hill dominating the skyline since 1710.</p>
+
+                        <p>Continuing along the Thames, we made our way to London Bridge, the historic crossing that has connected the City with Southwark for nearly 2,000 years. The current bridge dates from 1973, but the location has been a vital river crossing since Roman times.</p>
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Evening Walk to Gymkhana</h3>
+
+                    <div class="story-text">
+                        <p>As evening approached and the winter twilight began to settle over London, we walked from London Bridge through the City toward Mayfair. The route took us through the atmospheric streets of the financial district, now quieting after the working day, and into the elegant West End neighborhoods.</p>
+
+                        <p>This day-long walking tour covered several miles through central London, from the luxury of Knightsbridge through the royal and political heart of Westminster, across the Thames to the ancient City of London, and finally to Mayfair for our Michelin-starred dinner. It was an exhausting but exhilarating introduction to London - layers of history revealed at every turn, from Roman roads to Victorian engineering to modern architecture, all compressed into one of the world's most walkable capital cities.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>London on Foot:</strong> Our walking route from Knightsbridge to Gymkhana covered approximately 5-6 miles through central London, passing through Knightsbridge, Westminster, the South Bank, and the City. This is the best way to experience London's incredible density of landmarks - comfortable shoes and a good map (or smartphone) are essential!
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Evening in London</h3>
+
+                    <div class="photo-gallery">
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/Greater_London/2aba905895f3df2d.webp" alt="Tower Bridge at night">
+                            <div class="photo-caption">Tower Bridge illuminated at night, one of London's most iconic landmarks</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/Greater_London/689b88943025c03a.webp" alt="St. Paul's Cathedral from the Thames">
+                            <div class="photo-caption">St. Paul's Cathedral viewed from across the Thames, its dome dominating the skyline</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/Greater_London/6f4ee0927d5e639c.webp" alt="Tower of London with swans">
+                            <div class="photo-caption">The Tower of London illuminated at night with swans on the Thames - nearly 1,000 years of history</div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="Photos/2026-01-10/Greater_London/735e2bed4af1b277.webp" alt="The Shard and Thames skyline">
+                            <div class="photo-caption">The Shard and modern London skyline reflecting on the Thames at night</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin: 2rem 0 1rem 0;">Gymkhana - Michelin Star Dining</h3>
+
+                    <div class="story-text">
+                        <p>To cap off our first day in London, we had reservations at <a href="https://www.gymkhanal ondon.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Gymkhana</a>, a prestigious Michelin two-star Indian restaurant in Mayfair. The restaurant takes its inspiration from the elite clubs of India during the British Raj era, creating an atmosphere that blends colonial elegance with contemporary sophistication.</p>
+
+                        <p>The dining experience was extraordinary - creative Indian cuisine elevated to fine dining standards with exceptional presentation and complex flavors. Each dish showcased premium ingredients and masterful technique, from the tandoor-grilled meats to the rich curries and innovative small plates. The restaurant's intimate, club-like atmosphere with its dark wood paneling and vintage hunting trophies created the perfect ambiance for our celebration of arriving in the UK.</p>
+
+                        <p>Our 9:00 PM reservation was perfectly timed, allowing us to enjoy a leisurely meal before taking the short walk to Green Park station. From there, we caught the Piccadilly Line back to Hatton Cross, completing our circuit of central London. Despite the long travel day and jet lag, the combination of London's historic sights, miles of walking, and world-class dining made for an unforgettable start to our United Kingdom adventure.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Dining at Gymkhana:</strong> This two-Michelin-star restaurant requires reservations well in advance, especially for weekend evenings. The tasting menu offers the best sampling of Chef Karam Sethi's creative Indian cuisine. Located in Mayfair, it's easily accessible via Piccadilly Circus or Green Park tube stations.
+                    </div>
+
+                    <div style="background: var(--gray-50); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem;">
+                        <h4 style="font-weight: 600; color: var(--text-secondary); margin: 0 0 1rem 0;">Getting to/from Heathrow 🚇</h4>
+                        <p style="margin: 0; color: var(--text-secondary);">
+                            <strong style="color: var(--primary);">Hatton Cross & Hilton Garden Inn:</strong> Our airport hotel was located near Hatton Cross station on the Piccadilly Line, just one stop from Heathrow terminals. This made it perfect for easy airport access while also providing direct tube connections to central London. The Piccadilly Line journey to Knightsbridge took about 40-45 minutes, and the return journey from Green Park was similarly convenient. Trains run every 10 minutes during peak hours - contactless payment makes it easy, just tap in and tap out.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            </div>
+
+            <div class="lightbox-info" id="lightbox-info">
+                <h3 id="lightbox-title">Photo Details</h3>
+                <div id="lightbox-metadata"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Photo data with metadata paths
+        const photoMetadata = {};
+        let allPhotos = [];
+        let currentPhotoIndex = 0;
+
+        // Build photo list from the page
+        function buildPhotoList() {
+            const photoCards = document.querySelectorAll('.photo-card');
+            allPhotos = Array.from(photoCards).map((card, index) => {
+                const img = card.querySelector('img');
+                const caption = card.querySelector('.photo-caption');
+                return {
+                    index: index,
+                    src: img.src,
+                    alt: img.alt,
+                    caption: caption ? caption.textContent : '',
+                    element: card
+                };
+            });
+        }
+
+        // Load metadata for a specific photo
+        async function loadPhotoMetadata(photoSrc) {
+            // Extract the path from the photo src
+            const pathMatch = photoSrc.match(/Photos\/([\d-]+)\/([^\/]+)\/([^\/]+\.webp)/);
+            if (!pathMatch) return null;
+
+            const [, date, location, filename] = pathMatch;
+            const metadataPath = `Photos/${date}/${location}/photo_metadata.json`;
+
+            // Check cache first
+            if (photoMetadata[metadataPath]) {
+                const metadata = photoMetadata[metadataPath];
+                return metadata.find(m => m.OptimizedImages?.WebPImage === filename);
+            }
+
+            // Load metadata
+            try {
+                const response = await fetch(metadataPath);
+                if (!response.ok) return null;
+                const data = await response.json();
+                photoMetadata[metadataPath] = data;
+                return data.find(m => m.OptimizedImages?.WebPImage === filename);
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+                return null;
+            }
+        }
+
+        // Format date and time
+        function formatDateTime(dateStr) {
+            if (!dateStr) return '';
+            const match = dateStr.match(/(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})/);
+            if (!match) return dateStr;
+            const [, year, month, day, hour, minute] = match;
+            const date = new Date(year, month - 1, day, hour, minute);
+            return date.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+        // Display photo in lightbox
+        async function showLightbox(index) {
+            currentPhotoIndex = index;
+            const photo = allPhotos[index];
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightbox-image');
+            const counter = document.getElementById('lightbox-counter');
+            const metadataDiv = document.getElementById('lightbox-metadata');
+            const title = document.getElementById('lightbox-title');
+
+            // Show lightbox
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Set image
+            image.src = photo.src;
+            image.alt = photo.alt;
+
+            // Set counter
+            counter.textContent = `${index + 1} / ${allPhotos.length}`;
+
+            // Update navigation buttons
+            updateNavButtons();
+
+            // Set title
+            title.textContent = photo.caption || 'Photo Details';
+
+            // Load and display metadata
+            metadataDiv.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Loading details...</p>';
+
+            const metadata = await loadPhotoMetadata(photo.src);
+
+            if (metadata) {
+                let html = '';
+
+                // Location Section
+                if (metadata.City || metadata.State || metadata.DisplayName) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Location</h4>';
+                    if (metadata.City) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">City</span>
+                            <span class="lightbox-info-value">${metadata.City}</span>
+                        </div>`;
+                    }
+                    if (metadata.State) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">State</span>
+                            <span class="lightbox-info-value">${metadata.State}</span>
+                        </div>`;
+                    }
+                    if (metadata.DisplayName) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Place</span>
+                            <span class="lightbox-info-value" style="max-width: 200px;">${metadata.DisplayName.split(',').slice(0, 2).join(',')}</span>
+                        </div>`;
+                    }
+                    if (metadata.Latitude && metadata.Longitude) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Coordinates</span>
+                            <span class="lightbox-info-value">${metadata.Latitude.toFixed(4)}, ${metadata.Longitude.toFixed(4)}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Date & Time Section
+                if (metadata.DateTaken) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Date & Time</h4>';
+                    html += `<div class="lightbox-info-item">
+                        <span class="lightbox-info-label">Taken</span>
+                        <span class="lightbox-info-value">${formatDateTime(metadata.DateTaken)}</span>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                // Camera Section
+                if (metadata.CameraMake || metadata.CameraModel) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Camera</h4>';
+                    if (metadata.CameraModel) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Model</span>
+                            <span class="lightbox-info-value">${metadata.CameraModel}</span>
+                        </div>`;
+                    }
+                    if (metadata.LensModel && !metadata.LensModel.includes(metadata.CameraModel)) {
+                        const lensShort = metadata.LensModel.split(' ').slice(-2).join(' ');
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Lens</span>
+                            <span class="lightbox-info-value">${lensShort}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Settings Section
+                if (metadata.ISO || metadata.ExposureTime || metadata.FNumber || metadata.FocalLength) {
+                    html += '<div class="lightbox-info-section">';
+                    html += '<h4>Settings</h4>';
+                    if (metadata.FocalLength) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Focal Length</span>
+                            <span class="lightbox-info-value">${metadata.FocalLength}</span>
+                        </div>`;
+                    }
+                    if (metadata.FNumber) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Aperture</span>
+                            <span class="lightbox-info-value">${metadata.FNumber}</span>
+                        </div>`;
+                    }
+                    if (metadata.ExposureTime) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">Shutter</span>
+                            <span class="lightbox-info-value">${metadata.ExposureTime}</span>
+                        </div>`;
+                    }
+                    if (metadata.ISO) {
+                        html += `<div class="lightbox-info-item">
+                            <span class="lightbox-info-label">ISO</span>
+                            <span class="lightbox-info-value">${metadata.ISO}</span>
+                        </div>`;
+                    }
+                    html += '</div>';
+                }
+
+                metadataDiv.innerHTML = html;
+            } else {
+                metadataDiv.innerHTML = `
+                    <div class="lightbox-info-section">
+                        <p style="color: var(--text-muted); font-style: italic;">
+                            ${photo.caption}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate between photos
+        function navigateLightbox(direction) {
+            const newIndex = currentPhotoIndex + direction;
+            if (newIndex >= 0 && newIndex < allPhotos.length) {
+                showLightbox(newIndex);
+            }
+        }
+
+        // Update navigation button states
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('lightbox-prev');
+            const nextBtn = document.getElementById('lightbox-next');
+
+            if (currentPhotoIndex === 0) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
+            }
+
+            if (currentPhotoIndex === allPhotos.length - 1) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize London map
+            const londonMap = L.map('london-map', {
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([51.5045, -0.1100], 12.5);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(londonMap);
+
+            // London points of interest - in order of visit
+            const londonPoints = [
+                { lat: 51.4990, lng: -0.1601, name: 'Knightsbridge Station', emoji: '🚇', desc: 'Piccadilly Line arrival' },
+                { lat: 51.4994, lng: -0.1631, name: 'Harrods', emoji: '🛍️', desc: 'Luxury department store' },
+                { lat: 51.5014, lng: -0.1419, name: 'Buckingham Palace', emoji: '👑', desc: 'Royal residence' },
+                { lat: 51.5045, lng: -0.1363, name: "St James's Park", emoji: '🌳', desc: 'Royal park with lake' },
+                { lat: 51.5007, lng: -0.1246, name: 'Big Ben', emoji: '🕰️', desc: 'Palace of Westminster' },
+                { lat: 51.4994, lng: -0.1269, name: 'Westminster Abbey', emoji: '⛪', desc: '1,000 years of history' },
+                { lat: 51.5033, lng: -0.1195, name: 'London Eye', emoji: '🎡', desc: 'South Bank observation wheel' },
+                { lat: 51.5034, lng: -0.1276, name: '10 Downing Street', emoji: '🏛️', desc: "Prime Minister's residence" },
+                { lat: 51.5074, lng: -0.1278, name: 'Trafalgar Square', emoji: '🦁', desc: "Nelson's Column" },
+                { lat: 51.5097, lng: -0.0980, name: 'Millennium Bridge', emoji: '🌉', desc: 'Pedestrian Thames crossing' },
+                { lat: 51.5138, lng: -0.0984, name: "St. Paul's Cathedral", emoji: '⛪', desc: "Wren's baroque masterpiece" },
+                { lat: 51.5079, lng: -0.0877, name: 'London Bridge', emoji: '🚶', desc: 'Historic Thames crossing' },
+                { lat: 51.5115, lng: -0.1283, name: 'Gymkhana', emoji: '🍽️', desc: 'Michelin ★★ dining' },
+                { lat: 51.5067, lng: -0.1428, name: 'Green Park Station', emoji: '🚇', desc: 'Piccadilly Line return' },
+                { lat: 51.4829, lng: -0.4225, name: 'Hatton Cross Station', emoji: '🚇', desc: 'Near Heathrow' },
+                { lat: 51.4807, lng: -0.4493, name: 'Hilton Garden Inn', emoji: '🏨', desc: 'Airport hotel' }
+            ];
+
+            londonPoints.forEach((point) => {
+                const marker = L.marker([point.lat, point.lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${point.emoji}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(londonMap);
+
+                marker.bindPopup(`
+                    <div style="font-family: 'Space Grotesk', sans-serif; min-width: 150px;">
+                        <strong style="color: #dc2626; font-size: 1.1em;">${point.emoji} ${point.name}</strong>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9em;">${point.desc}</span>
+                    </div>
+                `);
+            });
+
+            buildPhotoList();
+
+            // Add click handlers to all photo cards
+            allPhotos.forEach((photo, index) => {
+                photo.element.addEventListener('click', () => showLightbox(index));
+            });
+
+            // Close lightbox when clicking outside
+            document.getElementById('lightbox').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                const lightbox = document.getElementById('lightbox');
+                if (!lightbox.classList.contains('active')) return;
+
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        if (currentPhotoIndex > 0) navigateLightbox(-1);
+                        break;
+                    case 'ArrowRight':
+                        if (currentPhotoIndex < allPhotos.length - 1) navigateLightbox(1);
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

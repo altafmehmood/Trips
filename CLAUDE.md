@@ -24,24 +24,39 @@ Trips/ (root)
 │   ├── India/
 │   │   └── index.html           # India itinerary
 │   └── UnitedKingdom/
-│       └── index.html           # UK itinerary
+│       ├── index.html           # UK itinerary overview
+│       ├── edinburgh.html       # Edinburgh destination page
+│       ├── glasgow.html         # Glasgow destination page
+│       ├── lake-district.html   # Lake District destination page
+│       ├── london-arrival.html  # London arrival destination page
+│       └── london-return.html   # London return destination page
 │
 └── Blogs/                        # Travel blog posts and recaps
     ├── index.html               # Blog overview (all posts)
-    └── 2025/
-        └── Australia/
-            ├── index.html       # Australia blog overview
-            ├── sydney-early.html
-            ├── sydney-late.html
-            ├── melbourne.html
-            ├── tasmania.html
-            ├── cradle.html
-            ├── freycinet.html
-            ├── hobart.html
-            ├── strahan.html
-            ├── westcoast.html
-            └── Photos/          # 235 photos (246MB, WebP format)
-                └── 2025-12-*/   # Organized by date
+    ├── 2025/
+    │   └── Australia/
+    │       ├── index.html       # Australia blog overview
+    │       ├── sydney-early.html
+    │       ├── sydney-late.html
+    │       ├── melbourne.html
+    │       ├── tasmania.html
+    │       ├── cradle.html
+    │       ├── freycinet.html
+    │       ├── hobart.html
+    │       ├── strahan.html
+    │       ├── westcoast.html
+    │       └── Photos/          # 235 photos (246MB, WebP format)
+    │           └── 2025-12-*/   # Organized by date
+    └── 2026/
+        └── UnitedKingdom/
+            ├── index.html           # UK blog overview
+            ├── london-arrival.html  # Day 1: London landmarks
+            ├── lake-district.html   # Days 2-4: Hiking & nature
+            ├── glasgow.html         # Day 5: Scottish culture
+            ├── edinburgh.html       # Days 6-7: History & hiking
+            ├── london-return.html   # Days 8-9: Return & departure
+            └── Photos/              # 104 photos (WebP, organized by date/location)
+                └── 2026-01-*/       # Organized by date
 ```
 
 ## Architecture
@@ -105,10 +120,10 @@ Trips/ (root)
 ```
 
 ### Typography
-- **Body**: Inter (300-900 weights)
-- **Headings**: Poppins (300-900 weights)
-- **Decorative**: Playfair Display (400-900 weights)
-- All imported from Google Fonts
+- **Primary**: Space Grotesk (300-700 weights)
+- Used for all text: body, headings, navigation, and UI elements
+- Imported from Google Fonts
+- Modern, geometric sans-serif with excellent readability
 
 ### Component System
 
