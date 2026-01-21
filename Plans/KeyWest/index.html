@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key West & Florida Keys Itinerary</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #0891b2;
+            --primary-light: #22d3ee;
+            --primary-dark: #0e7490;
+            --secondary: #06b6d4;
+            --secondary-light: #67e8f9;
+            --secondary-dark: #0891b2;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
+            --surface: #ffffff;
+            --surface-secondary: var(--gray-50);
+            --border: var(--gray-200);
+            --border-light: var(--gray-100);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .trip-overview {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+        }
+
+        .trip-overview h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .fll-card { background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%); }
+        .marathon-card { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .keywest-card { background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%); }
+        .tortugas-card { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+
+        .city-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .city-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .city-duration {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Flight Cards */
+        .flight-card {
+            background: var(--surface-secondary);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .flight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .flight-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .flight-date {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .flight-details {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .flight-location.departure { text-align: left; }
+        .flight-location.arrival { text-align: right; }
+
+        .flight-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .flight-code {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .flight-city {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .flight-arrow {
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .flight-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: var(--radius-md);
+        }
+
+        .flight-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flight-info-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .flight-info-value {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Day Sections */
+        .city-section {
+            background: var(--surface);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            margin-bottom: 3rem;
+        }
+
+        .city-header {
+            padding: 2.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .fll-header { background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%); }
+        .marathon-header { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .keywest-header { background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%); }
+        .tortugas-header { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+
+        .city-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .city-subtitle {
+            opacity: 0.95;
+            font-size: 1.1rem;
+        }
+
+        .city-content {
+            padding: 2rem;
+        }
+
+        .day-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            background: var(--gray-50);
+            border: 1px solid var(--border-light);
+        }
+
+        .day-header-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .day-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .day-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .activities {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .activity {
+            padding: 1rem 1.25rem;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-desc {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .flight-activity { border-left-color: #8b5cf6; }
+        .transport-activity { border-left-color: #6b7280; }
+        .hotel-activity { border-left-color: #3b82f6; }
+        .food-activity { border-left-color: #f97316; }
+        .beach-activity { border-left-color: #06b6d4; }
+        .water-activity { border-left-color: #0891b2; }
+        .nature-activity { border-left-color: #10b981; }
+        .culture-activity { border-left-color: #8b5cf6; }
+        .sunset-activity { border-left-color: #f59e0b; }
+
+        /* Map Container - Fixed Height */
+        .day-map-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 450px;
+            min-height: 450px;
+            background: #e5e7eb;
+        }
+
+        .activity-map {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 1;
+        }
+
+        /* Leaflet overrides */
+        .leaflet-container {
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 1;
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .map-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Recommendations */
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .recommendation-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+        }
+
+        .recommendation-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .recommendation-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .recommendation-type {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--gray-100);
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Leaflet emoji markers */
+        .emoji-marker {
+            background: none;
+            border: none;
+        }
+
+        .simple-marker {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+        }
+
+        @media (max-width: 900px) {
+            .day-block {
+                grid-template-columns: 1fr;
+            }
+            .day-map-container {
+                height: 350px;
+            }
+            .flight-details {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .flight-location.departure,
+            .flight-location.arrival {
+                text-align: center;
+            }
+        }
+
+        @media print {
+            .activity-map, .map-overlay, .day-map-container { display: none !important; }
+            .back-link { display: none; }
+            body::before { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Plans</a>
+
+        <h1>🌴 Key West & Florida Keys</h1>
+
+        <div class="trip-overview">
+            <h2>Florida Keys Beach Getaway • Feb 24 - Mar 1, 2026</h2>
+            <div class="overview-grid">
+                <div class="overview-card fll-card">
+                    <div class="city-icon">✈️</div>
+                    <div class="city-name">Fort Lauderdale</div>
+                    <div class="city-duration">Days 1 & 6</div>
+                </div>
+                <div class="overview-card marathon-card">
+                    <div class="city-icon">🏖️</div>
+                    <div class="city-name">Marathon</div>
+                    <div class="city-duration">Day 2 • Beach Resort</div>
+                </div>
+                <div class="overview-card keywest-card">
+                    <div class="city-icon">🏝️</div>
+                    <div class="city-name">Key West</div>
+                    <div class="city-duration">Days 3-5 • 2 Nights</div>
+                </div>
+                <div class="overview-card tortugas-card">
+                    <div class="city-icon">🏰</div>
+                    <div class="city-name">Dry Tortugas</div>
+                    <div class="city-duration">Day 4 • Day Trip</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flight Information -->
+        <div class="trip-overview">
+            <h2>✈️ Flight Details</h2>
+
+            <div class="flight-card">
+                <div class="flight-header">
+                    <span class="flight-title">Outbound Flight</span>
+                    <span class="flight-date">Tuesday, February 24, 2026</span>
+                </div>
+                <div class="flight-details">
+                    <div class="flight-location departure">
+                        <div class="flight-time">6:45 PM</div>
+                        <div class="flight-code">HOU</div>
+                        <div class="flight-city">Houston Hobby</div>
+                    </div>
+                    <div class="flight-arrow">
+                        <div>2h 20m</div>
+                        <div>✈️ →</div>
+                        <div style="color: var(--success); font-size: 0.85rem;">Nonstop</div>
+                    </div>
+                    <div class="flight-location arrival">
+                        <div class="flight-time">10:05 PM</div>
+                        <div class="flight-code">FLL</div>
+                        <div class="flight-city">Fort Lauderdale</div>
+                    </div>
+                </div>
+                <div class="flight-info">
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Airline</span>
+                        <span class="flight-info-value">Southwest Airlines</span>
+                    </div>
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Flight</span>
+                        <span class="flight-info-value">WN205</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flight-card">
+                <div class="flight-header">
+                    <span class="flight-title">Return Flight</span>
+                    <span class="flight-date">Sunday, March 1, 2026</span>
+                </div>
+                <div class="flight-details">
+                    <div class="flight-location departure">
+                        <div class="flight-time">6:00 AM</div>
+                        <div class="flight-code">FLL</div>
+                        <div class="flight-city">Fort Lauderdale</div>
+                    </div>
+                    <div class="flight-arrow">
+                        <div>3h</div>
+                        <div>✈️ →</div>
+                        <div style="color: var(--success); font-size: 0.85rem;">Nonstop</div>
+                    </div>
+                    <div class="flight-location arrival">
+                        <div class="flight-time">8:00 AM</div>
+                        <div class="flight-code">HOU</div>
+                        <div class="flight-city">Houston Hobby</div>
+                    </div>
+                </div>
+                <div class="flight-info">
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Airline</span>
+                        <span class="flight-info-value">Southwest Airlines</span>
+                    </div>
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Flight</span>
+                        <span class="flight-info-value">WN1738</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rental Car -->
+            <div class="flight-card" style="border-left: 4px solid var(--success);">
+                <div class="flight-header">
+                    <span class="flight-title">🚗 Rental Car</span>
+                    <span class="flight-date">Budget • Intermediate SUV</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1rem;">
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.25rem;">Mazda CX-50</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">or similar • Automatic • A/C</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">5 passengers • 2 large bags • Unlimited mileage</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 0.85rem; color: var(--success); font-weight: 600;">✓ Additional Driver Included</div>
+                        <div style="font-size: 0.85rem; color: var(--success); font-weight: 600;">✓ No Cancellation Fees</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Reserve Now, Pay Later</div>
+                    </div>
+                </div>
+                <div class="flight-info">
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Pick-Up</span>
+                        <span class="flight-info-value">Feb 24 @ 11:00 PM</span>
+                    </div>
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Drop-Off</span>
+                        <span class="flight-info-value">Mar 1 @ 5:00 AM</span>
+                    </div>
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Duration</span>
+                        <span class="flight-info-value">4 days, 6 hours</span>
+                    </div>
+                    <div class="flight-info-item">
+                        <span class="flight-info-label">Location</span>
+                        <span class="flight-info-value">FLL Terminal Dr, 4th Floor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 1: Arrival -->
+        <section class="city-section">
+            <div class="city-header fll-header">
+                <h2 class="city-title">Day 1: Arrival in Fort Lauderdale</h2>
+                <p class="city-subtitle">Tuesday, February 24 • Evening Flight</p>
+            </div>
+            <div class="city-content">
+                <div class="day-block">
+                    <div>
+                        <div class="day-header-block">
+                            <h3 class="day-title">Evening Arrival</h3>
+                            <p class="day-date">Pick up rental car, overnight near airport</p>
+                        </div>
+                        <div class="activities">
+                            <div class="activity flight-activity">
+                                <div class="activity-time">6:45 PM - 10:05 PM</div>
+                                <div class="activity-desc">✈️ Southwest WN205 from Houston to Fort Lauderdale</div>
+                            </div>
+                            <div class="activity transport-activity">
+                                <div class="activity-time">11:00 PM</div>
+                                <div class="activity-desc">🚗 Pick up Mazda CX-50 from Budget (Terminal Dr, 4th Floor)</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">11:30 PM</div>
+                                <div class="activity-desc">🏨 Check into airport hotel for the night</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem;">
+                            <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1rem;">FLL Airport Hotels</h4>
+                            <div class="recommendations-grid">
+                                <div class="recommendation-card">
+                                    <span class="recommendation-type">Convenient</span>
+                                    <h4>Hilton Fort Lauderdale Airport</h4>
+                                    <p>Skybridge to terminal, no shuttle needed</p>
+                                </div>
+                                <div class="recommendation-card">
+                                    <span class="recommendation-type">Value</span>
+                                    <h4>Hyatt Place FLL Airport</h4>
+                                    <p>Free breakfast, modern rooms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-map-container">
+                        <div id="map-day1" class="activity-map"></div>
+                        <div class="map-overlay">
+                            <p class="map-title">Fort Lauderdale Airport</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 2: Drive to Marathon -->
+        <section class="city-section">
+            <div class="city-header marathon-header">
+                <h2 class="city-title">Day 2: Drive to Marathon</h2>
+                <p class="city-subtitle">Wednesday, February 25 • Scenic Keys Drive</p>
+            </div>
+            <div class="city-content">
+                <div class="day-block">
+                    <div>
+                        <div class="day-header-block">
+                            <h3 class="day-title">Overseas Highway Adventure</h3>
+                            <p class="day-date">Stops at Key Largo & Islamorada, beach resort evening</p>
+                        </div>
+                        <div class="activities">
+                            <div class="activity food-activity">
+                                <div class="activity-time">8:00 AM</div>
+                                <div class="activity-desc">🥐 Breakfast at hotel, check out</div>
+                            </div>
+                            <div class="activity transport-activity">
+                                <div class="activity-time">9:00 AM</div>
+                                <div class="activity-desc">🚗 Begin drive south on US-1 (Overseas Highway)</div>
+                            </div>
+                            <div class="activity water-activity">
+                                <div class="activity-time">10:30 AM</div>
+                                <div class="activity-desc">🐠 Arrive John Pennekamp State Park (Key Largo) - check in for 12:00 PM snorkel boat</div>
+                            </div>
+                            <div class="activity water-activity">
+                                <div class="activity-time">12:00 - 2:30 PM</div>
+                                <div class="activity-desc">🤿 Snorkeling boat tour - 2.5 hours exploring America's first underwater park, coral reefs & tropical fish</div>
+                            </div>
+                            <div class="activity nature-activity">
+                                <div class="activity-time">3:15 PM</div>
+                                <div class="activity-desc">🐟 Robbie's Marina (Islamorada) - feed giant tarpon by hand, iconic Keys experience!</div>
+                            </div>
+                            <div class="activity food-activity">
+                                <div class="activity-time">4:00 PM</div>
+                                <div class="activity-desc">🍽️ Late lunch at Hungry Tarpon (at Robbie's) or Lazy Days nearby</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">5:30 PM</div>
+                                <div class="activity-desc">🏨 Check into Marathon beach resort</div>
+                            </div>
+                            <div class="activity sunset-activity">
+                                <div class="activity-time">6:15 PM</div>
+                                <div class="activity-desc">🌅 Sunset at the resort beach or Sombrero Beach</div>
+                            </div>
+                            <div class="activity food-activity">
+                                <div class="activity-time">7:30 PM</div>
+                                <div class="activity-desc">🦞 Seafood dinner - Keys Fisheries, The Stoned Crab, or Castaway</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(6, 182, 212, 0.1)); border-radius: 12px;">
+                            <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem;">📋 Pennekamp Snorkel Tours</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">
+                                Boat tours depart at <strong>9:00 AM, 12:00 PM, and 3:00 PM</strong>. Book online 2-3 days ahead at <strong>pennekamppark.com</strong>.
+                                Cost ~$40/person + $8 park entry. The 12:00 PM tour works best with our schedule.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="day-map-container">
+                        <div id="map-day2" class="activity-map"></div>
+                        <div class="map-overlay">
+                            <p class="map-title">Fort Lauderdale → Marathon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.1rem;">Marathon Beach Resorts</h4>
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card">
+                            <span class="recommendation-type">Luxury</span>
+                            <h4>Isla Bella Beach Resort</h4>
+                            <p>24-acre oceanfront resort, private beach, 5 pools, spa. The premier luxury option in Marathon.</p>
+                        </div>
+                        <div class="recommendation-card">
+                            <span class="recommendation-type">Beachfront</span>
+                            <h4>Tranquility Bay Resort</h4>
+                            <p>2-mile private beach, tiki bar, spacious suites with full kitchens.</p>
+                        </div>
+                        <div class="recommendation-card">
+                            <span class="recommendation-type">Classic Keys</span>
+                            <h4>Hawks Cay Resort</h4>
+                            <p>Full-service resort on Duck Key, dolphin experiences, multiple pools, marina.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 3: Marathon to Key West -->
+        <section class="city-section">
+            <div class="city-header keywest-header">
+                <h2 class="city-title">Day 3: On to Key West</h2>
+                <p class="city-subtitle">Thursday, February 26 • Seven Mile Bridge & Key West Arrival</p>
+            </div>
+            <div class="city-content">
+                <div class="day-block">
+                    <div>
+                        <div class="day-header-block">
+                            <h3 class="day-title">The Final Stretch</h3>
+                            <p class="day-date">Iconic drive, afternoon exploring Key West</p>
+                        </div>
+                        <div class="activities">
+                            <div class="activity food-activity">
+                                <div class="activity-time">8:30 AM</div>
+                                <div class="activity-desc">🥞 Breakfast at resort, morning beach time</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">10:30 AM</div>
+                                <div class="activity-desc">🏨 Check out of Marathon</div>
+                            </div>
+                            <div class="activity nature-activity">
+                                <div class="activity-time">11:00 AM</div>
+                                <div class="activity-desc">🌉 Drive Seven Mile Bridge - iconic photo stop, breathtaking views</div>
+                            </div>
+                            <div class="activity beach-activity">
+                                <div class="activity-time">11:45 AM</div>
+                                <div class="activity-desc">🏖️ Bahia Honda State Park - often rated Florida's most beautiful beach</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">2:00 PM</div>
+                                <div class="activity-desc">🏨 Arrive Key West, check into hotel</div>
+                            </div>
+                            <div class="activity culture-activity">
+                                <div class="activity-time">3:30 PM</div>
+                                <div class="activity-desc">🚶 Walk Duval Street, explore Old Town Key West</div>
+                            </div>
+                            <div class="activity sunset-activity">
+                                <div class="activity-time">6:00 PM</div>
+                                <div class="activity-desc">🌅 Mallory Square Sunset Celebration - street performers, artisans, legendary sunset</div>
+                            </div>
+                            <div class="activity food-activity">
+                                <div class="activity-time">7:30 PM</div>
+                                <div class="activity-desc">🍽️ Dinner at Santiago's Bodega or Nine One Five</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-map-container">
+                        <div id="map-day3" class="activity-map"></div>
+                        <div class="map-overlay">
+                            <p class="map-title">Marathon → Key West</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-size: 1.1rem;">Key West Hotels (2 Nights)</h4>
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card">
+                            <span class="recommendation-type">Luxury</span>
+                            <h4>The Marker Waterfront Resort</h4>
+                            <p>Harbor views, three pools, steps from Mallory Square</p>
+                        </div>
+                        <div class="recommendation-card">
+                            <span class="recommendation-type">Central</span>
+                            <h4>Hyatt Centric Key West</h4>
+                            <p>Rooftop pool, Duval Street location</p>
+                        </div>
+                        <div class="recommendation-card">
+                            <span class="recommendation-type">Historic</span>
+                            <h4>Casa Marina Key West</h4>
+                            <p>Waldorf Astoria, private beach, 1920s elegance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 4: Dry Tortugas -->
+        <section class="city-section">
+            <div class="city-header tortugas-header">
+                <h2 class="city-title">Day 4: Dry Tortugas National Park</h2>
+                <p class="city-subtitle">Friday, February 27 • Fort Jefferson Day Trip</p>
+            </div>
+            <div class="city-content">
+                <div class="day-block">
+                    <div>
+                        <div class="day-header-block">
+                            <h3 class="day-title">Island Adventure</h3>
+                            <p class="day-date">Ferry to remote national park, 70 miles west of Key West</p>
+                        </div>
+                        <div class="activities">
+                            <div class="activity transport-activity">
+                                <div class="activity-time">6:30 AM</div>
+                                <div class="activity-desc">🚶 Walk to Yankee Freedom ferry terminal (or quick taxi)</div>
+                            </div>
+                            <div class="activity transport-activity">
+                                <div class="activity-time">8:00 AM</div>
+                                <div class="activity-desc">⛴️ Yankee Freedom III departs for Dry Tortugas (2.5 hour journey)</div>
+                            </div>
+                            <div class="activity culture-activity">
+                                <div class="activity-time">10:30 AM</div>
+                                <div class="activity-desc">🏰 Arrive at Fort Jefferson - massive 19th century coastal fortress, guided tour</div>
+                            </div>
+                            <div class="activity water-activity">
+                                <div class="activity-time">12:00 PM</div>
+                                <div class="activity-desc">🤿 World-class snorkeling in crystal-clear waters - tropical fish, coral, sea turtles</div>
+                            </div>
+                            <div class="activity food-activity">
+                                <div class="activity-time">12:30 PM</div>
+                                <div class="activity-desc">🥪 Lunch included on ferry (breakfast and lunch provided)</div>
+                            </div>
+                            <div class="activity beach-activity">
+                                <div class="activity-time">1:30 PM</div>
+                                <div class="activity-desc">🏖️ Beach time on pristine white sand, explore the fort's grounds</div>
+                            </div>
+                            <div class="activity transport-activity">
+                                <div class="activity-time">3:00 PM</div>
+                                <div class="activity-desc">⛴️ Ferry departs for return to Key West</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">5:30 PM</div>
+                                <div class="activity-desc">🏨 Arrive back in Key West, relax at hotel</div>
+                            </div>
+                            <div class="activity food-activity">
+                                <div class="activity-time">7:30 PM</div>
+                                <div class="activity-desc">🦞 Celebratory dinner - Latitudes on Sunset Key (boat taxi) or Cafe Sole</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1)); border-radius: 12px;">
+                            <h4 style="color: var(--success); margin: 0 0 0.5rem 0; font-size: 1rem;">⚠️ Book Ferry in Advance</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">
+                                Yankee Freedom III is the only ferry to Dry Tortugas. Book 60-90 days ahead at <strong>drytortugas.com</strong>.
+                                Cost <strong>$215-235/person</strong> includes breakfast, lunch, snorkel gear, and fort tour.
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(249, 115, 22, 0.1)); border-radius: 12px;">
+                            <h4 style="color: #dc2626; margin: 0 0 0.5rem 0; font-size: 1rem;">🌧️ Weather Backup Plan</h4>
+                            <p style="margin: 0 0 0.75rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+                                Ferry cancels for rough weather. If Dry Tortugas is cancelled, here's the backup day:
+                            </p>
+                            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-secondary);">
+                                <li><strong>Morning:</strong> Fort Zachary Taylor beach + snorkeling from shore</li>
+                                <li><strong>Late Morning:</strong> Ernest Hemingway Home & Museum (30-45 min)</li>
+                                <li><strong>Lunch:</strong> El Siboney (authentic Cuban, locals' favorite)</li>
+                                <li><strong>Afternoon:</strong> Key West Butterfly Conservatory or kayak mangrove tour</li>
+                                <li><strong>Sunset:</strong> Sunset sail with Sebago or Fury Catamaran</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 12px; border: 1px solid var(--border);">
+                            <h4 style="color: var(--text-primary); margin: 0 0 0.5rem 0; font-size: 1rem;">💊 Seasickness Warning</h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                The 2.5-hour Gulf crossing can be rough. Take Dramamine/Bonine the night before AND morning of.
+                                Sit outside on the upper deck mid-ship. Don't read or look at phones during crossing.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="day-map-container">
+                        <div id="map-day4" class="activity-map"></div>
+                        <div class="map-overlay">
+                            <p class="map-title">Dry Tortugas National Park</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 5: Key West & Return -->
+        <section class="city-section">
+            <div class="city-header keywest-header">
+                <h2 class="city-title">Day 5: Key West & Return</h2>
+                <p class="city-subtitle">Saturday, February 28 • Morning Beach, Afternoon Drive</p>
+            </div>
+            <div class="city-content">
+                <div class="day-block">
+                    <div>
+                        <div class="day-header-block">
+                            <h3 class="day-title">Last Morning in Paradise</h3>
+                            <p class="day-date">Beach time, then drive back to Fort Lauderdale</p>
+                        </div>
+                        <div class="activities">
+                            <div class="activity food-activity">
+                                <div class="activity-time">7:30 AM</div>
+                                <div class="activity-desc">🥞 Breakfast at Blue Heaven - famous outdoor dining, get there early</div>
+                            </div>
+                            <div class="activity culture-activity">
+                                <div class="activity-time">9:00 AM</div>
+                                <div class="activity-desc">🏠 Ernest Hemingway Home & Museum - iconic Key West attraction, 6-toed cats (30-45 min)</div>
+                            </div>
+                            <div class="activity culture-activity">
+                                <div class="activity-time">10:00 AM</div>
+                                <div class="activity-desc">📍 Southernmost Point photo, Kermit's Key Lime Pie on a stick</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">11:00 AM</div>
+                                <div class="activity-desc">🏨 Check out of Key West hotel</div>
+                            </div>
+                            <div class="activity food-activity">
+                                <div class="activity-time">11:30 AM</div>
+                                <div class="activity-desc">🥪 Quick lunch - B.O.'s Fish Wagon (classic fish sandwiches)</div>
+                            </div>
+                            <div class="activity transport-activity">
+                                <div class="activity-time">12:15 PM</div>
+                                <div class="activity-desc">🚗 Begin drive north on Overseas Highway (~4-4.5 hours, Saturday traffic)</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">5:00 PM</div>
+                                <div class="activity-desc">🏨 Arrive Fort Lauderdale, check into airport hotel</div>
+                            </div>
+                            <div class="activity food-activity">
+                                <div class="activity-time">6:30 PM</div>
+                                <div class="activity-desc">🍽️ Farewell dinner near hotel or Las Olas Boulevard</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">9:00 PM</div>
+                                <div class="activity-desc">😴 Early night - 6 AM flight tomorrow!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-map-container">
+                        <div id="map-day5" class="activity-map"></div>
+                        <div class="map-overlay">
+                            <p class="map-title">Key West → Fort Lauderdale</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 6: Departure -->
+        <section class="city-section">
+            <div class="city-header fll-header">
+                <h2 class="city-title">Day 6: Fly Home</h2>
+                <p class="city-subtitle">Sunday, March 1 • Early Morning Departure</p>
+            </div>
+            <div class="city-content">
+                <div class="day-block" style="grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <div class="day-header-block">
+                            <h3 class="day-title">Homeward Bound</h3>
+                            <p class="day-date">Early flight back to Houston</p>
+                        </div>
+                        <div class="activities">
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">4:00 AM</div>
+                                <div class="activity-desc">⏰ Wake up, check out</div>
+                            </div>
+                            <div class="activity transport-activity">
+                                <div class="activity-time">5:00 AM</div>
+                                <div class="activity-desc">🚗 Return Mazda CX-50 to Budget (Terminal Dr, 4th Floor)</div>
+                            </div>
+                            <div class="activity flight-activity">
+                                <div class="activity-time">6:00 AM</div>
+                                <div class="activity-desc">✈️ Southwest WN1738 to Houston Hobby</div>
+                            </div>
+                            <div class="activity hotel-activity">
+                                <div class="activity-time">8:00 AM</div>
+                                <div class="activity-desc">🏠 Arrive home in Houston!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-map-container">
+                        <div id="map-day6" class="activity-map"></div>
+                        <div class="map-overlay">
+                            <p class="map-title">Flight Home</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Things to Book / To-Do Checklist -->
+        <div class="trip-overview">
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">📋 Things to Book & Pack</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+                <!-- Book in Advance -->
+                <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(249, 115, 22, 0.05)); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(239, 68, 68, 0.2);">
+                    <h3 style="color: #dc2626; margin: 0 0 1rem 0; font-size: 1.1rem;">🚨 Book ASAP (60-90 days out)</h3>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 2;">
+                        <li><strong>Dry Tortugas Ferry</strong> - drytortugas.com ($215-235/person)</li>
+                        <li><strong>Marathon Beach Resort</strong> - Isla Bella, Tranquility Bay, or Hawks Cay</li>
+                        <li><strong>Key West Hotel</strong> - February is peak season</li>
+                    </ul>
+                </div>
+
+                <!-- Book 1-2 Weeks Before -->
+                <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(251, 191, 36, 0.05)); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(245, 158, 11, 0.2);">
+                    <h3 style="color: #d97706; margin: 0 0 1rem 0; font-size: 1.1rem;">📅 Book 1-2 Weeks Before</h3>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 2;">
+                        <li><strong>Pennekamp Snorkel Tour</strong> - pennekamppark.com (12:00 PM tour)</li>
+                        <li><strong>Latitudes on Sunset Key</strong> - Dinner reservation (if desired)</li>
+                        <li><strong>Sunset Sail</strong> - Sebago or Fury (optional backup activity)</li>
+                    </ul>
+                </div>
+
+                <!-- Packing List -->
+                <div style="background: linear-gradient(135deg, rgba(8, 145, 178, 0.05), rgba(6, 182, 212, 0.05)); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(8, 145, 178, 0.2);">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.1rem;">🎒 Packing Essentials</h3>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 2;">
+                        <li><strong>Reef-safe sunscreen</strong> - SPF 50 (Keys sun is intense)</li>
+                        <li><strong>Dramamine/Bonine</strong> - For Dry Tortugas ferry</li>
+                        <li><strong>Snorkel mask</strong> - Optional, provided on tours</li>
+                        <li><strong>Water shoes</strong> - For rocky beach entries</li>
+                        <li><strong>Light jacket</strong> - Cold fronts can drop temps to 60s</li>
+                    </ul>
+                </div>
+
+                <!-- Pro Tips -->
+                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05)); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <h3 style="color: var(--success); margin: 0 0 1rem 0; font-size: 1.1rem;">💡 Pro Tips</h3>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 2;">
+                        <li><strong>Gas up</strong> in Marathon and Key West (limited stations between)</li>
+                        <li><strong>Bahia Honda</strong> fills early on weekends - arrive by 10 AM</li>
+                        <li><strong>Key West parking</strong> is $4-5/hr - use hotel parking and walk</li>
+                        <li><strong>Cash</strong> for El Siboney (Cuban restaurant, cash only)</li>
+                        <li><strong>Bring water bottle</strong> - Free refills on Dry Tortugas ferry</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="trip-overview" style="text-align: center; background: linear-gradient(135deg, rgba(8, 145, 178, 0.05), rgba(6, 182, 212, 0.08));">
+            <h2 style="margin-bottom: 1rem;">6-Day Florida Keys Adventure</h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                From the scenic Overseas Highway to Marathon's pristine beaches, Key West's legendary sunsets,
+                and the remote beauty of Dry Tortugas National Park - a perfect winter escape to America's tropical paradise.
+            </p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize maps after page fully loads
+        window.addEventListener('load', function() {
+
+            // Emoji marker helper
+            function emojiMarker(emoji) {
+                return L.divIcon({
+                    html: '<div class="simple-marker">' + emoji + '</div>',
+                    className: 'emoji-marker',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
+            }
+
+            // Tile layer URL - CARTO Voyager (matches UK/Australia maps)
+            const tiles = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+            const attr = '© OpenStreetMap contributors © CARTO';
+
+            // Standard map options (matches UK/Australia)
+            const mapOptions = {
+                dragging: true,
+                zoomControl: true,
+                scrollWheelZoom: true,
+                doubleClickZoom: true,
+                touchZoom: true
+            };
+
+            // Store all maps for later refresh
+            const maps = [];
+
+            // Day 1: FLL Airport
+            const map1 = L.map('map-day1', mapOptions).setView([26.0742, -80.15], 12);
+            L.tileLayer(tiles, { attribution: attr }).addTo(map1);
+            L.marker([26.0742, -80.1506], { icon: emojiMarker('✈️') }).addTo(map1).bindPopup('<b>FLL Airport</b>');
+            L.marker([26.0726, -80.1528], { icon: emojiMarker('🏨') }).addTo(map1).bindPopup('<b>Airport Hotels</b>');
+            maps.push(map1);
+
+            // Day 2: FLL to Marathon
+            const map2 = L.map('map-day2', mapOptions).setView([25.5, -80.5], 8);
+            L.tileLayer(tiles, { attribution: attr }).addTo(map2);
+            L.marker([26.0742, -80.1506], { icon: emojiMarker('🚗') }).addTo(map2).bindPopup('<b>Fort Lauderdale</b><br>Start');
+            L.marker([25.0865, -80.4473], { icon: emojiMarker('🐠') }).addTo(map2).bindPopup('<b>John Pennekamp</b><br>Snorkeling');
+            L.marker([24.9137, -80.6327], { icon: emojiMarker('🎣') }).addTo(map2).bindPopup('<b>Islamorada</b><br>Lunch');
+            L.marker([24.7262, -81.0270], { icon: emojiMarker('🏖️') }).addTo(map2).bindPopup('<b>Marathon</b><br>Beach Resort');
+            L.marker([24.6936, -81.0867], { icon: emojiMarker('🏝️') }).addTo(map2).bindPopup('<b>Sombrero Beach</b>');
+            L.polyline([
+                [26.0742, -80.1506], [25.5, -80.35], [25.0865, -80.4473],
+                [24.9137, -80.6327], [24.7262, -81.0270]
+            ], { color: '#f59e0b', weight: 4 }).addTo(map2);
+            maps.push(map2);
+
+            // Day 3: Marathon to Key West
+            const map3 = L.map('map-day3', mapOptions).setView([24.65, -81.35], 9);
+            L.tileLayer(tiles, { attribution: attr }).addTo(map3);
+            L.marker([24.7262, -81.0270], { icon: emojiMarker('🏨') }).addTo(map3).bindPopup('<b>Marathon</b><br>Checkout');
+            L.marker([24.7104, -81.1055], { icon: emojiMarker('🌉') }).addTo(map3).bindPopup('<b>Seven Mile Bridge</b>');
+            L.marker([24.6655, -81.2655], { icon: emojiMarker('🏖️') }).addTo(map3).bindPopup('<b>Bahia Honda</b><br>Beautiful Beach');
+            L.marker([24.5551, -81.7800], { icon: emojiMarker('🏝️') }).addTo(map3).bindPopup('<b>Key West</b>');
+            L.marker([24.5594, -81.8070], { icon: emojiMarker('🌅') }).addTo(map3).bindPopup('<b>Mallory Square</b><br>Sunset');
+            L.polyline([
+                [24.7262, -81.0270], [24.7104, -81.1055], [24.6655, -81.2655], [24.5551, -81.7800]
+            ], { color: '#0891b2', weight: 4 }).addTo(map3);
+            maps.push(map3);
+
+            // Day 4: Dry Tortugas
+            const map4 = L.map('map-day4', mapOptions).setView([24.58, -82.3], 8);
+            L.tileLayer(tiles, { attribution: attr }).addTo(map4);
+            L.marker([24.5551, -81.7800], { icon: emojiMarker('⛴️') }).addTo(map4).bindPopup('<b>Key West Ferry</b><br>8:00 AM Departure');
+            L.marker([24.6283, -82.8721], { icon: emojiMarker('🏰') }).addTo(map4).bindPopup('<b>Fort Jefferson</b><br>Dry Tortugas NP');
+            L.polyline([
+                [24.5551, -81.7800], [24.6283, -82.8721]
+            ], { color: '#10b981', weight: 3, dashArray: '10, 10' }).addTo(map4);
+            maps.push(map4);
+
+            // Day 5: Key West to FLL
+            const map5 = L.map('map-day5', mapOptions).setView([25.3, -80.9], 8);
+            L.tileLayer(tiles, { attribution: attr }).addTo(map5);
+            L.marker([24.5465, -81.8077], { icon: emojiMarker('🏖️') }).addTo(map5).bindPopup('<b>Fort Zachary Taylor</b>');
+            L.marker([24.5461, -81.7987], { icon: emojiMarker('📍') }).addTo(map5).bindPopup('<b>Southernmost Point</b>');
+            L.marker([24.5551, -81.7800], { icon: emojiMarker('🚗') }).addTo(map5).bindPopup('<b>Key West</b><br>Departure');
+            L.marker([26.0742, -80.1506], { icon: emojiMarker('✈️') }).addTo(map5).bindPopup('<b>Fort Lauderdale</b><br>Airport Hotel');
+            L.polyline([
+                [24.5551, -81.7800], [24.6655, -81.2655], [24.7104, -81.1055],
+                [24.9137, -80.6327], [25.5, -80.35], [26.0742, -80.1506]
+            ], { color: '#6366f1', weight: 3, dashArray: '8, 8' }).addTo(map5);
+            maps.push(map5);
+
+            // Day 6: Flight home
+            const map6 = L.map('map-day6', mapOptions).setView([27.5, -87], 5);
+            L.tileLayer(tiles, { attribution: attr }).addTo(map6);
+            L.marker([26.0742, -80.1506], { icon: emojiMarker('🛫') }).addTo(map6).bindPopup('<b>Fort Lauderdale</b><br>6:00 AM');
+            L.marker([29.6454, -95.2789], { icon: emojiMarker('🛬') }).addTo(map6).bindPopup('<b>Houston Hobby</b><br>8:00 AM');
+            L.polyline([
+                [26.0742, -80.1506], [27.5, -87], [29.6454, -95.2789]
+            ], { color: '#8b5cf6', weight: 3, dashArray: '5, 10' }).addTo(map6);
+            maps.push(map6);
+
+            // Force map refresh multiple times to ensure proper rendering
+            function refreshMaps() {
+                maps.forEach(function(map) {
+                    map.invalidateSize();
+                });
+            }
+
+            // Refresh immediately and after delays
+            refreshMaps();
+            setTimeout(refreshMaps, 100);
+            setTimeout(refreshMaps, 500);
+            setTimeout(refreshMaps, 1000);
+
+            // Also refresh on window resize
+            window.addEventListener('resize', refreshMaps);
+        });
+    </script>
+</body>
+
+</html>
