@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="10-day Croatia & Slovenia road trip from Dubrovnik to Zagreb. Walled cities, three national parks, Adriatic sunsets, and Lake Bled's fairy-tale shores.">
+    <title>Croatia & Slovenia Adventure - April 2026 Travel Blog</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="back-link">← Back to Home</a>
+
+        <!-- Plan Reference -->
+        <div class="plan-reference">
+            📅 View the <a href="../../../Plans/Croatia/index.html">original itinerary</a> to see what we planned before the trip
+        </div>
+
+        <h1><span class="gradient-text">Croatia & Slovenia Adventure</span></h1>
+        <p class="subtitle">Dubrovnik to Zagreb Road Trip • April–May 2026</p>
+
+        <div class="trip-overview">
+            <h2>Trip at a Glance</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                A springtime road trip from the Pearl of the Adriatic north through Croatia's most dramatic national parks and on into Slovenia's Julian Alps — 10 days, three UNESCO sites, and more turquoise water than we knew what to do with.
+            </p>
+            <div class="overview-stats" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Days</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏙️</div>
+                    <div class="stat-value">7+</div>
+                    <div class="stat-label">Destinations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏔️</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">National Parks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏛️</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">UNESCO Sites</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚗</div>
+                    <div class="stat-value">~520</div>
+                    <div class="stat-label">Miles Driven</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✈️</div>
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Flights</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📸</div>
+                    <div class="stat-value">119</div>
+                    <div class="stat-label">Photos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Route Map -->
+        <div class="trip-overview">
+            <h2>🗺️ The Route: Dubrovnik to Zagreb</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                A reverse south-to-north road trip along the Croatian coast and into the heart of Slovenia
+            </p>
+            <div id="route-map" style="height: 450px; border-radius: var(--radius-lg); margin: 1.5rem 0; box-shadow: var(--shadow-lg);"></div>
+        </div>
+
+        <div class="blog-content">
+            <!-- Flights -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="day-title">Flying to the Adriatic</div>
+                    <div class="day-subtitle">Houston → London → Dubrovnik via British Airways</div>
+                </div>
+                <div class="day-content">
+                    <div class="story-text">
+                        <p>Our Croatian adventure began with an overnight transatlantic hop aboard British Airways flight BA 194 — a 787-9 Dreamliner from Houston IAH to London Heathrow, departing at 3:30 PM and landing at Heathrow at 6:40 AM the following morning. After a few hours in Terminal 5 we boarded BA 838, an A320neo, for the two-hour hop to Dubrovnik.</p>
+                        <p>We touched down at Dubrovnik Airport on a warm, bright Saturday afternoon — the Adriatic glittering beyond the runway, the limestone hills of the Dalmatian hinterland already making their first impression. The return journey a week later took us from Zagreb Airport via London back to Houston, completing a perfect arc across two beautiful countries.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Flight Summary:</strong> BA 194 (787-9) Houston IAH → London LHR 9h 10m • BA 838 (A320neo) London LHR → Dubrovnik 2h 50m • BA 849 (A320neo) Zagreb → London LHR 2h 40m • BA 197 (787-9) London LHR → Houston IAH 10h 30m
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Navigation -->
+            <div class="trip-overview" style="margin-bottom: 0;">
+                <h2>Explore the Journey</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                    Dive into the details of each leg of our Croatian adventure
+                </p>
+
+                <div class="blog-grid">
+                    <a href="dubrovnik.html" class="blog-post-card" style="text-decoration: none;">
+                        <div class="blog-card-header" style="background: linear-gradient(135deg, #dc2626, #991b1b);">
+                            <div class="blog-card-icon">🏰</div>
+                            <div class="blog-card-title">Dubrovnik</div>
+                            <div class="blog-card-subtitle">Days 1–3 • April 25–27</div>
+                        </div>
+                        <div class="blog-card-content">
+                            <p>The Pearl of the Adriatic delivered immediately — golden city walls above a cobalt sea, sweeping sunsets from Mount Srđ, and the electric blue of the Old Harbour at dusk.</p>
+                            <div class="blog-card-highlights">
+                                <span class="highlight-tag">Mount Srđ Sunset</span>
+                                <span class="highlight-tag">City Walls Walk</span>
+                                <span class="highlight-tag">Lovrijenac Fort</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="split-hvar.html" class="blog-post-card" style="text-decoration: none;">
+                        <div class="blog-card-header" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <div class="blog-card-icon">🏛️</div>
+                            <div class="blog-card-title">Split, Hvar & Makarska</div>
+                            <div class="blog-card-subtitle">Days 3–5 • April 27–29</div>
+                        </div>
+                        <div class="blog-card-content">
+                            <p>The Makarska Riviera's mountain-meets-sea drama, Split's 1,700-year-old Diocletian's Palace, and Hvar's lavender-scented island lanes under a Mediterranean sky.</p>
+                            <div class="blog-card-highlights">
+                                <span class="highlight-tag">Makarska Riviera</span>
+                                <span class="highlight-tag">Diocletian's Palace</span>
+                                <span class="highlight-tag">Hvar Island</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="krka-zadar.html" class="blog-post-card" style="text-decoration: none;">
+                        <div class="blog-card-header" style="background: linear-gradient(135deg, #06b6d4, #0284c7);">
+                            <div class="blog-card-icon">💦</div>
+                            <div class="blog-card-title">Krka NP & Zadar</div>
+                            <div class="blog-card-subtitle">Days 5–6 • April 29</div>
+                        </div>
+                        <div class="blog-card-content">
+                            <p>Skradinski Buk's cascading travertine terraces in full spring flow, followed by Zadar's legendary Adriatic sunset — the one Alfred Hitchcock called the most beautiful in the world.</p>
+                            <div class="blog-card-highlights">
+                                <span class="highlight-tag">Skradinski Buk</span>
+                                <span class="highlight-tag">Travertine Falls</span>
+                                <span class="highlight-tag">Zadar Sunset</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="plitvice.html" class="blog-post-card" style="text-decoration: none;">
+                        <div class="blog-card-header" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                            <div class="blog-card-icon">🏞️</div>
+                            <div class="blog-card-title">Plitvice Lakes</div>
+                            <div class="blog-card-subtitle">Days 7–8 • April 30–May 1</div>
+                        </div>
+                        <div class="blog-card-content">
+                            <p>Croatia's crown jewel lived up to every superlative. Spring snow-melt had pushed Veliki Slap to its thundering best, and the sixteen turquoise lakes glowed an almost impossible shade of teal.</p>
+                            <div class="blog-card-highlights">
+                                <span class="highlight-tag">Veliki Slap 78m</span>
+                                <span class="highlight-tag">16 Lakes</span>
+                                <span class="highlight-tag">UNESCO Heritage</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="bled-zagreb.html" class="blog-post-card" style="text-decoration: none;">
+                        <div class="blog-card-header" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                            <div class="blog-card-icon">🇸🇮</div>
+                            <div class="blog-card-title">Lake Bled & Zagreb</div>
+                            <div class="blog-card-subtitle">Days 8–10 • May 1–3</div>
+                        </div>
+                        <div class="blog-card-content">
+                            <p>Slovenia's fairy-tale lake with its island church and clifftop castle, a bonus detour to Lake Bohinj's mirror-calm waters, then a final night in Zagreb before the journey home.</p>
+                            <div class="blog-card-highlights">
+                                <span class="highlight-tag">Bled Island</span>
+                                <span class="highlight-tag">Lake Bohinj</span>
+                                <span class="highlight-tag">Julian Alps</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Reflections -->
+            <div class="trip-overview" style="margin-top: 2rem;">
+                <h2>Final Reflections</h2>
+                <div class="story-text">
+                    <p>Croatia has a way of exceeding even generous expectations. We arrived primed for the coastline and the history — we didn't anticipate quite how completely the national parks would steal the show. Plitvice Lakes and Krka NP, both visited at peak spring flow with melting snowpack feeding every waterfall, were among the most visually astonishing places either of us has ever walked through. The turquoise water is genuinely that colour; no filter required, no hyperbole needed.</p>
+
+                    <p>Dubrovnik, for all the tourist noise surrounding it, still managed to deliver moments of pure magic. Watching the sun slide into the Adriatic from the summit of Mount Srđ — the walled city glowing amber below, the Elafiti islands dissolving into crimson haze — is the kind of view that makes you understand why people call this place extraordinary. Walking the city walls at golden hour, with the limestone towers and terracotta rooftops on one side and open sea on the other, remains a highlight of the entire trip.</p>
+
+                    <p>Slovenia was the unexpected bonus. Lake Bled is every bit the fairy-tale it promises: the island church, the clifftop castle, the Pletna rowing boats, the Julian Alps reflected in emerald water. We squeezed in a detour to Lake Bohinj and found it even more quietly beautiful — bigger, wilder, and almost entirely free of the crowds. The drive through the Alps from Plitvice to Bled through spring-green mountain passes was itself one of the day's highlights.</p>
+
+                    <p>Ten days was enough to feel the shape of these two countries without rushing. We'd go back tomorrow.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const routeMap = L.map('route-map', {
+                scrollWheelZoom: true,
+                dragging: true,
+                zoomControl: true
+            }).setView([44.5, 16.0], 6);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: 19
+            }).addTo(routeMap);
+
+            const stops = [
+                { lat: 42.6414, lng: 18.1083, icon: '🏰', name: 'Dubrovnik', desc: 'Days 1–3 • Pearl of the Adriatic', color: '#dc2626' },
+                { lat: 43.2980, lng: 17.0185, icon: '🌊', name: 'Makarska', desc: 'Day 3 • Biokovo Mountain Backdrop', color: '#10b981' },
+                { lat: 43.5081, lng: 16.4402, icon: '🏛️', name: 'Split', desc: 'Days 3–5 • Diocletian\'s Palace', color: '#10b981' },
+                { lat: 43.1729, lng: 16.4401, icon: '🏝️', name: 'Hvar Island', desc: 'Day 4 • Island Paradise', color: '#06b6d4' },
+                { lat: 43.8067, lng: 15.9692, icon: '💦', name: 'Krka NP', desc: 'Day 5 • Skradinski Buk Falls', color: '#06b6d4' },
+                { lat: 44.1194, lng: 15.2422, icon: '🌅', name: 'Zadar', desc: 'Day 6 • World\'s Best Sunset', color: '#f59e0b' },
+                { lat: 44.8800, lng: 15.6164, icon: '🏞️', name: 'Plitvice Lakes', desc: 'Days 7–8 • UNESCO Heritage', color: '#6366f1' },
+                { lat: 46.3683, lng: 14.1146, icon: '🇸🇮', name: 'Lake Bled', desc: 'Day 9 • Slovenian Alpine Gem', color: '#f59e0b' },
+                { lat: 45.8150, lng: 15.9819, icon: '🏙️', name: 'Zagreb', desc: 'Day 10 • Croatian Capital', color: '#6366f1' }
+            ];
+
+            const simpleMarkerStyle = 'background:none;border:none;font-size:22px;text-align:center;line-height:1;';
+
+            stops.forEach(stop => {
+                L.marker([stop.lat, stop.lng], {
+                    icon: L.divIcon({ className: '', html: `<span style="${simpleMarkerStyle}">${stop.icon}</span>`, iconSize: [28, 28], iconAnchor: [14, 14] })
+                }).addTo(routeMap).bindPopup(`<div style="font-family:inherit"><strong style="color:${stop.color}">${stop.name}</strong><br><small>${stop.desc}</small></div>`);
+            });
+
+            L.polyline(stops.map(s => [s.lat, s.lng]), {
+                color: '#6366f1', weight: 3, opacity: 0.65, dashArray: '10, 6'
+            }).addTo(routeMap);
+
+            routeMap.fitBounds(L.latLngBounds(stops.map(s => [s.lat, s.lng])), { padding: [40, 40] });
+        });
+    </script>
+</body>
+
+</html>
