@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Flights – Croatia & Slovenia Adventure 2026</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="croatia.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Trip Overview</a>
+
+        <h1><span class="gradient-text">✈ The Flights</span></h1>
+        <p class="subtitle">United & Lufthansa · 5 flights · 4 aircraft types · ~26,800 miles flown</p>
+
+        <!-- Stats -->
+        <div class="trip-overview">
+            <div class="overview-stats" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
+                <div class="stat-card">
+                    <div class="stat-icon">✈️</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Flights</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛩️</div>
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Aircraft Types</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛫</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Airports</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📏</div>
+                    <div class="stat-value">~26,800</div>
+                    <div class="stat-label">Miles Flown</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value">~24h</div>
+                    <div class="stat-label">Air Time</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- World Map -->
+        <div class="trip-overview">
+            <h2>🌍 All Routes</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Two transatlantic crossings bracket three European hops — the great-circle arcs curve north over the Labrador Sea and Ireland on the way east, south toward the Azores on the return.
+            </p>
+            <div id="world-map" style="height: 480px; border-radius: var(--radius-lg); margin: 0; box-shadow: var(--shadow-lg);"></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1rem; justify-content: center; font-size: 0.82rem; font-weight: 600;">
+                <span style="color: #0d7a8a;">⸻ UA46 IAH→FRA</span>
+                <span style="color: #5b6b38;">⸻ LH106 FRA→MUC</span>
+                <span style="color: #3d7a6c;">⸻ LH1710 MUC→DBV</span>
+                <span style="color: #9b6a1a;">⸻ OU416 ZAG→FRA</span>
+                <span style="color: #085e6c;">⸻ UA47 FRA→IAH</span>
+            </div>
+        </div>
+
+        <!-- Flight Log -->
+        <div class="trip-overview">
+            <h2>📋 Flight Log</h2>
+            <div class="flight-log">
+                <div class="flight-row">
+                    <div class="flight-badge ua">UA<br>46</div>
+                    <div class="flight-airports">
+                        <div class="flight-airport"><div class="airport-iata">IAH</div><div class="airport-city">Houston</div></div>
+                        <div class="flight-route-arrow">→</div>
+                        <div class="flight-airport"><div class="airport-iata">FRA</div><div class="airport-city">Frankfurt</div></div>
+                    </div>
+                    <div class="flight-date-col">
+                        <div class="flight-date">Sun 19 Apr 2026</div>
+                        <div class="flight-times">06:02 CDT → 10:43 CEST +1</div>
+                    </div>
+                    <div class="flight-duration">9h 41m</div>
+                    <div class="flight-aircraft-label">Boeing 777-200<br>United Overseas</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-badge lh">LH<br>106</div>
+                    <div class="flight-airports">
+                        <div class="flight-airport"><div class="airport-iata">FRA</div><div class="airport-city">Frankfurt</div></div>
+                        <div class="flight-route-arrow">→</div>
+                        <div class="flight-airport"><div class="airport-iata">MUC</div><div class="airport-city">Munich</div></div>
+                    </div>
+                    <div class="flight-date-col">
+                        <div class="flight-date">Sat 25 Apr 2026</div>
+                        <div class="flight-times">12:33 → 01:22 CEST</div>
+                    </div>
+                    <div class="flight-duration">49m</div>
+                    <div class="flight-aircraft-label">Boeing 787-9<br>Dreamliner</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-badge lh">LH<br>1710</div>
+                    <div class="flight-airports">
+                        <div class="flight-airport"><div class="airport-iata">MUC</div><div class="airport-city">Munich</div></div>
+                        <div class="flight-route-arrow">→</div>
+                        <div class="flight-airport"><div class="airport-iata">DBV</div><div class="airport-city">Dubrovnik</div></div>
+                    </div>
+                    <div class="flight-date-col">
+                        <div class="flight-date">Sat 25 Apr 2026</div>
+                        <div class="flight-times">02:42 → 04:08 CEST</div>
+                    </div>
+                    <div class="flight-duration">1h 26m</div>
+                    <div class="flight-aircraft-label">Airbus A321neo<br>CFM LEAP-1A</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-badge ou">OU<br>416</div>
+                    <div class="flight-airports">
+                        <div class="flight-airport"><div class="airport-iata">ZAG</div><div class="airport-city">Zagreb</div></div>
+                        <div class="flight-route-arrow">→</div>
+                        <div class="flight-airport"><div class="airport-iata">FRA</div><div class="airport-city">Frankfurt</div></div>
+                    </div>
+                    <div class="flight-date-col">
+                        <div class="flight-date">Sun 3 May 2026</div>
+                        <div class="flight-times">08:50 → 10:09 CEST</div>
+                    </div>
+                    <div class="flight-duration">1h 19m</div>
+                    <div class="flight-aircraft-label">Airbus A220-300<br>Croatia Airlines</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-badge ua">UA<br>47</div>
+                    <div class="flight-airports">
+                        <div class="flight-airport"><div class="airport-iata">FRA</div><div class="airport-city">Frankfurt</div></div>
+                        <div class="flight-route-arrow">→</div>
+                        <div class="flight-airport"><div class="airport-iata">IAH</div><div class="airport-city">Houston</div></div>
+                    </div>
+                    <div class="flight-date-col">
+                        <div class="flight-date">Sun 3 May 2026</div>
+                        <div class="flight-times">01:44 CEST → 05:31 CDT</div>
+                    </div>
+                    <div class="flight-duration">10h 47m</div>
+                    <div class="flight-aircraft-label">Boeing 777-200<br>United Overseas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Individual Flight Sections -->
+        <div class="blog-content">
+
+            <!-- Flight 1: UA46 -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #0d2d6e 0%, #1a4a9e 100%);">
+                    <div class="day-title">UA 46 — Houston to Frankfurt</div>
+                    <div class="day-subtitle">Sunday 19 April 2026 · Boeing 777-200 · 9h 41m · 5,144 miles</div>
+                </div>
+                <div class="day-content">
+                    <div id="map-ua46" style="height: 340px; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);"></div>
+                    <div class="story-text">
+                        <p>The outbound leg was <strong>United 46</strong>, departing Houston IAH from Gate E4 at 06:02PM CDT — an evening departure that turns the Gulf of Mexico into a carpet of city lights before darkness takes over and the Atlantic begins. The aircraft was a <strong>Boeing 777-200</strong> in United's "Overseas" configuration, a twin-aisle wide-body that first flew in 1994 and remains one of the most capable long-haul aircraft ever built.</p>
+                        <p>The 777-200's defining feature is its engines. Each <strong>GE90-94B</strong> turbofan produces up to 94,000 lbf of thrust — among the highest of any engine ever certified on a commercial aircraft. The intake diameter alone is 128 inches, wider than the fuselage of a 737. United's B772s fly the North Atlantic on ETOPS-180 authority, meaning each engine is certified to fly solo for three hours — enough to divert to Iceland, Greenland, or the Azores in the unlikely event of an engine failure over the deepest ocean. The great-circle route from Houston arcs north over the Gulf Coast, then northeast across New England, Newfoundland, and the Labrador Sea before tracking across Ireland and descending into Frankfurt. Touched down FRA Gate A19 at 10:43AM CEST, 32 minutes early.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Boeing 777-200 — Key Facts:</strong> First flight June 1994 · GE90-94B engines (94,000 lbf thrust each) · Range 5,240 nm · Cruises at Mach 0.84 · 3-3-3 economy layout · 777 family has delivered over 1,700 aircraft · ETOPS-180 certified
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight 2: LH106 -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #05164d 0%, #0a2878 100%);">
+                    <div class="day-title">LH 106 — Frankfurt to Munich</div>
+                    <div class="day-subtitle">Saturday 25 April 2026 · Boeing 787-9 Dreamliner · 49 minutes · 116 miles</div>
+                </div>
+                <div class="day-content">
+                    <div id="map-lh106" style="height: 280px; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);"></div>
+                    <div class="story-text">
+                        <p>After six days at the Frankfurt conference, the holiday began with a flight that is almost comically over-engineered for its route. <strong>Lufthansa 106</strong> operated the Frankfurt–Munich hop — 116 miles, 49 minutes gate to gate — aboard a <strong>Boeing 787-9 Dreamliner</strong>. This is an aircraft designed for ultra-long-haul routes of 7,500+ nautical miles, capable of flying London to Perth nonstop. Lufthansa rostered it here almost certainly as a positioning leg or through-service continuation.</p>
+                        <p>The 787-9 is extraordinary engineering deployed rather wastefully on a Bavarian commuter route. Over 50% of its primary structure is carbon-fibre-reinforced polymer — the first commercial aircraft to achieve this. The composite fuselage allows a wider oval cross-section and larger windows than any comparable metal aircraft. Most strikingly, the 787 maintains cabin pressure equivalent to <strong>6,000 feet altitude</strong> rather than the industry-standard 8,000 feet, and keeps humidity at 15% versus the usual 4% — measurably reducing passenger fatigue on long flights. On a 49-minute hop over Bavaria, none of this mattered especially. But it was a very comfortable 49 minutes. Gate departure FRA 12:33PM, gate arrival MUC 01:22PM, on time.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Boeing 787-9 Dreamliner — Key Facts:</strong> First flight September 2013 · 50%+ composite structure · Cabin altitude 6,000 ft (vs 8,000 ft standard) · Humidity 15% (vs 4%) · Range 7,530 nm · Rolls-Royce Trent 1000 or GEnx-1B engines · 30% more fuel-efficient than 767
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight 3: LH1710 -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #05164d 0%, #0d6e5a 100%);">
+                    <div class="day-title">LH 1710 — Munich to Dubrovnik</div>
+                    <div class="day-subtitle">Saturday 25 April 2026 · Airbus A321neo · 1h 26m · ~536 miles</div>
+                </div>
+                <div class="day-content">
+                    <div id="map-lh1710" style="height: 320px; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);"></div>
+                    <div class="story-text">
+                        <p>This was the flight that actually started the holiday. <strong>Lufthansa 1710</strong> operated Munich to Dubrovnik aboard an <strong>Airbus A321neo</strong>, and the 1h 26m route is one of European aviation's more scenic commutes: southeast from Munich across the Austrian Alps, through the Ljubljana FIR, skirting the northern Adriatic before the dramatic descent through the Dinaric mountain range and touchdown on the Dubrovnik coastal plain.</p>
+                        <p>The A321neo's "neo" designation stands for New Engine Option — specifically the <strong>CFM International LEAP-1A</strong>, which entered service in 2016. The LEAP uses a carbon composite fan with a 3D-woven resin-transfer-moulded structure, delivering 15–20% better fuel efficiency than the previous CFM56 engine on the A321ceo. Airbus launched the neo family in 2010 and it has become the dominant narrowbody type on European short and medium-haul routes. Gate departure Munich 02:42PM CEST, gate arrival Dubrovnik 04:08PM CEST, 1 minute early — and the Adriatic was glittering through the starboard windows on the approach.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Airbus A321neo — Key Facts:</strong> Entry into service 2017 · CFM LEAP-1A engines (33,000 lbf thrust each) · 15-20% fuel saving vs ceo · Range 4,000 nm · Seats 180–220 passengers · 3D-woven carbon composite fan blades · Most ordered aircraft in Airbus A320 family history
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight 4: LH6001 / OU416 -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #9b1a1a 0%, #6b0f2a 100%);">
+                    <div class="day-title">LH 6001 / OU 416 — Zagreb to Frankfurt</div>
+                    <div class="day-subtitle">Sunday 3 May 2026 · Airbus A220-300 · 1h 19m · ~479 miles · Operated by Croatia Airlines</div>
+                </div>
+                <div class="day-content">
+                    <div id="map-ou416" style="height: 300px; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);"></div>
+                    <div class="story-text">
+                        <p>The return journey opened with the most interesting aircraft of the trip. <strong>Lufthansa 6001</strong>, operated by <strong>Croatia Airlines as flight OU416</strong>, flew Zagreb to Frankfurt aboard an <strong>Airbus A220-300</strong> — arguably the most technologically significant narrowbody of its generation and an aircraft with an unusual origin story.</p>
+                        <p>The A220 started life in Montréal as the <strong>Bombardier CSeries CS300</strong>, developed at enormous cost by the Canadian manufacturer as a clean-sheet design for the 100–150 seat market. It uses <strong>Pratt & Whitney PW1500G geared turbofan engines</strong> — the "geared" element refers to a reduction gearbox between the fan and the low-pressure turbine, allowing each to spin at its own optimal speed rather than a compromise. This delivers 20%+ better fuel efficiency than previous-generation narrowbodies. When Bombardier ran into financial difficulties, Airbus acquired a 50.01% stake in 2018 and rebranded it as the A220. Croatia Airlines operates a small fleet of A220-300s on European routes, and the aircraft's 2-3 seat layout means no passenger sits in a true middle seat — unusual in a market segment that normally inflicts 3-3 seating. Departed Zagreb 08:50AM, arrived Frankfurt 10:09AM, on time.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Airbus A220-300 — Key Facts:</strong> Originated as Bombardier CSeries CS300 · PW1500G geared turbofan (23,300 lbf) · Gearbox spins fan at 1/3 turbine speed · 2-3 seating (no middle seat in most rows) · First flight February 2015 · Airbus rebranded 2018 · Composite structure ~46% by weight · Quietest narrowbody in service
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight 5: UA47 -->
+            <div class="day-section">
+                <div class="day-header" style="background: linear-gradient(135deg, #085e6c 0%, #0d2d6e 100%);">
+                    <div class="day-title">UA 47 — Frankfurt to Houston</div>
+                    <div class="day-subtitle">Sunday 3 May 2026 · Boeing 777-200 · 10h 47m · ~5,247 miles</div>
+                </div>
+                <div class="day-content">
+                    <div id="map-ua47" style="height: 340px; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);"></div>
+                    <div class="story-text">
+                        <p>The final flight was <strong>United 47</strong>, the mirror image of the outbound: Frankfurt to Houston IAH aboard the <strong>Boeing 777-200</strong>, but westbound across the Atlantic and accordingly six minutes longer than the outbound leg. The North Atlantic westbound crossing is consistently the harder direction. The polar jet stream flows east at 100–200 mph at cruise altitude, meaning westbound flights fight a headwind for much of the ocean crossing. Airlines route westbound flights further south than their eastbound counterparts — closer to the Azores, away from the strongest jet stream core — which is why the return tracks look different on a map even though the endpoints are identical.</p>
+                        <p>Departed Frankfurt Gate Z16 at 01:44PM CEST, the aircraft tracking southwest out of the Rhine Valley, crossing France, reaching the Atlantic near Brest, and then the long southwestward arc over open ocean. The GE90s push back hard against the jet stream for ten hours. The approach into Houston Bush Intercontinental comes in from the northeast over the East Texas pine forests, the Houston ship channel visible to the south in the late afternoon light. Gate arrival IAH Gate E5 at 05:31PM CDT — 29 minutes early, an unusually good result on a westbound Atlantic crossing.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>North Atlantic Westbound — Why it takes longer:</strong> The polar jet stream flows eastward at 100–200 mph at 35,000 ft. Westbound flights are routed south of the strongest flow and still fight 50–80 mph headwinds on average. The eastbound crossing (UA46) took 9h 41m; westbound (UA47) took 10h 47m — 1h 6m longer on essentially the same great-circle distance.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // ── Airport coordinates ──────────────────────────────────
+        const airports = {
+            IAH: { lat: 29.9902, lng: -95.3368, label: 'Houston IAH' },
+            FRA: { lat: 50.0379, lng:   8.5622, label: 'Frankfurt FRA' },
+            MUC: { lat: 48.3538, lng:  11.7861, label: 'Munich MUC' },
+            DBV: { lat: 42.5614, lng:  18.2682, label: 'Dubrovnik DBV' },
+            ZAG: { lat: 45.7429, lng:  16.0688, label: 'Zagreb ZAG' }
+        };
+
+        const airportIcon = L.divIcon({
+            className: '',
+            html: '<div style="width:10px;height:10px;border-radius:50%;background:#0d7a8a;border:2px solid white;box-shadow:0 0 0 1px #0d7a8a;"></div>',
+            iconSize: [10, 10], iconAnchor: [5, 5]
+        });
+
+        function addAirport(map, code, popup) {
+            const a = airports[code];
+            L.marker([a.lat, a.lng], { icon: airportIcon })
+                .addTo(map)
+                .bindPopup(`<strong>${code}</strong><br><small>${a.label}</small>`);
+        }
+
+        function baseTiles(map) {
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap contributors © CARTO', maxZoom: 19
+            }).addTo(map);
+        }
+
+        // Great-circle intermediate points for Mercator display
+        function gcPoints(p1, p2, steps) {
+            const pts = [];
+            for (let i = 0; i <= steps; i++) {
+                const t = i / steps;
+                const lat = p1[0] + (p2[0] - p1[0]) * t
+                    + Math.sin(Math.PI * t) * (p1[0] < 35 || p2[0] < 35 ? 10 : 5);
+                const lng = p1[1] + (p2[1] - p1[1]) * t;
+                pts.push([lat, lng]);
+            }
+            return pts;
+        }
+
+        // ── World map ────────────────────────────────────────────
+        const worldMap = L.map('world-map', { scrollWheelZoom: false })
+            .setView([48, -20], 3);
+        baseTiles(worldMap);
+
+        // UA46: IAH → FRA (great circle curves north over Atlantic)
+        const ua46pts = [
+            [29.99, -95.34], [33.0, -85.0], [38.5, -72.0],
+            [44.5, -57.0], [50.5, -40.0], [54.5, -22.0],
+            [54.0,  -5.0], [50.04,  8.56]
+        ];
+        // LH106: FRA → MUC (short hop)
+        const lh106pts = [[50.04, 8.56], [48.35, 11.79]];
+        // LH1710: MUC → DBV (southeast through Alps)
+        const lh1710pts = [
+            [48.35, 11.79], [46.8, 13.8], [44.5, 16.2], [42.56, 18.27]
+        ];
+        // OU416: ZAG → FRA (northwest)
+        const ou416pts = [
+            [45.74, 16.07], [47.5, 13.2], [48.8, 11.0], [50.04, 8.56]
+        ];
+        // UA47: FRA → IAH (curves south on westbound due to jet stream)
+        const ua47pts = [
+            [50.04, 8.56], [53.0, -2.0], [53.5, -18.0],
+            [51.0, -35.0], [46.0, -52.0], [41.0, -68.0],
+            [34.0, -80.0], [29.99, -95.34]
+        ];
+
+        L.polyline(ua46pts,  { color: '#0d7a8a', weight: 2.5, dashArray: '6,4', opacity: 0.85 }).addTo(worldMap);
+        L.polyline(lh106pts, { color: '#5b6b38', weight: 2.5, opacity: 0.85 }).addTo(worldMap);
+        L.polyline(lh1710pts,{ color: '#3d7a6c', weight: 2.5, opacity: 0.85 }).addTo(worldMap);
+        L.polyline(ou416pts, { color: '#9b6a1a', weight: 2.5, dashArray: '4,4', opacity: 0.85 }).addTo(worldMap);
+        L.polyline(ua47pts,  { color: '#085e6c', weight: 2.5, dashArray: '6,4', opacity: 0.85 }).addTo(worldMap);
+
+        ['IAH','FRA','MUC','DBV','ZAG'].forEach(c => addAirport(worldMap, c));
+
+        // ── UA46 individual map ──────────────────────────────────
+        const mapUA46 = L.map('map-ua46', { scrollWheelZoom: false });
+        baseTiles(mapUA46);
+        const lineUA46 = L.polyline(ua46pts, { color: '#0d7a8a', weight: 3, dashArray: '8,5' }).addTo(mapUA46);
+        ['IAH','FRA'].forEach(c => addAirport(mapUA46, c));
+        mapUA46.fitBounds(lineUA46.getBounds(), { padding: [40, 40] });
+
+        // ── LH106 individual map ─────────────────────────────────
+        const mapLH106 = L.map('map-lh106', { scrollWheelZoom: false });
+        baseTiles(mapLH106);
+        const lineLH106 = L.polyline(lh106pts, { color: '#5b6b38', weight: 3 }).addTo(mapLH106);
+        ['FRA','MUC'].forEach(c => addAirport(mapLH106, c));
+        mapLH106.fitBounds(lineLH106.getBounds(), { padding: [60, 60] });
+
+        // ── LH1710 individual map ────────────────────────────────
+        const mapLH1710 = L.map('map-lh1710', { scrollWheelZoom: false });
+        baseTiles(mapLH1710);
+        const lineLH1710 = L.polyline(lh1710pts, { color: '#3d7a6c', weight: 3 }).addTo(mapLH1710);
+        ['MUC','DBV'].forEach(c => addAirport(mapLH1710, c));
+        mapLH1710.fitBounds(lineLH1710.getBounds(), { padding: [50, 50] });
+
+        // ── OU416 individual map ─────────────────────────────────
+        const mapOU416 = L.map('map-ou416', { scrollWheelZoom: false });
+        baseTiles(mapOU416);
+        const lineOU416 = L.polyline(ou416pts, { color: '#9b6a1a', weight: 3 }).addTo(mapOU416);
+        ['ZAG','FRA'].forEach(c => addAirport(mapOU416, c));
+        mapOU416.fitBounds(lineOU416.getBounds(), { padding: [50, 50] });
+
+        // ── UA47 individual map ──────────────────────────────────
+        const mapUA47 = L.map('map-ua47', { scrollWheelZoom: false });
+        baseTiles(mapUA47);
+        const lineUA47 = L.polyline(ua47pts, { color: '#085e6c', weight: 3, dashArray: '8,5' }).addTo(mapUA47);
+        ['FRA','IAH'].forEach(c => addAirport(mapUA47, c));
+        mapUA47.fitBounds(lineUA47.getBounds(), { padding: [40, 40] });
+    </script>
+</body>
+
+</html>

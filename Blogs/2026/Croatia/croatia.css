@@ -212,6 +212,138 @@ h2 {
 }
 
 /* ----------------------------------------
+   Flight log table
+   ---------------------------------------- */
+.flight-log {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin: 1.5rem 0;
+}
+
+.flight-row {
+    display: grid;
+    grid-template-columns: 56px 1fr auto auto 130px;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    padding: 1rem 1.25rem;
+    background: rgba(13, 122, 138, 0.04);
+    border: 1px solid rgba(13, 122, 138, 0.12);
+    border-radius: var(--radius-lg);
+    transition: background 0.2s;
+}
+
+.flight-row:hover {
+    background: rgba(13, 122, 138, 0.09);
+}
+
+.flight-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+    color: white;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.flight-badge.ua  { background: linear-gradient(135deg, #0d2d6e, #1a4a9e); }
+.flight-badge.lh  { background: linear-gradient(135deg, #05164d, #0a2878); }
+.flight-badge.ou  { background: linear-gradient(135deg, #9b1a1a, #c42020); }
+
+.flight-airports {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.flight-airport {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
+}
+
+.airport-iata {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    letter-spacing: 0.04em;
+    line-height: 1;
+}
+
+.airport-city {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.flight-route-arrow {
+    color: var(--primary-light);
+    font-size: 1rem;
+    flex-shrink: 0;
+    padding: 0 0.15rem;
+}
+
+.flight-date-col {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.flight-date {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.flight-times {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.flight-duration {
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius-md);
+    padding: 0.3rem 0.7rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+}
+
+.flight-aircraft-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: right;
+    line-height: 1.35;
+}
+
+@media (max-width: 768px) {
+    .flight-row {
+        grid-template-columns: 44px 1fr auto;
+        grid-template-rows: auto auto;
+    }
+    .flight-duration { grid-row: 1; grid-column: 3; }
+    .flight-date-col { grid-row: 2; grid-column: 2 / 4; text-align: left; }
+    .flight-aircraft-label { display: none; }
+}
+
+/* ----------------------------------------
    Scrollbar (Webkit)
    ---------------------------------------- */
 ::-webkit-scrollbar-thumb {
