@@ -9,39 +9,43 @@
    Adriatic Palette
    ---------------------------------------- */
 :root {
-    --primary:          #0d7a8a;   /* Adriatic shallow teal  */
-    --primary-light:    #13a0b5;   /* Bright sea surface     */
-    --primary-dark:     #085e6c;   /* Deep Adriatic          */
-    --secondary:        #5b6b38;   /* Dalmatian olive grove  */
-    --secondary-light:  #7a9350;   /* Sunlit olive           */
-    --secondary-dark:   #3d4928;   /* Cypress shadow         */
-    --accent:           #3d7a6c;   /* Adriatic sea green     */
+    --primary:          #0d7a8a;
+    --primary-light:    #13a0b5;
+    --primary-dark:     #085e6c;
+    --secondary:        #5b6b38;
+    --secondary-light:  #7a9350;
+    --secondary-dark:   #3d4928;
+    --accent:           #3d7a6c;
     --accent-light:     #56a096;
     --accent-dark:      #2a5a52;
-    --surface:          #f4f9f7;   /* Sea foam white         */
-    --surface-secondary:#edf4f0;   /* Morning Adriatic mist  */
+    --surface:          #f4f9f7;
+    --surface-secondary:#edf4f0;
     --border:           rgba(13, 122, 138, 0.14);
     --border-light:     rgba(91, 107, 56, 0.12);
     --text-secondary:   #3d5058;
+    --glass-bg:         rgba(244, 249, 247, 0.80);
+    --glass-border:     rgba(255, 255, 255, 0.55);
+    --glow-primary:     rgba(13, 122, 138, 0.18);
+    --glow-secondary:   rgba(91, 107, 56, 0.16);
 }
 
 /* ----------------------------------------
-   Adriatic sea-foam background
+   Background — deeper sea-foam for contrast
    ---------------------------------------- */
 body {
-    background: linear-gradient(160deg, #eef5f2 0%, #e6f0ec 55%, #eef4f0 100%);
+    background: linear-gradient(160deg, #e3eeea 0%, #d8e8e3 50%, #e3ede8 100%);
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body::before {
     background:
-        radial-gradient(circle at 15% 55%, rgba(13, 122, 138, 0.09) 0%, transparent 50%),
-        radial-gradient(circle at 85% 20%, rgba(91, 107, 56, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 50% 90%, rgba(61, 122, 108, 0.07) 0%, transparent 50%);
+        radial-gradient(circle at 15% 55%, rgba(13, 122, 138, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 85% 20%, rgba(91, 107, 56, 0.10) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(61, 122, 108, 0.09) 0%, transparent 50%);
 }
 
 /* ----------------------------------------
-   Modern typography — Plus Jakarta Sans
+   Typography — Plus Jakarta Sans
    ---------------------------------------- */
 h1, h2, h3, h4 {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -53,9 +57,7 @@ h1 {
     letter-spacing: -0.03em;
 }
 
-h2 {
-    font-weight: 700;
-}
+h2 { font-weight: 700; }
 
 .day-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -77,9 +79,35 @@ h2 {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Title gradient: Adriatic teal → olive */
+/* Story text — tighter, modern reading rhythm */
+.story-text p {
+    color: #1a2e36;
+    line-height: 1.82;
+    font-size: 1.01rem;
+    font-weight: 400;
+}
+
+/* Title gradient: Adriatic teal to olive */
 .gradient-text {
     background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* ----------------------------------------
+   Trip overview sections — glassmorphism
+   ---------------------------------------- */
+.trip-overview {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 24px rgba(8, 94, 108, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.trip-overview h2 {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* ----------------------------------------
@@ -88,58 +116,59 @@ h2 {
 .trip-card,
 .nav-card,
 .blog-post-card {
-    background: rgba(244, 249, 247, 0.95);
+    background: rgba(244, 249, 247, 0.92);
     border-color: rgba(13, 122, 138, 0.1);
 }
 
-.trip-overview {
-    background: linear-gradient(150deg, rgba(13, 122, 138, 0.04) 0%, #f4f9f7 60%);
-    border: 1px solid rgba(13, 122, 138, 0.12);
+.blog-post-card {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-.trip-overview h2 {
-    color: var(--primary-dark);
+.blog-post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(8, 94, 108, 0.16), 0 0 0 1px rgba(13, 122, 138, 0.15);
 }
 
 /* ----------------------------------------
-   Stat cards — sea-foam tint
+   Stat cards — glow on hover
    ---------------------------------------- */
 .stat-card {
-    background: linear-gradient(145deg, #f4f9f7 0%, #edf4f0 100%);
+    background: linear-gradient(145deg, rgba(244, 249, 247, 0.95) 0%, rgba(237, 244, 240, 0.95) 100%);
     border-color: rgba(13, 122, 138, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .stat-card:hover {
     border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 1px var(--primary), 0 8px 28px var(--glow-primary);
 }
 
 /* ----------------------------------------
-   Day sections
+   Day sections — glass cards
    ---------------------------------------- */
 .day-section {
-    background: #f4f9f7;
-    box-shadow: 0 8px 32px rgba(8, 94, 108, 0.09), 0 2px 8px rgba(61, 73, 40, 0.05);
-    border: 1px solid rgba(13, 122, 138, 0.09);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(8, 94, 108, 0.10), 0 2px 8px rgba(61, 73, 40, 0.05), inset 0 1px 0 rgba(255,255,255,0.5);
+    border: 1px solid var(--glass-border);
 }
 
 .day-content {
-    background: #f4f9f7;
-}
-
-.story-text p {
-    color: #1e3038;
-    line-height: 1.9;
+    background: rgba(244, 249, 247, 0.65);
 }
 
 /* ----------------------------------------
-   Highlight boxes — olive-tinted
+   Highlight boxes — modern left-border treatment
    ---------------------------------------- */
 .highlight-box {
-    background: linear-gradient(135deg, rgba(91, 107, 56, 0.09) 0%, rgba(13, 122, 138, 0.08) 100%);
+    background: linear-gradient(135deg, rgba(91, 107, 56, 0.08) 0%, rgba(13, 122, 138, 0.07) 100%);
     color: #1e2e14;
-    border-left: 4px solid var(--secondary);
+    border-left: 3px solid var(--secondary);
     border-radius: var(--radius-xl);
-    background-color: transparent;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .highlight-box strong {
@@ -147,16 +176,21 @@ h2 {
 }
 
 /* ----------------------------------------
-   Blog navigation cards
+   Blog nav cards
    ---------------------------------------- */
 .blog-card-content {
-    background: #f4f9f7;
+    background: rgba(244, 249, 247, 0.9);
 }
 
 .highlight-tag {
     background: rgba(91, 107, 56, 0.1);
     color: var(--secondary-dark);
-    border: 1px solid rgba(91, 107, 56, 0.2);
+    border: 1px solid rgba(91, 107, 56, 0.22);
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.highlight-tag:hover {
+    background: rgba(91, 107, 56, 0.18);
 }
 
 /* ----------------------------------------
@@ -164,18 +198,27 @@ h2 {
    ---------------------------------------- */
 .plan-reference {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    box-shadow: 0 4px 16px var(--glow-primary);
 }
 
 .blog-available-banner {
     background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    box-shadow: 0 4px 16px var(--glow-secondary);
 }
 
 /* ----------------------------------------
    Photo gallery
    ---------------------------------------- */
 .photo-card {
-    background: #f4f9f7;
+    background: rgba(244, 249, 247, 0.9);
     border: 1px solid rgba(13, 122, 138, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(13, 122, 138, 0.3);
+    box-shadow: 0 8px 28px var(--glow-primary);
 }
 
 /* ----------------------------------------
@@ -186,7 +229,7 @@ h2 {
 }
 
 /* ----------------------------------------
-   Per-day walking stats strip
+   Per-day walking stats strip — solid pill badges
    ---------------------------------------- */
 .day-walk {
     display: flex;
@@ -211,13 +254,23 @@ h2 {
     padding: 0.38rem 0.9rem;
     border-radius: 999px;
     white-space: nowrap;
-    box-shadow: 0 2px 7px rgba(13, 122, 138, 0.28);
+    box-shadow: 0 2px 8px rgba(13, 122, 138, 0.30);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.day-walk span:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(13, 122, 138, 0.40);
 }
 
 .day-walk-highlight {
     background: var(--secondary);
-    box-shadow: 0 2px 7px rgba(91, 107, 56, 0.32);
+    box-shadow: 0 2px 8px rgba(91, 107, 56, 0.34);
     font-style: italic;
+}
+
+.day-walk-highlight:hover {
+    box-shadow: 0 4px 14px rgba(91, 107, 56, 0.44);
 }
 
 /* ----------------------------------------
@@ -239,11 +292,13 @@ h2 {
     background: rgba(13, 122, 138, 0.04);
     border: 1px solid rgba(13, 122, 138, 0.12);
     border-radius: var(--radius-lg);
-    transition: background 0.2s;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .flight-row:hover {
-    background: rgba(13, 122, 138, 0.09);
+    background: rgba(13, 122, 138, 0.08);
+    box-shadow: 0 4px 20px var(--glow-primary);
+    transform: translateY(-1px);
 }
 
 .flight-badge {
@@ -262,6 +317,7 @@ h2 {
     color: white;
     text-align: center;
     flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 .flight-badge.ua  { background: linear-gradient(135deg, #0d2d6e, #1a4a9e); }
@@ -283,10 +339,10 @@ h2 {
 }
 
 .airport-iata {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: var(--primary-dark);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     line-height: 1;
 }
 
@@ -332,6 +388,7 @@ h2 {
     text-align: center;
     align-self: center;
     justify-self: center;
+    box-shadow: 0 2px 8px rgba(13, 122, 138, 0.30);
 }
 
 .flight-aircraft-label {
